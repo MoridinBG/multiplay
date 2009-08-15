@@ -1,0 +1,9 @@
+/Users/ivandilchovski/Projects/Finger/TuioListener.m: In function '-[TuioListener tuioCursorAdded:]':
+/Users/ivandilchovski/Projects/Finger/TuioListener.m:46: warning: no '-processTouches:' method found
+/Users/ivandilchovski/Projects/Finger/TuioListener.m:46: warning: (Messages without a matching method signature
+/Users/ivandilchovski/Projects/Finger/TuioListener.m:46: warning: will be assumed to return 'id' and accept
+/Users/ivandilchovski/Projects/Finger/TuioListener.m:46: warning: '...' as arguments.)
+/Users/ivandilchovski/Projects/Finger/TuioListener.m: In function '-[TuioListener tuioCursorUpdated:]':
+/Users/ivandilchovski/Projects/Finger/TuioListener.m:61: warning: no '-processTouches:' method found
+/Users/ivandilchovski/Projects/Finger/TuioListener.m: In function '-[TuioListener tuioCursorRemoved:]':
+/Users/ivandilchovski/Projects/Finger/TuioListener.m:77: warning: no '-processTouches:' method found

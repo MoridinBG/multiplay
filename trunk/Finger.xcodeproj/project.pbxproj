@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		F50DB3F7100E17D20048A89C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50DB3F6100E17D20048A89C /* OpenGL.framework */; };
+		F537E997101E6DF800BFAE4D /* SparklesPhysics.mm in Sources */ = {isa = PBXBuildFile; fileRef = F537E996101E6DF800BFAE4D /* SparklesPhysics.mm */; };
+		F5608B071030B36D009F9EBC /* BulletDynamics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5608B061030B36D009F9EBC /* BulletDynamics.framework */; };
+		F5608B121030B37B009F9EBC /* BulletCollision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5608B111030B37B009F9EBC /* BulletCollision.framework */; };
+		F5608B161030B383009F9EBC /* LinearMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5608B151030B383009F9EBC /* LinearMath.framework */; };
+		F5608B531030B4B0009F9EBC /* TUIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5608B521030B4B0009F9EBC /* TUIO.framework */; };
+		F5608B821030D0D1009F9EBC /* Sparkles.m in Sources */ = {isa = PBXBuildFile; fileRef = F5608B811030D0D1009F9EBC /* Sparkles.m */; };
+		F5608B8A1030D925009F9EBC /* SparklingFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5608B891030D925009F9EBC /* SparklingFactory.m */; };
+		F56196561015EC1600B19EF5 /* TuioListener.m in Sources */ = {isa = PBXBuildFile; fileRef = F56196551015EC1600B19EF5 /* TuioListener.m */; };
+		F58A804A100F043500E6DD83 /* EffectProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F58A8049100F043500E6DD83 /* EffectProvider.m */; };
+		F58A804F100F057F00E6DD83 /* TouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F58A804E100F057F00E6DD83 /* TouchEvent.m */; };
+		F58DF39E1022FE5000C2ABE7 /* Ripples.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF39D1022FE5000C2ABE7 /* Ripples.m */; };
+		F58F33AB100E5DB2004DE697 /* MyOpenGlView.m in Sources */ = {isa = PBXBuildFile; fileRef = F58F33AA100E5DB2004DE697 /* MyOpenGlView.m */; };
+		F592D69C102C287400A2A1BD /* ObjGhost.mm in Sources */ = {isa = PBXBuildFile; fileRef = F592D69B102C287400A2A1BD /* ObjGhost.mm */; };
+		F5A5E687101CFE3000886EAD /* Physics.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5A5E686101CFE3000886EAD /* Physics.mm */; };
+		F5AFE003102856BD00490E97 /* TouchSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AFE002102856BD00490E97 /* TouchSpot.m */; };
+		F5FAB5451034B35800B4CCF4 /* SineConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FAB5441034B35800B4CCF4 /* SineConnect.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		256AC3F00F4B6AF500CF3369 /* Finger_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Finger_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8D1107310486CEB800E47090 /* Finger-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Finger-Info.plist"; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Finger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F50DB3F6100E17D20048A89C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		F537E8B1101E4BB400BFAE4D /* LiteTouchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiteTouchInfo.h; sourceTree = "<group>"; };
+		F537E995101E6DF800BFAE4D /* SparklesPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparklesPhysics.h; sourceTree = "<group>"; };
+		F537E996101E6DF800BFAE4D /* SparklesPhysics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SparklesPhysics.mm; sourceTree = "<group>"; };
+		F53CA649101DFAB200C55747 /* EffectProviderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectProviderProtocol.h; sourceTree = "<group>"; };
+		F5608B061030B36D009F9EBC /* BulletDynamics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BulletDynamics.framework; path = "../bullet-2.75-rc7/src/BulletDynamics/BulletDynamics.framework"; sourceTree = SOURCE_ROOT; };
+		F5608B111030B37B009F9EBC /* BulletCollision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BulletCollision.framework; path = "../bullet-2.75-rc7/src/BulletCollision/BulletCollision.framework"; sourceTree = SOURCE_ROOT; };
+		F5608B151030B383009F9EBC /* LinearMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LinearMath.framework; path = "../bullet-2.75-rc7/src/LinearMath/LinearMath.framework"; sourceTree = SOURCE_ROOT; };
+		F5608B521030B4B0009F9EBC /* TUIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TUIO.framework; path = "../tuioframework-read-only/build/Debug/TUIO.framework"; sourceTree = SOURCE_ROOT; };
+		F5608B801030D0D1009F9EBC /* Sparkles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sparkles.h; sourceTree = "<group>"; };
+		F5608B811030D0D1009F9EBC /* Sparkles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sparkles.m; sourceTree = "<group>"; };
+		F5608B831030D157009F9EBC /* Sparkle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sparkle.h; sourceTree = "<group>"; };
+		F5608B881030D925009F9EBC /* SparklingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparklingFactory.h; sourceTree = "<group>"; };
+		F5608B891030D925009F9EBC /* SparklingFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparklingFactory.m; sourceTree = "<group>"; };
+		F56196541015EC1600B19EF5 /* TuioListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuioListener.h; sourceTree = "<group>"; };
+		F56196551015EC1600B19EF5 /* TuioListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuioListener.m; sourceTree = "<group>"; };
+		F58A8048100F043500E6DD83 /* EffectProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectProvider.h; sourceTree = "<group>"; };
+		F58A8049100F043500E6DD83 /* EffectProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectProvider.m; sourceTree = "<group>"; };
+		F58A804D100F057F00E6DD83 /* TouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchEvent.h; sourceTree = "<group>"; };
+		F58A804E100F057F00E6DD83 /* TouchEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchEvent.m; sourceTree = "<group>"; };
+		F58A805D100F07E800E6DD83 /* consts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = consts.h; sourceTree = "<group>"; };
+		F58DF39C1022FE5000C2ABE7 /* Ripples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ripples.h; sourceTree = "<group>"; };
+		F58DF39D1022FE5000C2ABE7 /* Ripples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ripples.m; sourceTree = "<group>"; };
+		F58F33A9100E5DB2004DE697 /* MyOpenGlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOpenGlView.h; sourceTree = "<group>"; };
+		F58F33AA100E5DB2004DE697 /* MyOpenGlView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = MyOpenGlView.m; sourceTree = "<group>"; };
+		F592D69A102C287400A2A1BD /* ObjGhost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjGhost.h; sourceTree = "<group>"; };
+		F592D69B102C287400A2A1BD /* ObjGhost.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjGhost.mm; sourceTree = "<group>"; };
+		F5A5E685101CFE3000886EAD /* Physics.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = Physics.h; sourceTree = "<group>"; };
+		F5A5E686101CFE3000886EAD /* Physics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Physics.mm; sourceTree = "<group>"; };
+		F5AFE001102856BD00490E97 /* TouchSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchSpot.h; sourceTree = "<group>"; };
+		F5AFE002102856BD00490E97 /* TouchSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchSpot.m; sourceTree = "<group>"; };
+		F5FAB5431034B35800B4CCF4 /* SineConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineConnect.h; sourceTree = "<group>"; };
+		F5FAB5441034B35800B4CCF4 /* SineConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SineConnect.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				F50DB3F7100E17D20048A89C /* OpenGL.framework in Frameworks */,
+				F5608B071030B36D009F9EBC /* BulletDynamics.framework in Frameworks */,
+				F5608B121030B37B009F9EBC /* BulletCollision.framework in Frameworks */,
+				F5608B161030B383009F9EBC /* LinearMath.framework in Frameworks */,
+				F5608B531030B4B0009F9EBC /* TUIO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F53CE956101F2BAC00BAE343 /* Physics */,
+				F53CE955101F2B9A00BAE343 /* Protocols */,
+				F585E1311017AE3000EDA260 /* Helpers */,
+				F56198A71016705600B19EF5 /* Effects */,
+				F58A804D100F057F00E6DD83 /* TouchEvent.h */,
+				F58A804E100F057F00E6DD83 /* TouchEvent.m */,
+				F58F33A9100E5DB2004DE697 /* MyOpenGlView.h */,
+				F58F33AA100E5DB2004DE697 /* MyOpenGlView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5608B521030B4B0009F9EBC /* TUIO.framework */,
+				F5608B151030B383009F9EBC /* LinearMath.framework */,
+				F5608B111030B37B009F9EBC /* BulletCollision.framework */,
+				F5608B061030B36D009F9EBC /* BulletDynamics.framework */,
+				F50DB3F6100E17D20048A89C /* OpenGL.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Finger.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Finger */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Finger;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				256AC3F00F4B6AF500CF3369 /* Finger_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107310486CEB800E47090 /* Finger-Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F53CE955101F2B9A00BAE343 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F53CA649101DFAB200C55747 /* EffectProviderProtocol.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		F53CE956101F2BAC00BAE343 /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				F5A5E685101CFE3000886EAD /* Physics.h */,
+				F5A5E686101CFE3000886EAD /* Physics.mm */,
+				F537E995101E6DF800BFAE4D /* SparklesPhysics.h */,
+				F537E996101E6DF800BFAE4D /* SparklesPhysics.mm */,
+				F592D69A102C287400A2A1BD /* ObjGhost.h */,
+				F592D69B102C287400A2A1BD /* ObjGhost.mm */,
+			);
+			name = Physics;
+			sourceTree = "<group>";
+		};
+		F56198A71016705600B19EF5 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				F58DF39C1022FE5000C2ABE7 /* Ripples.h */,
+				F58DF39D1022FE5000C2ABE7 /* Ripples.m */,
+				F58A8049100F043500E6DD83 /* EffectProvider.m */,
+				F58A8048100F043500E6DD83 /* EffectProvider.h */,
+				F5608B801030D0D1009F9EBC /* Sparkles.h */,
+				F5608B811030D0D1009F9EBC /* Sparkles.m */,
+				F5FAB5431034B35800B4CCF4 /* SineConnect.h */,
+				F5FAB5441034B35800B4CCF4 /* SineConnect.m */,
+			);
+			name = Effects;
+			sourceTree = "<group>";
+		};
+		F585E1311017AE3000EDA260 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F58A805D100F07E800E6DD83 /* consts.h */,
+				F56196541015EC1600B19EF5 /* TuioListener.h */,
+				F56196551015EC1600B19EF5 /* TuioListener.m */,
+				F537E8B1101E4BB400BFAE4D /* LiteTouchInfo.h */,
+				F5AFE001102856BD00490E97 /* TouchSpot.h */,
+				F5AFE002102856BD00490E97 /* TouchSpot.m */,
+				F5608B831030D157009F9EBC /* Sparkle.h */,
+				F5608B881030D925009F9EBC /* SparklingFactory.h */,
+				F5608B891030D925009F9EBC /* SparklingFactory.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Finger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Finger" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Finger;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Finger;
+			productReference = 8D1107320486CEB800E47090 /* Finger.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Finger" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Finger */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Finger */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				F58F33AB100E5DB2004DE697 /* MyOpenGlView.m in Sources */,
+				F58A804A100F043500E6DD83 /* EffectProvider.m in Sources */,
+				F58A804F100F057F00E6DD83 /* TouchEvent.m in Sources */,
+				F56196561015EC1600B19EF5 /* TuioListener.m in Sources */,
+				F5A5E687101CFE3000886EAD /* Physics.mm in Sources */,
+				F537E997101E6DF800BFAE4D /* SparklesPhysics.mm in Sources */,
+				F58DF39E1022FE5000C2ABE7 /* Ripples.m in Sources */,
+				F5AFE003102856BD00490E97 /* TouchSpot.m in Sources */,
+				F592D69C102C287400A2A1BD /* ObjGhost.mm in Sources */,
+				F5608B821030D0D1009F9EBC /* Sparkles.m in Sources */,
+				F5608B8A1030D925009F9EBC /* SparklingFactory.m in Sources */,
+				F5FAB5451034B35800B4CCF4 /* SineConnect.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_OPENMP_SUPPORT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../tuioframework-read-only/build/Debug\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc6/src/BulletDynamics\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc6/src/BulletCollision\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc6/src/LinearMath\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletCollision\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletDynamics\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc7/src/LinearMath\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletCollision/Release\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletDynamics/Release\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Finger_Prefix.pch;
+				GENERATE_PROFILING_CODE = YES;
+				INFOPLIST_FILE = "Finger-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/physics\"",
+				);
+				PRODUCT_NAME = Finger;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../tuioframework-read-only/build/Debug\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc6/src/BulletDynamics\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc6/src/BulletCollision\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc6/src/LinearMath\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletCollision\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletDynamics\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc7/src/LinearMath\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletCollision/Release\"",
+					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletDynamics/Release\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Finger_Prefix.pch;
+				INFOPLIST_FILE = "Finger-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/physics\"",
+				);
+				PRODUCT_NAME = Finger;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_FAST_MATH = YES;
+				GCC_MODEL_PPC64 = YES;
+				GCC_OBJC_CALL_CXX_CDTORS = YES;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_UNROLL_LOOPS = YES;
+				GCC_VERSION = 4.2;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LLVM_LTO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx10.5;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_FAST_MATH = YES;
+				GCC_MODEL_PPC64 = YES;
+				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_UNROLL_LOOPS = YES;
+				GCC_VERSION = 4.2;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Finger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Finger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

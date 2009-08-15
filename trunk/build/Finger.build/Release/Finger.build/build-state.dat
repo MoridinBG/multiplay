@@ -1,0 +1,496 @@
+TFinger
+v7
+r0
+t269878172.112065
+cCheck dependencies
+cProcessInfoPlistFile /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Info.plist Finger-Info.plist
+cCopyStringsFile /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+cCompileXIB /Users/ivandilchovski/Projects/Finger/English.lproj/MainMenu.xib
+cProcessPCH /var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-fyamlkrnpjdvmvccwssauztoimse/Finger_Prefix.pch.pth Finger_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/main.o /Users/ivandilchovski/Projects/Finger/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/FingerAppDelegate.o /Users/ivandilchovski/Projects/Finger/FingerAppDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/MyOpenGlView.o /Users/ivandilchovski/Projects/Finger/MyOpenGlView.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/MultitouchScene.o /Users/ivandilchovski/Projects/Finger/MultitouchScene.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/TouchEvent.o /Users/ivandilchovski/Projects/Finger/TouchEvent.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/TuioListener.o /Users/ivandilchovski/Projects/Finger/TuioListener.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/MacOS/Finger normal x86_64
+cGenerateDSYMFile /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app.dSYM /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/MacOS/Finger
+cTouch /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004A23203600000000000000EE
+t1243815990
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c0000000040C4AA6800000000000001E5
+t1086630504
+s485
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004A1F87F400000000000013E6
+t1243580404
+s5094
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/net/if.h
+c000000004A1F87DE00000000000034A5
+t1243580382
+s13477
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/netinet/in.h
+c000000004A1F87E1000000000000539D
+t1243580385
+s21405
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c000000004A1F2D63000000000000A5E0
+t1243557219
+s42464
+
+N/System/Library/Frameworks/OpenGL.framework/OpenGL
+c000000004A5862AE0000000000040130
+t1247306414
+s262448
+
+N/Users/ivandilchovski/Projects/Finger/English.lproj/InfoPlist.strings
+c000000004A5DDDBE000000000000002D
+t1247665598
+s45
+
+N/Users/ivandilchovski/Projects/Finger/English.lproj/MainMenu.xib
+c000000004A5E3A58000000000002C3A6
+t1247689304
+s181158
+
+N/Users/ivandilchovski/Projects/Finger/FingerAppDelegate.h
+c000000004A5ECAEA00000000000001E0
+t1247726314
+s480
+i<Cocoa/Cocoa.h>
+
+N/Users/ivandilchovski/Projects/Finger/FingerAppDelegate.m
+c000000004A5ECB31000000000000019C
+t1247726385
+s412
+i"FingerAppDelegate.h"
+
+N/Users/ivandilchovski/Projects/Finger/Finger_Prefix.pch
+c000000004A5DDDBE000000000000008F
+t1247665598
+s143
+i<Cocoa/Cocoa.h>
+
+N/Users/ivandilchovski/Projects/Finger/MultitouchScene.h
+c000000004A65BC9C00000000000001B8
+t1248181404
+s440
+i<Cocoa/Cocoa.h>
+i"TuioListener.h"
+i"TouchEvent.h"
+i"consts.h"
+
+N/Users/ivandilchovski/Projects/Finger/MultitouchScene.m
+c000000004A65CBB700000000000002E0
+t1248185271
+s736
+i"MultitouchScene.h"
+
+N/Users/ivandilchovski/Projects/Finger/MyOpenGlView.h
+c000000004A65C3B90000000000000253
+t1248183225
+s595
+i<Cocoa/Cocoa.h>
+i"MultitouchScene.h"
+
+N/Users/ivandilchovski/Projects/Finger/MyOpenGlView.m
+c000000004A65CBB70000000000000E64
+t1248185271
+s3684
+i"MyOpenGlView.h"
+
+N/Users/ivandilchovski/Projects/Finger/TouchEvent.h
+c000000004A5F282E0000000000000236
+t1247750190
+s566
+i<Cocoa/Cocoa.h>
+i"consts.h"
+
+N/Users/ivandilchovski/Projects/Finger/TouchEvent.m
+c000000004A643ED50000000000000253
+t1248083669
+s595
+i"TouchEvent.h"
+
+N/Users/ivandilchovski/Projects/Finger/TuioListener.h
+c000000004A65C35C0000000000000315
+t1248183132
+s789
+i<Cocoa/Cocoa.h>
+i<TUIO/TuioClient.h>
+
+N/Users/ivandilchovski/Projects/Finger/TuioListener.m
+c000000004A65C329000000000000036A
+t1248183081
+s874
+i"TuioListener.h"
+
+N/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/Finger.LinkFileList
+c000000004A65CBB800000000000002B0
+t1248185272
+s688
+
+N/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/FingerAppDelegate.o
+t1248185371
+s12552
+
+N/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/MultitouchScene.o
+t1248185371
+s9012
+
+N/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/MyOpenGlView.o
+t1248185371
+s22456
+
+N/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/TouchEvent.o
+t1248185371
+s11240
+
+N/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/TuioListener.o
+t1248185371
+s12292
+
+N/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/main.o
+t1248185371
+s2088
+
+N/Users/ivandilchovski/Projects/Finger/build/Release/../../../tuioframework-read-only/build/Debug/TUIO.framework/TUIO
+c000000004A65BBA10000000000010D38
+t1248181153
+s68920
+
+N/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app
+t1248185372
+s102
+
+N/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app.dSYM
+t1248185372
+s102
+
+N/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Info.plist
+t1248185272
+s883
+
+N/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/MacOS/Finger
+t1248185371
+s32992
+
+N/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/PkgInfo
+t1248185272
+s8
+
+N/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Resources/English.lproj/InfoPlist.strings
+t1248185272
+s92
+
+N/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Resources/English.lproj/MainMenu.nib
+t1248185273
+s34607
+
+N/Users/ivandilchovski/Projects/Finger/consts.h
+c000000004A5F049600000000000000F2
+t1247741078
+s242
+
+N/Users/ivandilchovski/Projects/Finger/main.m
+c000000004A5DDDBE00000000000000FF
+t1247665598
+s255
+i<Cocoa/Cocoa.h>
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h
+c000000004A65A58F0000000000000538
+t1248175503
+s1336
+i<Cocoa/Cocoa.h>
+i<netinet/in.h>
+i<net/if.h>
+i"WSOSCPacket.h"
+i"TuioObject.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioCursor.h
+c000000004A65A58F0000000000000246
+t1248175503
+s582
+i<Cocoa/Cocoa.h>
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioObject.h
+c000000004A65A58F00000000000002AF
+t1248175503
+s687
+i<Cocoa/Cocoa.h>
+i"TuioCursor.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/build/Debug/TUIO.framework/Headers/WSOSCBundle.h
+c000000004A65A58F000000000000028C
+t1248175503
+s652
+i<Foundation/Foundation.h>
+i"WSOSCMessage.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/build/Debug/TUIO.framework/Headers/WSOSCMessage.h
+c000000004A65A58F000000000000036C
+t1248175503
+s876
+i<Foundation/Foundation.h>
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/build/Debug/TUIO.framework/Headers/WSOSCPacket.h
+c000000004A65A58F0000000000000480
+t1248175503
+s1152
+i<Foundation/Foundation.h>
+i"WSOSCBundle.h"
+
+N/var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-ehiptdxwzafzcwasjkocdzinsbyi/Finger_Prefix.pch.pth
+t1248185277
+s7464120
+
+N/var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-fyamlkrnpjdvmvccwssauztoimse/Finger_Prefix.pch.pth
+t1248185371
+s7470356
+
+NFinger-Info.plist
+c000000004A5DDDBE00000000000003EA
+t1247665598
+s1002
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies269878168#269878168#0(0"0(0#1#0"4301066776#0"0#
+
+CCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/FingerAppDelegate.o /Users/ivandilchovski/Projects/Finger/FingerAppDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s269878171.472849
+e269878171.727061
+r1
+xCompileC
+xbuild/Finger.build/Release/Finger.build/Objects-normal/x86_64/FingerAppDelegate.o
+x/Users/ivandilchovski/Projects/Finger/FingerAppDelegate.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: warning: argument unused during compilation: '-funroll-loops'
+oclang: warning: argument unused during compilation: '-ffast-math'
+oclang: warning: argument unused during compilation: '-ftree-vectorize'
+oclang: warning: argument unused during compilation: '-msse4.1'
+oclang: warning: argument unused during compilation: '-msse4.2'
+lSLF07#2@65"Compile /Users/ivandilchovski/Projects/Finger/FingerAppDelegate.m269878171#269878171#0(332"clang: warning: argument unused during compilation: '-funroll-loops'clang: warning: argument unused during compilation: '-ffast-math'clang: warning: argument unused during compilation: '-ftree-vectorize'clang: warning: argument unused during compilation: '-msse4.1'clang: warning: argument unused during compilation: '-msse4.2'0(0#0#57"/Users/ivandilchovski/Projects/Finger/FingerAppDelegate.m4301066776#1683"    cd /Users/ivandilchovski/Projects/Finger    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -fobjc-gc -funroll-loops -ffast-math -mmacosx-version-min=10.6 -gdwarf-2 -ftree-vectorize -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-generated-files.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-own-target-headers.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-all-target-headers.hmap -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-project-headers.hmap -F/Users/ivandilchovski/Projects/Finger/build/Release -F/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug -I/Users/ivandilchovski/Projects/Finger/build/Release/include -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources -include /var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-fyamlkrnpjdvmvccwssauztoimse/Finger_Prefix.pch -c /Users/ivandilchovski/Projects/Finger/FingerAppDelegate.m -o /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/FingerAppDelegate.o0#
+
+CCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/MultitouchScene.o /Users/ivandilchovski/Projects/Finger/MultitouchScene.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s269878171.727181
+e269878171.805509
+r1
+xCompileC
+xbuild/Finger.build/Release/Finger.build/Objects-normal/x86_64/MultitouchScene.o
+x/Users/ivandilchovski/Projects/Finger/MultitouchScene.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: warning: argument unused during compilation: '-funroll-loops'
+oclang: warning: argument unused during compilation: '-ffast-math'
+oclang: warning: argument unused during compilation: '-ftree-vectorize'
+oclang: warning: argument unused during compilation: '-msse4.1'
+oclang: warning: argument unused during compilation: '-msse4.2'
+oIn file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.m:9:
+oIn file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.h:11:
+oIn file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:
+o/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:41:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed
+o @property id tuioCursorDelegate;
+o ^
+o/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:42:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed
+o @property id tuioObjectDelegate;
+o ^
+o2 diagnostics generated.
+lSLF07#2@63"Compile /Users/ivandilchovski/Projects/Finger/MultitouchScene.m269878171#269878171#0(1060"clang: warning: argument unused during compilation: '-funroll-loops'clang: warning: argument unused during compilation: '-ffast-math'clang: warning: argument unused during compilation: '-ftree-vectorize'clang: warning: argument unused during compilation: '-msse4.1'clang: warning: argument unused during compilation: '-msse4.2'In file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.m:9:In file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.h:11:In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:41:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed @property id tuioCursorDelegate; ^/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:42:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed @property id tuioObjectDelegate; ^2(22@77"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed269878171#574#206#4(7@78"In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:269878171#495#79#0(6@52"/Users/ivandilchovski/Projects/Finger/TuioListener.h269875932#10#0#10#0#0"0(7@81"In file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.h:11:269878171#413#82#0(6@55"/Users/ivandilchovski/Projects/Finger/MultitouchScene.h269874204#11#0#11#0#0"0(7@80"In file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.m:9:269878171#332#81#0(6@55"/Users/ivandilchovski/Projects/Finger/MultitouchScene.m269878071#9#0#9#0#0"0(13@193"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed in /Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269878171#18446744073709551615#0#0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#41#1#0#0#0"0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#41#1#0#0#77"no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed0(22@77"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed269878171#817#206#4(7@78"In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:269878171#18446744073709551615#0#0(6@52"/Users/ivandilchovski/Projects/Finger/TuioListener.h269875932#10#0#10#0#0"0(7@81"In file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.h:11:269878171#18446744073709551615#0#0(6@55"/Users/ivandilchovski/Projects/Finger/MultitouchScene.h269874204#11#0#11#0#0"0(7@80"In file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.m:9:269878171#18446744073709551615#0#0(6@55"/Users/ivandilchovski/Projects/Finger/MultitouchScene.m269878071#9#0#9#0#0"0(13@193"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed in /Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269878171#18446744073709551615#0#0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#42#1#0#0#0"0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#42#1#0#0#77"no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed0(0#0#55"/Users/ivandilchovski/Projects/Finger/MultitouchScene.m4301066776#1679"    cd /Users/ivandilchovski/Projects/Finger    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -fobjc-gc -funroll-loops -ffast-math -mmacosx-version-min=10.6 -gdwarf-2 -ftree-vectorize -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-generated-files.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-own-target-headers.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-all-target-headers.hmap -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-project-headers.hmap -F/Users/ivandilchovski/Projects/Finger/build/Release -F/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug -I/Users/ivandilchovski/Projects/Finger/build/Release/include -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources -include /var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-fyamlkrnpjdvmvccwssauztoimse/Finger_Prefix.pch -c /Users/ivandilchovski/Projects/Finger/MultitouchScene.m -o /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/MultitouchScene.o0#
+
+CCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/MyOpenGlView.o /Users/ivandilchovski/Projects/Finger/MyOpenGlView.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s269878171.712561
+e269878171.837044
+r1
+xCompileC
+xbuild/Finger.build/Release/Finger.build/Objects-normal/x86_64/MyOpenGlView.o
+x/Users/ivandilchovski/Projects/Finger/MyOpenGlView.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: warning: argument unused during compilation: '-funroll-loops'
+oclang: warning: argument unused during compilation: '-ffast-math'
+oclang: warning: argument unused during compilation: '-ftree-vectorize'
+oclang: warning: argument unused during compilation: '-msse4.1'
+oclang: warning: argument unused during compilation: '-msse4.2'
+oIn file included from /Users/ivandilchovski/Projects/Finger/MyOpenGlView.m:9:
+oIn file included from /Users/ivandilchovski/Projects/Finger/MyOpenGlView.h:10:
+oIn file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.h:11:
+oIn file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:
+o/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:41:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed
+o @property id tuioCursorDelegate;
+o ^
+o/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:42:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed
+o @property id tuioObjectDelegate;
+o ^
+o2 diagnostics generated.
+lSLF07#2@60"Compile /Users/ivandilchovski/Projects/Finger/MyOpenGlView.m269878171#269878171#0(1136"clang: warning: argument unused during compilation: '-funroll-loops'clang: warning: argument unused during compilation: '-ffast-math'clang: warning: argument unused during compilation: '-ftree-vectorize'clang: warning: argument unused during compilation: '-msse4.1'clang: warning: argument unused during compilation: '-msse4.2'In file included from /Users/ivandilchovski/Projects/Finger/MyOpenGlView.m:9:In file included from /Users/ivandilchovski/Projects/Finger/MyOpenGlView.h:10:In file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.h:11:In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:41:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed @property id tuioCursorDelegate; ^/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:42:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed @property id tuioObjectDelegate; ^2(22@77"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed269878171#650#206#5(7@78"In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:269878171#571#79#0(6@52"/Users/ivandilchovski/Projects/Finger/TuioListener.h269875932#10#0#10#0#0"0(7@81"In file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.h:11:269878171#489#82#0(6@55"/Users/ivandilchovski/Projects/Finger/MultitouchScene.h269874204#11#0#11#0#0"0(7@78"In file included from /Users/ivandilchovski/Projects/Finger/MyOpenGlView.h:10:269878171#410#79#0(6@52"/Users/ivandilchovski/Projects/Finger/MyOpenGlView.h269876025#10#0#10#0#0"0(7@77"In file included from /Users/ivandilchovski/Projects/Finger/MyOpenGlView.m:9:269878171#332#78#0(6@52"/Users/ivandilchovski/Projects/Finger/MyOpenGlView.m269878071#9#0#9#0#0"0(13@193"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed in /Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269878171#18446744073709551615#0#0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#41#1#0#0#0"0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#41#1#0#0#77"no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed0(22@77"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed269878171#893#206#5(7@78"In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:269878171#18446744073709551615#0#0(6@52"/Users/ivandilchovski/Projects/Finger/TuioListener.h269875932#10#0#10#0#0"0(7@81"In file included from /Users/ivandilchovski/Projects/Finger/MultitouchScene.h:11:269878171#18446744073709551615#0#0(6@55"/Users/ivandilchovski/Projects/Finger/MultitouchScene.h269874204#11#0#11#0#0"0(7@78"In file included from /Users/ivandilchovski/Projects/Finger/MyOpenGlView.h:10:269878171#18446744073709551615#0#0(6@52"/Users/ivandilchovski/Projects/Finger/MyOpenGlView.h269876025#10#0#10#0#0"0(7@77"In file included from /Users/ivandilchovski/Projects/Finger/MyOpenGlView.m:9:269878171#18446744073709551615#0#0(6@52"/Users/ivandilchovski/Projects/Finger/MyOpenGlView.m269878071#9#0#9#0#0"0(13@193"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed in /Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269878171#18446744073709551615#0#0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#42#1#0#0#0"0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#42#1#0#0#77"no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed0(0#0#52"/Users/ivandilchovski/Projects/Finger/MyOpenGlView.m4301066776#1673"    cd /Users/ivandilchovski/Projects/Finger    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -fobjc-gc -funroll-loops -ffast-math -mmacosx-version-min=10.6 -gdwarf-2 -ftree-vectorize -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-generated-files.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-own-target-headers.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-all-target-headers.hmap -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-project-headers.hmap -F/Users/ivandilchovski/Projects/Finger/build/Release -F/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug -I/Users/ivandilchovski/Projects/Finger/build/Release/include -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources -include /var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-fyamlkrnpjdvmvccwssauztoimse/Finger_Prefix.pch -c /Users/ivandilchovski/Projects/Finger/MyOpenGlView.m -o /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/MyOpenGlView.o0#
+
+CCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/TouchEvent.o /Users/ivandilchovski/Projects/Finger/TouchEvent.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s269878171.805643
+e269878171.880257
+r1
+xCompileC
+xbuild/Finger.build/Release/Finger.build/Objects-normal/x86_64/TouchEvent.o
+x/Users/ivandilchovski/Projects/Finger/TouchEvent.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: warning: argument unused during compilation: '-funroll-loops'
+oclang: warning: argument unused during compilation: '-ffast-math'
+oclang: warning: argument unused during compilation: '-ftree-vectorize'
+oclang: warning: argument unused during compilation: '-msse4.1'
+oclang: warning: argument unused during compilation: '-msse4.2'
+lSLF07#2@58"Compile /Users/ivandilchovski/Projects/Finger/TouchEvent.m269878171#269878171#0(332"clang: warning: argument unused during compilation: '-funroll-loops'clang: warning: argument unused during compilation: '-ffast-math'clang: warning: argument unused during compilation: '-ftree-vectorize'clang: warning: argument unused during compilation: '-msse4.1'clang: warning: argument unused during compilation: '-msse4.2'0(0#0#50"/Users/ivandilchovski/Projects/Finger/TouchEvent.m4301066776#1669"    cd /Users/ivandilchovski/Projects/Finger    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -fobjc-gc -funroll-loops -ffast-math -mmacosx-version-min=10.6 -gdwarf-2 -ftree-vectorize -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-generated-files.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-own-target-headers.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-all-target-headers.hmap -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-project-headers.hmap -F/Users/ivandilchovski/Projects/Finger/build/Release -F/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug -I/Users/ivandilchovski/Projects/Finger/build/Release/include -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources -include /var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-fyamlkrnpjdvmvccwssauztoimse/Finger_Prefix.pch -c /Users/ivandilchovski/Projects/Finger/TouchEvent.m -o /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/TouchEvent.o0#
+
+CCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/TuioListener.o /Users/ivandilchovski/Projects/Finger/TuioListener.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s269878171.837179
+e269878171.931195
+r1
+xCompileC
+xbuild/Finger.build/Release/Finger.build/Objects-normal/x86_64/TuioListener.o
+x/Users/ivandilchovski/Projects/Finger/TuioListener.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: warning: argument unused during compilation: '-funroll-loops'
+oclang: warning: argument unused during compilation: '-ffast-math'
+oclang: warning: argument unused during compilation: '-ftree-vectorize'
+oclang: warning: argument unused during compilation: '-msse4.1'
+oclang: warning: argument unused during compilation: '-msse4.2'
+oIn file included from /Users/ivandilchovski/Projects/Finger/TuioListener.m:9:
+oIn file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:
+o/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:41:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed
+o @property id tuioCursorDelegate;
+o ^
+o/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:42:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed
+o @property id tuioObjectDelegate;
+o ^
+o2 diagnostics generated.
+lSLF07#2@60"Compile /Users/ivandilchovski/Projects/Finger/TuioListener.m269878171#269878171#0(975"clang: warning: argument unused during compilation: '-funroll-loops'clang: warning: argument unused during compilation: '-ffast-math'clang: warning: argument unused during compilation: '-ftree-vectorize'clang: warning: argument unused during compilation: '-msse4.1'clang: warning: argument unused during compilation: '-msse4.2'In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.m:9:In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:41:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed @property id tuioCursorDelegate; ^/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h:42:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed @property id tuioObjectDelegate; ^2(22@77"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed269878171#489#206#3(7@78"In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:269878171#410#79#0(6@52"/Users/ivandilchovski/Projects/Finger/TuioListener.h269875932#10#0#10#0#0"0(7@77"In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.m:9:269878171#332#78#0(6@52"/Users/ivandilchovski/Projects/Finger/TuioListener.m269875881#9#0#9#0#0"0(13@193"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed in /Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269878171#18446744073709551615#0#0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#41#1#0#0#0"0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#41#1#0#0#77"no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed0(22@77"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed269878171#732#206#3(7@78"In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.h:10:269878171#18446744073709551615#0#0(6@52"/Users/ivandilchovski/Projects/Finger/TuioListener.h269875932#10#0#10#0#0"0(7@77"In file included from /Users/ivandilchovski/Projects/Finger/TuioListener.m:9:269878171#18446744073709551615#0#0(6@52"/Users/ivandilchovski/Projects/Finger/TuioListener.m269875881#9#0#9#0#0"0(13@193"No 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed in /Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269878171#18446744073709551615#0#0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#42#1#0#0#0"0(6@112"/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug/TUIO.framework/Headers/TuioClient.h269868303#42#1#0#0#77"no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed0(0#0#52"/Users/ivandilchovski/Projects/Finger/TuioListener.m4301066776#1673"    cd /Users/ivandilchovski/Projects/Finger    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -fobjc-gc -funroll-loops -ffast-math -mmacosx-version-min=10.6 -gdwarf-2 -ftree-vectorize -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-generated-files.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-own-target-headers.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-all-target-headers.hmap -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-project-headers.hmap -F/Users/ivandilchovski/Projects/Finger/build/Release -F/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug -I/Users/ivandilchovski/Projects/Finger/build/Release/include -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources -include /var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-fyamlkrnpjdvmvccwssauztoimse/Finger_Prefix.pch -c /Users/ivandilchovski/Projects/Finger/TuioListener.m -o /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/TuioListener.o0#
+
+CCompileC build/Finger.build/Release/Finger.build/Objects-normal/x86_64/main.o /Users/ivandilchovski/Projects/Finger/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s269878171.471451
+e269878171.712428
+r1
+xCompileC
+xbuild/Finger.build/Release/Finger.build/Objects-normal/x86_64/main.o
+x/Users/ivandilchovski/Projects/Finger/main.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: warning: argument unused during compilation: '-funroll-loops'
+oclang: warning: argument unused during compilation: '-ffast-math'
+oclang: warning: argument unused during compilation: '-ftree-vectorize'
+oclang: warning: argument unused during compilation: '-msse4.1'
+oclang: warning: argument unused during compilation: '-msse4.2'
+lSLF07#2@52"Compile /Users/ivandilchovski/Projects/Finger/main.m269878171#269878171#0(332"clang: warning: argument unused during compilation: '-funroll-loops'clang: warning: argument unused during compilation: '-ffast-math'clang: warning: argument unused during compilation: '-ftree-vectorize'clang: warning: argument unused during compilation: '-msse4.1'clang: warning: argument unused during compilation: '-msse4.2'0(0#0#44"/Users/ivandilchovski/Projects/Finger/main.m4301066776#1657"    cd /Users/ivandilchovski/Projects/Finger    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -fobjc-gc -funroll-loops -ffast-math -mmacosx-version-min=10.6 -gdwarf-2 -ftree-vectorize -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-generated-files.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-own-target-headers.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-all-target-headers.hmap -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-project-headers.hmap -F/Users/ivandilchovski/Projects/Finger/build/Release -F/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug -I/Users/ivandilchovski/Projects/Finger/build/Release/include -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources -include /var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-fyamlkrnpjdvmvccwssauztoimse/Finger_Prefix.pch -c /Users/ivandilchovski/Projects/Finger/main.m -o /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/main.o0#
+
+CCompileXIB /Users/ivandilchovski/Projects/Finger/English.lproj/MainMenu.xib
+s269878072.037060
+e269878073.902534
+r1
+xCompileXIB
+x/Users/ivandilchovski/Projects/Finger/English.lproj/MainMenu.xib
+lSLF07#2@37"CompileXIB English.lproj/MainMenu.xib269878072#269878073#0(0"0(0#0#64"/Users/ivandilchovski/Projects/Finger/English.lproj/MainMenu.xib4301066776#325"    cd /Users/ivandilchovski/Projects/Finger    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Resources/English.lproj/MainMenu.nib /Users/ivandilchovski/Projects/Finger/English.lproj/MainMenu.xib0#
+
+CCopyStringsFile /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+s269878072.036065
+e269878072.741071
+r1
+xCopyStringsFile
+x/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF07#2@36"Copy English.lproj/InfoPlist.strings269878072#269878072#0(0"0(0#0#69"/Users/ivandilchovski/Projects/Finger/English.lproj/InfoPlist.strings4301066776#364"    cd /Users/ivandilchovski/Projects/Finger    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-8 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Resources/English.lproj0#
+
+CGenerateDSYMFile /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app.dSYM /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/MacOS/Finger
+s269878171.999477
+e269878172.108914
+r1
+xGenerateDSYMFile
+x/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app.dSYM
+x/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/MacOS/Finger
+lSLF07#2@93"GenerateDSYMFile build/Release/Finger.app.dSYM build/Release/Finger.app/Contents/MacOS/Finger269878171#269878172#0(0"0(0#0#84"/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/MacOS/Finger4301066776#233"    cd /Users/ivandilchovski/Projects/Finger    /Developer/usr/bin/dsymutil /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/MacOS/Finger -o /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app.dSYM0#
+
+CLd /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/MacOS/Finger normal x86_64
+s269878171.931317
+e269878171.999356
+r1
+xLd
+x/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/MacOS/Finger
+xnormal
+xx86_64
+lSLF07#2@89"Link /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/MacOS/Finger269878171#269878171#0(0"0(0#0#0"4301066776#651"    cd /Users/ivandilchovski/Projects/Finger    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/clang -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/ivandilchovski/Projects/Finger/build/Release -F/Users/ivandilchovski/Projects/Finger/build/Release -F/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug -filelist /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Objects-normal/x86_64/Finger.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -framework OpenGL -framework TUIO -o /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/MacOS/Finger0#
+
+CProcessInfoPlistFile /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Info.plist Finger-Info.plist
+s269878072.019350
+e269878072.035953
+r1
+xProcessInfoPlistFile
+x/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Info.plist
+xFinger-Info.plist
+lSLF07#2@25"Process Finger-Info.plist269878072#269878072#0(0"0(0#0#55"/Users/ivandilchovski/Projects/Finger/Finger-Info.plist4301066776#308"    cd /Users/ivandilchovski/Projects/Finger    builtin-infoPlistUtility Finger-Info.plist -genpkginfo /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app/Contents/Info.plist0#
+
+CProcessPCH /var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-ehiptdxwzafzcwasjkocdzinsbyi/Finger_Prefix.pch.pth Finger_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s269878073.902819
+e269878077.418749
+r1
+xProcessPCH
+x/var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-ehiptdxwzafzcwasjkocdzinsbyi/Finger_Prefix.pch.pth
+xFinger_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: warning: argument unused during compilation: '-funroll-loops'
+oclang: warning: argument unused during compilation: '-ffast-math'
+oclang: warning: argument unused during compilation: '-ftree-vectorize'
+oclang: warning: argument unused during compilation: '-msse4.1'
+oclang: warning: argument unused during compilation: '-msse4.2'
+lSLF07#2@28"Precompile Finger_Prefix.pch269878073#269878077#0(332"clang: warning: argument unused during compilation: '-funroll-loops'clang: warning: argument unused during compilation: '-ffast-math'clang: warning: argument unused during compilation: '-ftree-vectorize'clang: warning: argument unused during compilation: '-msse4.1'clang: warning: argument unused during compilation: '-msse4.2'0(0#0#55"/Users/ivandilchovski/Projects/Finger/Finger_Prefix.pch4301066776#1553"    cd /Users/ivandilchovski/Projects/Finger    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -funroll-loops -ffast-math -mmacosx-version-min=10.6 -gdwarf-2 -ftree-vectorize -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-generated-files.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-own-target-headers.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-all-target-headers.hmap -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-project-headers.hmap -F/Users/ivandilchovski/Projects/Finger/build/Release -F/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug -I/Users/ivandilchovski/Projects/Finger/build/Release/include -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources -c /Users/ivandilchovski/Projects/Finger/Finger_Prefix.pch -o /var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-ehiptdxwzafzcwasjkocdzinsbyi/Finger_Prefix.pch.pth0#
+
+CProcessPCH /var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-fyamlkrnpjdvmvccwssauztoimse/Finger_Prefix.pch.pth Finger_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s269878168.900080
+e269878171.471261
+r1
+xProcessPCH
+x/var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-fyamlkrnpjdvmvccwssauztoimse/Finger_Prefix.pch.pth
+xFinger_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: warning: argument unused during compilation: '-funroll-loops'
+oclang: warning: argument unused during compilation: '-ffast-math'
+oclang: warning: argument unused during compilation: '-ftree-vectorize'
+oclang: warning: argument unused during compilation: '-msse4.1'
+oclang: warning: argument unused during compilation: '-msse4.2'
+lSLF07#2@28"Precompile Finger_Prefix.pch269878168#269878171#0(332"clang: warning: argument unused during compilation: '-funroll-loops'clang: warning: argument unused during compilation: '-ffast-math'clang: warning: argument unused during compilation: '-ftree-vectorize'clang: warning: argument unused during compilation: '-msse4.1'clang: warning: argument unused during compilation: '-msse4.2'0(0#0#55"/Users/ivandilchovski/Projects/Finger/Finger_Prefix.pch4301066776#1563"    cd /Users/ivandilchovski/Projects/Finger    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -fobjc-gc -funroll-loops -ffast-math -mmacosx-version-min=10.6 -gdwarf-2 -ftree-vectorize -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-generated-files.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-own-target-headers.hmap -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-all-target-headers.hmap -iquote /Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/Finger-project-headers.hmap -F/Users/ivandilchovski/Projects/Finger/build/Release -F/Users/ivandilchovski/Projects/Finger/../tuioframework-read-only/build/Debug -I/Users/ivandilchovski/Projects/Finger/build/Release/include -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/Finger/build/Finger.build/Release/Finger.build/DerivedSources -c /Users/ivandilchovski/Projects/Finger/Finger_Prefix.pch -o /var/folders/SE/SEPalDbbH4Wt9Fog8lOZ6E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Finger_Prefix-fyamlkrnpjdvmvccwssauztoimse/Finger_Prefix.pch.pth0#
+
+CTouch /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app
+s269878172.109043
+e269878172.112018
+r1
+xTouch
+x/Users/ivandilchovski/Projects/Finger/build/Release/Finger.app
+lSLF07#2@68"Touch /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app269878172#269878172#0(0"0(0#0#0"4301066776#130"    cd /Users/ivandilchovski/Projects/Finger    /usr/bin/touch -c /Users/ivandilchovski/Projects/Finger/build/Release/Finger.app0#
+
