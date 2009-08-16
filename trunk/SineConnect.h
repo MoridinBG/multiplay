@@ -19,7 +19,9 @@
 {
 	NSMutableDictionary *spots;
 	NSMutableDictionary *dieingSpots;			//Store ripples for removed touches until animated out
+	NSMutableDictionary *sines;
 	NSMutableArray *deadSpots;				//We can't modify a container, while enumerating, so temporary put finally dead ripples here
+	NSMutableArray *sectors[16][10];
 	
 	NSArray *keys;
 	NSNumber *uid;

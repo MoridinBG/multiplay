@@ -103,11 +103,11 @@
 	float minY = 0.0f; */
 	
 	//Prototype
-	float maxX = 0.815f;
-	float maxY = 1.0f;
+	float maxX = 0.848f;
+	float maxY = 0.996;
 	
-	float minX = 0.156f;
-	float minY = 0.128f;
+	float minX = 0.203f;
+	float minY = 0.124f;
 
 	//Macbook Simulator
 /*	float maxX = 1.82f;

@@ -80,7 +80,7 @@
 	NSArray *keys = [ripples allKeys];
 	TouchSpot *ripple;
 	
-	if(![keys count])
+	if((![keys count]) && (![[dieingRipples allKeys] count]))
 	{
 		[colors removeAllObjects];
 		return;

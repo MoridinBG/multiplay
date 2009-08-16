@@ -24,6 +24,11 @@
 		spots = [[NSMutableDictionary alloc] initWithCapacity:100];
 		dieingSpots = [[NSMutableDictionary alloc] init];
 		deadSpots = [[NSMutableArray alloc] init];
+		sines = [[NSMutableDictionary alloc] init];
+		
+		for(unsigned int i = 0; i < 15; i++)
+			for(unsigned int j = 0; j < 9; j++);
+			//	sectors[i][j] = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -32,8 +37,9 @@
 {
 	[super processTouches:event];
 	
-	NSNumber *uid = event.uid;
+	NSNumber *uniqueID = event.uid;
 	CGPoint pos = event.pos;
+	CGPoint oldPos = event.lastPos;
 	switch (event.type) 
 	{
 		case TouchDown:
@@ -43,23 +49,54 @@
 
 			TouchSpot *spot = [[TouchSpot alloc] initWithPos:pos];
 			[spot setDelta:0.1];
-			[spots setObject:spot forKey:uid];
+			[spots setObject:spot forKey:uniqueID];
+			
+			if((pos.x < -1.60f) || (pos.x > 1.60f) || (pos.y < -1.0f) || (pos.y > 1.0f))
+				return;
+			
+			int x = pos.x * 5 + 8;
+			int y = pos.y * 5 + 5;
+			[sectors[x][y] addObject:uniqueID];
+			
+			if(([spots count] / 3) > [sines count])
+			{
+				NSArray *keys = [spots allKeys];
+				CGPoint position = ((TouchSpot*)[spots objectForKey:[keys objectAtIndex:(arc4random() % [keys count])]]).position;
+				TouchSpot *sine = [[TouchSpot alloc] initWithPos:position];
+				[sines setObject:sine forKey:uniqueID];
+			}
 		} break;
 		case TouchMove:
 		{
 			if(DEBUG_TOUCH_MOVE)
 				NSLog(@"Process sine touch move event");
 			
-			[(TouchSpot*)[spots objectForKey:uid] setPosition:pos];
+			[(TouchSpot*)[spots objectForKey:uniqueID] setPosition:pos];
+			
+			int x = pos.x * 5 + 8;
+			int y = pos.y * 5 + 5;
+			
+			int oldX = oldPos.x * 5 + 8;
+			int oldY = oldPos.y * 5 + 5;
+			
+			if((x != oldX) || (y != oldY))
+			{
+				[sectors[oldX][oldY] removeObject:uid];
+				[sectors[x][y] addObject:uid];
+			}
 		} break;
 		case TouchRelease:
 		{
 			if(DEBUG_TOUCH)
 				NSLog(@"Process sine touch release event");
 			
+			int x = pos.x * 5 + 8;
+			int y = pos.y * 5 + 5;
 			
-			[dieingSpots setObject:[spots objectForKey:uid] forKey:uid];
-			[spots removeObjectForKey:uid];
+			[sectors[x][y] removeObject:uid];
+			
+			[dieingSpots setObject:[spots objectForKey:uniqueID] forKey:uniqueID];
+			[spots removeObjectForKey:uniqueID];
 		} break;
 	}
 }
@@ -73,8 +110,27 @@
 	bool isScaling;
 	bool isNew;
 	
-	//Draw alive spots
 	keys = [spots allKeys];
+	
+	if((![keys count]) && (![[dieingSpots allKeys] count]))
+	{
+		[colors removeAllObjects];
+		return;
+	}
+	
+	glLoadIdentity();
+//	glRotatef(angle, 0.0f, 0.0f, 1.0f);
+//	glTranslatef(-(f/10), 0.0f, 0.0f);
+	
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glBegin(GL_LINE_STRIP);
+	for(float i = f; i <= (f+ 10.0f); i += 0.1f)
+	{
+		glVertex2f(i / 10, sin(i * 360 * (PI/180.0f)) / 24);
+	}
+	glEnd();
+	
+	//Draw alive spots
 	for(uid in keys	)
 	{
 		spot = [spots objectForKey:uid];
@@ -199,10 +255,10 @@
 	{
 		glVertex2f(i / 10, sin(i * 360 * (PI/180.0f)) / 24);
 	}
-	glEnd();
+	glEnd(); */
 	
 	f += 0.1f;
 	if(f == 1.0f)
-		f = 0.0f; */
+		f = 0.0f; 
 }
 @end

@@ -15,6 +15,7 @@
 	float angle;
 	float delta;
 	CGPoint position;
+	NSNumber *target;
 	bool isScaling;
 	bool isNew;
 }
@@ -24,6 +25,7 @@
 @property bool isScaling;
 @property CGPoint position;
 @property bool isNew;
+@property NSNumber* target;
 
 - (id) initWithPos:(CGPoint) pos;
 - (void) setParameters:(CGPoint) position_ scale:(float) scale_ angle:(float) angle_ isScaling:(bool) isScaling_;

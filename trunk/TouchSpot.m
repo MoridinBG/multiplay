@@ -16,6 +16,7 @@
 @synthesize position;
 @synthesize isNew;
 @synthesize delta;
+@synthesize target;
 
 - (id) initWithPos:(CGPoint) pos
 {
