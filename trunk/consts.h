@@ -6,12 +6,13 @@
  *  Copyright 2009 The Pixel Factory. All rights reserved.
  *
  */
-#define DEBUG_TOUCH_STATE TRUE
+#define DEBUG_GENERAL_STATE TRUE
+
+#define DEBUG_TOUCH_STATE FALSE
 #define DEBUG_TOUCH_MOVE_STATE FALSE
 #define DEBUG_LISTENER_STATE FALSE
 #define DEBUG_LISTENER_MOVE_STATE FALSE
-#define DEBUG_GENERAL_STATE FALSE
-#define DEBUG_RENDER_STATE TRUE
+#define DEBUG_RENDER_STATE FALSE
 
 #define COLOR_BITS (NSOpenGLPixelFormatAttribute)24
 #define DEPTH_BITS (NSOpenGLPixelFormatAttribute)16

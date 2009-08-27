@@ -10,6 +10,7 @@
 
 #import <math.h>
 
+#import "b2Physics.h"
 #import "EffectProvider.h"
 #import "EffectProviderProtocol.h"
 

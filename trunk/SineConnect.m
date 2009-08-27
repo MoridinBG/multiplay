@@ -99,10 +99,10 @@
 			CGPoint targetPos;
 			ConnectableInteractor *target = [spots objectForKey:targetUid];
 			targetPos = [target position];
-			[sine setTarget:targetUid withPosition:targetPos];
+			[sine setTargetObject:targetUid withPosition:targetPos];
 			
-			[spot addConnectee:((LiteTouchInfo)[sine target]).uid];													//Tell our new spot that it has a connectee
-			[[spots objectForKey:[sine target].uid] addConnectee:uniqueID];							//Tell the connectee the news about the new spot
+			[spot addConnectee:((LiteTouchInfo)[sine targetObject]).uid];													//Tell our new spot that it has a connectee
+			[[spots objectForKey:[sine targetObject].uid] addConnectee:uniqueID];							//Tell the connectee the news about the new spot
 			
 			[walker addSine:sine withUid:targetUid];
 			
@@ -110,8 +110,7 @@
 		} break;
 		case TouchMove:
 		{
-			if(DEBUG_TOUCH_MOVE)
-				NSLog(@"Process sine touch move event");
+			[Logger logMessage:@"Process sine touch move event" ofType:DEBUG_TOUCH_MOVE];
 			
 			[(ConnectableInteractor*)[spots objectForKey:uniqueID] setPosition:pos];
 			
@@ -129,8 +128,7 @@
 		} break;
 		case TouchRelease:
 		{
-			if(DEBUG_TOUCH)
-				NSLog(@"Process sine touch release event");
+			[Logger logMessage:@"Process sine touch release event" ofType:DEBUG_TOUCH];
 			
 			int x = pos.x * 5 + 8;																//Translate X coordinates to array location
 			int y = pos.y * 5 + 5;																//Same for Y coordinates
@@ -191,7 +189,7 @@
 	}
 	
 	//Debug sectors network
-/*	glLineWidth(1);
+	glLineWidth(1);
 	glLoadIdentity();
 	glColor3f(1.0f, 0.0f, 0.0f);
 	for(float i = 1.0f; i < 16.0f; i += 1.0f)
@@ -208,7 +206,7 @@
 		glVertex2f(1.60f, -1.0f + (i * (2.0f / 10.0f)));
 		glEnd();
 	}
-	glLineWidth(4);*/
+	glLineWidth(4);
 	
 	keys = [spots allKeys];
 	if((![keys count]) && (![[dieingSpots allKeys] count]))

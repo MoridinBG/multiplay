@@ -10,12 +10,12 @@
 
 @implementation ConnectableInteractor
 
-@synthesize target;
+@synthesize targetObject;
 
-- (void) setTarget:(NSNumber*) targetUid withPosition:(CGPoint) pos
+- (void) setTargetObject:(NSNumber*) targetUid withPosition:(CGPoint) pos
 {
 	LiteTouchInfo newTarget = {targetUid, pos};
-	target = newTarget;
+	targetObject = newTarget;
 }
 
 - (void) addConnectee:(NSNumber*) uid

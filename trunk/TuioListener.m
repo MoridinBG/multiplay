@@ -37,8 +37,8 @@
 	if([cursors count] >= MAX_TOUCHES)
 		return;
 	
-	if(DEBUG_LISTENER)
-		NSLog(@"New touch: %d, %f, %f", newCursor.uniqueID,[self transformCoordinates:newCursor.position].x, [self transformCoordinates:newCursor.position].y);
+	[Logger logMessage:[NSString stringWithFormat:@"New touch: %d, %f, %f", newCursor.uniqueID,[self transformCoordinates:newCursor.position].x, [self transformCoordinates:newCursor.position].y]
+				ofType:DEBUG_LISTENER];
 	
 	TouchEvent *event = [[TouchEvent alloc] initWithId:[NSNumber numberWithUnsignedInt:newCursor.uniqueID] withType:TouchDown atPos:[self transformCoordinates:newCursor.position]];
 	[cursors setObject:event forKey:[NSNumber numberWithUnsignedInt:newCursor.uniqueID]];
@@ -51,8 +51,8 @@
 	if(![cursors objectForKey:[NSNumber numberWithUnsignedInt:updatedCursor.uniqueID]])
 	   return;
 	   
-	if(DEBUG_LISTENER_MOVE)
-		NSLog(@"Touch %d moved: %f, %f", updatedCursor.uniqueID, updatedCursor.position.x, updatedCursor.position.y);
+	[Logger logMessage:[NSString stringWithFormat:@"Touch %d moved: %f, %f", updatedCursor.uniqueID, updatedCursor.position.x, updatedCursor.position.y]
+				ofType:DEBUG_LISTENER_MOVE];
 	TouchEvent *event = [cursors objectForKey:[NSNumber numberWithUnsignedInt:updatedCursor.uniqueID]];
 	[event setPos:[self transformCoordinates:updatedCursor.position]];
 	[event setType:TouchMove];
@@ -66,8 +66,8 @@
 	if(![cursors objectForKey:[NSNumber numberWithUnsignedInt:deadCursor.uniqueID]])
 	   return;	
 	
-	if(DEBUG_LISTENER)
-		NSLog(@"Remove touch: %d, %f, %f", deadCursor.uniqueID, deadCursor.position.x, deadCursor.position.y);
+	[Logger logMessage:[NSString stringWithFormat:@"Remove touch: %d, %f, %f", deadCursor.uniqueID, deadCursor.position.x, deadCursor.position.y]
+				ofType:DEBUG_LISTENER];
 	
 	TouchEvent *event = [cursors objectForKey:[NSNumber numberWithInt:deadCursor.uniqueID]];
 	[cursors removeObjectForKey:[NSNumber numberWithUnsignedInt:deadCursor.uniqueID]];

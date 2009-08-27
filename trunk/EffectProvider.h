@@ -13,7 +13,7 @@
 #import "consts.h"
 #import "Logger.h"
 
-#import "PhysicsBullet.h"
+#import "btPhysics.h"
 #import "SparklesPhysics.h"
 
 @class Sparkles;

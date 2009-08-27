@@ -21,7 +21,7 @@
 		}
 		else if([self isKindOfClass:[Ripples class]])
 		{
-			physicsThread = [[PhysicsBullet alloc] init];		
+			physicsThread = [[btPhysics alloc] init];		
 			sectors = SECTORS_RIPPLE;
 		}
 		else if([self isKindOfClass:[SineConnect class]])

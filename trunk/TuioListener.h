@@ -8,7 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import <TUIO/TuioClient.h>
+
 #import "TouchEvent.h"
+#import "Logger.h"
 
 @class EffectProvider;
 @interface TuioListener : NSObject <TuioCursorListener, TuioObjectListener>

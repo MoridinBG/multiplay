@@ -12,12 +12,12 @@
 
 @interface ConnectableInteractor : InteractiveObject
 {
-	LiteTouchInfo target;
+	LiteTouchInfo targetObject;
 	NSMutableArray *connectees;
 }
-@property LiteTouchInfo target;
+@property LiteTouchInfo targetObject;
 
-- (void) setTarget:(NSNumber*) targetUid withPosition:(CGPoint) pos;
+- (void) setTargetObject:(NSNumber*) targetUid withPosition:(CGPoint) pos;
 
 - (void) addConnectee:(NSNumber*) uid;
 - (bool) containstConnectee:(NSNumber*) uid;

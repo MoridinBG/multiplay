@@ -39,7 +39,7 @@
 - (NSNumber*) targetForSine:(NSNumber*) uid
 {
 	[mutex lock];
-	NSNumber *target = [[sines objectForKey:uid] target];
+	NSNumber *target = [[sines objectForKey:uid] targetObject].uid;
 	[mutex unlock];
 	return target;
 }
