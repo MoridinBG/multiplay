@@ -6,12 +6,12 @@
  *  Copyright 2009 The Pixel Factory. All rights reserved.
  *
  */
-#define DEBUG_TOUCH FALSE
-#define DEBUG_TOUCH_MOVE FALSE
-#define DEBUG_LISTENER FALSE
-#define DEBUG_LISTENER_MOVE FALSE
-#define DEBUG_GENERAL FALSE
-#define DEBUG_RENDER FALSE
+#define DEBUG_TOUCH_STATE TRUE
+#define DEBUG_TOUCH_MOVE_STATE FALSE
+#define DEBUG_LISTENER_STATE FALSE
+#define DEBUG_LISTENER_MOVE_STATE FALSE
+#define DEBUG_GENERAL_STATE FALSE
+#define DEBUG_RENDER_STATE TRUE
 
 #define COLOR_BITS (NSOpenGLPixelFormatAttribute)24
 #define DEPTH_BITS (NSOpenGLPixelFormatAttribute)16
@@ -26,3 +26,4 @@
 
 static const int MOUSE_ID = -1;
 typedef enum touchtype {TouchDown, TouchMove, TouchRelease} TouchType;
+typedef enum debugstate {DEBUG_TOUCH, DEBUG_TOUCH_MOVE, DEBUG_LISTENER, DEBUG_LISTENER_MOVE, DEBUG_GENERAL, DEBUG_RENDER} DebugState;

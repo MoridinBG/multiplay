@@ -226,14 +226,15 @@
 	}	
 	
 	if([deadSparkles count])
+	{
 		for(unsigned int i = 0; i < [deadSparkles count]; i++)
 		{
 			NSNumber *uid = [deadSparkles objectAtIndex:i];
 			[positions removeObjectForKey:uid];
 			[dieingSparkleGroups removeObjectForKey:uid];
 		}
-	
-	[deadSparkles removeAllObjects];
+		[deadSparkles removeAllObjects];
+	}
 	
 	[mutex unlock];
 	return groupedPositions;

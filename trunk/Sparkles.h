@@ -12,6 +12,8 @@
 #import "EffectProvider.h"
 #import "EffectProviderProtocol.h"
 
+#import "Logger.h"
+
 #import "LiteTouchInfo.h"
 #import "SparklingFactory.h"
 

@@ -74,8 +74,8 @@
 		}
 		
 //		provider = [[Sparkles alloc] init];
-//		provider = [[Ripples alloc] init];
-		provider = [[SineConnect alloc] init];
+		provider = [[Ripples alloc] init];
+//		provider = [[SineConnect alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
 		

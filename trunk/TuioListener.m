@@ -96,18 +96,18 @@
 	float oldY = pos.y;
 
 	//Hackintosh Simulator
-/*	float maxX = 1.0f;
+	float maxX = 1.0f;
 	float maxY = 1.0f;
 	 
 	float minX = 0.0f;
-	float minY = 0.0f; */
+	float minY = 0.0f;
 	
-	//Prototype
+/*	//Prototype
 	float maxX = 0.848f;
 	float maxY = 0.996;
 	
 	float minX = 0.203f;
-	float minY = 0.124f;
+	float minY = 0.124f; */
 
 	//Macbook Simulator
 /*	float maxX = 1.82f;

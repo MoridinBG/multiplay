@@ -13,8 +13,7 @@
 
 - (id) init
 {
-	if(DEBUG_GENERAL)
-		NSLog(@"Init Sparkles");
+	[Logger logMessage:@"Init Sparkles" ofType:DEBUG_GENERAL];
 	
 	
 	if(self = [super init])
@@ -40,8 +39,7 @@
 	{
 		case TouchDown:
 		{
-			if(DEBUG_TOUCH)
-				NSLog(@"Process sparkle touch down event");
+			[Logger logMessage:@"Process sparkle touch down event" ofType:DEBUG_TOUCH];
 			
 			LiteTouchInfo touch = {uid, pos};
 			[factory setPosition:touch];
@@ -54,8 +52,7 @@
 		} break;
 		case TouchMove:
 		{
-			if(DEBUG_TOUCH_MOVE)
-				NSLog(@"Process sparkle touch move event");
+			[Logger logMessage:@"Process sparkle touch move event" ofType:DEBUG_TOUCH_MOVE];
 			
 			if((pos.x == oldPos.x) && (pos.y == oldPos.y))
 				return;
@@ -65,8 +62,7 @@
 		} break;
 		case TouchRelease:
 		{
-			if(DEBUG_TOUCH)
-				NSLog(@"Process sparkle touch release event");
+			[Logger logMessage:@"Process sparkle touch release event" ofType:DEBUG_TOUCH];
 			
 			[factory removePosition:uid];
 		} break;
@@ -85,8 +81,7 @@
 	
 	for(uid in keys)
 	{
-		if(DEBUG_RENDER)
-			NSLog(@"Rendering new sparkles fountain");
+		[Logger logMessage:@"Rendering a Sparkles fountain" ofType:DEBUG_RENDER];
 		
 		sparkleGroup = [sparkleGroups objectForKey:uid];
 		NSArray *color = [colors objectForKey:uid];

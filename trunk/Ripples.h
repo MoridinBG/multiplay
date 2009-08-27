@@ -11,7 +11,10 @@
 
 #import "EffectProvider.h"
 #import "EffectProviderProtocol.h"
-#import "TouchSpot.h"
+
+#import "InteractiveObject.h"
+
+#import "Logger.h"
 
 @interface Ripples : EffectProvider <EffectProviderProtocol> 
 {

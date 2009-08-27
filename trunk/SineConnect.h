@@ -13,18 +13,23 @@
 #import "EffectProvider.h"
 #import "EffectProviderProtocol.h"
 
-#import "TouchSpot.h"
+#import "Logger.h"
+
+#import "ConnectableInteractor.h"
+#import "SineWalker.h"
 
 @interface SineConnect : EffectProvider <EffectProviderProtocol>
 {
 	NSMutableDictionary *spots;
 	NSMutableDictionary *dieingSpots;			//Store ripples for removed touches until animated out
-	NSMutableDictionary *sines;
+	NSDictionary *sines;
 	NSMutableArray *deadSpots;				//We can't modify a container, while enumerating, so temporary put finally dead ripples here
 	NSMutableArray *sectors[16][10];
 	
 	NSArray *keys;
 	NSNumber *uid;
+	
+	SineWalker *walker;
 	
 	float f;
 	float *sineWave;
@@ -38,4 +43,5 @@
 }
 - (void) processTouches:(TouchEvent*)event;
 - (void) render;
+- (NSMutableArray*) collectNeighboursAtX:(int) x Y:(int)y;
 @end

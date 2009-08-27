@@ -21,7 +21,7 @@
 		}
 		else if([self isKindOfClass:[Ripples class]])
 		{
-			physicsThread = [[Physics alloc] init];		
+			physicsThread = [[PhysicsBullet alloc] init];		
 			sectors = SECTORS_RIPPLE;
 		}
 		else if([self isKindOfClass:[SineConnect class]])
@@ -58,8 +58,7 @@
 	{
 		case TouchDown:
 		{
-			if(DEBUG_TOUCH)
-				NSLog(@"Process ancestor touch down event");
+			[Logger logMessage:@"Process ancestor touch down event" ofType:DEBUG_TOUCH];
 			
 			NSMutableArray *color = [[NSMutableArray alloc] initWithCapacity:3];
 			[color addObject:[NSNumber numberWithFloat:(((float)(arc4random() % 1000)) / 1000)]];

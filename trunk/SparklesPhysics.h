@@ -7,10 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Physics.h"
+#import "PhysicsBullet.h"
 
 
-@interface SparklesPhysics : Physics
+@interface SparklesPhysics : PhysicsBullet
 {
 	NSMutableDictionary *positions;			//Base position for given TouchID
 	NSMutableDictionary *timers;			//Timers creating bodies around touches

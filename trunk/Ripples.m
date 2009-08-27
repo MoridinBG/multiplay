@@ -12,8 +12,7 @@
 @implementation Ripples
 - (id) init
 {
-	if(DEBUG_GENERAL)
-		NSLog(@"Init ripples");
+	[Logger logMessage:@"Init ripples" ofType:DEBUG_GENERAL];
 	
 	if(self = [super init])
 	{
@@ -46,19 +45,21 @@
 	{
 		case TouchDown:
 		{
-			if(DEBUG_TOUCH)
-				NSLog(@"Process ripple touch down event");
+			[Logger logMessage:@"Process ripple touch down event" ofType:DEBUG_TOUCH];
 			
-			TouchSpot *ripple = [[TouchSpot alloc] initWithPos:pos];
+			InteractiveObject *ripple = [[InteractiveObject alloc] initWithPos:pos];
 			[ripples setObject:ripple forKey:uid];
 			
 		} break;
 		case TouchMove:
 		{
-			[(TouchSpot*)[ripples objectForKey:uid] setPosition:pos];
+			[Logger logMessage:@"Process ripple touch move event" ofType:DEBUG_TOUCH_MOVE];
+			
+			[(InteractiveObject*)[ripples objectForKey:uid] setPosition:pos];
 		} break;
 		case TouchRelease:
 		{
+			[Logger logMessage:@"Process ripple touch release event" ofType:DEBUG_TOUCH];
 			//Mark the ripple associated with this touch for suck away
 			[dieingRipples setObject:[ripples objectForKey:uid] forKey:uid];
 			[ripples removeObjectForKey:uid];
@@ -78,7 +79,7 @@
 	CGPoint pos;
 	NSNumber *uid;
 	NSArray *keys = [ripples allKeys];
-	TouchSpot *ripple;
+	InteractiveObject *ripple;
 	
 	if((![keys count]) && (![[dieingRipples allKeys] count]))
 	{
@@ -89,8 +90,7 @@
 	//Iterrate over living ripples
 	for(uid in keys)
 	{
-		if(DEBUG_RENDER)
-			NSLog(@"Rendering ripple %d", [uid integerValue]);
+		[Logger logMessage:[NSString stringWithFormat:@"Rendering ripple %d", [uid integerValue]] ofType:DEBUG_RENDER];
 		
 		ripple = [ripples objectForKey:uid];
 		scale = [ripple scale];

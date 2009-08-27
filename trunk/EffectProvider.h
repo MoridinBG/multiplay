@@ -11,8 +11,9 @@
 #import "TuioListener.h"
 #import "TouchEvent.h"
 #import "consts.h"
+#import "Logger.h"
 
-#import "Physics.h"
+#import "PhysicsBullet.h"
 #import "SparklesPhysics.h"
 
 @class Sparkles;
@@ -21,7 +22,7 @@
 @interface EffectProvider : NSObject 
 {
 	TuioListener *listener;
-	Physics *physicsThread;
+	id physicsThread;
 	
 	NSMutableDictionary *colors;
 	
