@@ -12,20 +12,21 @@
 	#import "box2d/Box2D.h"
 	#import "b2ContactDetector.h"
 #endif
+#import "consts.h"
 
-@interface b2Physics : NSObject 
+@interface b2Physics : NSThread 
 {
 #ifdef __cplusplus
 	b2World *world;
-#endif
-	
+#endif	
 	NSLock *mutex;
 }
 - (void) main;
 - (void) step:(NSTimer*) theTimer;
 
 #ifdef __cplusplus
-- (void) setContactListener:(b2ContactDetector*) detector;
-- (b2Body*) addContactDetectorAtX:(float) x Y:(float) y;
+- (b2ContactDetector*) addContactDetector;
+- (void) destroyBody:(b2Body*) body;
+- (b2Body*) addContactListenerAtX:(float) x Y:(float) y withUid:(NSNumber*) uid;
 #endif
 @end
