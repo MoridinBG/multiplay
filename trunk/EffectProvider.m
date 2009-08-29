@@ -21,11 +21,11 @@
 		}
 		else if([self isKindOfClass:[Ripples class]])
 		{
-			physicsThread = [[btPhysics alloc] init];		
 			sectors = SECTORS_RIPPLE;
 		}
 		else if([self isKindOfClass:[SineConnect class]])
 		{
+			physicsThread = [[b2Physics alloc] init];
 			sectors = SECTORS_TOUCH;
 		}
 		
@@ -33,6 +33,7 @@
 		[listener setProvider:self];
 		
 		colors = [[NSMutableDictionary alloc] initWithCapacity:100];
+		touches = [[NSMutableDictionary alloc] initWithCapacity:100];
 		
 		cosArray = malloc(sectors * sizeof(float));
 		cosOffsetArray = malloc(sectors * sizeof(float));

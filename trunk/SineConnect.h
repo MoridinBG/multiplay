@@ -10,27 +10,29 @@
 
 #import <math.h>
 
-#import "b2Physics.h"
 #import "EffectProvider.h"
 #import "EffectProviderProtocol.h"
 
 #import "Logger.h"
 
-#import "ConnectableInteractor.h"
-#import "SineWalker.h"
+#ifdef __cplusplus
+	#import "b2Physics.h"
+	#import "b2ContactDetector.h"
+#endif
+
+#import "TargettingInteractor.h"
 
 @interface SineConnect : EffectProvider <EffectProviderProtocol>
 {
-	NSMutableDictionary *spots;
 	NSMutableDictionary *dieingSpots;			//Store ripples for removed touches until animated out
-	NSDictionary *sines;
+	NSMutableArray *sines;
 	NSMutableArray *deadSpots;				//We can't modify a container, while enumerating, so temporary put finally dead ripples here
-	NSMutableArray *sectors[16][10];
 	
 	NSArray *keys;
-	NSNumber *uid;
 	
-	SineWalker *walker;
+#ifdef __cplusplus
+	b2ContactDetector *detector;
+#endif
 	
 	float f;
 	float *sineWave;
@@ -44,5 +46,9 @@
 }
 - (void) processTouches:(TouchEvent*)event;
 - (void) render;
-- (NSMutableArray*) collectNeighboursAtX:(int) x Y:(int)y;
+
+- (void) contactBetween:(NSNumber*) firstID And:(NSNumber*) secondID;
+- (void) updateContactBetween:(NSNumber*) firstID And:(NSNumber*) secondID;
+- (void) removeContactBetween:(NSNumber*) firstID And:(NSNumber*) secondID;
+
 @end

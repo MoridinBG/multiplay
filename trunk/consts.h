@@ -25,6 +25,8 @@
 #define SECTORS_TOUCH 30
 #define MAX_TOUCHES 100
 
+#define SENSOR_RANGE 0.4f
+
 static const int MOUSE_ID = -1;
 typedef enum touchtype {TouchDown, TouchMove, TouchRelease} TouchType;
 typedef enum debugstate {DEBUG_TOUCH, DEBUG_TOUCH_MOVE, DEBUG_LISTENER, DEBUG_LISTENER_MOVE, DEBUG_GENERAL, DEBUG_RENDER} DebugState;

@@ -14,6 +14,7 @@
 #import "Logger.h"
 
 #import "btPhysics.h"
+#import "b2Physics.h"
 #import "SparklesPhysics.h"
 
 @class Sparkles;
@@ -22,9 +23,10 @@
 @interface EffectProvider : NSObject 
 {
 	TuioListener *listener;
-	id physicsThread;
+	NSThread *physicsThread;
 	
 	NSMutableDictionary *colors;
+	NSMutableDictionary *touches;
 	
 	float *cosArray;
 	float *cosOffsetArray;

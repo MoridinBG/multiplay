@@ -29,8 +29,6 @@
 	
 	SparklingFactory *factory;
 	
-	int touches;
-	
 	float radius;
 	float subStep;
 	

@@ -17,6 +17,7 @@
 @synthesize isScaling;
 @synthesize isNew;
 @synthesize delta;
+@synthesize physicsData;
 
 - (id) initWithPos:(CGPoint) pos
 {
@@ -28,6 +29,8 @@
 		isScaling = TRUE;
 		isNew = TRUE;
 		delta = 0.08;
+		
+		neighbours = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -38,6 +41,21 @@
 	scale = scale_;
 	angle = angle_;
 	isScaling = isScaling_;
+}
+
+- (void) addNeighbour:(NSNumber*) uid
+{
+	[neighbours addObject:uid];
+}
+
+- (void) removeNeighbour:(NSNumber*) uid
+{
+	[neighbours removeObject:uid];
+}
+
+- (NSArray*) getNeighbours
+{
+	return neighbours;
 }
 
 @end

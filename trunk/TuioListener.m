@@ -14,7 +14,6 @@
 
 - (void) setDimensions:(NSSize) dimensions_
 {
-	NSLog(@"Yes, yes");
 	dimensions = dimensions_;
 	ratio = dimensions.width / dimensions.height;
 }

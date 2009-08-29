@@ -17,6 +17,9 @@
 	CGPoint position;
 	bool isScaling;
 	bool isNew;
+	
+	NSMutableArray *neighbours;
+	void *physicsData;
 }
 
 @property float scale;
@@ -26,8 +29,14 @@
 @property bool isScaling;
 @property bool isNew;
 
+@property void *physicsData;
+
 - (id) initWithPos:(CGPoint) pos;
 - (void) setParameters:(CGPoint) position_ scale:(float) scale_ angle:(float) angle_ isScaling:(bool) isScaling_;
+
+- (void) addNeighbour:(NSNumber*) uid;
+- (void) removeNeighbour:(NSNumber*) uid;
+- (NSArray*) getNeighbours;
 
 @end
 
