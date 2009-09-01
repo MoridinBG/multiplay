@@ -25,8 +25,12 @@
 @interface SineConnect : EffectProvider <EffectProviderProtocol>
 {
 	NSMutableDictionary *dieingSpots;			//Store ripples for removed touches until animated out
-	NSMutableArray *sines;
-	NSMutableArray *deadSpots;				//We can't modify a container, while enumerating, so temporary put finally dead ripples here
+	NSMutableArray *deadSpots;					//We can't modify a container, while enumerating, so temporary put finally dead ripples here
+	
+	NSMutableArray *sines;						//Travelling sine waves
+	NSMutableArray *deadSines;					//Sine waves that have reached their destination
+	
+	NSMutableArray *sineHolders;
 	
 	NSArray *keys;
 	
@@ -36,14 +40,19 @@
 	
 	float f;
 	float *sineWave;
-	float degrad;
 	
 	float radius;
 	float subStep;
 	
 	float alpha;
 	float alphaStep;
+	
+	float vertices[SINECONNECT_NUM_VERTICES * 2];
+	int vertexIndex;
 }
+- (id) init;
+- (void) createVertexArray;
+
 - (void) processTouches:(TouchEvent*)event;
 - (void) render;
 

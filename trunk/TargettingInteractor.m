@@ -11,5 +11,7 @@
 @implementation TargettingInteractor
 @synthesize target;
 @synthesize origin;
+@synthesize distance;
+@synthesize targetCache;
 
 @end

@@ -16,8 +16,8 @@
 	b2Vec2 gravity(0.0f, 0.0f);
 	bool doSleep = true;
 	
-	worldAABB.lowerBound.Set(-3.2, -2.0);
-	worldAABB.upperBound.Set(3.2, 2.0);
+	worldAABB.lowerBound.Set(-5.0, -5.0);
+	worldAABB.upperBound.Set(5.0, 5.0);
 	
 	world = new b2World(worldAABB,gravity, doSleep);
 	
@@ -54,7 +54,8 @@
 - (void) destroyBody:(b2Body*) body
 {
 	[mutex lock];
-	world->DestroyBody(body);
+	if(body)
+		world->DestroyBody(body);
 	[mutex unlock];
 }
 

@@ -19,6 +19,7 @@
 	bool isNew;
 	
 	NSMutableArray *neighbours;
+	NSMutableArray *interactors;
 	void *physicsData;
 }
 
@@ -37,6 +38,10 @@
 - (void) addNeighbour:(NSNumber*) uid;
 - (void) removeNeighbour:(NSNumber*) uid;
 - (NSArray*) getNeighbours;
+
+- (void) addInteractor:(NSNumber*) uid;
+- (void) removeInteracotr:(NSNumber*) uid;
+- (bool) hasInteractor:(NSNumber*) uid;
 
 @end
 

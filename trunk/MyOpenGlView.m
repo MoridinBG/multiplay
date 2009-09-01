@@ -73,13 +73,24 @@
 			return nil;
 		}
 		
+		CGLError err = 0;
+		CGLContextObj ctx = CGLGetCurrentContext();
+        
+		// Enable the multi-threading
+		err =  CGLEnable( ctx, kCGLCEMPEngine);
+        
+		if (err != kCGLNoError )
+		{
+			NSLog(@"Here");
+		}    
+		
 //		provider = [[Sparkles alloc] init];
 //		provider = [[Ripples alloc] init];
 		provider = [[SineConnect alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
 		
-		(void)[NSTimer scheduledTimerWithTimeInterval:0.024
+		(void)[NSTimer scheduledTimerWithTimeInterval:0.033
 											   target:self 
 											 selector:@selector(display) 
 											 userInfo:nil 
@@ -125,7 +136,7 @@
 		glViewport(0, 0, dimensions.width, dimensions.height);
 	}
 	
-	glOrtho(-ratio, ratio, -1.0, 1.0, -1.0, 1.0);
+	glOrtho(0, ratio, 0, 1.0, 0, 1.0);
 	
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();

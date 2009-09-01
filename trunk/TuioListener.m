@@ -101,8 +101,8 @@
 	float minX = 0.0f;
 	float minY = 0.0f;
 	
-/*	//Prototype
-	float maxX = 0.848f;
+	//Prototype
+/*	float maxX = 0.848f;
 	float maxY = 0.996;
 	
 	float minX = 0.203f;
@@ -115,9 +115,13 @@
 	float minX = 1280.0f;
 	float minY = 1008.0f; */
 	
-	float newX = (((oldX - minX) * (ratio - (-ratio))) / (maxX - minX)) + (-ratio);
-	float newY = (((oldY - minY) * (1.0 - (-1.0))) / (maxY - minY)) + (-1.0);
-	newY = newY * (-1.0);
+/*	float newX = (((oldX - minX) * (ratio - (-ratio))) / (maxX - minX)) + (-ratio);
+	float newY = (((oldY - minY) * (1.0 - (-1.0))) / (maxY - minY)) + (-1.0); */
+	
+	//NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
+	float newX = (((oldX - minX) * (ratio - 0)) / (maxX - minX)) + 0;
+	float newY = (((oldY - minY) * (0 - 1)) / (maxY - minY)) + 1;
+//	newY = newY * (-1.0);
 	
 	CGPoint result = {newX, newY};
 

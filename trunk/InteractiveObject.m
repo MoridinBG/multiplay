@@ -31,6 +31,7 @@
 		delta = 0.08;
 		
 		neighbours = [[NSMutableArray alloc] init];
+		interactors = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -56,6 +57,21 @@
 - (NSArray*) getNeighbours
 {
 	return neighbours;
+}
+
+- (void) addInteractor:(NSNumber*) uid
+{
+	[interactors addObject:uid];
+}
+
+- (void) removeInteracotr:(NSNumber*) uid
+{
+	[interactors removeObject:uid];
+}
+
+- (bool) hasInteractor:(NSNumber*) uid
+{
+	return [interactors containsObject:uid];
 }
 
 @end
