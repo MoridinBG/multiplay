@@ -17,8 +17,8 @@
 	};
 	2672CB041042DF27008D2134 /* b2Physics.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1293, 895}}";
-			sepNavSelRange = "{592, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1309, 499}}";
+			sepNavSelRange = "{183, 25}";
 			sepNavVisRange = "{0, 606}";
 		};
 	};
@@ -185,8 +185,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 274279496;
-			PBXWorkspaceStateSaveDate = 274279496;
+			PBXPerProjectTemplateStateSaveDate = 274280860;
+			PBXWorkspaceStateSaveDate = 274280860;
 		};
 		perUserProjectItems = {
 			F501C426101CCCC8000F6BB3 = F501C426101CCCC8000F6BB3 /* PBXTextBookmark */;
@@ -200,7 +200,11 @@
 			F515D587104C2F700084D3EA = F515D587104C2F700084D3EA /* PBXTextBookmark */;
 			F523748E1046E0D40070884C = F523748E1046E0D40070884C /* PBXTextBookmark */;
 			F52A38DF10592C3F000C78F1 = F52A38DF10592C3F000C78F1 /* PBXTextBookmark */;
-			F52A38E710592C4C000C78F1 /* PBXTextBookmark */ = F52A38E710592C4C000C78F1 /* PBXTextBookmark */;
+			F52A38E710592C4C000C78F1 = F52A38E710592C4C000C78F1 /* PBXTextBookmark */;
+			F52A3918105931B4000C78F1 /* PBXTextBookmark */ = F52A3918105931B4000C78F1 /* PBXTextBookmark */;
+			F52A3919105931B4000C78F1 /* PBXTextBookmark */ = F52A3919105931B4000C78F1 /* PBXTextBookmark */;
+			F52A391A105931B4000C78F1 /* PBXTextBookmark */ = F52A391A105931B4000C78F1 /* PBXTextBookmark */;
+			F52A391B105931B4000C78F1 /* PBXTextBookmark */ = F52A391B105931B4000C78F1 /* PBXTextBookmark */;
 			F52B100E10524313005807E4 = F52B100E10524313005807E4 /* PBXTextBookmark */;
 			F52B104310524681005807E4 = F52B104310524681005807E4 /* PBXTextBookmark */;
 			F52B105D10524D25005807E4 = F52B105D10524D25005807E4 /* PBXTextBookmark */;
@@ -502,6 +506,44 @@
 		rType = 0;
 		vrLen = 1131;
 		vrLoc = 300;
+	};
+	F52A3918105931B4000C78F1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5FAB5441034B35800B4CCF4 /* SineConnect.mm */;
+		name = "SineConnect.mm: 23";
+		rLen = 0;
+		rLoc = 386;
+		rType = 0;
+		vrLen = 802;
+		vrLoc = 35;
+	};
+	F52A3919105931B4000C78F1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: box2d/Box2D.h: No such file or directory";
+		fRef = 2672CB041042DF27008D2134 /* b2Physics.h */;
+		rLen = 1;
+		rLoc = 11;
+		rType = 1;
+	};
+	F52A391A105931B4000C78F1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5FAB5441034B35800B4CCF4 /* SineConnect.mm */;
+		name = "SineConnect.mm: 23";
+		rLen = 0;
+		rLoc = 386;
+		rType = 0;
+		vrLen = 802;
+		vrLoc = 35;
+	};
+	F52A391B105931B4000C78F1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2672CB041042DF27008D2134 /* b2Physics.h */;
+		name = "b2Physics.h: 12";
+		rLen = 25;
+		rLoc = 183;
+		rType = 0;
+		vrLen = 606;
+		vrLoc = 0;
 	};
 	F52B100E10524313005807E4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -2011,9 +2053,9 @@
 	};
 	F5FAB5441034B35800B4CCF4 /* SineConnect.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1309, 5236}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1309, 5124}}";
 			sepNavSelRange = "{386, 0}";
-			sepNavVisRange = "{300, 1131}";
+			sepNavVisRange = "{35, 848}";
 			sepNavWindowFrame = "{{19, -5}, {750, 1028}}";
 		};
 	};
