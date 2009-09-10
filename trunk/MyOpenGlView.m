@@ -87,6 +87,7 @@
 //		provider = [[Sparkles alloc] init];
 //		provider = [[Ripples alloc] init];
 		provider = [[SineConnect alloc] init];
+//		provider = [[LineConnect alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
 		
@@ -116,7 +117,7 @@
 	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnableClientState(GL_VERTEX_ARRAY);
 	
-	glLineWidth(4);
+	glLineWidth(3);
 	
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();

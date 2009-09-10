@@ -17,6 +17,7 @@
 @synthesize touchDownPos;
 @synthesize speed;
 @synthesize type;
+@synthesize ignoreEvent;
 
 - (id) initWithId:(NSNumber*)aUid withType:(TouchType)aType atPos:(CGPoint)aPos
 {

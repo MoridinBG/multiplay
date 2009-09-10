@@ -11,7 +11,19 @@
 @implementation TargettingInteractor
 @synthesize target;
 @synthesize origin;
-@synthesize distance;
+
 @synthesize targetCache;
+@synthesize originCache;
+
+- (id) initWithOrigin:(NSNumber*) aOrigin target:(NSNumber*) aTarget
+{
+	if(self = [super init])
+	{
+		origin = aOrigin;
+		target = aTarget;
+	}
+	
+	return self;
+}
 
 @end

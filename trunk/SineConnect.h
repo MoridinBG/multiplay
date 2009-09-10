@@ -12,6 +12,7 @@
 
 #import "EffectProvider.h"
 #import "EffectProviderProtocol.h"
+#import "ProximitySensorProtocol.h"
 
 #import "Logger.h"
 
@@ -22,7 +23,7 @@
 
 #import "TargettingInteractor.h"
 
-@interface SineConnect : EffectProvider <EffectProviderProtocol>
+@interface SineConnect : EffectProvider <EffectProviderProtocol, ProximitySensorProtocol>
 {
 	NSMutableDictionary *dieingSpots;			//Store ripples for removed touches until animated out
 	NSMutableArray *deadSpots;					//We can't modify a container, while enumerating, so temporary put finally dead ripples here
@@ -30,7 +31,7 @@
 	NSMutableArray *sines;						//Travelling sine waves
 	NSMutableArray *deadSines;					//Sine waves that have reached their destination
 	
-	NSMutableArray *sineHolders;
+	NSMutableArray *sleepingSines;
 	
 	NSArray *keys;
 	
@@ -47,17 +48,12 @@
 	float alpha;
 	float alphaStep;
 	
-	float vertices[SINECONNECT_NUM_VERTICES * 2];
+	float sineVertices[SINECONNECT_NUM_VERTICES * 2];
 	int vertexIndex;
 }
 - (id) init;
-- (void) createVertexArray;
+- (void) createSineVertexArray;
 
 - (void) processTouches:(TouchEvent*)event;
 - (void) render;
-
-- (void) contactBetween:(NSNumber*) firstID And:(NSNumber*) secondID;
-- (void) updateContactBetween:(NSNumber*) firstID And:(NSNumber*) secondID;
-- (void) removeContactBetween:(NSNumber*) firstID And:(NSNumber*) secondID;
-
 @end

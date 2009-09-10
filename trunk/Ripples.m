@@ -38,6 +38,10 @@
 - (void) processTouches:(TouchEvent*)event
 {
 	[super processTouches:event];
+	
+	if([event ignoreEvent])
+		return;
+	
 	NSNumber *uid = event.uid;
 	CGPoint pos = event.pos;
 //	CGPoint oldPos = event.lastPos;
@@ -70,7 +74,7 @@
 - (void) render
 {
 	float scale;
-	float radius = 0.25;
+	float radius = 0.10;
 	float angle;
 	float delta;
 	bool isScaling;
@@ -100,7 +104,10 @@
 		isScaling = [ripple isScaling];
 		isNew = [ripple isNew];
 		
-		NSArray *color = [colors objectForKey:uid];
+		RGBA color;
+		[(NSValue*)[colors objectForKey:uid] getValue:&color];
+		
+		
 
 		glLoadIdentity();
 		glTranslated(pos.x, pos.y, 0.0f);
@@ -111,17 +118,17 @@
 		
 		glBegin(GL_TRIANGLE_FAN);
 		//Set the color for the center
-		glColor3f([[color objectAtIndex:0] floatValue], [[color objectAtIndex:1] floatValue], [[color objectAtIndex:2] floatValue]);
+		glColor3f(color.r, color.g, color.b);
 		glVertex2f(pos.x, pos.y);
 		for(int i = 0; i <= SECTORS_RIPPLE;i++) 
 		{
 			//Draw bigger ripple in one color
-			glColor3f([[color objectAtIndex:0] floatValue], [[color objectAtIndex:1] floatValue], [[color objectAtIndex:2] floatValue]);
+			glColor3f(color.r, color.g, color.b);
 			glVertex2f(radius * cosArray[i] + pos.x, 
 					   radius * sinArray[i] + pos.y);
 
 			//And smaller one in different color
-			glColor3f([[color objectAtIndex:2] floatValue], [[color objectAtIndex:0] floatValue], [[color objectAtIndex:1] floatValue]);
+			glColor3f(color.b, color.r, color.g);
 			glVertex2f(radius / 2 * cosArray[i] + pos.x, 
 					   radius / 2 * sinArray[i] + pos.y);
 		}
@@ -161,7 +168,8 @@
 		scale = [ripple scale];
 		pos = [ripple position];
 		
-		NSArray *color = [colors objectForKey:uid];
+		RGBA color;
+		[(NSValue*)[colors objectForKey:uid] getValue:&color];
 		
 		glLoadIdentity();
 		glTranslated(pos.x, pos.y, 0.0f);
@@ -170,17 +178,17 @@
 		
 		glBegin(GL_TRIANGLE_FAN);
 		//Set the color for the center
-		glColor3f([[color objectAtIndex:0] floatValue], [[color objectAtIndex:1] floatValue], [[color objectAtIndex:2] floatValue]);
+		glColor3f(color.r, color.g, color.b);
 		glVertex2f(pos.x, pos.y);
 		for(int i = 0; i <= SECTORS_RIPPLE;i++) 
 		{
 			//Draw bigger ripple in one color
-			glColor3f([[color objectAtIndex:0] floatValue], [[color objectAtIndex:1] floatValue], [[color objectAtIndex:2] floatValue]);
+			glColor3f(color.r, color.g, color.b);
 			glVertex2f(radius * cosArray[i] + pos.x, 
 					   radius * sinArray[i] + pos.y);
 			
 			//And smaller one in different color
-			glColor3f([[color objectAtIndex:2] floatValue], [[color objectAtIndex:0] floatValue], [[color objectAtIndex:1] floatValue]);
+			glColor3f(color.b, color.r, color.g);
 			glVertex2f(radius / 2 * cosArray[i] + pos.x, 
 					   radius / 2 * sinArray[i] + pos.y);
 		}

@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 #import "TuioListener.h"
+#import "TuioMultiplexor.h"
 #import "TouchEvent.h"
 #import "consts.h"
 #import "Logger.h"
@@ -17,13 +18,18 @@
 #import "b2Physics.h"
 #import "SparklesPhysics.h"
 
+#import "TargettingInteractor.h"
+
 @class Sparkles;
 @class Ripples;
 @class SineConnect;
+@class LineConnect;
 @interface EffectProvider : NSObject 
 {
-	TuioListener *listener;
+	NSMutableArray *listeners;
 	NSThread *physicsThread;
+	
+	TuioMultiplexor *multiplexor;
 	
 	NSMutableDictionary *colors;
 	NSMutableDictionary *touches;

@@ -49,7 +49,7 @@ void b2ContactDetector::Result(const b2ContactResult* point)
 {
 }
 
-void b2ContactDetector::setProvider(SineConnect *provider)
+void b2ContactDetector::setProvider(EffectProvider <ProximitySensorProtocol> *provider)
 {
 	effectProvider = provider;
 }

@@ -17,6 +17,7 @@
 	CGPoint touchDownPos;
 	float speed;
 	TouchType type;
+	bool ignoreEvent;
 }
 
 @property (copy) NSNumber *uid;
@@ -25,6 +26,7 @@
 @property CGPoint touchDownPos;
 @property float speed;
 @property TouchType type;
+@property bool ignoreEvent;
 
 - (id) initWithId:(NSNumber*)aUid withType:(TouchType)aType atPos:(CGPoint)aPos;
 - (void) setPos:(CGPoint) newPos;

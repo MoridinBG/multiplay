@@ -28,22 +28,21 @@
 		sines = [[NSMutableArray alloc] initWithCapacity:100];
 		deadSines = [[NSMutableArray alloc] initWithCapacity:100];
 		
-		sineHolders = [[NSMutableArray alloc] init];
+		sleepingSines = [[NSMutableArray alloc] init];
 		
-		[self createVertexArray];
-		
+		[self createSineVertexArray];
 		[physicsThread start];
 	}
 	return self;
 }
 
-- (void) createVertexArray
+- (void) createSineVertexArray
 {
 	int tmp = 0;
 	for(float i = 234.0f; i >= -9.0f; i -= 3.6f)
 	{
-		vertices[tmp] = (i / 72.0f) / 10.0f;
-		vertices[tmp + 1] = sin(i * 10 * DEG2RAD) / 60.0f;
+		sineVertices[tmp] = (i / 72.0f) / 7.0f;
+		sineVertices[tmp + 1] = sin(i * 10 * DEG2RAD) / 70.0f;
 		
 		tmp += 2;
 	}
@@ -53,6 +52,9 @@
 - (void) processTouches:(TouchEvent*)event
 {
 	[super processTouches:event];
+	
+	if([event ignoreEvent])
+		return;
 	
 	NSNumber *uniqueID = event.uid;
 	CGPoint pos = event.pos;
@@ -68,20 +70,20 @@
 			}
 			
 			[Logger logMessage:@"Process sine touch down event" ofType:DEBUG_TOUCH];
-
-			if((pos.x < -1.60f) || (pos.x > 1.60f) || (pos.y < -1.0f) || (pos.y > 1.0f))
-			{
-				[Logger logMessage:@"Touch out of range" ofType:DEBUG_GENERAL];
-				return;
-			}
 			
-			TargettingInteractor *spot = [[TargettingInteractor alloc] initWithPos:pos];
+			InteractiveObject *spot = [[InteractiveObject alloc] initWithPos:pos];
 			[spot setDelta:0.1];
 			[spot setPhysicsData:[(b2Physics*)physicsThread addContactListenerAtX:pos.x Y:pos.y withUid:uniqueID]];
 			
-			[touches setObject:spot forKey:uniqueID];
+			if(([sines count] <= ([touches count] / 2)))
+			{
+				TargettingInteractor *sine = [[TargettingInteractor alloc] initWithPos:pos];
+				
+				[sine setOrigin:uniqueID];
+				[sleepingSines addObject:sine];
+			}
 			
-		
+			[touches setObject:spot forKey:uniqueID];		
 		} break;
 			
 		case TouchMove:
@@ -97,23 +99,7 @@
 				body->WakeUp();
 			body->SetXForm(b2Vec2(pos.x, pos.y), 0.0f);
 			
-			InteractiveObject *touch  = [touches objectForKey:uniqueID];
-			
-			if(([sines count] < ([touches count] / 2)) && ([[touch getNeighbours] count]) && ((arc4random() % 10) > 5))
-			{
-				TargettingInteractor *sine = [[TargettingInteractor alloc] initWithPos:pos];
-
-				NSArray *neighbours = [touch getNeighbours];
-				NSNumber *target = [neighbours objectAtIndex:(arc4random() % [neighbours count])];
-				
-				[sine setOrigin:uniqueID];
-				[sine setTarget:target];
-				[sine setScale:1.0f];
-				
-				[sines addObject:sine];
-			}
-			
-			[touch setPosition:pos];
+			[(InteractiveObject*)[touches objectForKey:uniqueID] setPosition:pos];
 		} break;
 			
 		case TouchRelease:
@@ -145,9 +131,25 @@
 	
 	glColor3f(1.0, 1.0, 1.0);
 	
+	for(sine in sleepingSines)
+	{
+		NSArray *neighbours = [[touches objectForKey:[sine origin]] getNeighbours];
+		if(![neighbours count])
+			continue;
+		
+		[sine setScale:1.0f];
+		
+		NSNumber *target = [neighbours objectAtIndex:(arc4random() % [neighbours count])];
+		[sine setTarget:target];
+		
+		[sines addObject:sine];
+	}
+	
 	//Draw sines
 	for(sine in sines)
 	{
+		if([sleepingSines containsObject:sine])
+			[sleepingSines removeObject:sine];
 		
 		if(![touches objectForKey:[sine target]])
 		{
@@ -158,6 +160,9 @@
 		CGPoint begin = [sine position];// [(InteractiveObject*)[touches objectForKey:[sine origin]] position];
 		CGPoint end = [(InteractiveObject*)[touches objectForKey:[sine target]] position];
 		pos = [sine position];
+		
+		RGBA color;
+		[(NSValue*)[colors objectForKey:[sine target]] getValue:&color];
 		
 		float a = begin.y - end.y;
 		float b = begin.x - end.x;
@@ -174,6 +179,8 @@
 			[sine setScale:([sine scale] - 0.1f)];
 			if([sine scale] < 0.2)
 			{
+				[sine setOrigin:[sine target]];
+				[sleepingSines addObject:sine];
 				[deadSines addObject:sine];
 			}
 		}
@@ -193,12 +200,13 @@
 		glLoadIdentity();
 		glTranslatef(begin.x, begin.y, 0.0f);
 		glRotatef(angle, 0.0f, 0.0f, 1.0f);
-		glTranslatef(-vertices[vertexIndex], 0.0f, 0.0f);
+		glTranslatef(-sineVertices[vertexIndex], 0.0f, 0.0f);
 		
+		glColor3f(color.r, color.g, color.b);
 		glBegin(GL_LINE_STRIP);
 		for(int i = 0; i < (60 * [sine scale]); i +=2)
 		{
-			glVertex2f(vertices[i + vertexIndex], vertices[i + vertexIndex + 1]);
+			glVertex2f(sineVertices[i + vertexIndex], sineVertices[i + vertexIndex + 1]);
 		}
 		glEnd();
 	}
@@ -208,27 +216,6 @@
 		[sines removeObject:sine];
 	}
 	[deadSines removeAllObjects];
-	
-	
-/*	//Debug sectors network
-	glLineWidth(1);
-	glLoadIdentity();
-	glColor3f(1.0f, 0.0f, 0.0f);
-	for(float i = 1.0f; i < 16.0f; i += 1.0f)
-	{
-		glBegin(GL_LINES);
-		glVertex2f(-1.60f + (i * (3.20f / 16.0f)), -1.0f);
-		glVertex2f(-1.60f + (i * (3.20f / 16.0f)), 1.0f);
-		glEnd();
-	}
-	for(float i = 1.0f; i < 10.0f; i += 1.0f)
-	{
-		glBegin(GL_LINES);
-		glVertex2f(-1.60f, -1.0f + (i * (2.0f / 10.0f)));
-		glVertex2f(1.60f, -1.0f + (i * (2.0f / 10.0f)));
-		glEnd();
-	}
-	glLineWidth(4); */
 	
 	keys = [touches allKeys];
 	if((![keys count]) && (![[dieingSpots allKeys] count]))
@@ -247,15 +234,18 @@
 		
 		alpha = 0.8f;
 		
+		RGBA color;
+		[(NSValue*)[colors objectForKey:uid] getValue:&color];
+		
 		//Scale
 		glLoadIdentity();
 		glTranslated(pos.x, pos.y, 0.0);
 		glScaled(scale, scale, 1.0);
 		glTranslated(-pos.x, -pos.y, 0.0);
-		
+
 		for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)
 		{
-			glColor4f(1.0f, 1.0f, 1.0f, alpha);
+			glColor4f(color.r, color.g, color.b, alpha);
 			glBegin(GL_POLYGON);
 			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
 			{
@@ -268,7 +258,6 @@
 		}
 		
 		//Draw a debug cirlce showing the sensors range
-		
 /*		glColor3f(1.0f, 1.0f, 1.0f);
 		glLoadIdentity();
 		glBegin(GL_LINE_LOOP);
@@ -315,6 +304,9 @@
 		
 		alpha = 0.8f;
 		
+		RGBA color;
+		[(NSValue*)[colors objectForKey:uid] getValue:&color];
+		
 		glLoadIdentity();
 		glTranslated(pos.x, pos.y, 0.0);
 		glScaled(scale, scale, 1.0);
@@ -322,7 +314,7 @@
 		
 		for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)
 		{
-			glColor4f(1.0f, 1.0f, 1.0f, alpha);
+			glColor4f(color.r, color.g, color.b, alpha);
 			glBegin(GL_POLYGON);
 			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
 			{
@@ -356,7 +348,6 @@
 
 - (void) contactBetween:(NSNumber*) firstID And:(NSNumber*) secondID
 {
-		NSLog(@"Here");
 	[[touches objectForKey:firstID] addNeighbour:secondID];
 	[[touches objectForKey:secondID] addNeighbour:firstID];
 }

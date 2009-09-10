@@ -18,12 +18,21 @@
 @synthesize isNew;
 @synthesize delta;
 @synthesize physicsData;
+@synthesize color;
 
 - (id) initWithPos:(CGPoint) pos
 {
-	if(self = [super init])
+	if(self = [self init])
 	{
 		position = pos;
+	}
+	return self;
+}
+
+- (id) init
+{
+	if(self = [super init])
+	{
 		scale = 0.01f;
 		angle = 0.0f;
 		isScaling = TRUE;
@@ -31,7 +40,8 @@
 		delta = 0.08;
 		
 		neighbours = [[NSMutableArray alloc] init];
-		interactors = [[NSMutableArray alloc] init];
+		connectedNeighbours = [[NSMutableDictionary alloc] initWithCapacity:100];
+		
 	}
 	return self;
 }
@@ -59,19 +69,96 @@
 	return neighbours;
 }
 
-- (void) addInteractor:(NSNumber*) uid
+- (void) addNeighbour:(NSNumber*) uid withConnection:(TargettingInteractor*) connection
 {
-	[interactors addObject:uid];
+	[connectedNeighbours setObject:connection forKey:uid];
 }
 
-- (void) removeInteracotr:(NSNumber*) uid
+- (TargettingInteractor*) removeConnectedNeighbour:(NSNumber*) uid
 {
-	[interactors removeObject:uid];
+	TargettingInteractor *connection = [connectedNeighbours objectForKey:uid];
+	[connectedNeighbours removeObjectForKey:uid];
+	
+	return connection;
 }
 
-- (bool) hasInteractor:(NSNumber*) uid
+- (bool) hasConnectedNeighbour:(NSNumber*) neighbour
 {
-	return [interactors containsObject:uid];
+	return [[connectedNeighbours allKeys] containsObject:neighbour];
+}
+
+- (int) connectedNeighboursCount
+{
+	return [connectedNeighbours count];
+}
+
+- (void) setColor:(RGBA) aColor
+{
+	color = aColor;
+	newColor = aColor;
+}
+
+- (void) randomizeColor
+{
+	if(color.r != newColor.r)
+	{
+		if((color.r > newColor.r) && (colorStep.r > 0))
+		{
+			newColor.r = (((float)(arc4random() % 1000)) / 1000);
+			colorStep.r = (newColor.r - color.r) / 60.0f;
+		}
+		if((color.r < newColor.r) && (colorStep.r < 0))
+		{
+			newColor.r = (((float)(arc4random() % 1000)) / 1000);
+			colorStep.r = (newColor.r - color.r) / 60.0f;
+		}
+		color.r += colorStep.r;
+	}
+	else
+	{
+		newColor.r = (((float)(arc4random() % 1000)) / 1000);
+		colorStep.r = (newColor.r - color.r) / 60.0f;
+	}
+	
+	if(color.g != newColor.g)
+	{
+		if((color.g > newColor.g) && (colorStep.g > 0))
+		{
+			newColor.g = (((float)(arc4random() % 1000)) / 1000);
+			colorStep.g = (newColor.g - color.g) / 60.0f;
+		}
+		if((color.g < newColor.g) && (colorStep.g < 0))
+		{
+			newColor.g = (((float)(arc4random() % 1000)) / 1000);
+			colorStep.g = (newColor.g - color.g) / 60.0f;
+		}
+		color.g += colorStep.g;
+	}
+	else
+	{
+		newColor.g = (((float)(arc4random() % 1000)) / 1000);
+		colorStep.g = (newColor.g - color.g) / 60.0f;
+	}
+	
+	if(color.b != newColor.b)
+	{
+		if((color.b > newColor.b) && (colorStep.b > 0))
+		{
+			newColor.b = (((float)(arc4random() % 1000)) / 1000);
+			colorStep.b = (newColor.b - color.b) / 60.0f;
+		}
+		if((color.b < newColor.b) && (colorStep.b < 0))
+		{
+			newColor.b = (((float)(arc4random() % 1000)) / 1000);
+			colorStep.b = (newColor.b - color.b) / 60.0f;
+		}	
+		color.b += colorStep.b;
+	}
+	else
+	{
+		newColor.b = (((float)(arc4random() % 1000)) / 1000);
+		colorStep.b = (newColor.b - color.b) / 60.0f;
+	}
 }
 
 @end

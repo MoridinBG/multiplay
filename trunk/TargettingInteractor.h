@@ -14,11 +14,15 @@
 {
 	NSNumber *origin;
 	NSNumber *target;
-	float distance;
 	CGPoint targetCache;
+	CGPoint originCache;
 }
 @property (copy) NSNumber *origin;
 @property (copy) NSNumber *target;
-@property float distance;
+
 @property CGPoint targetCache;
+@property CGPoint originCache;
+
+- (id) initWithOrigin:(NSNumber*) aOrigin target:(NSNumber*) aTarget;
+
 @end

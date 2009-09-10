@@ -13,6 +13,7 @@
 #define DEBUG_LISTENER_STATE FALSE
 #define DEBUG_LISTENER_MOVE_STATE FALSE
 #define DEBUG_RENDER_STATE FALSE
+#define DEBUG_PHYSICS_STATE FALSE
 
 #define COLOR_BITS (NSOpenGLPixelFormatAttribute)24
 #define DEPTH_BITS (NSOpenGLPixelFormatAttribute)16
@@ -31,4 +32,12 @@
 
 static const int MOUSE_ID = -1;
 typedef enum touchtype {TouchDown, TouchMove, TouchRelease} TouchType;
-typedef enum debugstate {DEBUG_TOUCH, DEBUG_TOUCH_MOVE, DEBUG_LISTENER, DEBUG_LISTENER_MOVE, DEBUG_GENERAL, DEBUG_RENDER} DebugState;
+typedef enum debugstate {DEBUG_TOUCH, DEBUG_TOUCH_MOVE, DEBUG_LISTENER, DEBUG_LISTENER_MOVE, DEBUG_GENERAL, DEBUG_RENDER, DEBUG_PHYSICS} DebugState;
+
+typedef struct 
+{
+	float r;
+	float g;
+	float b;
+	float a;
+} RGBA;

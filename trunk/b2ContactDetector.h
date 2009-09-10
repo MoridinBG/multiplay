@@ -9,8 +9,9 @@
 
 
 #import "box2d/Box2D.h"
+#import "ProximitySensorProtocol.h"
 
-@class SineConnect;
+@class EffectProvider;
 class b2ContactDetector : public b2ContactListener
 {
 public:
@@ -20,7 +21,7 @@ public:
 	void Persist(const b2ContactPoint* point);
 	void Remove(const b2ContactPoint* point);
 	void Result(const b2ContactResult* point);
-	void setProvider(SineConnect *provider);
+	void setProvider(EffectProvider <ProximitySensorProtocol> *provider);
 	
-	SineConnect *effectProvider;
+	EffectProvider <ProximitySensorProtocol> *effectProvider;
 };

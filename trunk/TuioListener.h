@@ -10,20 +10,20 @@
 #import <TUIO/TuioClient.h>
 
 #import "TouchEvent.h"
-#import "Logger.h"
+#import "TuioMultiplexor.h"
 
 @class EffectProvider;
 @interface TuioListener : NSObject <TuioCursorListener, TuioObjectListener>
 {
 	TuioClient *tuioClient;
-	EffectProvider *provider;
+	TuioMultiplexor *multiplexor;
 	
 	NSMutableDictionary *cursors;
 	NSSize dimensions;
 	float ratio;
 }
+@property TuioMultiplexor *multiplexor;
 
-@property EffectProvider *provider;
 - (id) init;
 
 - (void) tuioCursorAdded: (TuioCursor*) newCursor;
@@ -34,8 +34,4 @@
 - (void) tuioObjectAdded: (TuioObject*) newObject;
 - (void) tuioObjectUpdated: (TuioObject*) updateObject;
 - (void) tuioObjectRemoved: (TuioObject*) deadObject;
-
-- (CGPoint) transformCoordinates:(CGPoint)pos;
-- (void) setDimensions:(NSSize) dimensions_;
-
 @end

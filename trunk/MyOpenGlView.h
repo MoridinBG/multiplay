@@ -12,6 +12,7 @@
 #import "Sparkles.h"
 #import "Ripples.h"
 #import "SineConnect.h"
+#import "LineConnect.h"
 
 @class NSOpenGLContext, NSOpenGLPixelFormat;
 
@@ -22,7 +23,7 @@
 	NSOpenGLContext *_windowContext;
 	
 	bool fullscreen;
-	EffectProvider *provider;
+	EffectProvider <EffectProviderProtocol> *provider;
 	NSRect projectionSize;
 } 
 

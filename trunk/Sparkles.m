@@ -18,8 +18,8 @@
 	
 	if(self = [super init])
 	{
-		radius = 0.040f;
-		subStep = 0.039f / 4.0f;
+		radius = 0.025f;
+		subStep = 0.039f / 8.0f;
 		
 		alphaStep = 0.8f / (radius / subStep);
 		
@@ -32,7 +32,11 @@
 - (void) processTouches:(TouchEvent*)event
 {
 	[super processTouches:event];
-	NSNumber *uid = event.uid;
+	
+	if([event ignoreEvent])
+		return;
+	
+	NSNumber *uniqueID = event.uid;
 	CGPoint pos = event.pos;
 	CGPoint oldPos = event.lastPos;
 	switch (event.type) 
@@ -41,14 +45,8 @@
 		{
 			[Logger logMessage:@"Process sparkle touch down event" ofType:DEBUG_TOUCH];
 			
-			LiteTouchInfo touch = {uid, pos};
+			LiteTouchInfo touch = {uniqueID, pos};
 			[factory setPosition:touch];
-			
-			NSMutableArray *color = [[NSMutableArray alloc] initWithCapacity:3];
-			[color addObject:[NSNumber numberWithFloat:(((float)(arc4random() % 1000)) / 1000)]];
-			[color addObject:[NSNumber numberWithFloat:(((float)(arc4random() % 1000)) / 1000)]];
-			[color addObject:[NSNumber numberWithFloat:(((float)(arc4random() % 1000)) / 1000)]];
-			[colors setObject:color forKey:uid];
 		} break;
 		case TouchMove:
 		{
@@ -57,14 +55,14 @@
 			if((pos.x == oldPos.x) && (pos.y == oldPos.y))
 				return;
 			
-			LiteTouchInfo touch = {uid, pos};
+			LiteTouchInfo touch = {uniqueID, pos};
 			[factory setPosition:touch];
 		} break;
 		case TouchRelease:
 		{
 			[Logger logMessage:@"Process sparkle touch release event" ofType:DEBUG_TOUCH];
 			
-			[factory removePosition:uid];
+			[factory removePosition:uniqueID];
 		} break;
 	}
 }
@@ -72,19 +70,16 @@
 - (void) render
 {
 	sparkleGroups = [factory getPositions];
+
 	keys = [sparkleGroups allKeys];
-	if(![keys count])
-	{
-		[colors removeAllObjects];
-		return;
-	}
-	
 	for(uid in keys)
 	{
 		[Logger logMessage:@"Rendering a Sparkles fountain" ofType:DEBUG_RENDER];
 		
 		sparkleGroup = [sparkleGroups objectForKey:uid];
-		NSArray *color = [colors objectForKey:uid];
+
+		RGBA color;
+		[(NSValue*)[colors objectForKey:uid] getValue:&color];
 		
 		for(sparkleWrapper in sparkleGroup)
 		{
@@ -95,7 +90,7 @@
 			
 			for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)
 			{
-				glColor4f([[color objectAtIndex:0] floatValue], [[color objectAtIndex:1] floatValue], [[color objectAtIndex:2] floatValue], alpha * sparkle.alpha);
+				glColor4f(color.r, color.g, color.b, alpha * sparkle.alpha);
 				glBegin(GL_POLYGON);
 				for(int i = 0; i <= (SECTORS_SPARKLE); i++) 
 				{

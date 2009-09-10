@@ -23,14 +23,21 @@
 		{
 			sectors = SECTORS_RIPPLE;
 		}
-		else if([self isKindOfClass:[SineConnect class]])
+		else if(([self isKindOfClass:[SineConnect class]]) || ([self isKindOfClass:[LineConnect class]]))
 		{
 			physicsThread = [[b2Physics alloc] init];
 			sectors = SECTORS_TOUCH;
 		}
 		
-		listener = [[TuioListener alloc] init];
-		[listener setProvider:self];
+		multiplexor = [[TuioMultiplexor alloc] initWithListeners:2];
+		[multiplexor setProvider:self];
+		
+		listeners = [[NSMutableArray alloc] init];
+		
+		TuioListener *listener = [[TuioListener alloc] init];
+		[listener setMultiplexor:multiplexor];
+		[listeners addObject:listener];
+		
 		
 		colors = [[NSMutableDictionary alloc] initWithCapacity:100];
 		touches = [[NSMutableDictionary alloc] initWithCapacity:100];
@@ -55,21 +62,28 @@
 
 - (void) processTouches:(TouchEvent*)event
 {
+	CGPoint pos = [event pos];
+	if((pos.x < 0) || (pos.x > 1.60f) || (pos.y < 0) || (pos.y > 1.0f))
+	{
+		[Logger logMessage:@"Touch out of range" ofType:DEBUG_GENERAL];
+		return;
+	}
 	switch (event.type) 
 	{
 		case TouchDown:
 		{
 			[Logger logMessage:@"Process ancestor touch down event" ofType:DEBUG_TOUCH];
 			
-			NSMutableArray *color = [[NSMutableArray alloc] initWithCapacity:3];
-			[color addObject:[NSNumber numberWithFloat:(((float)(arc4random() % 1000)) / 1000)]];
-			[color addObject:[NSNumber numberWithFloat:(((float)(arc4random() % 1000)) / 1000)]];
-			[color addObject:[NSNumber numberWithFloat:(((float)(arc4random() % 1000)) / 1000)]];
+			RGBA colorStruct = {(((float)(arc4random() % 1000)) / 1000), (((float)(arc4random() % 1000)) / 1000), (((float)(arc4random() % 1000)) / 1000), 1.0f};
+			NSValue *color = [NSValue value:&colorStruct withObjCType:@encode(RGBA)];
+
 			[colors setObject:color forKey:event.uid];
 		} break;
 			
 		case TouchMove:
 		{
+//			if((pow(event.pos.x - event.lastPos.x, 2) < 0.05) && (pow(event.pos.y - event.lastPos.y, 2) < 0.05))
+//				[event setIgnoreEvent:TRUE];
 
 		} break;
 			
@@ -82,6 +96,6 @@
 - (void) setDimensions:(NSSize) dimensions_
 {
 	dimensions = dimensions_;
-	[listener setDimensions:dimensions];
+	[multiplexor setDimensions:dimensions];
 }
 @end

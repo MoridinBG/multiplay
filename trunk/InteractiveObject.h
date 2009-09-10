@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "consts.h"
 
-
+@class TargettingInteractor;
 @interface InteractiveObject : NSObject
 {
 	float scale;
@@ -19,8 +20,12 @@
 	bool isNew;
 	
 	NSMutableArray *neighbours;
-	NSMutableArray *interactors;
+	NSMutableDictionary *connectedNeighbours;
 	void *physicsData;
+	
+	RGBA color;
+	RGBA newColor;
+	RGBA colorStep;
 }
 
 @property float scale;
@@ -29,6 +34,7 @@
 @property CGPoint position;
 @property bool isScaling;
 @property bool isNew;
+@property RGBA color;
 
 @property void *physicsData;
 
@@ -39,9 +45,14 @@
 - (void) removeNeighbour:(NSNumber*) uid;
 - (NSArray*) getNeighbours;
 
-- (void) addInteractor:(NSNumber*) uid;
-- (void) removeInteracotr:(NSNumber*) uid;
-- (bool) hasInteractor:(NSNumber*) uid;
+- (void) addNeighbour:(NSNumber*) uid withConnection:(TargettingInteractor*) connection;
+- (TargettingInteractor*) removeConnectedNeighbour:(NSNumber*) uid;
+- (bool) hasConnectedNeighbour:(NSNumber*) neighbour;
+
+- (int) connectedNeighboursCount;
+
+- (void) setColor:(RGBA) aColor;
+- (void) randomizeColor;
 
 @end
 

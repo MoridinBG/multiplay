@@ -49,6 +49,11 @@
 			if(DEBUG_RENDER_STATE)
 				NSLog(message);
 		} break;
+		case DEBUG_PHYSICS:
+		{
+			if(DEBUG_PHYSICS_STATE)
+				NSLog(message);
+		}
 	}
 }
 @end
