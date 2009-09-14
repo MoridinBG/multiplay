@@ -17,7 +17,8 @@
 
 #define COLOR_BITS (NSOpenGLPixelFormatAttribute)24
 #define DEPTH_BITS (NSOpenGLPixelFormatAttribute)16
-#define FULLSCREEN NO
+#define FULLSCREEN FALSE
+#define SIMULATOR TRUE
 
 
 #define PI 3.14159f

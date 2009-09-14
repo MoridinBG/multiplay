@@ -65,26 +65,26 @@
 	float maxX = segment + (offset * segment);
 	float minX = maxX - segment;
 	
-	//Hackintosh Simulator
-	float oldMaxX = 1.0f;
-	float oldMaxY = 1.0f;
+	float oldMaxX, oldMaxY, oldMinX, oldMinY;
 	
-	float oldMinX = 0.0f;
-	float oldMinY = 0.0f;
-	
-	//Prototype
-/*	 float oldMaxX = 0.848f;
-	 float oldMaxY = 0.996;
-	 
-	 float oldMinX = 0.227f;
-	 float oldMinY = 0.124f; */
-	
-	//Macbook Simulator
-	/*	float oldMaxX = 1.82f;
-	 float oldMaxY = 1.50f;
-	 
-	 float oldMinX = 1280.0f;
-	 float oldMinY = 1008.0f; */
+	if(SIMULATOR)
+	{
+		//Simulator
+		oldMaxX = 1.0f;
+		oldMaxY = 1.0f;
+		
+		oldMinX = 0.0f;
+		oldMinY = 0.0f;
+	}
+	else
+	{
+		//Prototype
+		oldMaxX = 0.848f;
+		oldMaxY = 0.996;
+		
+		oldMinX = 0.227f;
+		oldMinY = 0.124f;
+	}
 	
 	//NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
 	float newX = (((oldX - oldMinX) * (maxX - minX)) / (oldMaxX - oldMinX)) + minX;

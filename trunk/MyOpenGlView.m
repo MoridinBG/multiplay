@@ -34,7 +34,6 @@
 			NSOpenGLPFASamples, (NSOpenGLPixelFormatAttribute)4,
 			NSOpenGLPFAAccelerated,
 			NSOpenGLPFADoubleBuffer,
-//			(NSOpenGLPixelFormatAttribute)CGDisplayIDToOpenGLDisplayMask(displays[0]),
 //			(NSOpenGLPixelFormatAttribute)CGDisplayIDToOpenGLDisplayMask(displays[1]),
 			NSOpenGLPFAColorSize, COLOR_BITS,
 			NSOpenGLPFADepthSize, DEPTH_BITS,
@@ -64,8 +63,8 @@
 		[self fullscreen:self];		// Because this will toggle
 
 		//Enable VSync to prevent tearing
-		GLint swapInterval = 1; 
-		CGLSetParameter (CGLGetCurrentContext(), kCGLCPSwapInterval, &swapInterval);
+//		GLint swapInterval = 1; 
+//		CGLSetParameter (CGLGetCurrentContext(), kCGLCPSwapInterval, &swapInterval);
 		
 		if(!success)
 		{
@@ -84,9 +83,9 @@
 			NSLog(@"Here");
 		}    
 		
-//		provider = [[Sparkles alloc] init];
+		provider = [[Sparkles alloc] init];
 //		provider = [[Ripples alloc] init];
-		provider = [[SineConnect alloc] init];
+//		provider = [[SineConnect alloc] init];
 //		provider = [[LineConnect alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
@@ -185,7 +184,6 @@
 
 - (void) fullscreen:(id)sender
 {
-	float width, height;
 	if(fullscreen)
 	{
 		fullscreen = NO;
@@ -193,8 +191,6 @@
 		[_windowContext makeCurrentContext];
 		CGReleaseAllDisplays();
 		
-		width = (unsigned int)[self frame].size.width;
-		height = (unsigned int)[self frame].size.height;
 	}
 	else
 	{
@@ -210,9 +206,6 @@
 		
 		[_fullscreenContext setFullScreen];
 		[_fullscreenContext makeCurrentContext];
-		
-		width = CGDisplayPixelsWide(kCGDirectMainDisplay);
-		height = CGDisplayPixelsHigh(kCGDirectMainDisplay);
 	}
 }
 @end

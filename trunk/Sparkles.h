@@ -22,7 +22,7 @@
 	NSDictionary *sparkleGroups;
 	
 	NSArray *sparkleGroup;
-	NSValue *sparkleWrapper;
+	Sparkle *sparkle;
 	
 	NSArray *keys;
 	NSNumber *uid;

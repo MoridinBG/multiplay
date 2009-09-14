@@ -18,6 +18,7 @@
 	CGPoint position;
 	bool isScaling;
 	bool isNew;
+	bool isHolding;
 	
 	NSMutableArray *neighbours;
 	NSMutableDictionary *connectedNeighbours;
@@ -34,6 +35,7 @@
 @property CGPoint position;
 @property bool isScaling;
 @property bool isNew;
+@property bool isHolding;
 @property RGBA color;
 
 @property void *physicsData;

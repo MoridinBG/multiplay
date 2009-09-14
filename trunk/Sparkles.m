@@ -74,17 +74,15 @@
 	keys = [sparkleGroups allKeys];
 	for(uid in keys)
 	{
-		[Logger logMessage:@"Rendering a Sparkles fountain" ofType:DEBUG_RENDER];
+		[Logger logMessage:@"Rendering a Sparkle fountain" ofType:DEBUG_RENDER];
 		
 		sparkleGroup = [sparkleGroups objectForKey:uid];
 
 		RGBA color;
 		[(NSValue*)[colors objectForKey:uid] getValue:&color];
 		
-		for(sparkleWrapper in sparkleGroup)
+		for(sparkle in sparkleGroup)
 		{
-			struct Sparkle sparkle;
-			[sparkleWrapper getValue:&sparkle];
 			
 			alpha = 0.8f;
 			

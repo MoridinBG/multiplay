@@ -97,12 +97,12 @@
 		[Logger logMessage:[NSString stringWithFormat:@"Rendering ripple %d", [uid integerValue]] ofType:DEBUG_RENDER];
 		
 		ripple = [ripples objectForKey:uid];
-		scale = [ripple scale];
-		pos = [ripple position];
-		angle = [ripple angle];
-		delta = [ripple delta];
-		isScaling = [ripple isScaling];
-		isNew = [ripple isNew];
+		scale = ripple.scale;;
+		pos = ripple.position;
+		angle = ripple.angle;
+		delta = ripple.delta;
+		isScaling = ripple.isScaling;
+		isNew = ripple.isNew;
 		
 		RGBA color;
 		[(NSValue*)[colors objectForKey:uid] getValue:&color];
@@ -129,8 +129,8 @@
 
 			//And smaller one in different color
 			glColor3f(color.b, color.r, color.g);
-			glVertex2f(radius / 2 * cosArray[i] + pos.x, 
-					   radius / 2 * sinArray[i] + pos.y);
+			glVertex2f(radius / 1.5 * cosArray[i] + pos.x, 
+					   radius / 1.5 * sinArray[i] + pos.y);
 		}
 		glEnd();
 
@@ -140,10 +140,10 @@
 			scale += delta;															//Increment its radius
 			if(scale > 1)															//If the radius is getting too big we should start getting smaller
 			{
-				if([ripple isNew])													//If the ripple has gotten so big for the first time decrement the scaling step
+				if(isNew)													//If the ripple has gotten so big for the first time decrement the scaling step
 				{
 					[ripple setIsNew:FALSE];
-					[ripple setDelta:0.008];
+					[ripple setDelta:0.011];
 				}
 				isScaling = !isScaling;												//Not scaling anymore
 			}
@@ -156,7 +156,7 @@
 			}
 		}
 
-		angle += 1.7f;
+		angle += 2.0f;
 		
 		[ripple setParameters:pos scale:scale angle:angle isScaling:isScaling];		//Update current ripple's parameters
 	}
@@ -189,8 +189,8 @@
 			
 			//And smaller one in different color
 			glColor3f(color.b, color.r, color.g);
-			glVertex2f(radius / 2 * cosArray[i] + pos.x, 
-					   radius / 2 * sinArray[i] + pos.y);
+			glVertex2f(radius / 1.5 * cosArray[i] + pos.x, 
+					   radius / 1.5 * sinArray[i] + pos.y);
 		}
 		glEnd();
 		

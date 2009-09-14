@@ -2,13 +2,23 @@
 //  Sparkle.h
 //  Finger
 //
-//  Created by Mood on 8/11/09.
-//  Copyright 2009 The Pixel Factory. All rights reserved.
+//  Created by Ivan Dilchovski on 9/12/09.
+//  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-struct Sparkle 
+#import <Cocoa/Cocoa.h>
+
+
+@interface Sparkle : NSObject 
 {
 	CGPoint position;
 	CGPoint direction;
 	float alpha;
-};
+}
+@property CGPoint position;
+@property CGPoint direction;
+@property float alpha;
+
+- (id) initAtPosition:(CGPoint) aPosition withDirection:(CGPoint) aDirection withAlpha:(float) aAlpha;
+
+@end

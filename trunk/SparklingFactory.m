@@ -18,15 +18,10 @@
 	positions = [[NSMutableDictionary alloc] initWithCapacity:MAX_TOUCHES];
 	
 	deadSparkles = [[NSMutableArray alloc] initWithCapacity:30];
+	deadTouches = [[NSMutableArray alloc] initWithCapacity:100];
 	mutex = [[NSLock alloc] init];
 	
 	NSRunLoop* myRunLoop = [NSRunLoop currentRunLoop];
-/*	NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.024
-													  target:self 
-													selector:@selector(step:) 
-													userInfo:nil 
-													 repeats:YES];
-	[myRunLoop addTimer:timer forMode:NSDefaultRunLoopMode];*/
 	[myRunLoop run];
 	
 }
@@ -37,7 +32,7 @@
 	CGPoint position;
 	CGPoint direction;
 	
-	struct Sparkle sparkle;
+	Sparkle *sparkle;
 	NSMutableArray *sparkleGroup;
 	
 	//Calculate a random position around the touch
@@ -48,107 +43,15 @@
 	position.y -= ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.02);
 	
 	//A value between -0.08 and 0.08 that is used as a direction coordinate
-	direction.x = ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.01);
-	direction.y = ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.01);
+	direction.x = ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.012);
+	direction.y = ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.012);
 	
 	
 	//If this would be the first sparkle for this TouchID, create a group
 	sparkleGroup = [sparkleGroups objectForKey:[theTimer userInfo]];
-
-	sparkle.position.x = position.x;
-	sparkle.position.y = position.y;
 	
-	sparkle.direction.x = direction.x;
-	sparkle.direction.y = direction.y;
-	
-	sparkle.alpha = 1.0f;
-	
-	[sparkleGroup addObject:[NSValue value:&sparkle withObjCType:@encode(struct Sparkle)]];
-	
-	[mutex unlock];
-}
-
-- (void) step:(NSTimer*) theTimer
-{
-	return;
-	[mutex lock];
-	
-	NSArray *uids = [sparkleGroups allKeys];
-	NSNumber *uid;
-	NSMutableArray *sparkleGroup;
-	NSMutableDictionary *groupedPositions = [[NSMutableDictionary alloc] initWithCapacity:([sparkleGroups count] + [dieingSparkleGroups count])];
-	struct Sparkle sparkle;
-	
-	//Iterate over TouchIDs
-	for(uid in uids)
-	{
-		//Get bodies for TouchID
-		sparkleGroup = [sparkleGroups objectForKey:uid];
-		
-		//Iterate over sparkles for this TouchID
-		for(int i = 0; i < [sparkleGroup count]; i++)
-		{
-			[[sparkleGroup objectAtIndex:i] getValue:&sparkle];
-			if(sparkle.alpha >= 0.1f)
-			{
-				sparkle.alpha -= 0.04f;
-				sparkle.position.x += sparkle.direction.x;
-				sparkle.position.y += sparkle.direction.y;
-				[sparkleGroup insertObject:[NSValue value:&sparkle withObjCType:@encode(struct Sparkle)] atIndex:i];
-				[sparkleGroup removeObjectAtIndex:(i+1)];
-			}
-			else
-			{
-				[sparkleGroup removeObjectAtIndex:i];
-				i--;
-			}
-		}
-		[groupedPositions setObject:sparkleGroup forKey:uid];
-	}
-	
-	uids = [dieingSparkleGroups allKeys];
-	//Iterate over dieing TouchIDs
-	for(uid in uids)
-	{
-		//Get bodies for TouchID
-		sparkleGroup = [dieingSparkleGroups objectForKey:uid];
-		
-		//Iterate over sparkles for this TouchID
-		for(int i = 0; i < [sparkleGroup count]; i++)
-		{
-			[[sparkleGroup objectAtIndex:i] getValue:&sparkle];
-			if(sparkle.alpha >= 0.1f)
-			{
-				sparkle.alpha -= 0.08f;
-				[sparkleGroup insertObject:[NSValue value:&sparkle withObjCType:@encode(struct Sparkle)] atIndex:i];
-				[sparkleGroup removeObjectAtIndex:(i+1)];
-			}
-			else
-			{
-				[sparkleGroup removeObjectAtIndex:i];
-				i--;
-			}
-		}
-		//If all the sparkles in this group have died
-		if(![sparkleGroup count])
-		{
-			[deadSparkles addObject:uid];
-		}
-		else
-		{
-			[groupedPositions setObject:sparkleGroup forKey:uid];
-		}
-	}	
-	
-	if([deadSparkles count])
-		for(unsigned int i = 0; i < [deadSparkles count]; i++)
-		{
-			NSNumber *uid = [deadSparkles objectAtIndex:i];
-			[positions removeObjectForKey:uid];
-			[dieingSparkleGroups removeObjectForKey:uid];
-		}
-	
-	[deadSparkles removeAllObjects];
+	sparkle = [[Sparkle alloc] initAtPosition:position withDirection:direction withAlpha:1.0f];
+	[sparkleGroup addObject:sparkle];
 	
 	[mutex unlock];
 }
@@ -157,87 +60,100 @@
 {
 	[mutex lock];
 
-	NSArray *uids = [sparkleGroups allKeys];
-	NSNumber *uid;
+	NSArray *keys = [sparkleGroups allKeys];
+	NSNumber *touchUID;
 	NSMutableArray *sparkleGroup;
-	NSMutableDictionary *groupedPositions = [[NSMutableDictionary alloc] initWithCapacity:([sparkleGroups count] + [dieingSparkleGroups count])];
-	struct Sparkle sparkle;
+	Sparkle *sparkle;
 	
 	//Iterate over TouchIDs
-	for(uid in uids)
+	for(touchUID in keys)
 	{
 		//Get bodies for TouchID
-		sparkleGroup = [sparkleGroups objectForKey:uid];
-		
+		sparkleGroup = [sparkleGroups objectForKey:touchUID];
+		[deadSparkles removeAllObjects];
 		
 		//Iterate over sparkles for this TouchID
-		for(int i = 0; i < [sparkleGroup count]; i++)
+		for(sparkle in sparkleGroup)
 		{
-			[[sparkleGroup objectAtIndex:i] getValue:&sparkle];
 			if(sparkle.alpha >= 0.1f)
 			{
-				sparkle.alpha -= 0.04f;
-				sparkle.position.x += sparkle.direction.x;
-				sparkle.position.y += sparkle.direction.y;
-				[sparkleGroup insertObject:[NSValue value:&sparkle withObjCType:@encode(struct Sparkle)] atIndex:i];
-				[sparkleGroup removeObjectAtIndex:(i+1)];
+				CGPoint position = sparkle.position;
+				CGPoint direction = sparkle.direction;
+				
+				position.x += direction.x;
+				position.y += direction.y;
+				
+				sparkle.position = position;
+				sparkle.direction = direction;
+				
+				sparkle.alpha -= 0.06f;
 			}
 			else
 			{
-				[sparkleGroup removeObjectAtIndex:i];
-				i--;
+				[deadSparkles addObject:sparkle];
 			}
 		}
-		[groupedPositions setObject:sparkleGroup forKey:uid];
-
+		if([deadSparkles count])
+		{
+			for(sparkle in deadSparkles)
+			{
+				[sparkleGroup removeObject:sparkle];
+			}
+			
+			[deadSparkles removeAllObjects];
+		}
 	}
 	
-	uids = [dieingSparkleGroups allKeys];
+	keys = [dieingSparkleGroups allKeys];
 	//Iterate over dieing TouchIDs
-	for(uid in uids)
+	for(touchUID in keys)
 	{
 		//Get bodies for TouchID
-		sparkleGroup = [dieingSparkleGroups objectForKey:uid];
+		sparkleGroup = [dieingSparkleGroups objectForKey:touchUID];
+		[deadSparkles removeAllObjects];
 		
 		//Iterate over sparkles for this TouchID
-		for(int i = 0; i < [sparkleGroup count]; i++)
+		for(sparkle in sparkleGroup)
 		{
-			[[sparkleGroup objectAtIndex:i] getValue:&sparkle];
 			if(sparkle.alpha >= 0.1f)
 			{
 				sparkle.alpha -= 0.08f;
-				[sparkleGroup insertObject:[NSValue value:&sparkle withObjCType:@encode(struct Sparkle)] atIndex:i];
-				[sparkleGroup removeObjectAtIndex:(i+1)];
 			}
 			else
 			{
-				[sparkleGroup removeObjectAtIndex:i];
-				i--;
+				[deadSparkles addObject:sparkle];
 			}
 		}
+		
+		if([deadSparkles count])
+		{
+			for(sparkle in deadSparkles)
+			{
+				[sparkleGroup removeObject:sparkle];
+			}
+			
+			[deadSparkles removeAllObjects];
+		}
+		
 		//If all the sparkles in this group have died
 		if(![sparkleGroup count])
 		{
-			[deadSparkles addObject:uid];
+			[deadTouches addObject:touchUID];
 		}
-		else
-			[groupedPositions setObject:sparkleGroup forKey:uid];
-
-	}	
-	
-	if([deadSparkles count])
-	{
-		for(unsigned int i = 0; i < [deadSparkles count]; i++)
-		{
-			NSNumber *uid = [deadSparkles objectAtIndex:i];
-			[positions removeObjectForKey:uid];
-			[dieingSparkleGroups removeObjectForKey:uid];
-		}
-		[deadSparkles removeAllObjects];
 	}
 	
+	if([deadTouches count])
+	{
+		for(touchUID in deadTouches)
+		{
+			[dieingSparkleGroups removeObjectForKey:touchUID];
+		}
+		[deadTouches removeAllObjects];
+	}
+	
+	
 	[mutex unlock];
-	return groupedPositions;
+	return sparkleGroups;
 	
 }
 
@@ -258,7 +174,7 @@
 	if(![timers objectForKey:touch.uid])
 	{
 		//Create a new body every 10ms
-		NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.03
+		NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.04
 														  target:self 
 														selector:@selector(createSparkle:) 
 														userInfo:touch.uid

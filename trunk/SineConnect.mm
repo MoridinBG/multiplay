@@ -29,6 +29,7 @@
 		deadSines = [[NSMutableArray alloc] initWithCapacity:100];
 		
 		sleepingSines = [[NSMutableArray alloc] init];
+		deadSleepingSines = [[NSMutableArray alloc] init];
 		
 		[self createSineVertexArray];
 		[physicsThread start];
@@ -72,15 +73,16 @@
 			[Logger logMessage:@"Process sine touch down event" ofType:DEBUG_TOUCH];
 			
 			InteractiveObject *spot = [[InteractiveObject alloc] initWithPos:pos];
-			[spot setDelta:0.1];
+			spot.delta = 0.2f;
 			[spot setPhysicsData:[(b2Physics*)physicsThread addContactListenerAtX:pos.x Y:pos.y withUid:uniqueID]];
 			
-			if(([sines count] <= ([touches count] / 2)))
+			if((([sines count] + [sleepingSines count]) <= ([touches count] / 2)))
 			{
 				TargettingInteractor *sine = [[TargettingInteractor alloc] initWithPos:pos];
 				
 				[sine setOrigin:uniqueID];
 				[sleepingSines addObject:sine];
+				spot.isHolding = TRUE;
 			}
 			
 			[touches setObject:spot forKey:uniqueID];		
@@ -120,6 +122,7 @@
 	CGPoint pos;
 	float delta;
 	bool isScaling;
+	bool isHolding;
 	NSNumber *uid;
 	TargettingInteractor *sine;
 	
@@ -133,16 +136,36 @@
 	
 	for(sine in sleepingSines)
 	{
-		NSArray *neighbours = [[touches objectForKey:[sine origin]] getNeighbours];
+		if(![touches objectForKey:sine.origin])
+		{
+			NSLog(@"Here");
+			[deadSleepingSines addObject:sine];
+			continue;
+		}
+		
+		NSArray *neighbours = [[touches objectForKey:sine.origin] getNeighbours];
 		if(![neighbours count])
 			continue;
 		
-		[sine setScale:1.0f];
+		sine.isNew = TRUE;
+		sine.scale = 0.0;
 		
 		NSNumber *target = [neighbours objectAtIndex:(arc4random() % [neighbours count])];
-		[sine setTarget:target];
+		sine.target = target;
+		[sine setPosition:[(InteractiveObject*)[touches objectForKey:sine.origin] position]];
+		((InteractiveObject*)[touches objectForKey:sine.origin]).isHolding = FALSE;
 		
 		[sines addObject:sine];
+	}
+	
+	if([deadSleepingSines count])
+	{
+		for(sine in deadSleepingSines)
+		{
+			[sleepingSines removeObject:sine];
+		}
+		
+		[deadSleepingSines removeAllObjects];
 	}
 	
 	//Draw sines
@@ -151,14 +174,47 @@
 		if([sleepingSines containsObject:sine])
 			[sleepingSines removeObject:sine];
 		
-		if(![touches objectForKey:[sine target]])
+		CGPoint begin = [sine position];
+		CGPoint end;
+		float sineSpeed = 0.025;
+		
+		if([touches objectForKey:[sine target]])
 		{
-			[deadSines addObject:sine];
-			continue;
+			sine.targetCache = ((InteractiveObject*)[touches objectForKey:sine.target]).position;
+			end = [(InteractiveObject*)[touches objectForKey:[sine target]] position];
+		}
+		else
+		{
+			CGPoint hyperspace;
+			if(((sine.targetCache.x <= 1.6) && (sine.targetCache.x >= 0.0)) && ((sine.targetCache.y <= 1.0) &&  (sine.targetCache.y >= 0.0)))
+			{
+				hyperspace = sine.targetCache;
+				CGPoint origin = sine.targetCache;
+				CGPoint target = sine.position;
+				
+				float a = origin.y - target.y;
+				float b = origin.x - target.x;
+				float c = sqrt(a*a + b*b);
+				float cosine = b / c;
+				
+				do
+				{
+					c += 0.1;
+					
+					float newB = cosine * c;
+					float newA = sqrt(c * c - newB * newB);
+					if(target.y > origin.y)
+							newA = -newA;
+					
+					hyperspace.x = newB + target.x;
+					hyperspace.y = newA + target.y;
+				} while(((hyperspace.x <= 1.6) && (hyperspace.x >= 0.0)) && ((hyperspace.y <= 1.0) &&  (hyperspace.y >= 0.0)));
+				sine.targetCache = hyperspace;
+			}
+			end = sine.targetCache;
+			sineSpeed = 0.08;
 		}
 		
-		CGPoint begin = [sine position];// [(InteractiveObject*)[touches objectForKey:[sine origin]] position];
-		CGPoint end = [(InteractiveObject*)[touches objectForKey:[sine target]] position];
 		pos = [sine position];
 		
 		RGBA color;
@@ -171,16 +227,30 @@
 		float cosine = b / c;		
 		float angle = acos(cosine);
 		
-		if(c > 0.2)
-			c -= 0.01  ;
+		
+		if(c > (0.2 * sine.scale))
+		{
+			c -= sineSpeed;
+			
+			if(sine.isNew)
+			{
+				sine.scale += 0.09f;
+				if(sine.scale >= 1.0f)
+				{
+					sine.isNew = FALSE;
+					sine.scale = 1.0f;
+				}
+			}
+		}
 		else
 		{
 			c -= 0.02;
-			[sine setScale:([sine scale] - 0.1f)];
-			if([sine scale] < 0.2)
+			sine.scale -= 0.1f;
+			if(sine.scale < 0.2)
 			{
 				[sine setOrigin:[sine target]];
 				[sleepingSines addObject:sine];
+				((InteractiveObject*)[touches objectForKey:[sine origin]]).isHolding = TRUE;
 				[deadSines addObject:sine];
 			}
 		}
@@ -197,15 +267,18 @@
 		if(a < 0.0f)
 			angle = 360 - angle;
 		
+		alpha = 0.0f;
+		
 		glLoadIdentity();
 		glTranslatef(begin.x, begin.y, 0.0f);
 		glRotatef(angle, 0.0f, 0.0f, 1.0f);
 		glTranslatef(-sineVertices[vertexIndex], 0.0f, 0.0f);
 		
-		glColor3f(color.r, color.g, color.b);
 		glBegin(GL_LINE_STRIP);
 		for(int i = 0; i < (60 * [sine scale]); i +=2)
 		{
+			glColor4f(color.r, color.g, color.b, alpha);
+			alpha += 0.025f;
 			glVertex2f(sineVertices[i + vertexIndex], sineVertices[i + vertexIndex + 1]);
 		}
 		glEnd();
@@ -227,10 +300,17 @@
 	for(uid in keys	)																//Draw alive touches
 	{
 		spot = [touches objectForKey:uid];
-		scale = [spot scale];
-		pos = [spot position];
-		delta = [spot delta];
-		isScaling = [spot isScaling];
+		scale = spot.scale;
+		pos = spot.position;
+		delta = spot.delta;
+		isScaling = spot.isScaling;
+		isHolding = spot.isHolding;
+		
+		if(isHolding)
+		{
+			pos.x += ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.003);
+			pos.y += ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.003);
+		}
 		
 		alpha = 0.8f;
 		
@@ -326,7 +406,7 @@
 			alpha -= alphaStep;
 		}
 		
-		scale -= 0.1f;
+		scale -= 0.25f;
 		if(scale <= 0.1f)
 		{
 			[deadSpots addObject:uid];												//We can't modify a container while enumerating, so reference the dead object in another container

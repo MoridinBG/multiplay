@@ -152,7 +152,8 @@
 		float b = origin.x - target.x;
 		float c = sqrt(a*a + b*b);
 		
-		float oscilation = (0.9f - c) / 100.0f;
+		float oscilation = (0.8f - c) / 100.0f;
+		oscilation *= 1.4;
 		
 		origin.x += ((((float)(arc4random() % 10) / 10) * 2 - 1) * oscilation);
 		origin.y += ((((float)(arc4random() % 10) / 10) * 2 - 1) * oscilation);

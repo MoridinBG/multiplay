@@ -32,6 +32,7 @@
 	NSMutableArray *deadSines;					//Sine waves that have reached their destination
 	
 	NSMutableArray *sleepingSines;
+	NSMutableArray *deadSleepingSines;
 	
 	NSArray *keys;
 	

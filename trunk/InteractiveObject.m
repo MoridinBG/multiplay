@@ -19,6 +19,7 @@
 @synthesize delta;
 @synthesize physicsData;
 @synthesize color;
+@synthesize isHolding;
 
 - (id) initWithPos:(CGPoint) pos
 {
@@ -37,7 +38,7 @@
 		angle = 0.0f;
 		isScaling = TRUE;
 		isNew = TRUE;
-		delta = 0.08;
+		delta = 0.13;
 		
 		neighbours = [[NSMutableArray alloc] init];
 		connectedNeighbours = [[NSMutableDictionary alloc] initWithCapacity:100];

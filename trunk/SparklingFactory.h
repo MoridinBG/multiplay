@@ -20,13 +20,13 @@
 	NSMutableDictionary *dieingSparkleGroups;
 	
 	NSMutableArray *deadSparkles;
+	NSMutableArray *deadTouches;
 	
 	NSLock *mutex;
 	
 }
 - (void) main;
 
-- (void) step:(NSTimer*) theTimer;
 - (void) createSparkle:(NSTimer*) theTimer;
 
 - (NSMutableDictionary*) getPositions;

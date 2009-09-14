@@ -63,7 +63,7 @@
 - (void) processTouches:(TouchEvent*)event
 {
 	CGPoint pos = [event pos];
-	if((pos.x < 0) || (pos.x > 1.60f) || (pos.y < 0) || (pos.y > 1.0f))
+	if((pos.x < 0) || (pos.x > 6.4f) || (pos.y < 0) || (pos.y > 1.0f))
 	{
 		[Logger logMessage:@"Touch out of range" ofType:DEBUG_GENERAL];
 		return;
