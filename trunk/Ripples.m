@@ -42,31 +42,32 @@
 	if([event ignoreEvent])
 		return;
 	
-	NSNumber *uid = event.uid;
+	NSNumber *uniqueID = event.uid;
 	CGPoint pos = event.pos;
 //	CGPoint oldPos = event.lastPos;
 	switch (event.type) 
 	{
 		case TouchDown:
 		{
-			[Logger logMessage:@"Process ripple touch down event" ofType:DEBUG_TOUCH];
+			[Logger logMessage:@"Processing Ripples touch down event" ofType:DEBUG_TOUCH];
 			
 			InteractiveObject *ripple = [[InteractiveObject alloc] initWithPos:pos];
-			[ripples setObject:ripple forKey:uid];
+			[ripples setObject:ripple forKey:uniqueID];
 			
 		} break;
 		case TouchMove:
 		{
-			[Logger logMessage:@"Process ripple touch move event" ofType:DEBUG_TOUCH_MOVE];
+			[Logger logMessage:@"Processing Ripples touch move event" ofType:DEBUG_TOUCH_MOVE];
 			
-			[(InteractiveObject*)[ripples objectForKey:uid] setPosition:pos];
+			[(InteractiveObject*)[ripples objectForKey:uniqueID] setPosition:pos];
 		} break;
 		case TouchRelease:
 		{
-			[Logger logMessage:@"Process ripple touch release event" ofType:DEBUG_TOUCH];
-			//Mark the ripple associated with this touch for suck away
-			[dieingRipples setObject:[ripples objectForKey:uid] forKey:uid];
-			[ripples removeObjectForKey:uid];
+			[Logger logMessage:@"Processing Ripples touch release event" ofType:DEBUG_TOUCH];
+			
+			//Mark the ripple associated with this touch for sucktion away
+			[dieingRipples setObject:[ripples objectForKey:uniqueID] forKey:uniqueID];
+			[ripples removeObjectForKey:uniqueID];
 		} break;
 	}
 }

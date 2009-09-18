@@ -70,7 +70,7 @@
 				detector->setProvider(self);				
 			}
 			
-			[Logger logMessage:@"Process sine touch down event" ofType:DEBUG_TOUCH];
+			[Logger logMessage:@"Processing SineConnect touch down event" ofType:DEBUG_TOUCH];
 			
 			InteractiveObject *spot = [[InteractiveObject alloc] initWithPos:pos];
 			spot.delta = 0.2f;
@@ -90,7 +90,7 @@
 			
 		case TouchMove:
 		{
-			[Logger logMessage:@"Process sine touch move event" ofType:DEBUG_TOUCH_MOVE];
+			[Logger logMessage:@"Processing SineConnect touch move event" ofType:DEBUG_TOUCH_MOVE];
 			
 			b2Body* body = (b2Body*)[[touches objectForKey:uniqueID] physicsData];
 			
@@ -106,7 +106,7 @@
 			
 		case TouchRelease:
 		{
-			[Logger logMessage:@"Process sine touch release event" ofType:DEBUG_TOUCH];
+			[Logger logMessage:@"Processing SineConnect touch release event" ofType:DEBUG_TOUCH];
 			
 			[(b2Physics*) physicsThread destroyBody:(b2Body*)[[touches objectForKey:uniqueID] physicsData]];
 			[dieingSpots setObject:[touches objectForKey:uniqueID] forKey:uniqueID];

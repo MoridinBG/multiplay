@@ -69,7 +69,7 @@
 				detector->setProvider(self);				
 			}
 			
-			[Logger logMessage:@"Process LineConnect touch down event" ofType:DEBUG_TOUCH];
+			[Logger logMessage:@"Processing LineConnect touch down event" ofType:DEBUG_TOUCH];
 			
 			RGBA color;
 			[(NSValue*)[colors objectForKey:uniqueID] getValue:&color];
@@ -84,7 +84,7 @@
 			
 		case TouchMove:
 		{
-			[Logger logMessage:@"Process LineConnect touch move event" ofType:DEBUG_TOUCH_MOVE];
+			[Logger logMessage:@"Processing LineConnect touch move event" ofType:DEBUG_TOUCH_MOVE];
 			
 			b2Body* body = (b2Body*)[[touches objectForKey:uniqueID] physicsData];
 			
@@ -100,7 +100,7 @@
 			
 		case TouchRelease:
 		{
-			[Logger logMessage:@"Process LineConnect touch release event" ofType:DEBUG_TOUCH];
+			[Logger logMessage:@"Processing LineConnect touch release event" ofType:DEBUG_TOUCH];
 			
 			[(b2Physics*) physicsThread destroyBody:(b2Body*)[[touches objectForKey:uniqueID] physicsData]];
 			[dieingSpots addObject:[touches objectForKey:uniqueID]];

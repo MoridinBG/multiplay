@@ -43,14 +43,14 @@
 	{
 		case TouchDown:
 		{
-			[Logger logMessage:@"Process sparkle touch down event" ofType:DEBUG_TOUCH];
+			[Logger logMessage:@"Processing Sparkles touch down event" ofType:DEBUG_TOUCH];
 			
 			LiteTouchInfo touch = {uniqueID, pos};
 			[factory setPosition:touch];
 		} break;
 		case TouchMove:
 		{
-			[Logger logMessage:@"Process sparkle touch move event" ofType:DEBUG_TOUCH_MOVE];
+			[Logger logMessage:@"Processing Sparkles touch move event" ofType:DEBUG_TOUCH_MOVE];
 			
 			if((pos.x == oldPos.x) && (pos.y == oldPos.y))
 				return;
@@ -60,7 +60,7 @@
 		} break;
 		case TouchRelease:
 		{
-			[Logger logMessage:@"Process sparkle touch release event" ofType:DEBUG_TOUCH];
+			[Logger logMessage:@"Processing Sparkles touch release event" ofType:DEBUG_TOUCH];
 			
 			[factory removePosition:uniqueID];
 		} break;
@@ -74,7 +74,7 @@
 	keys = [sparkleGroups allKeys];
 	for(uid in keys)
 	{
-		[Logger logMessage:@"Rendering a Sparkle fountain" ofType:DEBUG_RENDER];
+		[Logger logMessage:@"Rendering a Sparkles fountain" ofType:DEBUG_RENDER];
 		
 		sparkleGroup = [sparkleGroups objectForKey:uid];
 

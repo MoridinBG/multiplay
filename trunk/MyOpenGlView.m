@@ -83,10 +83,11 @@
 			NSLog(@"Here");
 		}    
 		
-		provider = [[Sparkles alloc] init];
+//		provider = [[Sparkles alloc] init];
 //		provider = [[Ripples alloc] init];
 //		provider = [[SineConnect alloc] init];
 //		provider = [[LineConnect alloc] init];
+		provider = [[TextRender alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
 		
@@ -109,6 +110,8 @@
 			[context setView:self];
 	
 	[context makeCurrentContext];
+	
+	
 	glEnable (GL_BLEND);
 	glEnable (GL_POLYGON_SMOOTH);
 	glEnable (GL_LINE_SMOOTH);
@@ -119,12 +122,12 @@
 	glLineWidth(3);
 	
 	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
+    glLoadIdentity();
 	
 	NSSize dimensions = [self dimensions];
 	float ratio = dimensions.width / dimensions.height;
-
 	
+
 	if(CGDisplayPixelsWide(kCGDirectMainDisplay) == 800)
 	{
 		glViewport(projectionSize.origin.x,
