@@ -22,6 +22,7 @@
 		F52B10EB10524F4F005807E4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F52B10E910524F4F005807E4 /* MainMenu.xib */; };
 		F537E997101E6DF800BFAE4D /* SparklesPhysics.mm in Sources */ = {isa = PBXBuildFile; fileRef = F537E996101E6DF800BFAE4D /* SparklesPhysics.mm */; };
 		F5435718104E5609004A914C /* TuioMultiplexor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5435717104E5609004A914C /* TuioMultiplexor.m */; };
+		F54E562B105E681B00462480 /* TextRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = F54E562A105E681B00462480 /* TextRender.mm */; };
 		F5608B821030D0D1009F9EBC /* Sparkles.m in Sources */ = {isa = PBXBuildFile; fileRef = F5608B811030D0D1009F9EBC /* Sparkles.m */; };
 		F5608B8A1030D925009F9EBC /* SparklingFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5608B891030D925009F9EBC /* SparklingFactory.m */; };
 		F56196561015EC1600B19EF5 /* TuioListener.m in Sources */ = {isa = PBXBuildFile; fileRef = F56196551015EC1600B19EF5 /* TuioListener.m */; };
@@ -33,6 +34,7 @@
 		F592D69C102C287400A2A1BD /* ObjGhost.mm in Sources */ = {isa = PBXBuildFile; fileRef = F592D69B102C287400A2A1BD /* ObjGhost.mm */; };
 		F5A5E687101CFE3000886EAD /* btPhysics.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5A5E686101CFE3000886EAD /* btPhysics.mm */; };
 		F5AFE003102856BD00490E97 /* TargettingInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AFE002102856BD00490E97 /* TargettingInteractor.m */; };
+		F5DDC51B1065648000D81BB0 /* LabeledInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DDC51A1065648000D81BB0 /* LabeledInteractor.m */; };
 		F5F5A36F1047581800A83EE2 /* libBox2D.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F5A36E1047581800A83EE2 /* libBox2D.dylib */; };
 		F5F5A3D41047581800A83EE2 /* b2ContactDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5F5A3D31047581800A83EE2 /* b2ContactDetector.mm */; };
 		F5FAB5451034B35800B4CCF4 /* SineConnect.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5FAB5441034B35800B4CCF4 /* SineConnect.mm */; };
@@ -63,12 +65,15 @@
 		F52374E11046E2400070884C /* TUIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TUIO.framework; path = "../tuioframework-read-only/build/Debug/TUIO.framework"; sourceTree = SOURCE_ROOT; };
 		F52B105410524ABF005807E4 /* ProximitySensorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximitySensorProtocol.h; sourceTree = "<group>"; };
 		F52B10EA10524F4F005807E4 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F537A0F510610D6D0019A095 /* messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messages.h; sourceTree = "<group>"; };
 		F537E8B1101E4BB400BFAE4D /* LiteTouchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiteTouchInfo.h; sourceTree = "<group>"; };
 		F537E995101E6DF800BFAE4D /* SparklesPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparklesPhysics.h; sourceTree = "<group>"; };
 		F537E996101E6DF800BFAE4D /* SparklesPhysics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SparklesPhysics.mm; sourceTree = "<group>"; };
 		F53CA649101DFAB200C55747 /* EffectProviderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectProviderProtocol.h; sourceTree = "<group>"; };
 		F5435716104E5609004A914C /* TuioMultiplexor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuioMultiplexor.h; sourceTree = "<group>"; };
 		F5435717104E5609004A914C /* TuioMultiplexor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuioMultiplexor.m; sourceTree = "<group>"; };
+		F54E5629105E681B00462480 /* TextRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextRender.h; sourceTree = "<group>"; };
+		F54E562A105E681B00462480 /* TextRender.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextRender.mm; sourceTree = "<group>"; };
 		F5608B801030D0D1009F9EBC /* Sparkles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sparkles.h; sourceTree = "<group>"; };
 		F5608B811030D0D1009F9EBC /* Sparkles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sparkles.m; sourceTree = "<group>"; };
 		F5608B881030D925009F9EBC /* SparklingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparklingFactory.h; sourceTree = "<group>"; };
@@ -92,6 +97,8 @@
 		F5A5E686101CFE3000886EAD /* btPhysics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = btPhysics.mm; sourceTree = "<group>"; };
 		F5AFE001102856BD00490E97 /* TargettingInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargettingInteractor.h; sourceTree = "<group>"; };
 		F5AFE002102856BD00490E97 /* TargettingInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargettingInteractor.m; sourceTree = "<group>"; };
+		F5DDC5191065648000D81BB0 /* LabeledInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabeledInteractor.h; sourceTree = "<group>"; };
+		F5DDC51A1065648000D81BB0 /* LabeledInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabeledInteractor.m; sourceTree = "<group>"; };
 		F5F5A36E1047581800A83EE2 /* libBox2D.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libBox2D.dylib; path = physics/libBox2D.dylib; sourceTree = "<group>"; };
 		F5F5A3D21047581800A83EE2 /* b2ContactDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2ContactDetector.h; sourceTree = "<group>"; };
 		F5F5A3D31047581800A83EE2 /* b2ContactDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = b2ContactDetector.mm; sourceTree = "<group>"; };
@@ -166,7 +173,6 @@
 		29B97314FDCFA39411CA2CEA /* Finger */ = {
 			isa = PBXGroup;
 			children = (
-				F5F5A36E1047581800A83EE2 /* libBox2D.dylib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -198,6 +204,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5F5A36E1047581800A83EE2 /* libBox2D.dylib */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -243,6 +250,8 @@
 				F5FAB5441034B35800B4CCF4 /* SineConnect.mm */,
 				26DD076310514605003BD174 /* LineConnect.h */,
 				26DD076410514605003BD174 /* LineConnect.mm */,
+				F54E5629105E681B00462480 /* TextRender.h */,
+				F54E562A105E681B00462480 /* TextRender.mm */,
 			);
 			name = Effects;
 			sourceTree = "<group>";
@@ -266,6 +275,9 @@
 				F5435717104E5609004A914C /* TuioMultiplexor.m */,
 				F588D766105BB63400C02B35 /* Sparkle.h */,
 				F588D767105BB63400C02B35 /* Sparkle.m */,
+				F537A0F510610D6D0019A095 /* messages.h */,
+				F5DDC5191065648000D81BB0 /* LabeledInteractor.h */,
+				F5DDC51A1065648000D81BB0 /* LabeledInteractor.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -348,6 +360,8 @@
 				F5435718104E5609004A914C /* TuioMultiplexor.m in Sources */,
 				26DD076510514605003BD174 /* LineConnect.mm in Sources */,
 				F588D768105BB63400C02B35 /* Sparkle.m in Sources */,
+				F54E562B105E681B00462480 /* TextRender.mm in Sources */,
+				F5DDC51B1065648000D81BB0 /* LabeledInteractor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +405,7 @@
 					"\"$(SRCROOT)/../bullet-2.75-rc7/src/LinearMath\"",
 					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletCollision/Release\"",
 					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletDynamics/Release\"",
+					"\"$(SRCROOT)/..\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -425,6 +440,7 @@
 					"\"$(SRCROOT)/../bullet-2.75-rc7/src/LinearMath\"",
 					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletCollision/Release\"",
 					"\"$(SRCROOT)/../bullet-2.75-rc7/src/BulletDynamics/Release\"",
+					"\"$(SRCROOT)/..\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -463,8 +479,21 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_MISSING_PARENTHESES = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/include/**",
+					"/opt/local/include/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/opt/local/lib,
+				);
 				LLVM_LTO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lfreetype",
+					"-lftgl",
+					"-lGLC",
+				);
 				PREBINDING = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx10.5;

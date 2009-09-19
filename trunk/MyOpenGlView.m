@@ -127,22 +127,33 @@
 	NSSize dimensions = [self dimensions];
 	float ratio = dimensions.width / dimensions.height;
 	
-
-	if(CGDisplayPixelsWide(kCGDirectMainDisplay) == 800)
+	
+	if([provider isKindOfClass:[TextRender class]])
 	{
-		glViewport(projectionSize.origin.x,
-				   projectionSize.origin.y,
-				   projectionSize.size.width,
-				   projectionSize.size.height);
-	} else
-	{
-		glViewport(0, 0, dimensions.width, dimensions.height);
+		gluPerspective(90, ratio, 1, 1000);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+		
+		gluLookAt(510.0, 320.0, 320, 510.0, 320.0, 0.0, 0.0, 1.0, 0.0);
 	}
-	
-	glOrtho(0, ratio, 0, 1.0, 0, 1.0);
-	
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	else
+	{
+		if(CGDisplayPixelsWide(kCGDirectMainDisplay) == 800)
+		{
+			glViewport(projectionSize.origin.x,
+					   projectionSize.origin.y,
+					   projectionSize.size.width,
+					   projectionSize.size.height);
+		} else
+		{
+			glViewport(0, 0, dimensions.width, dimensions.height);
+		}
+		
+		glOrtho(0, ratio, 0, 1.0, 0, 1.0);
+		
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+	}
 
 }
 

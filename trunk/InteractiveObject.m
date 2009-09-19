@@ -20,7 +20,6 @@
 @synthesize physicsData;
 @synthesize color;
 @synthesize isHolding;
-@synthesize label;
 
 - (id) initWithPos:(CGPoint) pos
 {

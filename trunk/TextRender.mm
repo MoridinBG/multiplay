@@ -111,7 +111,6 @@
 		glRotated(text.angle, 0, 0, 1);
 		glTranslated(-dX, -(diameter / 2), 0);
 		
-		
 		for(int i = 0; i < [string length]; i += 1)
 		{
 			glcRenderChar([string characterAtIndex:i]);

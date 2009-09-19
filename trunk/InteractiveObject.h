@@ -22,7 +22,6 @@
 	
 	NSMutableArray *neighbours;
 	NSMutableDictionary *connectedNeighbours;
-	NSString *label;
 	void *physicsData;
 	
 	RGBA color;
@@ -39,7 +38,6 @@
 @property bool isHolding;
 @property RGBA color;
 
-@property (copy) NSString *label;
 @property void *physicsData;
 
 - (id) initWithPos:(CGPoint) pos;
