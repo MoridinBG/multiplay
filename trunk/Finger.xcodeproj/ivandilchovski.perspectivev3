@@ -233,8 +233,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -290,11 +288,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>48</integer>
+									<integer>36</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {253, 914}}</string>
+							<string>{{0, 11}, {253, 914}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -326,12 +327,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>F50DB3DA100E16E20048A89C</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MyOpenGlView.m</string>
+								<string>TextRender.mm</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -339,11 +342,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>F50DB3DB100E16E20048A89C</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>MyOpenGlView.m</string>
+										<string>TextRender.mm</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F507458D106591F1006738DC</string>
+										<string>F591FE981065943100E561E0</string>
 										<key>history</key>
 										<array>
 											<string>F5E9BD76105BA88D00A938B2</string>
@@ -387,8 +390,8 @@
 											<string>F5B7DECA1063F21600B63DED</string>
 											<string>F5B7DF091063F41900B63DED</string>
 											<string>F5B7DF6E1064644F00B63DED</string>
-											<string>F5B7DF761064647A00B63DED</string>
-											<string>F5DDC4BE106464E600D81BB0</string>
+											<string>F5074599106593F2006738DC</string>
+											<string>F507459C106593F2006738DC</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -502,11 +505,11 @@
 											<key>PBXCVSModuleTreeModuleColumnWidthsKey</key>
 											<array>
 												<real>200</real>
-												<real>56.66162109375</real>
+												<real>56</real>
 												<real>63</real>
 												<real>60</real>
 												<real>63</real>
-												<real>139.556640625</real>
+												<real>139</real>
 											</array>
 											<key>PBXCVSModuleTreeModuleColumnsKey</key>
 											<array>
@@ -574,11 +577,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>F507458E106591F1006738DC</string>
+				<string>F591FE95106593FD00E561E0</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>F507458F106591F1006738DC</string>
+				<string>F591FE96106593FD00E561E0</string>
 				<string>F50DB3DA100E16E20048A89C</string>
-				<string>F5074590106591F1006738DC</string>
+				<string>F591FE97106593FD00E561E0</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
