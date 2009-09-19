@@ -10,14 +10,21 @@
 
 #import "EffectProvider.h"
 #import "EffectProviderProtocol.h"
+#import "LabeledInteractor.h"
 
 #import <OpenGL/glu.h>
-#import <GL/glc.h>
+
+#ifdef __cplusplus
+#import <FTGL/ftgl.h>
+#endif
 
 @interface TextRender : EffectProvider <EffectProviderProtocol>
 {	
 	NSMutableArray *strings;
-	GLfloat baseline[4];
+	
+#ifdef __cplusplus
+	FTGLPolygonFont *font;
+#endif
 }
 
 - (id) init;
