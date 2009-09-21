@@ -20,6 +20,9 @@
 @synthesize physicsData;
 @synthesize color;
 @synthesize isHolding;
+@synthesize rotateDelta;
+@synthesize rotateLeft;
+@synthesize direction;
 
 - (id) initWithPos:(CGPoint) pos
 {
@@ -35,10 +38,16 @@
 	if(self = [super init])
 	{
 		scale = 0.01f;
-		angle = 0.0f;
 		isScaling = TRUE;
 		isNew = TRUE;
 		delta = 0.13;
+		
+		angle = 0.0f;
+		rotateDelta = 0.1;
+		if((arc4random() % 100) > 50)
+			rotateLeft = TRUE;
+		else
+			rotateLeft = FALSE;
 		
 		neighbours = [[NSMutableArray alloc] init];
 		connectedNeighbours = [[NSMutableDictionary alloc] initWithCapacity:100];

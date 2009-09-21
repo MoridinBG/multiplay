@@ -22,7 +22,7 @@
 		F52B10EB10524F4F005807E4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F52B10E910524F4F005807E4 /* MainMenu.xib */; };
 		F537E997101E6DF800BFAE4D /* SparklesPhysics.mm in Sources */ = {isa = PBXBuildFile; fileRef = F537E996101E6DF800BFAE4D /* SparklesPhysics.mm */; };
 		F5435718104E5609004A914C /* TuioMultiplexor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5435717104E5609004A914C /* TuioMultiplexor.m */; };
-		F54E562B105E681B00462480 /* TextRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = F54E562A105E681B00462480 /* TextRender.mm */; };
+		F54E562B105E681B00462480 /* TextCircle.mm in Sources */ = {isa = PBXBuildFile; fileRef = F54E562A105E681B00462480 /* TextCircle.mm */; };
 		F5608B821030D0D1009F9EBC /* Sparkles.m in Sources */ = {isa = PBXBuildFile; fileRef = F5608B811030D0D1009F9EBC /* Sparkles.m */; };
 		F5608B8A1030D925009F9EBC /* SparklingFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5608B891030D925009F9EBC /* SparklingFactory.m */; };
 		F56196561015EC1600B19EF5 /* TuioListener.m in Sources */ = {isa = PBXBuildFile; fileRef = F56196551015EC1600B19EF5 /* TuioListener.m */; };
@@ -72,8 +72,8 @@
 		F53CA649101DFAB200C55747 /* EffectProviderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectProviderProtocol.h; sourceTree = "<group>"; };
 		F5435716104E5609004A914C /* TuioMultiplexor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuioMultiplexor.h; sourceTree = "<group>"; };
 		F5435717104E5609004A914C /* TuioMultiplexor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuioMultiplexor.m; sourceTree = "<group>"; };
-		F54E5629105E681B00462480 /* TextRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextRender.h; sourceTree = "<group>"; };
-		F54E562A105E681B00462480 /* TextRender.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextRender.mm; sourceTree = "<group>"; };
+		F54E5629105E681B00462480 /* TextCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextCircle.h; sourceTree = "<group>"; };
+		F54E562A105E681B00462480 /* TextCircle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextCircle.mm; sourceTree = "<group>"; };
 		F5608B801030D0D1009F9EBC /* Sparkles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sparkles.h; sourceTree = "<group>"; };
 		F5608B811030D0D1009F9EBC /* Sparkles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sparkles.m; sourceTree = "<group>"; };
 		F5608B881030D925009F9EBC /* SparklingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparklingFactory.h; sourceTree = "<group>"; };
@@ -250,8 +250,8 @@
 				F5FAB5441034B35800B4CCF4 /* SineConnect.mm */,
 				26DD076310514605003BD174 /* LineConnect.h */,
 				26DD076410514605003BD174 /* LineConnect.mm */,
-				F54E5629105E681B00462480 /* TextRender.h */,
-				F54E562A105E681B00462480 /* TextRender.mm */,
+				F54E5629105E681B00462480 /* TextCircle.h */,
+				F54E562A105E681B00462480 /* TextCircle.mm */,
 			);
 			name = Effects;
 			sourceTree = "<group>";
@@ -360,7 +360,7 @@
 				F5435718104E5609004A914C /* TuioMultiplexor.m in Sources */,
 				26DD076510514605003BD174 /* LineConnect.mm in Sources */,
 				F588D768105BB63400C02B35 /* Sparkle.m in Sources */,
-				F54E562B105E681B00462480 /* TextRender.mm in Sources */,
+				F54E562B105E681B00462480 /* TextCircle.mm in Sources */,
 				F5DDC51B1065648000D81BB0 /* LabeledInteractor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

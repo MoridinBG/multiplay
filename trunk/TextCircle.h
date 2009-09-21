@@ -1,5 +1,5 @@
 //
-//  TextRender.h
+//  TextCircle.h
 //  Finger
 //
 //  Created by Mood on 9/14/09.
@@ -18,9 +18,11 @@
 #import <FTGL/ftgl.h>
 #endif
 
-@interface TextRender : EffectProvider <EffectProviderProtocol>
+@interface TextCircle : EffectProvider <EffectProviderProtocol>
 {	
 	NSMutableArray *strings;
+	NSMutableDictionary *deadStrings;
+	NSMutableArray *stringsForRemoval;
 	
 #ifdef __cplusplus
 	FTGLPolygonFont *font;

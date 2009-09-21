@@ -80,6 +80,7 @@
 	float delta;
 	bool isScaling;
 	bool isNew;
+	bool rotateLeft;
 	
 	CGPoint pos;
 	NSNumber *uid;
@@ -104,6 +105,7 @@
 		delta = ripple.delta;
 		isScaling = ripple.isScaling;
 		isNew = ripple.isNew;
+		rotateLeft = ripple.rotateLeft;
 		
 		RGBA color;
 		[(NSValue*)[colors objectForKey:uid] getValue:&color];
@@ -157,7 +159,20 @@
 			}
 		}
 
-		angle += 2.0f;
+		if(rotateLeft)
+		{
+			angle += 2.f;
+			
+			if(ripple.angle >= 360)
+				ripple.angle -= 360;
+		}
+		else
+		{
+			angle -= 2.f;
+			
+			if(ripple.angle <= 360)
+				ripple.angle += 360;
+		}
 		
 		[ripple setParameters:pos scale:scale angle:angle isScaling:isScaling];		//Update current ripple's parameters
 	}

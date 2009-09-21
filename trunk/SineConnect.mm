@@ -126,7 +126,7 @@
 	NSNumber *uid;
 	TargettingInteractor *sine;
 	
-	glLineWidth(3);
+	glLineWidth(5);
 	
 	vertexIndex  += 2;
 	if (vertexIndex >= 38)

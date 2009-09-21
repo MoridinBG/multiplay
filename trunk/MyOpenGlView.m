@@ -87,11 +87,11 @@
 //		provider = [[Ripples alloc] init];
 //		provider = [[SineConnect alloc] init];
 //		provider = [[LineConnect alloc] init];
-		provider = [[TextRender alloc] init];
+		provider = [[TextCircle alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
 		
-		(void)[NSTimer scheduledTimerWithTimeInterval:0.033
+		(void)[NSTimer scheduledTimerWithTimeInterval:0.040
 											   target:self 
 											 selector:@selector(display) 
 											 userInfo:nil 
@@ -128,7 +128,7 @@
 	float ratio = dimensions.width / dimensions.height;
 	
 	
-	if([provider isKindOfClass:[TextRender class]])
+	if([provider isKindOfClass:[TextCircle class]])
 	{
 		gluPerspective(90, ratio, 1, 1000);
 		glMatrixMode(GL_MODELVIEW);

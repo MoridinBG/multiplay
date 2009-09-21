@@ -13,32 +13,45 @@
 @interface InteractiveObject : NSObject
 {
 	float scale;
-	float angle;
 	float delta;
+	
 	CGPoint position;
+	CGPoint direction;
+	
 	bool isScaling;
 	bool isNew;
 	bool isHolding;
 	
-	NSMutableArray *neighbours;
-	NSMutableDictionary *connectedNeighbours;
-	void *physicsData;
+	float angle;
+	float rotateDelta;
+	bool rotateLeft;
 	
+	void *physicsData;
 	RGBA color;
+	
 	RGBA newColor;
 	RGBA colorStep;
+	NSMutableArray *neighbours;
+	NSMutableDictionary *connectedNeighbours;
 }
 
 @property float scale;
-@property float angle;
 @property float delta;
+
 @property CGPoint position;
+@property CGPoint direction;
+
 @property bool isScaling;
 @property bool isNew;
 @property bool isHolding;
-@property RGBA color;
+
+
+@property float angle;
+@property float rotateDelta;
+@property  bool rotateLeft;
 
 @property void *physicsData;
+@property RGBA color;
 
 - (id) initWithPos:(CGPoint) pos;
 - (void) setParameters:(CGPoint) position_ scale:(float) scale_ angle:(float) angle_ isScaling:(bool) isScaling_;

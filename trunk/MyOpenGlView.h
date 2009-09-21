@@ -13,7 +13,7 @@
 #import "Ripples.h"
 #import "SineConnect.h"
 #import "LineConnect.h"
-#import "TextRender.h"
+#import "TextCircle.h"
 
 @class NSOpenGLContext, NSOpenGLPixelFormat;
 
