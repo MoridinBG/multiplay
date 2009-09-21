@@ -86,8 +86,8 @@
 //		provider = [[Sparkles alloc] init];
 //		provider = [[Ripples alloc] init];
 //		provider = [[SineConnect alloc] init];
-//		provider = [[LineConnect alloc] init];
-		provider = [[TextCircle alloc] init];
+		provider = [[LineConnect alloc] init];
+//		provider = [[TextCircle alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
 		

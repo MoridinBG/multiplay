@@ -23,6 +23,8 @@
 		dieingSpots = [[NSMutableArray alloc] initWithCapacity:100];
 		deadSpots = [[NSMutableArray alloc] initWithCapacity:100];
 		
+		reconnectTimers = [[NSMutableArray alloc] initWithCapacity:100];
+		
 		radius = 0.08f;
 		subStep = 0.039f / 10.0f;
 		
@@ -79,7 +81,15 @@
 			[spot setPhysicsData:[(b2Physics*)physicsThread addContactListenerAtX:pos.x Y:pos.y withUid:uniqueID]];
 			[spot setColor:color];
 			
-			[touches setObject:spot forKey:uniqueID];		
+			[touches setObject:spot forKey:uniqueID];
+			
+			float reconnectInterval = 10 + (arc4random() % 10);
+			NSTimer *reconnectTimer = [NSTimer scheduledTimerWithTimeInterval:reconnectInterval
+																	   target:self
+																	 selector:@selector(reconnect:) 
+																	 userInfo:uniqueID
+																	  repeats:YES];
+			[reconnectTimers addObject:reconnectTimer];
 		} break;
 			
 		case TouchMove:
@@ -364,10 +374,71 @@
 	
 	[deadSpots removeAllObjects];
 }
+			
+- (void) reconnect:(NSTimer*) theTimer
+{
+	NSNumber *uid = [theTimer userInfo];
+	if(![touches objectForKey:uid])
+	{
+		[reconnectTimers removeObject:theTimer];
+		[theTimer invalidate];
+		
+		return;
+	}
+	
+	InteractiveObject *touch = [touches objectForKey:uid];
+	if((![touch neighboursCount]) || (![touch connectedNeighboursCount]))
+		return;
+	
+	NSArray *neighbours = [touch getNeighbours];
+	NSMutableArray *freeNeighbours = [[NSMutableArray alloc] initWithCapacity:25];
+	NSMutableArray *uselessFreeNeighbours = [[NSMutableArray alloc] initWithCapacity:5];
+	NSNumber *neighbourUID;
+	for(neighbourUID in neighbours)
+	{
+		if(![touches objectForKey:neighbourUID])
+		{
+			NSLog(@"Dead neighbour found");
+			[touch removeNeighbour:neighbourUID];
+			continue;
+		}
+		if([[touches objectForKey:neighbourUID] connectedNeighboursCount] < 4)
+			[freeNeighbours addObject:neighbourUID];
+	}
+	
+	for(neighbourUID in freeNeighbours)
+	{
+		if([touch hasConnectedNeighbour:neighbourUID])
+			[uselessFreeNeighbours addObject:neighbourUID];
+	}
+	
+	for(neighbourUID in uselessFreeNeighbours)
+	{
+		[freeNeighbours removeObject:neighbourUID];
+	}
+	[uselessFreeNeighbours removeAllObjects];
+	
+	if(![freeNeighbours count])
+		return;
+	
+	NSArray *connectedNeighbours = [touch getConnectedNeighbours];
+	NSNumber *unluckyConnection = [connectedNeighbours objectAtIndex:(arc4random() % [connectedNeighbours count])];
+
+	TargettingInteractor *connection = [[touches objectForKey:uid] removeConnectedNeighbour:unluckyConnection];
+	[[touches objectForKey:unluckyConnection] removeConnectedNeighbour:uid];
+	
+	[dieingConnections addObject:connection];
+	[connections removeObject:connection];
+	
+	NSNumber *luckyConnection = [freeNeighbours objectAtIndex:(arc4random() % [freeNeighbours count])];
+	
+	[self updateContactBetween:uid And:luckyConnection];
+}
 
 - (void) contactBetween:(NSNumber*) firstID And:(NSNumber*) secondID
 {
-
+	[[touches objectForKey:firstID] addNeighbour:secondID];
+	[[touches objectForKey:secondID] addNeighbour:firstID];
 }
 
 - (void) updateContactBetween:(NSNumber*) firstID And:(NSNumber*) secondID
@@ -390,12 +461,15 @@
 {
 	[Logger logMessage:[NSString stringWithFormat:@"Removed contact between touches %d & %d", [firstID intValue], [secondID intValue]] ofType:DEBUG_PHYSICS];
 	
-	TargettingInteractor *connection = [[touches objectForKey:firstID] removeConnectedNeighbour:secondID];
-	[[touches objectForKey:secondID] removeConnectedNeighbour:firstID];
+	[[touches objectForKey:firstID] removeNeighbour:secondID];
+	[[touches objectForKey:secondID] removeNeighbour:firstID];
 	
-	if(!connection)
+	if(![[touches objectForKey:firstID] hasConnectedNeighbour:secondID])
 		return;
 	
+	TargettingInteractor *connection = [[touches objectForKey:firstID] removeConnectedNeighbour:secondID];
+	[[touches objectForKey:secondID] removeConnectedNeighbour:firstID];
+		
 	[dieingConnections addObject:connection];
 	[connections removeObject:connection];
 }

@@ -79,6 +79,16 @@
 	return neighbours;
 }
 
+- (bool) hasNeighbour:(NSNumber*) uid
+{
+	return [neighbours containsObject:uid];
+}
+
+- (int) neighboursCount
+{
+	return [neighbours count];
+}
+
 - (void) addNeighbour:(NSNumber*) uid withConnection:(TargettingInteractor*) connection
 {
 	[connectedNeighbours setObject:connection forKey:uid];
@@ -95,6 +105,11 @@
 - (bool) hasConnectedNeighbour:(NSNumber*) neighbour
 {
 	return [[connectedNeighbours allKeys] containsObject:neighbour];
+}
+
+- (NSArray*) getConnectedNeighbours
+{
+	return [connectedNeighbours allKeys];
 }
 
 - (int) connectedNeighboursCount

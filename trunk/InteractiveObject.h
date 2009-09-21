@@ -59,10 +59,14 @@
 - (void) addNeighbour:(NSNumber*) uid;
 - (void) removeNeighbour:(NSNumber*) uid;
 - (NSArray*) getNeighbours;
+- (bool) hasNeighbour:(NSNumber*) uid;
+
+- (int) neighboursCount;
 
 - (void) addNeighbour:(NSNumber*) uid withConnection:(TargettingInteractor*) connection;
 - (TargettingInteractor*) removeConnectedNeighbour:(NSNumber*) uid;
 - (bool) hasConnectedNeighbour:(NSNumber*) neighbour;
+- (NSArray*) getConnectedNeighbours;
 
 - (int) connectedNeighboursCount;
 

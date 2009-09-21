@@ -33,6 +33,8 @@
 	NSMutableArray *dieingSpots;
 	NSMutableArray *deadSpots;
 	
+	NSMutableArray *reconnectTimers;
+	
 	float radius;
 	float subStep;
 	
@@ -44,5 +46,7 @@
 
 - (void) processTouches:(TouchEvent*)event;
 - (void) render;
+
+- (void) reconnect:(NSTimer*) theTimer;
 
 @end
