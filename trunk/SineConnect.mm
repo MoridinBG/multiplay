@@ -138,7 +138,6 @@
 	{
 		if(![touches objectForKey:sine.origin])
 		{
-			NSLog(@"Here");
 			[deadSleepingSines addObject:sine];
 			continue;
 		}
@@ -373,7 +372,6 @@
 		[spot setScale:scale];														//Update current ripple's parameters		
 		[spot setIsScaling:isScaling];												//Update current ripple's parameters
 	}
-	
 	
 	keys = [dieingSpots allKeys];
 	for(uid in keys)																//Iterrate over spots with removed touches and suck them out

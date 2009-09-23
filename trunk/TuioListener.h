@@ -21,10 +21,12 @@
 	NSMutableDictionary *cursors;
 	NSSize dimensions;
 	float ratio;
+	
+	int port;
 }
 @property TuioMultiplexor *multiplexor;
 
-- (id) init;
+- (id) initWithPort:(int) aPort;
 
 - (void) tuioCursorAdded: (TuioCursor*) newCursor;
 - (void) tuioCursorUpdated: (TuioCursor*) updatedCursor;

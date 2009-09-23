@@ -83,7 +83,7 @@
 			
 			[touches setObject:spot forKey:uniqueID];
 			
-			float reconnectInterval = 10 + (arc4random() % 10);
+			float reconnectInterval = 8 + (arc4random() % 5);
 			NSTimer *reconnectTimer = [NSTimer scheduledTimerWithTimeInterval:reconnectInterval
 																	   target:self
 																	 selector:@selector(reconnect:) 
@@ -128,7 +128,7 @@
 	NSNumber *uid;
 	float delta;
 	bool isScaling;
-	
+		
 	for(connection in connections)
 	{
 		float scale = connection.scale;
@@ -201,7 +201,7 @@
 		glEnd();
 		
 		if(connection.scale < 1.0f)
-			connection.scale += 0.1f;
+			connection.scale += 0.2f;
 	}
 	
 	for(connection in dieingConnections)
@@ -273,7 +273,8 @@
 	
 	for(connection in deadConnections)
 	{
-		[dieingConnections removeObject:connection];
+		if([dieingConnections containsObject:connection])
+			[dieingConnections removeObject:connection];
 	}
 	
 	[deadConnections removeAllObjects];
@@ -369,7 +370,8 @@
 	
 	for(spot in deadSpots)
 	{
-		[dieingSpots removeObject:spot];
+		if([dieingSpots containsObject:spot])
+			[dieingSpots removeObject:spot];
 	}
 	
 	[deadSpots removeAllObjects];

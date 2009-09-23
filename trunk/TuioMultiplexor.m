@@ -14,7 +14,7 @@
 
 - (id) initWithListeners:(int) listeners
 {
-	numSenders = 1;
+	numSenders = 2;
 	if(self = [super init])
 	{
 	}
@@ -46,11 +46,11 @@
 
 - (void) cursorRemovedEvent: (TouchEvent*) event;
 {	
-	int offset = [self calculateOffset:[[event uid] intValue]];
-	[event setPos:[self transformCoordinates:[event pos] forPortOffset:offset]];
-	
 	[Logger logMessage:[NSString stringWithFormat:@"Removed touch %d from %f, %f", [event.uid intValue], event.pos.x, event.pos.y]
 				ofType:DEBUG_LISTENER];
+	
+	int offset = [self calculateOffset:[[event uid] intValue]];
+	[event setPos:[self transformCoordinates:[event pos] forPortOffset:offset]];
 
 	[provider processTouches:event];
 }

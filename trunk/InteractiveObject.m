@@ -8,8 +8,13 @@
 
 #import "InteractiveObject.h"
 
-
 @implementation InteractiveObject
+
+@synthesize neighbours;
+@synthesize connectedNeighbours;
+
+@synthesize newColor;
+@synthesize colorStep;
 
 @synthesize scale;
 @synthesize angle;
@@ -23,6 +28,8 @@
 @synthesize rotateDelta;
 @synthesize rotateLeft;
 @synthesize direction;
+
+
 
 - (id) initWithPos:(CGPoint) pos
 {
@@ -185,5 +192,4 @@
 		colorStep.b = (newColor.b - color.b) / 60.0f;
 	}
 }
-
 @end

@@ -98,6 +98,8 @@
 	{
 		[Logger logMessage:[NSString stringWithFormat:@"Rendering ripple %d", [uid integerValue]] ofType:DEBUG_RENDER];
 		
+
+		
 		ripple = [ripples objectForKey:uid];
 		scale = ripple.scale;;
 		pos = ripple.position;
@@ -180,6 +182,8 @@
 	keys = [dieingRipples allKeys];													//Iterrate over ripples with removed touches and suck them out
 	for(uid in keys)
 	{
+		[Logger logMessage:[NSString stringWithFormat:@"Rendering dead ripple %d", [uid integerValue]] ofType:DEBUG_RENDER];
+		
 		ripple = [dieingRipples objectForKey:uid];
 		scale = [ripple scale];
 		pos = [ripple position];

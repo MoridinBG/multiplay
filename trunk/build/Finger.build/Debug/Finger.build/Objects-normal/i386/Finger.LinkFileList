@@ -2,7 +2,6 @@
 /Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/MyOpenGlView.o
 /Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/EffectProvider.o
 /Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/TouchEvent.o
-/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/TuioListener.o
 /Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/btPhysics.o
 /Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/SparklesPhysics.o
 /Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/Ripples.o
@@ -20,3 +19,14 @@
 /Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/Sparkle.o
 /Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/TextCircle.o
 /Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/LabeledInteractor.o
+/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/TUIOppListener.o
+/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/TuioClient.o
+/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/TuioServer.o
+/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/TuioTime.o
+/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/OscOutboundPacketStream.o
+/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/OscPrintReceivedElements.o
+/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/OscReceivedElements.o
+/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/OscTypes.o
+/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/IpEndpointName.o
+/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/NetworkingUtils.o
+/Users/ivandilchovski/Projects/Finger/build/Finger.build/Debug/Finger.build/Objects-normal/i386/UdpSocket.o

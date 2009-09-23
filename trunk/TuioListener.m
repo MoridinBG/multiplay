@@ -12,11 +12,12 @@
 @implementation TuioListener
 @synthesize multiplexor;
 
-- (id) init
+- (id) initWithPort:(int) aPort
 {
 	if (self = [super init])
 	{	
-		tuioClient = [[TuioClient alloc] initWithPortNumber:3333];
+		port = aPort;
+		tuioClient = [[TuioClient alloc] initWithPortNumber:aPort];
 		[tuioClient setTuioCursorDelegate:self];
 		[tuioClient setTuioObjectDelegate:self];
 		
@@ -53,7 +54,7 @@
 - (void) tuioCursorRemoved: (TuioCursor*) deadCursor
 {
 	if(![cursors objectForKey:[NSNumber numberWithUnsignedInt:deadCursor.uniqueID]])
-	   return;	
+		return;
 	
 	TouchEvent *event = [cursors objectForKey:[NSNumber numberWithInt:deadCursor.uniqueID]];
 	[cursors removeObjectForKey:[NSNumber numberWithUnsignedInt:deadCursor.uniqueID]];

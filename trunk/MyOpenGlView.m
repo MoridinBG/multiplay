@@ -85,13 +85,13 @@
 		
 //		provider = [[Sparkles alloc] init];
 //		provider = [[Ripples alloc] init];
-//		provider = [[SineConnect alloc] init];
-		provider = [[LineConnect alloc] init];
+		provider = [[SineConnect alloc] init];
+//		provider = [[LineConnect alloc] init];
 //		provider = [[TextCircle alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
 		
-		(void)[NSTimer scheduledTimerWithTimeInterval:0.040
+		(void)[NSTimer scheduledTimerWithTimeInterval:0.033
 											   target:self 
 											 selector:@selector(display) 
 											 userInfo:nil 

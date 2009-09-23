@@ -29,11 +29,18 @@
 	void *physicsData;
 	RGBA color;
 	
-	RGBA newColor;
-	RGBA colorStep;
 	NSMutableArray *neighbours;
 	NSMutableDictionary *connectedNeighbours;
+	
+	RGBA newColor;
+	RGBA colorStep;
 }
+
+@property (copy) NSMutableArray *neighbours;
+@property (copy) NSMutableDictionary *connectedNeighbours;
+
+@property RGBA newColor;
+@property RGBA colorStep;
 
 @property float scale;
 @property float delta;
@@ -72,6 +79,5 @@
 
 - (void) setColor:(RGBA) aColor;
 - (void) randomizeColor;
-
 @end
 

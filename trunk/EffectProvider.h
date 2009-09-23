@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "TuioListener.h"
 #import "TuioMultiplexor.h"
 #import "TouchEvent.h"
 #import "consts.h"
@@ -19,6 +18,10 @@
 #import "SparklesPhysics.h"
 
 #import "TargettingInteractor.h"
+
+#ifdef __cplusplus
+#import "TUIOppListener.h"
+#endif
 
 @class Sparkles;
 @class Ripples;
@@ -44,6 +47,10 @@
 	
 	NSSize dimensions;
 	
+	#ifdef __cplusplus
+	TUIOppListener *listener;
+	TUIOppListener *listener2;
+	#endif	
 }
 - (id) init;
 - (void) processTouches:(TouchEvent*)event;
