@@ -18,11 +18,12 @@
 	int numSenders;
 	float ratio;
 	NSSize dimensions;
+	NSRecursiveLock *lock;
 }
 
-@property EffectProvider *provider;
+@property (assign) EffectProvider *provider;
 
-- (id) initWithListeners:(int) listeners;
+- (id) init;
 
 - (CGPoint) transformCoordinates:(CGPoint)pos forPortOffset:(int) offset;
 - (void) setDimensions:(NSSize) dimensions_;
@@ -31,6 +32,6 @@
 - (void) cursorUpdatedEvent: (TouchEvent*) updatedEvent;
 - (void) cursorRemovedEvent: (TouchEvent*) removedEvent;
 
-- (int) calculateOffset:(int) uid;
+- (long) calculateOffset:(long) uid;
 
 @end

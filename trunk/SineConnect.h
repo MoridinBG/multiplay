@@ -25,11 +25,11 @@
 
 @interface SineConnect : EffectProvider <EffectProviderProtocol, ProximitySensorProtocol>
 {
-	NSMutableDictionary *dieingSpots;			//Store ripples for removed touches until animated out
-	NSMutableArray *deadSpots;					//We can't modify a container, while enumerating, so temporary put finally dead ripples here
+	NSMutableDictionary *dieingSpots;							//Store ripples for removed touches until animated out
+	NSMutableArray *deadSpots;									//We can't modify a container, while enumerating, so temporary put finally dead ripples here
 	
-	NSMutableArray *sines;						//Travelling sine waves
-	NSMutableArray *deadSines;					//Sine waves that have reached their destination
+	NSMutableArray *sines;										//Travelling sine waves
+	NSMutableArray *deadSines;									//Sine waves that have reached their destination
 	
 	NSMutableArray *sleepingSines;
 	NSMutableArray *deadSleepingSines;
@@ -40,7 +40,6 @@
 	b2ContactDetector *detector;
 #endif
 	
-	float f;
 	float *sineWave;
 	
 	float radius;

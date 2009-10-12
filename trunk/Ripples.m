@@ -12,221 +12,334 @@
 @implementation Ripples
 - (id) init
 {
-	[Logger logMessage:@"Init ripples" ofType:DEBUG_GENERAL];
-	
 	if(self = [super init])
 	{
-		ripples = [[NSMutableDictionary alloc] initWithCapacity:100];
-		dieingRipples = [[NSMutableDictionary alloc] init];
-		deadRipples = [[NSMutableArray alloc] init];
+		[Logger logMessage:@"Init Ripples" ofType:DEBUG_GENERAL];
 		
-		rot = 0;
+		newTouches = [[NSMutableDictionary alloc] initWithCapacity:50];
+		dieingTouches = [[NSMutableDictionary alloc] initWithCapacity:100];
+		deadTouches = [[NSMutableArray alloc] initWithCapacity:100];
 	}
 	return self;
 }
 
-- (void) finalize
-{
-	free(cosArray);
-	free(cosOffsetArray);
-	
-	free(sinArray);
-	free(sinOffsetArray);
-	
-	[super finalize];
-}
 - (void) processTouches:(TouchEvent*)event
 {
+	[lock lock];
 	[super processTouches:event];
 	
 	if([event ignoreEvent])
+	{
+		[lock unlock];
 		return;
+	}
 	
 	NSNumber *uniqueID = event.uid;
 	CGPoint pos = event.pos;
-//	CGPoint oldPos = event.lastPos;
 	switch (event.type) 
 	{
 		case TouchDown:
 		{
 			[Logger logMessage:@"Processing Ripples touch down event" ofType:DEBUG_TOUCH];
 			
-			InteractiveObject *ripple = [[InteractiveObject alloc] initWithPos:pos];
-			[ripples setObject:ripple forKey:uniqueID];
+			
+			NSMutableArray *ripple = [[NSMutableArray alloc] initWithCapacity:3];
+			for(float i = 1; i <= 3; i++)
+			{
+				InteractiveObject *circle = [[InteractiveObject alloc] initWithPos:pos];
+				circle.targetScale = 1.f / 3.f * i;
+				circle.colorSpeed = 1.1f;
+				
+				circle.scale = 2.f;
+
+				circle.isNew = TRUE;
+				circle.delta = (circle.scale - circle.targetScale) / 3;
+				
+				[ripple addObject:circle];
+			}
+			
+			ClusteredInteractor *cluster = [[ClusteredInteractor alloc] initWithItems:ripple];
+			cluster.scale = 0.3;
+			cluster.position = pos;
+			cluster.visibleItems = 1;
+			
+			[newTouches setObject:cluster forKey:uniqueID];
 			
 		} break;
 		case TouchMove:
 		{
+			if((![touches objectForKey:uniqueID]) && (![newTouches objectForKey:uniqueID]))
+			{
+				[lock unlock];
+				return;
+			}
+			
 			[Logger logMessage:@"Processing Ripples touch move event" ofType:DEBUG_TOUCH_MOVE];
 			
-			[(InteractiveObject*)[ripples objectForKey:uniqueID] setPosition:pos];
+			if([newTouches objectForKey:uniqueID])
+			{
+				ClusteredInteractor *cluster = [newTouches objectForKey:uniqueID];
+				[cluster setItemsPosition:pos];
+			} else
+			{
+				ClusteredInteractor *cluster = [touches objectForKey:uniqueID];
+				[cluster setItemsPosition:pos];
+			}
+			
 		} break;
 		case TouchRelease:
 		{
+			if((![touches objectForKey:uniqueID]) && (![newTouches objectForKey:uniqueID]))
+			{
+				[lock unlock];
+				return;
+			}
+			
 			[Logger logMessage:@"Processing Ripples touch release event" ofType:DEBUG_TOUCH];
 			
-			//Mark the ripple associated with this touch for sucktion away
-			[dieingRipples setObject:[ripples objectForKey:uniqueID] forKey:uniqueID];
-			[ripples removeObjectForKey:uniqueID];
+			if([touches objectForKey:uniqueID])
+			{
+				[dieingTouches setObject:[touches objectForKey:uniqueID] forKey:uniqueID];
+				[touches removeObjectForKey:uniqueID];
+			} else if([newTouches objectForKey:uniqueID])
+			{
+				[dieingTouches setObject:[newTouches objectForKey:uniqueID] forKey:uniqueID];
+				[newTouches removeObjectForKey:uniqueID];
+			}
+			
+			ClusteredInteractor *cluster = [dieingTouches objectForKey:uniqueID];
+			NSArray *ripple = cluster.cluster;
+			for(InteractiveObject *circle in ripple)
+			{
+				circle.targetScale = 2.f;
+				circle.delta = (circle.targetScale - circle.scale) / 4.f;
+			}
 		} break;
 	}
+	[lock unlock];
 }
 
 - (void) render
 {
-	float scale;
-	float radius = 0.10;
-	float angle;
-	float delta;
-	bool isScaling;
-	bool isNew;
-	bool rotateLeft;
+	[lock lock];
+
+	[Logger logMessage:@"Rendering Stars frame" ofType:DEBUG_RENDER];
 	
-	CGPoint pos;
+	ClusteredInteractor *cluster;
+	NSArray *ripple;
+	NSArray *keys = [touches allKeys];
 	NSNumber *uid;
-	NSArray *keys = [ripples allKeys];
-	InteractiveObject *ripple;
-	
-	if((![keys count]) && (![[dieingRipples allKeys] count]))
-	{
-		[colors removeAllObjects];
-		return;
-	}
-	
-	//Iterrate over living ripples
+	InteractiveObject *circle;
+
 	for(uid in keys)
 	{
-		[Logger logMessage:[NSString stringWithFormat:@"Rendering ripple %d", [uid integerValue]] ofType:DEBUG_RENDER];
+		if([newTouches objectForKey:uid])
+		{
+			cluster = [newTouches objectForKey:uid];
+			for(int i = 0; i < 3; i++)
+			{
+				InteractiveObject *circle = [cluster.cluster objectAtIndex:i];
+				circle.targetScale =  1.f / 3.f * i * 1.05;
+				circle.delta = (circle.targetScale - circle.scale) / (15 + arc4random() % 8);
+				
+				circle.isNew = FALSE;
+			}
+			
+			[newTouches removeObjectForKey:uid];
+		}
 		
-
+		cluster = [touches objectForKey:uid];
+		CGPoint clusterPos = cluster.position;
+		float clusterScale = cluster.scale;
 		
-		ripple = [ripples objectForKey:uid];
-		scale = ripple.scale;;
-		pos = ripple.position;
-		angle = ripple.angle;
-		delta = ripple.delta;
-		isScaling = ripple.isScaling;
-		isNew = ripple.isNew;
-		rotateLeft = ripple.rotateLeft;
+		ripple = cluster.cluster;
 		
-		RGBA color;
-		[(NSValue*)[colors objectForKey:uid] getValue:&color];
-		
-		
-
 		glLoadIdentity();
-		glTranslated(pos.x, pos.y, 0.0f);
-		glScaled(scale, scale, 0.0f);
-		glRotated(angle, 0.0f, 0.0f, 1.0f);
-		glTranslated(-pos.x, -pos.y, 0.0f);
-		[ripple setAngle:(angle + 1.0f)];
 		
-		glBegin(GL_TRIANGLE_FAN);
-		//Set the color for the center
-		glColor3f(color.r, color.g, color.b);
-		glVertex2f(pos.x, pos.y);
-		for(int i = 0; i <= SECTORS_RIPPLE;i++) 
-		{
-			//Draw bigger ripple in one color
-			glColor3f(color.r, color.g, color.b);
-			glVertex2f(radius * cosArray[i] + pos.x, 
-					   radius * sinArray[i] + pos.y);
-
-			//And smaller one in different color
-			glColor3f(color.b, color.r, color.g);
-			glVertex2f(radius / 1.5 * cosArray[i] + pos.x, 
-					   radius / 1.5 * sinArray[i] + pos.y);
-		}
-		glEnd();
-
-		if(isScaling)																//Is the ripple getting bigger?
-		{
+		glTranslated(clusterPos.x, clusterPos.y, 0);
+		glScaled(clusterScale, clusterScale, 1);
+		glTranslated(-clusterPos.x, -clusterPos.y, 0);
+		
+		int circles = cluster.visibleItems;
+		
+		for(int j = 0; j < circles; j++)
+		{	
+			circle = [ripple objectAtIndex:j];
+			CGPoint pos = circle.position;
+			RGBA color = circle.color;
 			
-			scale += delta;															//Increment its radius
-			if(scale > 1)															//If the radius is getting too big we should start getting smaller
+			if(circle.isScaling)
 			{
-				if(isNew)													//If the ripple has gotten so big for the first time decrement the scaling step
+				if((circle.targetScale - circle.scale) >= circle.delta)
+					circle.scale += circle.delta;
+				else
 				{
-					[ripple setIsNew:FALSE];
-					[ripple setDelta:0.011];
+					circle.targetScale =  1.f / 3.f * (j + 1) * 0.90;
+					circle.delta = (circle.scale - circle.targetScale) / (15 + arc4random() % 8);
+					circle.isScaling = FALSE;
 				}
-				isScaling = !isScaling;												//Not scaling anymore
 			}
-		} else
-		{
-			scale -= delta;															//Decrement the radius
-			if (scale < 0.7)														//If the radius is too small start incrementing
+			else
 			{
-				isScaling = !isScaling;
+				if((circle.scale - circle.targetScale) >= circle.delta)
+					circle.scale -= circle.delta;
+				else
+				{
+					circle.targetScale =  1.f / 3.f * (j + 1) * 1.05;
+					circle.delta = (circle.targetScale - circle.scale) / (15 + arc4random() % 8);
+					circle.isScaling = TRUE;
+				}
 			}
-		}
-
-		if(rotateLeft)
-		{
-			angle += 2.f;
 			
-			if(ripple.angle >= 360)
-				ripple.angle -= 360;
+			float scaleFactor = circle.scale;
+			
+			for(float k = 1; k < 5; k++)
+			{
+				glLineWidth(k * 2);
+				glColor4f(color.r, color.g, color.b, 0.07f);
+				glBegin(GL_LINE_LOOP);
+				for (int i = 0; i < 360; i++)
+				{	
+					glVertex2f(cos(DEG2RAD * i) * scaleFactor + pos.x, 
+							   sin(DEG2RAD * i) * scaleFactor + pos.y);
+				}
+				glEnd();
+			}
+			
+			[circle randomizeColor];
+		}
+	}
+	
+	keys = [dieingTouches allKeys];
+	
+	for(uid in keys)
+	{
+		cluster = [dieingTouches objectForKey:uid];
+		CGPoint clusterPos = cluster.position;
+		float clusterScale = cluster.scale;
+		
+		ripple = cluster.cluster;
+		
+		glLoadIdentity();
+		
+		glTranslated(clusterPos.x, clusterPos.y, 0);
+		glScaled(clusterScale, clusterScale, 1);
+		glTranslated(-clusterPos.x, -clusterPos.y, 0);
+		
+		int circles = cluster.visibleItems;
+		
+		circle = [ripple objectAtIndex:(circles - 1)];
+		
+		if((circle.targetScale - circle.scale) >= circle.delta)
+		{
+			circle.scale += circle.delta;
 		}
 		else
 		{
-			angle -= 2.f;
-			
-			if(ripple.angle <= 360)
-				ripple.angle += 360;
+			if((!circle.isNew) && (cluster.visibleItems > 1))
+			{
+				cluster.visibleItems--;
+				circle.isNew = TRUE;
+			} else if (cluster.visibleItems == 1)
+				[deadTouches addObject:uid];
 		}
 		
-		[ripple setParameters:pos scale:scale angle:angle isScaling:isScaling];		//Update current ripple's parameters
+		for(int j = 0; j < circles; j++)
+		{	
+			circle = [ripple objectAtIndex:j];
+			CGPoint pos = circle.position;
+			RGBA color = circle.color;
+			
+			float scaleFactor = circle.scale;
+			
+			for(float k = 1; k < 5; k++)
+			{
+				glLineWidth(k * 2);
+				glColor4f(color.r, color.g, color.b, 0.07f);
+				glBegin(GL_LINE_LOOP);
+				for (int i = 0; i < 360; i++)
+				{	
+					glVertex2f(cos(DEG2RAD * i) * scaleFactor + pos.x, 
+							   sin(DEG2RAD * i) * scaleFactor + pos.y);
+				}
+				glEnd();
+			}
+			
+			[circle randomizeColor];
+		}
+		
 	}
 	
-	keys = [dieingRipples allKeys];													//Iterrate over ripples with removed touches and suck them out
+	for(uid in deadTouches)
+		[dieingTouches removeObjectForKey:uid];
+	if([deadTouches count])
+		[deadTouches removeAllObjects];
+	
+	keys = [newTouches allKeys];
+	
 	for(uid in keys)
 	{
-		[Logger logMessage:[NSString stringWithFormat:@"Rendering dead ripple %d", [uid integerValue]] ofType:DEBUG_RENDER];
+		cluster = [newTouches objectForKey:uid];
+		CGPoint clusterPos = cluster.position;
+		float clusterScale = cluster.scale;
 		
-		ripple = [dieingRipples objectForKey:uid];
-		scale = [ripple scale];
-		pos = [ripple position];
-		
-		RGBA color;
-		[(NSValue*)[colors objectForKey:uid] getValue:&color];
+		ripple = cluster.cluster;
 		
 		glLoadIdentity();
-		glTranslated(pos.x, pos.y, 0.0f);
-		glScaled(scale, scale, 0.0f);
-		glTranslated(-pos.x, -pos.y, 0.0f);
 		
-		glBegin(GL_TRIANGLE_FAN);
-		//Set the color for the center
-		glColor3f(color.r, color.g, color.b);
-		glVertex2f(pos.x, pos.y);
-		for(int i = 0; i <= SECTORS_RIPPLE;i++) 
+		glTranslated(clusterPos.x, clusterPos.y, 0);
+		glScaled(clusterScale, clusterScale, 1);
+		glTranslated(-clusterPos.x, -clusterPos.y, 0);
+		
+		int circles = cluster.visibleItems;
+		
+		for(int j = 0; j <= (circles - 1); j++)
 		{
-			//Draw bigger ripple in one color
-			glColor3f(color.r, color.g, color.b);
-			glVertex2f(radius * cosArray[i] + pos.x, 
-					   radius * sinArray[i] + pos.y);
+			circle = [ripple objectAtIndex:j];
+			CGPoint pos = circle.position;
+			RGBA color = circle.color;
+			float scaleFactor;
 			
-			//And smaller one in different color
-			glColor3f(color.b, color.r, color.g);
-			glVertex2f(radius / 1.5 * cosArray[i] + pos.x, 
-					   radius / 1.5 * sinArray[i] + pos.y);
+			
+			if((circle.scale - circle.targetScale) >= circle.delta)
+			{
+				circle.scale -= circle.delta;
+				scaleFactor = circle.scale;
+			}
+			else
+			{
+				scaleFactor = circle.targetScale;
+				
+				if(circle.isNew)
+				{
+					if(cluster.visibleItems < [ripple count])
+						cluster.visibleItems++;
+					
+					circle.isNew = FALSE;
+				} 
+				else if((cluster.visibleItems == [ripple count]) && (!circle.isNew) && (j == 2))
+				{
+					[touches setObject:cluster forKey:uid];
+				}
+			}
+			
+			for(float k = 1; k < 5; k++)
+			{
+				glLineWidth(k * 2);
+				glColor4f(color.r, color.g, color.b, 0.07f);
+				glBegin(GL_LINE_LOOP);
+				for (int i = 0; i < 360; i++)
+				{	
+					glVertex2f(cos(DEG2RAD * i) * scaleFactor + pos.x, 
+							   sin(DEG2RAD * i) * scaleFactor + pos.y);
+				}
+				glEnd();
+			}
+			
+			[circle randomizeColor];
 		}
-		glEnd();
-		
-		scale -= 0.1f;
-		if(scale <= 0.1f)
-		{
-			[deadRipples addObject:uid];											//We can't modify a container while enumerating, so reference the dead object in another container
-			continue;
-		}
-		[ripple setScale:scale];
 	}
 	
-	for(uid in deadRipples)															//Iterrate the dead ripples and remove them forever
-	{
-		[dieingRipples removeObjectForKey:uid];
-	}
-	[deadRipples removeAllObjects];
+	[lock unlock];
 }
 @end

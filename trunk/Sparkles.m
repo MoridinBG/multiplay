@@ -83,7 +83,6 @@
 		
 		for(sparkle in sparkleGroup)
 		{
-			
 			alpha = 0.8f;
 			
 			for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)

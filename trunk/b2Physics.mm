@@ -10,58 +10,43 @@
 
 
 @implementation b2Physics
-- (void) main
+- (id) init
 {
-	b2AABB worldAABB;
-	b2Vec2 gravity(0.0f, 0.0f);
-	bool doSleep = true;
+	if(self = [super init])
+	{
+		b2AABB worldAABB;
+		b2Vec2 gravity(0.0f, 0.0f);
+		bool doSleep = true;
+		
+		worldAABB.lowerBound.Set(-6.6, -6.6);
+		worldAABB.upperBound.Set(6.6, 6.6);
+		
+		world = new b2World(worldAABB,gravity, doSleep);
+	}
 	
-	worldAABB.lowerBound.Set(-6.6, -6.6);
-	worldAABB.upperBound.Set(6.6, 6.6);
-	
-	world = new b2World(worldAABB,gravity, doSleep);
-	
-	mutex = [[NSLock alloc] init];
-	
-	NSRunLoop* myRunLoop = [NSRunLoop currentRunLoop];
-	NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.048
-													  target:self 
-													selector:@selector(step:) 
-													userInfo:nil 
-													 repeats:YES];
-	[myRunLoop addTimer:timer forMode:NSDefaultRunLoopMode];
-	[myRunLoop run];
+	return self;
 }
 
-- (void) step:(NSTimer*) theTimer
+- (void) step
 {
-	[mutex lock];
 	world->Step(1.0f / 30.0f, 5);
-	[mutex unlock];
 }
 
 - (b2ContactDetector*) addContactDetector
 {
-	[mutex lock];
-	
 	b2ContactDetector *detector = new b2ContactDetector();
 	world->SetContactListener(detector);
-	
-	[mutex unlock];
 	return detector;
 }
 
 - (void) destroyBody:(b2Body*) body
 {
-	[mutex lock];
 	if(body)
 		world->DestroyBody(body);
-	[mutex unlock];
 }
 
 - (b2Body*) addContactListenerAtX:(float) x Y:(float) y withUid:(NSNumber*) uid
 {
-	[mutex lock];
 	b2BodyDef bodyDef;
 	bodyDef.position.Set(x, y);
 	b2Body *body = world->CreateBody(&bodyDef);
@@ -76,7 +61,6 @@
 	body->CreateShape(&shapeDef);
 	body->SetMassFromShapes();
 	body->SetUserData(uid);
-	[mutex unlock];
 	
 	return body;
 }

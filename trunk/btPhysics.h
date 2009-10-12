@@ -5,7 +5,7 @@
 //  Created by Mood on 7/27/09.
 //  Copyright 2009 The Pixel Factory. All rights reserved.
 //
-#ifdef __cplusplus
+/*#ifdef __cplusplus
 	#import <BulletDynamics/btBulletDynamicsCommon.h>
 	#import <BulletCollision/CollisionDispatch/btGhostObject.h>
 #endif
@@ -28,4 +28,4 @@
 #ifdef __cplusplus
 - (void) addCollisionBody:(ObjGhost*) body;
 #endif
-@end
+@end*/

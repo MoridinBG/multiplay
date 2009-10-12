@@ -15,6 +15,8 @@
 #include "tuio/tuiolistener.h"
 #include "tuio/tuioclient.h"
 #include "tuio/TuioObject.h"
+#include <map>
+
 
 
 class  TUIOppListener : public TUIO::TuioListener
@@ -22,6 +24,7 @@ class  TUIOppListener : public TUIO::TuioListener
 public:
 	TUIOppListener(int aPort);
 	~TUIOppListener();
+	std::map<int, CGPoint> lastPositions;
 	
 	void addTuioObject(TUIO::TuioObject *tobj);
 	void updateTuioObject(TUIO::TuioObject *tobj);

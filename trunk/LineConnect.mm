@@ -31,7 +31,6 @@
 		alphaStep = 0.8f / (radius / subStep);
 		
 		[self createVertexArray];
-		[physicsThread start];
 	}
 	return self;
 }
@@ -51,10 +50,14 @@
 
 - (void) processTouches:(TouchEvent*)event
 {
+	[lock lock];
 	[super processTouches:event];
 	
 	if([event ignoreEvent])
+	{
+		[lock unlock];
 		return;
+	}
 	
 	NSNumber *uniqueID = event.uid;
 	CGPoint pos = event.pos;
@@ -65,8 +68,8 @@
 		{
 			if(!detector)
 			{
-				detector = (b2ContactDetector*) [(b2Physics*) physicsThread addContactDetector];
-				if(!physicsThread)
+				detector = (b2ContactDetector*) [physics addContactDetector];
+				if(!physics)
 					NSLog(@"Fail");
 				detector->setProvider(self);				
 			}
@@ -78,7 +81,7 @@
 			
 			InteractiveObject *spot = [[InteractiveObject alloc] initWithPos:pos];
 			[spot setDelta:0.15];
-			[spot setPhysicsData:[(b2Physics*)physicsThread addContactListenerAtX:pos.x Y:pos.y withUid:uniqueID]];
+			[spot setPhysicsData:[physics addContactListenerAtX:pos.x Y:pos.y withUid:uniqueID]];
 			[spot setColor:color];
 			
 			[touches setObject:spot forKey:uniqueID];
@@ -94,12 +97,21 @@
 			
 		case TouchMove:
 		{
+			if(![touches objectForKey:uniqueID])
+			{
+				[lock unlock];
+				return;
+			}
+			
 			[Logger logMessage:@"Processing LineConnect touch move event" ofType:DEBUG_TOUCH_MOVE];
 			
 			b2Body* body = (b2Body*)[[touches objectForKey:uniqueID] physicsData];
 			
 			if(!body)
+			{
+				[lock unlock];
 				return;
+			}
 			
 			if(body->IsSleeping())
 				body->WakeUp();
@@ -110,17 +122,35 @@
 			
 		case TouchRelease:
 		{
-			[Logger logMessage:@"Processing LineConnect touch release event" ofType:DEBUG_TOUCH];
+			if(![touches objectForKey:uniqueID])
+			{
+				[lock unlock];
+				return;
+			}
 			
-			[(b2Physics*) physicsThread destroyBody:(b2Body*)[[touches objectForKey:uniqueID] physicsData]];
+			[Logger logMessage:@"Processing LineConnect touch release event" ofType:DEBUG_TOUCH];
+			if(![touches objectForKey:uniqueID])
+			{
+				[lock unlock];
+				return;
+			}
+			
+			if([[touches objectForKey:uniqueID] physicsData])
+				[physics destroyBody:(b2Body*)[[touches objectForKey:uniqueID] physicsData]];
+			
 			[dieingSpots addObject:[touches objectForKey:uniqueID]];
 			[touches removeObjectForKey:uniqueID];
 		} break;
 	}
+	[lock unlock];
 }
 
 - (void) render
 {
+	[lock lock];
+	
+	[physics step];
+	
 	TargettingInteractor *connection;
 	InteractiveObject *spot;
 	float scale;
@@ -176,7 +206,7 @@
 		c = sqrt(a*a + b*b);
 		float cosine = b / c;		
 		
-		c /= 2;
+		c /= 4;
 		
 		float newB = cosine * c;
 		float newA = sqrt(c * c - newB * newB);
@@ -291,7 +321,7 @@
 				
 		alpha = 0.8f;
 	
-		RGBA color = [spot color];
+		RGBA color = spot.color;
 		
 		glLoadIdentity();
 		glTranslated(pos.x, pos.y, 0.0);
@@ -320,7 +350,7 @@
 			float degInRad = i * 3.14159f/180.0f;
 			glVertex2f(cos(degInRad) * SENSOR_RANGE + pos.x, sin(degInRad) * SENSOR_RANGE + pos.y);
 		}
-		glEnd(); */
+		glEnd();*/
 		
 		if(isScaling)
 		{
@@ -375,22 +405,29 @@
 	}
 	
 	[deadSpots removeAllObjects];
+	[lock unlock];
 }
 			
 - (void) reconnect:(NSTimer*) theTimer
 {
+	[lock lock];
+	NSLog(@"HerE");
 	NSNumber *uid = [theTimer userInfo];
 	if(![touches objectForKey:uid])
 	{
 		[reconnectTimers removeObject:theTimer];
 		[theTimer invalidate];
 		
+		[lock unlock];
 		return;
 	}
 	
 	InteractiveObject *touch = [touches objectForKey:uid];
 	if((![touch neighboursCount]) || (![touch connectedNeighboursCount]))
+	{
+		[lock unlock];
 		return;
+	}
 	
 	NSArray *neighbours = [touch getNeighbours];
 	NSMutableArray *freeNeighbours = [[NSMutableArray alloc] initWithCapacity:25];
@@ -421,7 +458,10 @@
 	[uselessFreeNeighbours removeAllObjects];
 	
 	if(![freeNeighbours count])
+	{
+		[lock unlock];
 		return;
+	}
 	
 	NSArray *connectedNeighbours = [touch getConnectedNeighbours];
 	NSNumber *unluckyConnection = [connectedNeighbours objectAtIndex:(arc4random() % [connectedNeighbours count])];
@@ -435,44 +475,57 @@
 	NSNumber *luckyConnection = [freeNeighbours objectAtIndex:(arc4random() % [freeNeighbours count])];
 	
 	[self updateContactBetween:uid And:luckyConnection];
+	[lock unlock];
 }
 
 - (void) contactBetween:(NSNumber*) firstID And:(NSNumber*) secondID
 {
+	[lock lock];
 	[[touches objectForKey:firstID] addNeighbour:secondID];
 	[[touches objectForKey:secondID] addNeighbour:firstID];
+	[lock unlock];
 }
 
 - (void) updateContactBetween:(NSNumber*) firstID And:(NSNumber*) secondID
 {
+	[lock lock];
 	[Logger logMessage:[NSString stringWithFormat:@"Contact between touches %d & %d", [firstID intValue], [secondID intValue]] ofType:DEBUG_PHYSICS];
 	
 	if(([(InteractiveObject*)[touches objectForKey:firstID] connectedNeighboursCount] < 4) && ([(InteractiveObject*)[touches objectForKey:secondID] connectedNeighboursCount] < 4))
 	{
 		if([(InteractiveObject*)[touches objectForKey:firstID] hasConnectedNeighbour:secondID])
+		{
+			[lock unlock];
 			return;
+		}
 		
 		TargettingInteractor *connection = [[TargettingInteractor alloc] initWithOrigin:firstID target:secondID];
 		[connections addObject:connection];
 		[[touches objectForKey:firstID] addNeighbour:secondID withConnection:connection];
 		[[touches objectForKey:secondID] addNeighbour:firstID withConnection:connection];
 	}
+	[lock unlock];
 }
 
 - (void) removeContactBetween:(NSNumber*) firstID And:(NSNumber*) secondID
 {
+	[lock lock];
 	[Logger logMessage:[NSString stringWithFormat:@"Removed contact between touches %d & %d", [firstID intValue], [secondID intValue]] ofType:DEBUG_PHYSICS];
 	
 	[[touches objectForKey:firstID] removeNeighbour:secondID];
 	[[touches objectForKey:secondID] removeNeighbour:firstID];
 	
 	if(![[touches objectForKey:firstID] hasConnectedNeighbour:secondID])
+	{
+		[lock unlock];
 		return;
+	}
 	
 	TargettingInteractor *connection = [[touches objectForKey:firstID] removeConnectedNeighbour:secondID];
 	[[touches objectForKey:secondID] removeConnectedNeighbour:firstID];
 		
 	[dieingConnections addObject:connection];
 	[connections removeObject:connection];
+	[lock unlock];
 }
 @end

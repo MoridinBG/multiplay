@@ -15,7 +15,6 @@
 
 #import "btPhysics.h"
 #import "b2Physics.h"
-#import "SparklesPhysics.h"
 
 #import "TargettingInteractor.h"
 
@@ -24,13 +23,15 @@
 #endif
 
 @class Sparkles;
-@class Ripples;
+@class Stars;
 @class SineConnect;
 @class LineConnect;
+@class TextCircle;
+@class Ripples;
 @interface EffectProvider : NSObject 
 {
 	NSMutableArray *listeners;
-	NSThread *physicsThread;
+	b2Physics *physics;
 	
 	TuioMultiplexor *multiplexor;
 	
@@ -47,10 +48,12 @@
 	
 	NSSize dimensions;
 	
+	NSRecursiveLock *lock;
+	
 	#ifdef __cplusplus
 	TUIOppListener *listener;
 	TUIOppListener *listener2;
-	#endif	
+	#endif
 }
 - (id) init;
 - (void) processTouches:(TouchEvent*)event;

@@ -10,10 +10,12 @@
 #import <OpenGL/glu.h>
 
 #import "Sparkles.h"
-#import "Ripples.h"
+#import "Stars.h"
 #import "SineConnect.h"
 #import "LineConnect.h"
 #import "TextCircle.h"
+
+#import "Ripples.h"
 
 @class NSOpenGLContext, NSOpenGLPixelFormat;
 
@@ -26,11 +28,17 @@
 	bool fullscreen;
 	EffectProvider <EffectProviderProtocol> *provider;
 	NSRect projectionSize;
+	
+	RGBA color;
+	RGBA newColor;
+	RGBA colorStep;
 } 
 
 - (id)initWithFrame:(NSRect)frameRect;
 - (void) fullscreen:(id)sender;
 - (NSSize) dimensions;
 - (NSOpenGLContext*)openGLContext;
+
+- (void) randomizeColor;
 
 @end

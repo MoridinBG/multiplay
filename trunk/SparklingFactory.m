@@ -176,7 +176,7 @@
 		//Create a new body every 10ms
 		NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.04
 														  target:self 
-														selector:@selector(createSparkle:) 
+														selector:@selector(createSparkle:)
 														userInfo:touch.uid
 														 repeats:YES];
 		[timers setObject:timer forKey:touch.uid];

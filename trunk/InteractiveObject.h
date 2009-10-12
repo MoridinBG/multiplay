@@ -14,13 +14,18 @@
 {
 	float scale;
 	float delta;
+	float targetScale;
 	
 	CGPoint position;
 	CGPoint direction;
 	
 	bool isScaling;
 	bool isNew;
+	
+	int itemsHeld;
 	bool isHolding;
+	
+	bool isAimless;
 	
 	float angle;
 	float rotateDelta;
@@ -34,6 +39,7 @@
 	
 	RGBA newColor;
 	RGBA colorStep;
+	float colorSpeed;
 }
 
 @property (copy) NSMutableArray *neighbours;
@@ -41,17 +47,23 @@
 
 @property RGBA newColor;
 @property RGBA colorStep;
+@property float colorSpeed;
+
 
 @property float scale;
 @property float delta;
+@property float targetScale;
 
 @property CGPoint position;
 @property CGPoint direction;
 
 @property bool isScaling;
 @property bool isNew;
+
+@property int itemsHeld;
 @property bool isHolding;
 
+@property bool isAimless;
 
 @property float angle;
 @property float rotateDelta;
@@ -61,23 +73,21 @@
 @property RGBA color;
 
 - (id) initWithPos:(CGPoint) pos;
-- (void) setParameters:(CGPoint) position_ scale:(float) scale_ angle:(float) angle_ isScaling:(bool) isScaling_;
 
 - (void) addNeighbour:(NSNumber*) uid;
 - (void) removeNeighbour:(NSNumber*) uid;
 - (NSArray*) getNeighbours;
 - (bool) hasNeighbour:(NSNumber*) uid;
-
 - (int) neighboursCount;
 
 - (void) addNeighbour:(NSNumber*) uid withConnection:(TargettingInteractor*) connection;
 - (TargettingInteractor*) removeConnectedNeighbour:(NSNumber*) uid;
 - (bool) hasConnectedNeighbour:(NSNumber*) neighbour;
 - (NSArray*) getConnectedNeighbours;
-
 - (int) connectedNeighboursCount;
 
 - (void) setColor:(RGBA) aColor;
+- (void) setRandomColor;
 - (void) randomizeColor;
 @end
 

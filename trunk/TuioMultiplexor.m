@@ -12,11 +12,11 @@
 @implementation TuioMultiplexor
 @synthesize provider;
 
-- (id) initWithListeners:(int) listeners
+- (id) init
 {
-	numSenders = 2;
 	if(self = [super init])
 	{
+		numSenders = 2;
 	}
 	
 	return self;
@@ -24,34 +24,34 @@
 
 - (void) cursorAddedEvent: (TouchEvent*) event
 {
+	long offset = [self calculateOffset:[[event uid] longValue]];
+	[event setPos:[self transformCoordinates:[event pos] forPortOffset:offset]];
+	
 	[Logger logMessage:[NSString stringWithFormat:@"New touch %d at %f, %f", [event.uid intValue], event.pos.x, event.pos.y]
 				ofType:DEBUG_LISTENER];
-	
-	int offset = [self calculateOffset:[[event uid] intValue]];
-	[event setPos:[self transformCoordinates:[event pos] forPortOffset:offset]];
 	
 	[provider processTouches:event];
 }
 
 - (void) cursorUpdatedEvent: (TouchEvent*) event
 {
-	[Logger logMessage:[NSString stringWithFormat:@"Moved touch %d to %f, %f", [event.uid intValue], event.pos.x, event.pos.y]
-				ofType:DEBUG_LISTENER_MOVE];
-	
-	int offset = [self calculateOffset:[[event uid] intValue]];
+	long offset = [self calculateOffset:[[event uid] longValue]];
 	[event setPos:[self transformCoordinates:[event pos] forPortOffset:offset]];
+
+	[Logger logMessage:[NSString stringWithFormat:@"Moved touch %d to %f, %f", [event.uid intValue], event.pos.x, event.pos.y]
+				ofType:DEBUG_LISTENER_MOVE];	
 	
 	[provider processTouches:event];
 }
 
 - (void) cursorRemovedEvent: (TouchEvent*) event;
 {	
+	long offset = [self calculateOffset:[[event uid] longValue]];
+	[event setPos:[self transformCoordinates:[event pos] forPortOffset:offset]];
+
 	[Logger logMessage:[NSString stringWithFormat:@"Removed touch %d from %f, %f", [event.uid intValue], event.pos.x, event.pos.y]
 				ofType:DEBUG_LISTENER];
 	
-	int offset = [self calculateOffset:[[event uid] intValue]];
-	[event setPos:[self transformCoordinates:[event pos] forPortOffset:offset]];
-
 	[provider processTouches:event];
 }
 
@@ -101,12 +101,12 @@
 	ratio = dimensions.width / dimensions.height;
 }
 
-- (int) calculateOffset:(int) uid
+- (long) calculateOffset:(long) uid
 {
 	if(numSenders == 1)
 		return 0;
 	
-	unsigned int offset;
+	long offset;
 	for(offset = 0; uid > 0; offset++)
 		uid -= 10000000;
 	offset--;

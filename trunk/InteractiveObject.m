@@ -15,16 +15,26 @@
 
 @synthesize newColor;
 @synthesize colorStep;
+@synthesize colorSpeed;
 
 @synthesize scale;
+@synthesize delta;
+@synthesize targetScale;
+
 @synthesize angle;
 @synthesize position;
+
 @synthesize isScaling;
 @synthesize isNew;
-@synthesize delta;
+
 @synthesize physicsData;
 @synthesize color;
+
+@synthesize itemsHeld;
 @synthesize isHolding;
+
+@synthesize isAimless;
+
 @synthesize rotateDelta;
 @synthesize rotateLeft;
 @synthesize direction;
@@ -45,30 +55,29 @@
 	if(self = [super init])
 	{
 		scale = 0.01f;
+		delta = 0.18;
+		targetScale = 1.f;																			//Used to hold specific target values for scale;
+		
 		isScaling = TRUE;
 		isNew = TRUE;
-		delta = 0.13;
 		
 		angle = 0.0f;
-		rotateDelta = 0.1;
+		rotateDelta = 3.0;
 		if((arc4random() % 100) > 50)
 			rotateLeft = TRUE;
 		else
 			rotateLeft = FALSE;
 		
+		isAimless = FALSE;
+		
 		neighbours = [[NSMutableArray alloc] init];
 		connectedNeighbours = [[NSMutableDictionary alloc] initWithCapacity:100];
 		
+		[self setRandomColor];
+		colorSpeed = 1.0f;
+		
 	}
 	return self;
-}
-
-- (void) setParameters:(CGPoint) position_ scale:(float) scale_ angle:(float) angle_ isScaling:(bool) isScaling_
-{
-	position = position_;
-	scale = scale_;
-	angle = angle_;
-	isScaling = isScaling_;
 }
 
 - (void) addNeighbour:(NSNumber*) uid
@@ -136,19 +145,20 @@
 	{
 		if((color.r > newColor.r) && (colorStep.r > 0))
 		{
-			newColor.r = (((float)(arc4random() % 1000)) / 1000);
+			newColor.r = (((float)(arc4random() % 255)) / 255);
 			colorStep.r = (newColor.r - color.r) / 60.0f;
 		}
 		if((color.r < newColor.r) && (colorStep.r < 0))
 		{
-			newColor.r = (((float)(arc4random() % 1000)) / 1000);
+			newColor.r = (((float)(arc4random() % 255)) / 255);
 			colorStep.r = (newColor.r - color.r) / 60.0f;
 		}
+		colorStep.r *= colorSpeed;
 		color.r += colorStep.r;
 	}
 	else
 	{
-		newColor.r = (((float)(arc4random() % 1000)) / 1000);
+		newColor.r = (((float)(arc4random() % 255)) / 255);
 		colorStep.r = (newColor.r - color.r) / 60.0f;
 	}
 	
@@ -156,19 +166,20 @@
 	{
 		if((color.g > newColor.g) && (colorStep.g > 0))
 		{
-			newColor.g = (((float)(arc4random() % 1000)) / 1000);
+			newColor.g = (((float)(arc4random() % 255)) / 255);
 			colorStep.g = (newColor.g - color.g) / 60.0f;
 		}
 		if((color.g < newColor.g) && (colorStep.g < 0))
 		{
-			newColor.g = (((float)(arc4random() % 1000)) / 1000);
+			newColor.g = (((float)(arc4random() % 255)) / 255);
 			colorStep.g = (newColor.g - color.g) / 60.0f;
 		}
+		colorStep.g *= colorSpeed;
 		color.g += colorStep.g;
 	}
 	else
 	{
-		newColor.g = (((float)(arc4random() % 1000)) / 1000);
+		newColor.g = (((float)(arc4random() % 255)) / 255);
 		colorStep.g = (newColor.g - color.g) / 60.0f;
 	}
 	
@@ -176,20 +187,31 @@
 	{
 		if((color.b > newColor.b) && (colorStep.b > 0))
 		{
-			newColor.b = (((float)(arc4random() % 1000)) / 1000);
+			newColor.b = (((float)(arc4random() % 255)) / 255);
 			colorStep.b = (newColor.b - color.b) / 60.0f;
 		}
 		if((color.b < newColor.b) && (colorStep.b < 0))
 		{
-			newColor.b = (((float)(arc4random() % 1000)) / 1000);
+			newColor.b = (((float)(arc4random() % 255)) / 255);
 			colorStep.b = (newColor.b - color.b) / 60.0f;
-		}	
+		}
+		colorStep.b *= colorSpeed;
 		color.b += colorStep.b;
 	}
 	else
 	{
-		newColor.b = (((float)(arc4random() % 1000)) / 1000);
+		newColor.b = (((float)(arc4random() % 255)) / 255);
 		colorStep.b = (newColor.b - color.b) / 60.0f;
 	}
 }
+
+- (void) setRandomColor
+{
+	color.r = (((float)(arc4random() % 255)) / 255);
+	color.g = (((float)(arc4random() % 255)) / 255);
+	color.b = (((float)(arc4random() % 255)) / 255);
+	
+	newColor = color;
+}
+
 @end

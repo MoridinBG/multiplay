@@ -27,7 +27,7 @@
 		[strings addObject:@"Did you have a great day today? "];
 		[strings addObject:@"What you gonna do tonight? "];
 		
-		font = new FTGLPolygonFont("/Users/ivandilchovski/Fonts/Courier.ttf");
+		font = new FTGLPolygonFont("/Users/ivandilchovski/Fonts/couriernew.ttf");
 		font->FaceSize(30);
 		font->UseDisplayList(true);
 	}
@@ -37,6 +37,7 @@
 
 - (void) processTouches:(TouchEvent*)event
 {
+	[lock lock];
 	[super processTouches:event];
 	
 	if([event ignoreEvent])
@@ -64,12 +65,24 @@
 		} break;
 		case TouchMove:
 		{
+			if(![touches objectForKey:uniqueID])
+			{
+				[lock unlock];
+				return;
+			}
+			
 			[Logger logMessage:@"Processing TextRender touch move event" ofType:DEBUG_TOUCH_MOVE];
 			
 			[(LabeledInteractor*)[touches objectForKey:uniqueID] setPosition:pos];
 		} break;
 		case TouchRelease:
 		{
+			if(![touches objectForKey:uniqueID])
+			{
+				[lock unlock];
+				return;
+			}
+			
 			[Logger logMessage:@"Processing TextRender touch release event" ofType:DEBUG_TOUCH];
 			
 			[deadStrings setObject:[touches objectForKey:uniqueID] forKey:uniqueID];
@@ -79,10 +92,13 @@
 			[touches removeObjectForKey:uniqueID];
 		} break;
 	}
+	[lock unlock];
 }
 
 - (void) render
 {	
+	[lock lock];
+	
 	float circumference, diameter;
 	float scale, delta, angle, rotateDelta;
 	bool rotateLeft;
@@ -92,8 +108,13 @@
 	
 	for(uid in keys)
 	{
+		if(!uid)
+			continue;
+		
 		text = [touches objectForKey:uid];
 		const char *string = [text.label UTF8String];
+		if(!string)
+			continue;
 		int length = strlen(string);
 		scale = text.scale;
 		delta = text.delta;
@@ -138,8 +159,8 @@
 		if (scale  < 1.f)
 		{
 			text.scale += delta;
-			if(delta < 0.06)
-				text.delta *= 1.15;
+			if(delta < 0.1)
+				text.delta *= 1.3;
 		}
 			
 		if(rotateLeft)
@@ -157,13 +178,16 @@
 				text.angle += 360;
 		}
 		
-		if(rotateDelta > 1)
+		if(rotateDelta > 1.7)
 			text.rotateDelta -= 0.1;
 	}
 	
 	keys = [deadStrings allKeys];
 	for(uid in keys)
 	{
+		if(!uid)
+			continue;
+		
 		text = [deadStrings objectForKey:uid];
 		const char *string = [text.label UTF8String];
 		int length = strlen(string);
@@ -207,7 +231,7 @@
 		
 		glPopMatrix();
 		
-		text.delta += 1.2f;
+		text.delta += 2.f;
 		if(((int)text.scale) > length)
 			[stringsForRemoval addObject:uid];
 	}
@@ -219,6 +243,7 @@
 	
 	if([stringsForRemoval count])
 		[stringsForRemoval removeAllObjects];
+	[lock unlock];
 }
 
 @end

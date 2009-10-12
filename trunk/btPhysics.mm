@@ -7,7 +7,7 @@
 //
 
 #import "btPhysics.h"
-extern ContactAddedCallback		gContactAddedCallback;
+/*extern ContactAddedCallback		gContactAddedCallback;
 
 @implementation btPhysics
 - (void) main
@@ -50,3 +50,4 @@ extern ContactAddedCallback		gContactAddedCallback;
 	dynamicsWorld->addCollisionObject([body ghost]);
 }
 @end
+*/

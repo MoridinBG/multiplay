@@ -19,17 +19,21 @@
 		{
 			sectors = SECTORS_SPARKLE;
 		}
-		else if([self isKindOfClass:[Ripples class]])
+		else if([self isKindOfClass:[Stars class]])
 		{
-			sectors = SECTORS_RIPPLE;
+			sectors = SECTORS_STARS;
 		}
 		else if(([self isKindOfClass:[SineConnect class]]) || ([self isKindOfClass:[LineConnect class]]))
 		{
-			physicsThread = [[b2Physics alloc] init];
+			physics = [[b2Physics alloc] init];
 			sectors = SECTORS_TOUCH;
 		}
+		else if(([self isKindOfClass:[TextCircle class]]) || ([self isKindOfClass:[Ripples class]]))
+		{
+			sectors = 0;
+		}
 		
-		multiplexor = [[TuioMultiplexor alloc] initWithListeners:2];
+		multiplexor = [[TuioMultiplexor alloc] init];
 		[multiplexor setProvider:self];
 		
 		listener = new TUIOppListener(3333);
@@ -55,18 +59,17 @@
 			sinArray[i] = sin(i * 2 * PI / sectors);
 			sinOffsetArray[i] = sin(i * 2 * PI / sectors + 0.2);
 		}
+		
+		lock = [[NSRecursiveLock alloc] init];
+		
 	}
 	return self;
 }
 
 - (void) processTouches:(TouchEvent*)event
 {
-	CGPoint pos = [event pos];
-	if((pos.x < 0) || (pos.x > 6.4f) || (pos.y < 0) || (pos.y > 1.0f))
-	{
-		[Logger logMessage:@"Touch out of range" ofType:DEBUG_GENERAL];
-		return;
-	}
+	[lock lock];
+//	CGPoint pos = [event pos];
 	switch (event.type) 
 	{
 		case TouchDown:
@@ -88,6 +91,7 @@
 		{
 		} break;
 	}
+	[lock unlock];
 }
 - (void) setDimensions:(NSSize) dimensions_
 {

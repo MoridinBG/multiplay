@@ -14,19 +14,19 @@
 #endif
 #import "consts.h"
 
-@interface b2Physics : NSThread 
+@interface b2Physics : NSObject 
 {
 #ifdef __cplusplus
 	b2World *world;
 #endif	
-	NSLock *mutex;
 }
-- (void) main;
-- (void) step:(NSTimer*) theTimer;
+- (id) init;
+- (void) step;
 
 #ifdef __cplusplus
 - (b2ContactDetector*) addContactDetector;
 - (void) destroyBody:(b2Body*) body;
 - (b2Body*) addContactListenerAtX:(float) x Y:(float) y withUid:(NSNumber*) uid;
 #endif
+
 @end
