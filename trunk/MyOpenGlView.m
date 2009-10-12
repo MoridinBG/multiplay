@@ -18,7 +18,7 @@
 		projectionSize.origin.x = 177;
 		projectionSize.origin.y  = 0;
 		
-		projectionSize.size.width = 510;
+		projectionSize.size.width = 750;
 		projectionSize.size.height = 525;
 		
 		short MAXDISPLAYS = 4;
@@ -84,14 +84,22 @@
 		}    
 		
 //		provider = [[Sparkles alloc] init];
-//		provider = [[Ripples alloc] init];
-		provider = [[SineConnect alloc] init];
+		provider = [[Stars alloc] init];
+//		provider = [[SineConnect alloc] init];
 //		provider = [[LineConnect alloc] init];
-//		provider = [[TextCircle alloc] init];
+// 		provider = [[TextCircle alloc] init];
+//		provider = [[Ripples alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
 		
-		(void)[NSTimer scheduledTimerWithTimeInterval:0.033
+		color.r = ((float)(arc4random() % 255)) / 255;
+		color.g = ((float)(arc4random() % 255)) / 255;
+		color.b = ((float)(arc4random() % 255)) / 255;
+		color.a = 1.0f;
+		
+		newColor = color;
+		
+		(void)[NSTimer scheduledTimerWithTimeInterval:0.050
 											   target:self 
 											 selector:@selector(display) 
 											 userInfo:nil 
@@ -134,7 +142,8 @@
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		
-		gluLookAt(510.0, 320.0, 320, 510.0, 320.0, 0.0, 0.0, 1.0, 0.0);
+		//gluLookAt(1560.0, 320.0, 320, 1560.0, 320.0, 0.0, 0.0, 1.0, 0.0);
+		gluLookAt(520, 320, 320, 520, 320, 0, 0, 1, 0);
 	}
 	else
 	{
@@ -159,7 +168,9 @@
 
 - (void)drawRect:(NSRect)rect
 {
-	glClearColor(0.0, 0.0, 0.0, 0.0);
+//	[self randomizeColor];
+//	glClearColor(color.r, color.g, color.b, color.a);
+	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	[provider render];
@@ -220,6 +231,69 @@
 		
 		[_fullscreenContext setFullScreen];
 		[_fullscreenContext makeCurrentContext];
+	}
+}
+
+- (void) randomizeColor
+{
+	if(color.r != newColor.r)
+	{
+		if((color.r > newColor.r) && (colorStep.r > 0))
+		{
+			newColor.r = (((float)(arc4random() % 255)) / 750);
+			colorStep.r = (newColor.r - color.r) / BACKGROUND_COLOR_STEP;
+		}
+		if((color.r < newColor.r) && (colorStep.r < 0))
+		{
+			newColor.r = (((float)(arc4random() % 255)) / 750);
+			colorStep.r = (newColor.r - color.r) / BACKGROUND_COLOR_STEP;
+		}
+		color.r += colorStep.r;
+	}
+	else
+	{
+		newColor.r = (((float)(arc4random() % 255)) / 750);
+		colorStep.r = (newColor.r - color.r) / BACKGROUND_COLOR_STEP;
+	}
+	
+	if(color.g != newColor.g)
+	{
+		if((color.g > newColor.g) && (colorStep.g > 0))
+		{
+			newColor.g = (((float)(arc4random() % 255)) / 750);
+			colorStep.g = (newColor.g - color.g) / BACKGROUND_COLOR_STEP;
+		}
+		if((color.g < newColor.g) && (colorStep.g < 0))
+		{
+			newColor.g = (((float)(arc4random() % 255)) / 750);
+			colorStep.g = (newColor.g - color.g) / BACKGROUND_COLOR_STEP;
+		}
+		color.g += colorStep.g;
+	}
+	else
+	{
+		newColor.g = (((float)(arc4random() % 255)) / 750);
+		colorStep.g = (newColor.g - color.g) / BACKGROUND_COLOR_STEP;
+	}
+	
+	if(color.b != newColor.b)
+	{
+		if((color.b > newColor.b) && (colorStep.b > 0))
+		{
+			newColor.b = (((float)(arc4random() % 255)) / 750);
+			colorStep.b = (newColor.b - color.b) / BACKGROUND_COLOR_STEP;
+		}
+		if((color.b < newColor.b) && (colorStep.b < 0))
+		{
+			newColor.b = (((float)(arc4random() % 255)) / 750);
+			colorStep.b = (newColor.b - color.b) / BACKGROUND_COLOR_STEP;
+		}	
+		color.b += colorStep.b;
+	}
+	else
+	{
+		newColor.b = (((float)(arc4random() % 255)) / 750);
+		colorStep.b = (newColor.b - color.b) / BACKGROUND_COLOR_STEP;
 	}
 }
 @end
