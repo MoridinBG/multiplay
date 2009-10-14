@@ -127,18 +127,18 @@
 	
 	ClusteredInteractor *cluster;
 	NSArray *ripple;
-	NSArray *keys = [touches allKeys];
 	NSNumber *uid;
 	InteractiveObject *circle;
-
+	NSArray *keys = [touches allKeys];
+	
 	for(uid in keys)
 	{
 		if([newTouches objectForKey:uid])
 		{
 			cluster = [newTouches objectForKey:uid];
-			for(int i = 0; i < 3; i++)
+			for(int i = 1; i <= 3; i++)
 			{
-				InteractiveObject *circle = [cluster.cluster objectAtIndex:i];
+				InteractiveObject *circle = [cluster.cluster objectAtIndex:i - 1];
 				circle.targetScale =  1.f / 3.f * i * 1.05;
 				circle.delta = (circle.targetScale - circle.scale) / (15 + arc4random() % 8);
 				
@@ -146,6 +146,11 @@
 			}
 			
 			[newTouches removeObjectForKey:uid];
+		}
+		
+		if((![activeUIDs containsObject:uid]) && (![[newTouches allKeys] containsObject:uid]))
+		{
+			[deadTouches addObject:uid];
 		}
 		
 		cluster = [touches objectForKey:uid];
@@ -174,7 +179,7 @@
 					circle.scale += circle.delta;
 				else
 				{
-					circle.targetScale =  1.f / 3.f * (j + 1) * 0.90;
+					circle.targetScale =  1.f / 3.f * (j + 1) * 0.95;
 					circle.delta = (circle.scale - circle.targetScale) / (15 + arc4random() % 8);
 					circle.isScaling = FALSE;
 				}
@@ -193,19 +198,18 @@
 			
 			float scaleFactor = circle.scale;
 			
-			for(float k = 1; k < 5; k++)
+			for(float k = 1; k < 8; k++)
 			{
-				glLineWidth(k * 2);
-				glColor4f(color.r, color.g, color.b, 0.07f);
+				glLineWidth(k * RIPPLE_WIDTH_FACTOR);
+				glColor4f(color.r, color.g, color.b, RIPPLE_ALPHA_FACTOR);
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{	
-					glVertex2f(cos(DEG2RAD * i) * scaleFactor + pos.x, 
-							   sin(DEG2RAD * i) * scaleFactor + pos.y);
+					glVertex2f(cos(DEG2RAD * i) * scaleFactor * RIPPLE_RADIUS_FACTOR + pos.x, 
+							   sin(DEG2RAD * i) * scaleFactor * RIPPLE_RADIUS_FACTOR + pos.y);
 				}
 				glEnd();
 			}
-			
 			[circle randomizeColor];
 		}
 	}
@@ -226,22 +230,23 @@
 		glScaled(clusterScale, clusterScale, 1);
 		glTranslated(-clusterPos.x, -clusterPos.y, 0);
 		
-		int circles = cluster.visibleItems;
+		int circles = cluster.visibleItems - 1;
 		
-		circle = [ripple objectAtIndex:(circles - 1)];
+		circle = [ripple objectAtIndex:circles];
 		
-		if((circle.targetScale - circle.scale) >= circle.delta)
+		if(((circle.targetScale - circle.scale) >= circle.delta) && (circle.delta != 0))
 		{
 			circle.scale += circle.delta;
 		}
 		else
 		{
-			if((!circle.isNew) && (cluster.visibleItems > 1))
+			if(cluster.visibleItems >= 2)
 			{
 				cluster.visibleItems--;
-				circle.isNew = TRUE;
-			} else if (cluster.visibleItems == 1)
+			} else if (cluster.visibleItems <= 1)
+			{
 				[deadTouches addObject:uid];
+			}
 		}
 		
 		for(int j = 0; j < circles; j++)
@@ -252,15 +257,15 @@
 			
 			float scaleFactor = circle.scale;
 			
-			for(float k = 1; k < 5; k++)
+			for(float k = 1; k < 8; k++)
 			{
-				glLineWidth(k * 2);
-				glColor4f(color.r, color.g, color.b, 0.07f);
+				glLineWidth(k * RIPPLE_WIDTH_FACTOR);
+				glColor4f(color.r, color.g, color.b, RIPPLE_ALPHA_FACTOR);
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{	
-					glVertex2f(cos(DEG2RAD * i) * scaleFactor + pos.x, 
-							   sin(DEG2RAD * i) * scaleFactor + pos.y);
+					glVertex2f(cos(DEG2RAD * i) * scaleFactor * RIPPLE_RADIUS_FACTOR + pos.x, 
+							   sin(DEG2RAD * i) * scaleFactor * RIPPLE_RADIUS_FACTOR + pos.y);
 				}
 				glEnd();
 			}
@@ -271,7 +276,13 @@
 	}
 	
 	for(uid in deadTouches)
-		[dieingTouches removeObjectForKey:uid];
+	{
+		if([[dieingTouches allKeys] containsObject:uid])
+			[dieingTouches removeObjectForKey:uid];
+		else if([[touches allKeys] containsObject:uid])
+			[touches removeObjectForKey:uid];
+	}
+		
 	if([deadTouches count])
 		[deadTouches removeAllObjects];
 	
@@ -319,19 +330,20 @@
 				} 
 				else if((cluster.visibleItems == [ripple count]) && (!circle.isNew) && (j == 2))
 				{
+					circle.scale = 1.0f;
 					[touches setObject:cluster forKey:uid];
 				}
 			}
 			
-			for(float k = 1; k < 5; k++)
+			for(float k = 1; k < 8; k++)
 			{
-				glLineWidth(k * 2);
-				glColor4f(color.r, color.g, color.b, 0.07f);
+				glLineWidth(k * RIPPLE_WIDTH_FACTOR);
+				glColor4f(color.r, color.g, color.b, RIPPLE_ALPHA_FACTOR);
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{	
-					glVertex2f(cos(DEG2RAD * i) * scaleFactor + pos.x, 
-							   sin(DEG2RAD * i) * scaleFactor + pos.y);
+					glVertex2f(cos(DEG2RAD * i) * scaleFactor * RIPPLE_RADIUS_FACTOR + pos.x, 
+							   sin(DEG2RAD * i) * scaleFactor * RIPPLE_RADIUS_FACTOR + pos.y);
 				}
 				glEnd();
 			}

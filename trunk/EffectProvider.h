@@ -37,6 +37,7 @@
 	
 	NSMutableDictionary *colors;
 	NSMutableDictionary *touches;
+	NSMutableArray *activeUIDs;
 	
 	float *cosArray;
 	float *cosOffsetArray;

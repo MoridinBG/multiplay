@@ -16,6 +16,7 @@
 
 #ifdef __cplusplus
 #import <FTGL/ftgl.h>
+#import <FTGL/FTGLPolygonFont.h>
 #endif
 
 @interface TextCircle : EffectProvider <EffectProviderProtocol>

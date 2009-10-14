@@ -44,6 +44,7 @@
 		
 		colors = [[NSMutableDictionary alloc] initWithCapacity:100];
 		touches = [[NSMutableDictionary alloc] initWithCapacity:100];
+		activeUIDs = [[NSMutableArray alloc] initWithCapacity:100];
 		
 		cosArray = (float*) malloc(sectors * sizeof(float));
 		cosOffsetArray = (float*) malloc(sectors * sizeof(float));
@@ -76,6 +77,8 @@
 		{	
 			RGBA colorStruct = {(((float)(arc4random() % 1000)) / 1000), (((float)(arc4random() % 1000)) / 1000), (((float)(arc4random() % 1000)) / 1000), 1.0f};
 			NSValue *color = [NSValue value:&colorStruct withObjCType:@encode(RGBA)];
+			
+			[activeUIDs addObject:event.uid];
 
 			[colors setObject:color forKey:event.uid];
 		} break;
@@ -89,6 +92,7 @@
 			
 		case TouchRelease:
 		{
+			[activeUIDs removeObject:event.uid];
 		} break;
 	}
 	[lock unlock];
