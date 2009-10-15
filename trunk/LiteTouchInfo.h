@@ -7,7 +7,9 @@
  *
  */
 
-typedef struct {
+typedef struct 
+{
     NSNumber *uid;
     CGPoint pos;
+	bool isTouchDown;
 } LiteTouchInfo;

@@ -19,7 +19,7 @@
 	
 	deadSparkles = [[NSMutableArray alloc] initWithCapacity:30];
 	deadTouches = [[NSMutableArray alloc] initWithCapacity:100];
-	mutex = [[NSLock alloc] init];
+	mutex = [[NSRecursiveLock alloc] init];
 	
 	NSRunLoop* myRunLoop = [NSRunLoop currentRunLoop];
 	[myRunLoop run];
@@ -28,7 +28,6 @@
 
 - (void) createSparkle:(NSTimer*) theTimer
 {
-	[mutex lock];
 	CGPoint position;
 	CGPoint direction;
 	
@@ -52,8 +51,6 @@
 	
 	sparkle = [[Sparkle alloc] initAtPosition:position withDirection:direction withAlpha:1.0f];
 	[sparkleGroup addObject:sparkle];
-	
-	[mutex unlock];
 }
 
 - (NSMutableDictionary*) getPositions
@@ -68,6 +65,7 @@
 	//Iterate over TouchIDs
 	for(touchUID in keys)
 	{
+		[self createSparkle:[timers objectForKey:touchUID]];
 		//Get bodies for TouchID
 		sparkleGroup = [sparkleGroups objectForKey:touchUID];
 		[deadSparkles removeAllObjects];
@@ -161,6 +159,12 @@
 {
 	[mutex lock];
 
+	if((!touch.isTouchDown) && (![[positions allKeys] containsObject:touch.uid]))
+	{
+//		[mutex unlock];
+//		return;
+	}
+	
 	//Set the position for this TouchID
 	[positions setObject:[NSValue value:&touch.pos withObjCType:@encode(LiteTouchInfo)] forKey:touch.uid];
 	
@@ -170,7 +174,7 @@
 		[sparkleGroups setObject:sparkleGroup forKey:touch.uid];
 	}
 	
-	//If there is no Sparkles creating timer for this TouchID (It's a TouchDown) create it.
+	//If there is no Sparkles-creating timer for this TouchID (It's a TouchDown) create it.
 	if(![timers objectForKey:touch.uid])
 	{
 		//Create a new body every 10ms
@@ -187,6 +191,12 @@
 - (void) removePosition:(NSNumber*) uid
 {
 	[mutex lock];
+	
+	if(![[sparkleGroups allKeys] containsObject:uid])
+	{
+		[mutex unlock];
+		return;
+	}
 	
 	//Move the sparkles associated to this TouchID to array where to fade away
 	[dieingSparkleGroups setObject:[sparkleGroups objectForKey:uid] forKey:uid];

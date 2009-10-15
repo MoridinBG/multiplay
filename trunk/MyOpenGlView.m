@@ -83,12 +83,12 @@
 			NSLog(@"Here");
 		}    
 		
-//		provider = [[Sparkles alloc] init];
+		provider = [[Sparkles alloc] init];
 //		provider = [[Stars alloc] init];
 //		provider = [[SineConnect alloc] init];
 //		provider = [[LineConnect alloc] init];
 // 		provider = [[TextCircle alloc] init];
-		provider = [[Ripples alloc] init];
+//		provider = [[Ripples alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
 		

@@ -45,7 +45,7 @@
 		{
 			[Logger logMessage:@"Processing Sparkles touch down event" ofType:DEBUG_TOUCH];
 			
-			LiteTouchInfo touch = {uniqueID, pos};
+			LiteTouchInfo touch = {uniqueID, pos, TRUE};
 			[factory setPosition:touch];
 		} break;
 		case TouchMove:
@@ -55,7 +55,7 @@
 			if((pos.x == oldPos.x) && (pos.y == oldPos.y))
 				return;
 			
-			LiteTouchInfo touch = {uniqueID, pos};
+			LiteTouchInfo touch = {uniqueID, pos, FALSE};
 			[factory setPosition:touch];
 		} break;
 		case TouchRelease:

@@ -22,7 +22,7 @@
 	NSMutableArray *deadSparkles;
 	NSMutableArray *deadTouches;
 	
-	NSLock *mutex;
+	NSRecursiveLock *mutex;
 	
 }
 - (void) main;
