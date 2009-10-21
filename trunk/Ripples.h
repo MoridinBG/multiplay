@@ -23,6 +23,7 @@
 	NSMutableDictionary *dieingTouches;
 	NSMutableArray *deadTouches;
 	NSMutableDictionary *newTouches;
+	NSMutableDictionary *donuts;
 }
 
 - (id) init;

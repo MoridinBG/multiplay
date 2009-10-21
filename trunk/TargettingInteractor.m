@@ -15,12 +15,16 @@
 @synthesize targetCache;
 @synthesize originCache;
 
+@synthesize isAimless;
+
 - (id) initWithOrigin:(NSNumber*) aOrigin target:(NSNumber*) aTarget
 {
 	if(self = [super init])
 	{
 		origin = aOrigin;
 		target = aTarget;
+		
+		isAimless = FALSE;
 	}
 	
 	return self;

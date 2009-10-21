@@ -16,6 +16,7 @@
 @synthesize newColor;
 @synthesize colorStep;
 @synthesize colorSpeed;
+@synthesize alphaDelta;
 
 @synthesize scale;
 @synthesize delta;
@@ -33,8 +34,6 @@
 @synthesize itemsHeld;
 @synthesize isHolding;
 
-@synthesize isAimless;
-
 @synthesize rotateDelta;
 @synthesize rotateLeft;
 @synthesize direction;
@@ -48,6 +47,10 @@
 		position = pos;
 	}
 	return self;
+}
+
+- (void) render
+{
 }
 
 - (id) init
@@ -67,8 +70,6 @@
 			rotateLeft = TRUE;
 		else
 			rotateLeft = FALSE;
-		
-		isAimless = FALSE;
 		
 		neighbours = [[NSMutableArray alloc] init];
 		connectedNeighbours = [[NSMutableDictionary alloc] initWithCapacity:100];

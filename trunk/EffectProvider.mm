@@ -19,7 +19,7 @@
 		{
 			sectors = SECTORS_SPARKLE;
 		}
-		else if([self isKindOfClass:[Stars class]])
+		else if(([self isKindOfClass:[Stars class]]) || ([self isKindOfClass:[Ripples class]]))
 		{
 			sectors = SECTORS_STARS;
 		}

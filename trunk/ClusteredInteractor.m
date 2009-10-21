@@ -12,6 +12,7 @@
 @implementation ClusteredInteractor
 @synthesize cluster;
 @synthesize visibleItems;
+@synthesize clusterAlpha;
 
 - (id) initWithItems:(NSMutableArray*) items
 {
@@ -19,6 +20,7 @@
 	{
 		cluster = items;
 		visibleItems = [cluster count];
+		clusterAlpha = 1.f;
 	}
 	
 	return self;
@@ -38,6 +40,12 @@
 - (int) getItemsCount
 {
 	return [cluster count];
+}
+
+-(void) setClusterColor:(RGBA) newColor
+{
+	for(InteractiveObject *item in cluster)
+		item.color = newColor;
 }
 
 @end

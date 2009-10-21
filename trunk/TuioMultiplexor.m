@@ -16,7 +16,7 @@
 {
 	if(self = [super init])
 	{
-		numSenders = 2;
+		numSenders = 1;
 	}
 	
 	return self;

@@ -13,9 +13,12 @@
 {
 	NSArray *cluster;
 	int visibleItems;
+	
+	float clusterAlpha;
 }
 @property (readonly) NSArray *cluster;
 @property int visibleItems;
+@property float clusterAlpha;
 
 
 - (id) initWithItems:(NSArray*) items;
@@ -23,4 +26,6 @@
 - (void) setItemsPosition:(CGPoint) pos;
 
 - (int) getItemsCount;
+
+-(void) setClusterColor:(RGBA) newColor;
 @end

@@ -25,8 +25,6 @@
 	int itemsHeld;
 	bool isHolding;
 	
-	bool isAimless;
-	
 	float angle;
 	float rotateDelta;
 	bool rotateLeft;
@@ -40,6 +38,7 @@
 	RGBA newColor;
 	RGBA colorStep;
 	float colorSpeed;
+	float alphaDelta;
 }
 
 @property (copy) NSMutableArray *neighbours;
@@ -48,6 +47,7 @@
 @property RGBA newColor;
 @property RGBA colorStep;
 @property float colorSpeed;
+@property float alphaDelta;
 
 
 @property float scale;
@@ -63,8 +63,6 @@
 @property int itemsHeld;
 @property bool isHolding;
 
-@property bool isAimless;
-
 @property float angle;
 @property float rotateDelta;
 @property  bool rotateLeft;
@@ -73,6 +71,8 @@
 @property RGBA color;
 
 - (id) initWithPos:(CGPoint) pos;
+
+- (void) render;
 
 - (void) addNeighbour:(NSNumber*) uid;
 - (void) removeNeighbour:(NSNumber*) uid;

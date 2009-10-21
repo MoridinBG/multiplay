@@ -16,12 +16,16 @@
 	NSNumber *target;
 	CGPoint targetCache;
 	CGPoint originCache;
+	
+	bool isAimless;
 }
 @property (copy) NSNumber *origin;
 @property (copy) NSNumber *target;
 
 @property CGPoint targetCache;
 @property CGPoint originCache;
+
+@property bool isAimless;
 
 - (id) initWithOrigin:(NSNumber*) aOrigin target:(NSNumber*) aTarget;
 

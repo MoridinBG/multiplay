@@ -280,7 +280,7 @@
 			c -= sineSpeed / 2;																				//Shorten the distance at lower speed
 			sine.scale -= 0.1f;																				//Scale down
 			
-			NSLog(@"%f, %f", c, sine.scale);
+//			NSLog(@"%f, %f", c, sine.scale);
 			
 			if((sine.scale <= 0.1f) || (c <= 0))															//The sine has got sucked in. Remove from list of active sines, make the target touch a holder
 			{
