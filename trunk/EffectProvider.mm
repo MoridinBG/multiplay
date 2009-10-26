@@ -25,7 +25,6 @@
 		}
 		else if(([self isKindOfClass:[SineConnect class]]) || ([self isKindOfClass:[LineConnect class]]))
 		{
-			physics = [[b2Physics alloc] init];
 			sectors = SECTORS_TOUCH;
 		}
 		else if(([self isKindOfClass:[TextCircle class]]) || ([self isKindOfClass:[Ripples class]]))
@@ -97,9 +96,23 @@
 	}
 	[lock unlock];
 }
-- (void) setDimensions:(NSSize) dimensions_
+- (void) setDimensions:(CGSize) dimensions_
 {
 	dimensions = dimensions_;
 	[multiplexor setDimensions:dimensions];
+	
+	dimensions.width = dimensions.width / dimensions.height;
+	dimensions.height = 1.f;
+	
+	if(([self isKindOfClass:[SineConnect class]]) || ([self isKindOfClass:[LineConnect class]]))
+	{
+		physics = [[b2Physics alloc] initWithDimensions:dimensions withFrame:FALSE];
+	}
+	else if([self isKindOfClass:[InteractiveImages class]])
+	{
+		physics = [[b2Physics alloc] initWithDimensions:dimensions withFrame:TRUE];
+	}
+	
+	dimensions = dimensions_;
 }
 @end

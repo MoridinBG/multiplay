@@ -73,7 +73,7 @@
 			
 			InteractiveObject *spot = [[InteractiveObject alloc] initWithPos:pos];
 			spot.delta = 0.2f;
-			[spot setPhysicsData:[physics addContactListenerAtX:pos.x Y:pos.y withUid:uniqueID]];			//Create a contact detector for the new touch
+			[spot setPhysicsData:[physics addProximityContactListenerAtX:pos.x Y:pos.y withUid:uniqueID]];			//Create a contact detector for the new touch
 			
 			RGBA color;
 			[(NSValue*)[colors objectForKey:uniqueID] getValue:&color];
@@ -381,15 +381,18 @@
 		}
 		
 		//Draw a debug cirlce showing the sensors range
-/*		glColor3f(1.0f, 1.0f, 1.0f);
-		glLoadIdentity();
-		glBegin(GL_LINE_LOOP);
-		for (int i=0; i < 360; i++)
+		if(RENDER_SENSOR_RANGE)
 		{
-			float degInRad = i * 3.14159f/180.0f;
-			glVertex2f(cos(degInRad) * SENSOR_RANGE + pos.x, sin(degInRad) * SENSOR_RANGE + pos.y);
+			glColor3f(1.0f, 1.0f, 1.0f);
+			glLoadIdentity();
+			glBegin(GL_LINE_LOOP);
+			for (int i=0; i < 360; i++)
+			{
+				float degInRad = i * 3.14159f/180.0f;
+				glVertex2f(cos(degInRad) * SENSOR_RANGE + pos.x, sin(degInRad) * SENSOR_RANGE + pos.y);
+			}
+			glEnd();
 		}
-		glEnd(); */
 		
 		if(isScaling)																						//If the touch is scaling up
 		{

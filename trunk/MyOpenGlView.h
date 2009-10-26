@@ -14,6 +14,7 @@
 #import "SineConnect.h"
 #import "LineConnect.h"
 #import "TextCircle.h"
+#import "InteractiveImages.h"
 
 #import "Ripples.h"
 

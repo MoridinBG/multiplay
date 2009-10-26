@@ -10,7 +10,10 @@
 
 @protocol BasePictureProtocol
 
+@required
 - (id) initWithPath:(NSString*) filePath;						//Load image from specific file path;
+
+@optional
 - (void) setFilePath:(NSString*) newPath;						//Should be implemented to force image reload!
 
 @end

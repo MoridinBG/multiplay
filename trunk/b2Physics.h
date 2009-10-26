@@ -11,6 +11,7 @@
 #ifdef __cplusplus
 	#import "box2d/Box2D.h"
 	#import "b2ContactDetector.h"
+	#import "Render.h"
 #endif
 #import "consts.h"
 
@@ -18,15 +19,21 @@
 {
 #ifdef __cplusplus
 	b2World *world;
+	b2Body *frame;
+	DebugDraw debugDraw;
 #endif	
 }
-- (id) init;
+- (id) initWithDimensions:(CGSize) dimensions withFrame:(bool) frame;
+- (void) createFrameWithDimensions:(CGSize) dimensions;
 - (void) step;
 
 #ifdef __cplusplus
 - (b2ContactDetector*) addContactDetector;
+- (b2Body*) addProximityContactListenerAtX:(float)x Y:(float)y withUid:(NSNumber*)uid;
+
+- (void*) createRectangularBodyWithSize:(CGSize)size atPosition:(CGPoint)position;
 - (void) destroyBody:(b2Body*) body;
-- (b2Body*) addContactListenerAtX:(float) x Y:(float) y withUid:(NSNumber*) uid;
+- (CGPoint) getCoordinatesFromBody:(b2Body*) body;
 #endif
 
 @end

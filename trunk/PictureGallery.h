@@ -11,16 +11,15 @@
 
 #import "EffectProvider.h"
 #import "EffectProviderProtocol.h"
+#import "BasePicture.h"
+#import "Logger.h"
 
 
 @interface PictureGallery : EffectProvider <EffectProviderProtocol>
 {
 
-	NSMutableDictionary *pictures;
-	void *hack;
-	
+	NSMutableArray *pictures;
 }
 
-- (id) initWithPictures;
-
+- (id) initWithPicturesInDirectory:(NSString*)directoryPath;
 @end

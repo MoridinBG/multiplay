@@ -88,7 +88,8 @@
 //		provider = [[SineConnect alloc] init];
 //		provider = [[LineConnect alloc] init];
 // 		provider = [[TextCircle alloc] init];
-		provider = [[Ripples alloc] init];
+//		provider = [[Ripples alloc] init];
+		provider = [[InteractiveImages alloc] initWithPicturesInDirectory:@"/Users/ivandilchovski/Logos/"];
 		
 		[provider setDimensions:[self dimensions]];
 		
@@ -121,11 +122,11 @@
 	
 	
 	glEnable (GL_BLEND);
+	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable (GL_POLYGON_SMOOTH);
 	glEnable (GL_LINE_SMOOTH);
+	glEnable(GL_TEXTURE_2D);
 	glDisable(GL_DEPTH_TEST);
-	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glEnableClientState(GL_VERTEX_ARRAY);
 	
 	glLineWidth(3);
 	
@@ -163,7 +164,6 @@
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 	}
-
 }
 
 - (void)drawRect:(NSRect)rect

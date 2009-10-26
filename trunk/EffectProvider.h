@@ -28,6 +28,7 @@
 @class LineConnect;
 @class TextCircle;
 @class Ripples;
+@class InteractiveImages;
 @interface EffectProvider : NSObject 
 {
 	NSMutableArray *listeners;
@@ -47,7 +48,7 @@
 	
 	float *vertexArray;
 	
-	NSSize dimensions;
+	CGSize dimensions;
 	
 	NSRecursiveLock *lock;
 	
@@ -58,5 +59,5 @@
 }
 - (id) init;
 - (void) processTouches:(TouchEvent*)event;
-- (void) setDimensions:(NSSize) dimensions_;
+- (void) setDimensions:(CGSize) dimensions_;
 @end

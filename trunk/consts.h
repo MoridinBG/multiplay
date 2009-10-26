@@ -14,6 +14,10 @@
 #define DEBUG_LISTENER_MOVE_STATE FALSE
 #define DEBUG_RENDER_STATE FALSE
 #define DEBUG_PHYSICS_STATE FALSE
+#define DEBUG_ERROR_STATE TRUE
+
+#define RENDER_SENSOR_RANGE TRUE
+#define RENDER_BOX2D_DEBUG_DRAW FALSE
 
 #define COLOR_BITS (NSOpenGLPixelFormatAttribute)24
 #define DEPTH_BITS (NSOpenGLPixelFormatAttribute)16
@@ -22,6 +26,7 @@
 
 #define PI 3.14159f
 #define DEG2RAD PI / 180.0f
+#define RAD2DEG 180.f / PI
 #define SECTORS_STARS 30
 #define SECTORS_SPARKLE 14
 #define SECTORS_TOUCH 30
@@ -30,13 +35,15 @@
 #define SENSOR_RANGE 0.6f
 #define SINECONNECT_NUM_VERTICES 72
 
-#define FONT_SCALE 0.05
+#define FONT_SCALE 0.05f
 
 #define BACKGROUND_COLOR_STEP 400
 
+#define BASE_PICTURE_SIZE 0.15f
+
 static const int MOUSE_ID = -1;
 typedef enum touchtype {TouchDown, TouchMove, TouchRelease} TouchType;
-typedef enum debugstate {DEBUG_TOUCH, DEBUG_TOUCH_MOVE, DEBUG_LISTENER, DEBUG_LISTENER_MOVE, DEBUG_GENERAL, DEBUG_RENDER, DEBUG_PHYSICS} DebugState;
+typedef enum debugstate {DEBUG_TOUCH, DEBUG_TOUCH_MOVE, DEBUG_LISTENER, DEBUG_LISTENER_MOVE, DEBUG_GENERAL, DEBUG_RENDER, DEBUG_PHYSICS, DEBUG_ERROR} DebugState;
 
 typedef struct 
 {
