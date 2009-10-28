@@ -113,8 +113,8 @@
 				return;
 			}
 			
-			if(body->IsSleeping())
-				body->WakeUp();
+//			if(body->IsSleeping())
+//				body->WakeUp();
 			body->SetXForm(b2Vec2(pos.x, pos.y), 0.0f);
 			
 			[(InteractiveObject*)[touches objectForKey:uniqueID] setPosition:pos];

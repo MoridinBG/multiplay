@@ -19,7 +19,7 @@
 		if(!frame)
 			gravity = b2Vec2(0.0f, 0.0f);
 		else 
-			gravity = b2Vec2(0.0f, -1.0f);
+			gravity = b2Vec2(0.0f, 0.0f);
 		bool doSleep = true;
 
 		worldAABB.lowerBound.Set(-dimensions.width, -dimensions.height);
@@ -89,6 +89,7 @@
 	b2BodyDef bodyDef;
 	bodyDef.position.Set(x, y);
 	b2Body *body = world->CreateBody(&bodyDef);
+	body->AllowSleeping(false);
 	
 	b2CircleDef shapeDef;
 	shapeDef.radius = (SENSOR_RANGE);
@@ -100,6 +101,23 @@
 	body->CreateShape(&shapeDef);
 	body->SetMassFromShapes();
 	body->SetUserData(uid);
+	
+	return body;
+}
+
+- (void*) createCirclularBodyWithRadius:(float)radius atPosition:(CGPoint)position
+{
+	b2BodyDef bodyDef;
+	bodyDef.position.Set(position.x, position.y);
+	b2Body *body  = world->CreateBody(&bodyDef);
+	
+	b2CircleDef shapeDef;
+	shapeDef.radius = radius;
+	shapeDef.density = 100.f;
+	shapeDef.restitution = 1.f;
+	
+	body->CreateShape(&shapeDef);
+	body->SetMassFromShapes();
 	
 	return body;
 }

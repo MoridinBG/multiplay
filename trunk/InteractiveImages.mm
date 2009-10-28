@@ -61,20 +61,38 @@
 	
 	NSNumber *uniqueID = event.uid;
 	CGPoint pos = event.pos;
+	CGPoint lastPos = event.lastPos;
+	NSLog(@"%f,%f %f,%f", pos.x, pos.y, lastPos.x, lastPos.y);
+	
 	switch (event.type) 
 	{
 		case TouchDown:
 		{
 			InteractiveObject *touch = [[InteractiveObject alloc] initWithPos:pos];
+			touch.physicsData = [physics createCirclularBodyWithRadius:TOUCH_PHYSICS_BODY_SIZE atPosition:pos];
+			
 			[touches setObject:touch forKey:uniqueID];
 		} break;
 			
 		case TouchMove:
 		{
+			b2Body* body = (b2Body*)[[touches objectForKey:uniqueID] physicsData];
+			
+			if(!body)
+			{
+				[lock unlock];
+				return;
+			}
+			
+//			if(body->IsSleeping())
+//				body->WakeUp();
+//			body->SetXForm(b2Vec2(pos.x, pos.y), 0.0f);
+//			body->ApplyForce(b2Vec2(, <#const b2Vec2 point#>)
 		} break;
 			
 		case TouchRelease:
 		{
+			[physics destroyBody:(b2Body*)[[touches objectForKey:uniqueID] physicsData]];
 		} break;
 	}
 	[lock unlock];

@@ -31,7 +31,9 @@
 - (b2ContactDetector*) addContactDetector;
 - (b2Body*) addProximityContactListenerAtX:(float)x Y:(float)y withUid:(NSNumber*)uid;
 
+- (void*) createCirclularBodyWithRadius:(float)radius atPosition:(CGPoint)position;
 - (void*) createRectangularBodyWithSize:(CGSize)size atPosition:(CGPoint)position;
+
 - (void) destroyBody:(b2Body*) body;
 - (CGPoint) getCoordinatesFromBody:(b2Body*) body;
 #endif

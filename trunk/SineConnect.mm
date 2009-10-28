@@ -107,8 +107,8 @@
 			if(!body)
 				return;
 			
-			if(body->IsSleeping())																			//If the physics engine has put the detector to sleep
-				body->WakeUp();																				//Wake it up
+		//	if(body->IsSleeping())																			//If the physics engine has put the detector to sleep
+		//		body->WakeUp();																				//Wake it up
 			body->SetXForm(b2Vec2(pos.x, pos.y), 0.0f);														//And move it
 			
 			[(InteractiveObject*)[touches objectForKey:uniqueID] setPosition:pos];							//Update the touch position
