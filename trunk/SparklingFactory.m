@@ -149,9 +149,11 @@
 		[deadTouches removeAllObjects];
 	}
 	
+	NSMutableDictionary *combinedGroups = [NSMutableDictionary dictionaryWithDictionary:sparkleGroups];
+	[combinedGroups addEntriesFromDictionary:dieingSparkleGroups];
 	
 	[mutex unlock];
-	return sparkleGroups;
+	return combinedGroups;
 	
 }
 

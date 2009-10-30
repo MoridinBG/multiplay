@@ -27,7 +27,7 @@
 		{
 			sectors = SECTORS_TOUCH;
 		}
-		else if(([self isKindOfClass:[TextCircle class]]) || ([self isKindOfClass:[Ripples class]]))
+		else if(([self isKindOfClass:[TextCircle class]]) || ([self isKindOfClass:[Ripples class]]) || ([self isKindOfClass:[InteractiveImages class]]))
 		{
 			sectors = 0;
 		}

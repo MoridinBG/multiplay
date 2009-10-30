@@ -25,7 +25,8 @@
 #define FULLSCREEN FALSE
 #define SIMULATOR TRUE
 
-#define TOUCH_PHYSICS_BODY_SIZE 0.1f
+#define TOUCH_PHYSICS_BODY_SIZE 0.05f
+#define PHYSICS_DRAG_ELASTICITY 10000.f
 
 #define PI 3.14159f
 #define DEG2RAD PI / 180.0f
@@ -33,6 +34,7 @@
 #define SECTORS_STARS 30
 #define SECTORS_SPARKLE 14
 #define SECTORS_TOUCH 30
+
 #define MAX_TOUCHES 100
 
 #define SENSOR_RANGE 0.6f
@@ -42,6 +44,7 @@
 #define BACKGROUND_COLOR_STEP 400
 
 #define BASE_PICTURE_SIZE 0.15f
+#define PICTURES_TO_SHOW 20
 
 static const int MOUSE_ID = -1;
 typedef enum touchtype {TouchDown, TouchMove, TouchRelease} TouchType;

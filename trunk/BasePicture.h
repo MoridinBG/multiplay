@@ -32,4 +32,6 @@
 - (id) initWithPath:(NSString*) filePath;
 - (unsigned char*) loadPng;
 
+- (id) copyWithZone:(NSZone *) zone;
+
 @end

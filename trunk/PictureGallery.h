@@ -19,6 +19,7 @@
 {
 
 	NSMutableArray *pictures;
+	void *terribleHack;
 }
 
 - (id) initWithPicturesInDirectory:(NSString*)directoryPath;

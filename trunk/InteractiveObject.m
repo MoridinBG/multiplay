@@ -49,6 +49,52 @@
 	return self;
 }
 
+- (id) copyWithZone:(NSZone *) zone
+{
+	InteractiveObject *newObject = [[InteractiveObject alloc] init];
+	
+	newObject.scale = self.scale;
+	newObject.delta = self.delta;
+	newObject.targetScale = self.targetScale;
+	
+	newObject.position = self.position;
+	newObject.direction = self.direction;
+	
+	newObject.isScaling = self.isScaling;
+	newObject.isNew = self.isNew;
+	
+	newObject.itemsHeld = self.itemsHeld;
+	newObject.isHolding = self.isHolding;
+	
+	newObject.angle = self.angle;
+	newObject.rotateLeft = self.rotateLeft;
+	newObject.rotateDelta = self.rotateDelta;
+	
+	newObject.color = self.color;
+	newObject.newColor = self.newColor;
+	newObject.colorStep = self.colorStep;
+	newObject.colorSpeed = self.colorSpeed;
+	newObject.alphaDelta = self.alphaDelta;
+	
+	return newObject;
+}
+
+- (void) setAngle:(float) newAngle
+{
+	angle = newAngle;
+	
+	if(angle > 0)
+		while(angle >= 360.f)
+		{
+			angle -= 360.f;
+		}
+	else
+		while(angle <= -360.f)
+		{
+			angle += 360.f;
+		}
+}
+
 - (void) render
 {
 }

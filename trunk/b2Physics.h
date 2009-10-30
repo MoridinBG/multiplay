@@ -21,7 +21,9 @@
 	b2World *world;
 	b2Body *frame;
 	DebugDraw debugDraw;
-#endif	
+#endif
+	NSMutableDictionary *mouseJoints;
+	NSRecursiveLock *lock;
 }
 - (id) initWithDimensions:(CGSize) dimensions withFrame:(bool) frame;
 - (void) createFrameWithDimensions:(CGSize) dimensions;
@@ -32,10 +34,16 @@
 - (b2Body*) addProximityContactListenerAtX:(float)x Y:(float)y withUid:(NSNumber*)uid;
 
 - (void*) createCirclularBodyWithRadius:(float)radius atPosition:(CGPoint)position;
-- (void*) createRectangularBodyWithSize:(CGSize)size atPosition:(CGPoint)position;
+- (void*) createRectangularBodyWithSize:(CGSize)size atPosition:(CGPoint)position rotatedAt:(float)angle;
+
+- (void) reshapeRectangularBody:(b2Body*)body withNewSize:(CGSize)newSize rotatedAt:(float)angle;
 
 - (void) destroyBody:(b2Body*) body;
 - (CGPoint) getCoordinatesFromBody:(b2Body*) body;
+
+- (void) attachMouseJointToBody:(b2Body*)body withId:(NSNumber*)uid;
+- (void) detachMouseJointWithId:(NSNumber*)uid;
+- (void) updateMouseJointWithId:(NSNumber*)uid toPosition:(CGPoint)position;
 #endif
 
 @end

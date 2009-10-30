@@ -10,7 +10,7 @@
 #import "consts.h"
 
 @class TargettingInteractor;
-@interface InteractiveObject : NSObject
+@interface InteractiveObject : NSObject <NSCopying>
 {
 	float scale;
 	float delta;
@@ -71,6 +71,9 @@
 @property RGBA color;
 
 - (id) initWithPos:(CGPoint) pos;
+- (id) copyWithZone:(NSZone *) zone;
+
+- (void) setAngle:(float) newAngle;
 
 - (void) render;
 

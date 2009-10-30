@@ -29,6 +29,4 @@
 @property bool ignoreEvent;
 
 - (id) initWithId:(NSNumber*)aUid withType:(TouchType)aType atPos:(CGPoint)aPos;
-- (void) setPos:(CGPoint) newPos;
-
 @end

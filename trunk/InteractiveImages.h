@@ -11,11 +11,18 @@
 
 @interface InteractiveImages : PictureGallery
 {
-	NSTimer *timer;
 	NSMutableArray *shownPictures;
+	NSMutableArray *disappearingPictures;
+	NSMutableArray *deadPictures;
+	
+	NSTimer *pictureCreator;
+	NSMutableArray *deathTimers;
 }
-- (void)showPicture:(NSTimer*)theTimer;
 - (id) initWithPicturesInDirectory:(NSString*)directoryPath;
+
 - (void) processTouches:(TouchEvent*)event;
 - (void) render;
+
+- (void) showPicture:(NSTimer*) theTimer;
+- (void) removePicture:(NSTimer*) theTimer;
 @end

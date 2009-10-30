@@ -100,7 +100,7 @@
 		
 		newColor = color;
 		
-		(void)[NSTimer scheduledTimerWithTimeInterval:0.050
+		(void)[NSTimer scheduledTimerWithTimeInterval:0.05
 											   target:self 
 											 selector:@selector(display) 
 											 userInfo:nil 
@@ -133,7 +133,7 @@
 	glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 	
-	NSSize dimensions = [self dimensions];
+	CGSize dimensions = [self dimensions];
 	float ratio = dimensions.width / dimensions.height;
 	
 	
@@ -186,9 +186,9 @@
 		return _windowContext;
 }
 
-- (NSSize) dimensions
+- (CGSize) dimensions
 {
-	NSSize dimensions;
+	CGSize dimensions;
 	if(!fullscreen)
 	{
 		dimensions.width = (unsigned int)[self frame].size.width;

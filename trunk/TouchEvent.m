@@ -36,11 +36,4 @@
 		return nil;
 	}
 }
-
-- (void) setPos:(CGPoint)newPos
-{
-	[self setLastPos:[self pos]];
-	pos = newPos;
-}
-
 @end

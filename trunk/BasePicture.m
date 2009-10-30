@@ -40,7 +40,7 @@
 		
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, pixelSize.width, pixelSize.height, 0, 
 					 GL_RGBA, GL_UNSIGNED_BYTE, imageData);
-		free(imageData);
+//		free(imageData);
 		
 		oglSize.width = BASE_PICTURE_SIZE;
 		oglSize.height = oglSize.width * (pixelSize.height / pixelSize.width);
@@ -56,7 +56,7 @@
 	if (PNG_file == NULL)
 	{
 		[Logger logMessage:[NSString stringWithFormat:@"Can't open PNG file %s\n", path] ofType:DEBUG_ERROR];
-		return;
+		return nil;
 	}
 	
 	GLubyte PNG_header[PNG_HEADER_SIZE];
@@ -65,7 +65,7 @@
 	if (png_sig_cmp(PNG_header, 0, PNG_HEADER_SIZE) != 0)
 	{
 		[Logger logMessage:[NSString stringWithFormat:@"%s is not a PNG file\n", path] ofType:DEBUG_ERROR];
-		return;
+		return nil;
 	}
 	
 	png_structp PNG_reader
@@ -75,7 +75,7 @@
 		[Logger logMessage:[NSString stringWithFormat:@"Can't start reading PNG file %s\n", path] ofType:DEBUG_ERROR];
 		fclose(PNG_file);
 		
-		return;
+		return nil;
 	}
 	
 	png_infop PNG_info = png_create_info_struct(PNG_reader);
@@ -85,7 +85,7 @@
 		png_destroy_read_struct(&PNG_reader, NULL, NULL);
 		fclose(PNG_file);
 		
-		return;
+		return nil;
 	}
 	
 	png_infop PNG_end_info = png_create_info_struct(PNG_reader);
@@ -95,7 +95,7 @@
 		png_destroy_read_struct(&PNG_reader, &PNG_info, NULL);
 		fclose(PNG_file);
 		
-		return;
+		return nil;
 	}
 	
 	if (setjmp(png_jmpbuf(PNG_reader)))
@@ -104,7 +104,7 @@
 		png_destroy_read_struct(&PNG_reader, &PNG_info, &PNG_end_info);
 		fclose(PNG_file);
 		
-		return;
+		return nil;
 	}
 	
 	png_init_io(PNG_reader, PNG_file);
@@ -167,6 +167,41 @@
 	pixelSize.height = height;
 	
 	return PNG_image_buffer;
+}
+
+- (id) copyWithZone:(NSZone *) zone
+{
+	BasePicture *newPicture = [[BasePicture alloc] init];
+
+	newPicture.scale = self.scale;
+	newPicture.delta = self.delta;
+	newPicture.targetScale = self.targetScale;
+	
+	newPicture.position = self.position;
+	newPicture.direction = self.direction;
+	
+	newPicture.isScaling = self.isScaling;
+	newPicture.isNew = self.isNew;
+	
+	newPicture.itemsHeld = self.itemsHeld;
+	newPicture.isHolding = self.isHolding;
+	
+	newPicture.angle = self.angle;
+	newPicture.rotateLeft = self.rotateLeft;
+	newPicture.rotateDelta = self.rotateDelta;
+	
+	newPicture.color = self.color;
+	newPicture.newColor = self.newColor;
+	newPicture.colorStep = self.colorStep;
+	newPicture.colorSpeed = self.colorSpeed;
+	newPicture.alphaDelta = self.alphaDelta;
+	
+	newPicture.pixelSize = self.pixelSize;
+	newPicture.oglSize = self.oglSize;
+	newPicture.texName = self.texName;
+	newPicture.filePath = [self.filePath copyWithZone:zone];
+	
+	return newPicture;
 }
 
 @end

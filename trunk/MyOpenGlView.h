@@ -28,7 +28,7 @@
 	
 	bool fullscreen;
 	EffectProvider <EffectProviderProtocol> *provider;
-	NSRect projectionSize;
+	CGRect projectionSize;
 	
 	RGBA color;
 	RGBA newColor;
@@ -37,7 +37,7 @@
 
 - (id)initWithFrame:(NSRect)frameRect;
 - (void) fullscreen:(id)sender;
-- (NSSize) dimensions;
+- (CGSize) dimensions;
 - (NSOpenGLContext*)openGLContext;
 
 - (void) randomizeColor;

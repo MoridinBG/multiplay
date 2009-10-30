@@ -17,7 +17,7 @@
 	EffectProvider <EffectProviderProtocol> *provider;
 	int numSenders;
 	float ratio;
-	NSSize dimensions;
+	CGSize dimensions;
 	NSRecursiveLock *lock;
 }
 
@@ -26,7 +26,7 @@
 - (id) init;
 
 - (CGPoint) transformCoordinates:(CGPoint)pos forPortOffset:(int) offset;
-- (void) setDimensions:(NSSize) dimensions_;
+- (void) setDimensions:(CGSize) dimensions_;
 
 - (void) cursorAddedEvent: (TouchEvent*) newEvent;
 - (void) cursorUpdatedEvent: (TouchEvent*) updatedEvent;
