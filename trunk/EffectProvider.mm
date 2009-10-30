@@ -23,11 +23,11 @@
 		{
 			sectors = SECTORS_STARS;
 		}
-		else if(([self isKindOfClass:[SineConnect class]]) || ([self isKindOfClass:[LineConnect class]]))
+		else if(([self isKindOfClass:[SineConnect class]]) || ([self isKindOfClass:[LineConnect class]]) || ([self isKindOfClass:[InteractiveImages class]]))
 		{
 			sectors = SECTORS_TOUCH;
 		}
-		else if(([self isKindOfClass:[TextCircle class]]) || ([self isKindOfClass:[Ripples class]]) || ([self isKindOfClass:[InteractiveImages class]]))
+		else if(([self isKindOfClass:[TextCircle class]]) || ([self isKindOfClass:[Ripples class]]))
 		{
 			sectors = 0;
 		}

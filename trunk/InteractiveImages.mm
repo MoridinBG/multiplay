@@ -32,7 +32,7 @@
 			}
 			image.scale = 0.1f;
 			[pictures addObject:image];
-		}
+		} 
 		shownPictures = [[NSMutableArray alloc] initWithCapacity:PICTURES_TO_SHOW];
 		disappearingPictures = [[NSMutableArray alloc] initWithCapacity:PICTURES_TO_SHOW];
 		deathTimers = [[NSMutableArray alloc] initWithCapacity:PICTURES_TO_SHOW];
@@ -120,6 +120,8 @@
 		case TouchDown:
 		{
 			InteractiveObject *touch = [[InteractiveObject alloc] initWithPos:pos];
+			touch.targetScale = 1.f;
+			touch.delta = (touch.targetScale - touch.scale) / TOUCH_PULSE_FRAMES;
 			touch.physicsData = [physics createCirclularBodyWithRadius:TOUCH_PHYSICS_BODY_SIZE atPosition:pos];
 			[physics attachMouseJointToBody:(b2Body*)touch.physicsData withId:uniqueID];
 			
@@ -135,6 +137,7 @@
 				return;
 			}
 			
+			[(InteractiveObject*)[touches objectForKey:uniqueID] setPosition:pos];
 			[physics updateMouseJointWithId:uniqueID toPosition:pos];
 			
 		} break;
@@ -143,6 +146,7 @@
 		{
 			[physics detachMouseJointWithId:uniqueID];
 			[physics destroyBody:(b2Body*)[[touches objectForKey:uniqueID] physicsData]];
+			[touches removeObjectForKey:uniqueID];
 		} break;
 	}
 	[lock unlock];
@@ -152,6 +156,67 @@
 {
 	[lock lock];
 	[physics step];
+	glDisable(GL_TEXTURE_2D);
+	
+	NSArray *keys = [touches allKeys];
+	NSNumber *uid;
+	
+	float subStep = 0.039f / 10.0f;
+	float alphaStep = 0.8f / (0.08f / subStep);
+	
+	for(uid in keys)
+	{
+		InteractiveObject *spot = [touches objectForKey:uid];
+		CGPoint pos = [spot position];
+		bool isScaling = [spot isScaling];
+		float alpha = 0.8f;
+		
+		glLoadIdentity();
+		glTranslated(pos.x, pos.y, 0.0);
+		glScaled(spot.scale, spot.scale, 1.0);
+		glTranslated(-pos.x, -pos.y, 0.0);
+
+		for(float subRadius = 0.001f; subRadius <= 0.08f; subRadius += subStep)
+		{
+			glColor4f(1.f, 1.f, 1.f, alpha);
+			glBegin(GL_POLYGON);
+			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
+			{
+				glVertex2f(subRadius * cosArray[i] + pos.x, 
+						   subRadius * sinArray[i] + pos.y);
+			}
+			glEnd();
+			alpha -= alphaStep;
+		}
+		
+		if(isScaling)
+		{
+			if(spot.targetScale - spot.scale >= spot.delta)
+				spot.scale += spot.delta;
+			else
+			{
+				spot.isScaling = FALSE;
+				spot.targetScale = 0.6f;
+				spot.delta = (spot.scale - spot.targetScale) / TOUCH_PULSE_FRAMES;
+			}
+		}
+		else
+		{
+			if(spot.scale - spot.targetScale >= spot.delta)
+				spot.scale -= spot.delta;
+			else
+			{
+				spot.isScaling = TRUE;
+				spot.targetScale = 1.f;
+				spot.delta = (spot.targetScale - spot.scale) / TOUCH_PULSE_FRAMES;
+			}
+		}
+		
+	}
+	glColor3f(1,1,1);
+	
+	glEnable(GL_TEXTURE_2D);
+	
 	for(BasePicture *picture in shownPictures)
 	{
 		b2Body *body = (b2Body*) picture.physicsData;
@@ -160,7 +225,7 @@
 			
 			if((body->IsSleeping()) && (!body->GetUserData()))
 			{
-				NSTimer *deathTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
+				NSTimer *deathTimer = [NSTimer scheduledTimerWithTimeInterval:45.0
 																	   target:self
 																	 selector:@selector(removePicture:)
 																	 userInfo:picture
