@@ -17,6 +17,9 @@
 	CGPoint targetCache;
 	CGPoint originCache;
 	
+	RGBA targetColorCache;
+	RGBA originColorCache;
+	
 	bool isAimless;
 }
 @property (copy) NSNumber *origin;
@@ -24,6 +27,9 @@
 
 @property CGPoint targetCache;
 @property CGPoint originCache;
+
+@property RGBA targetColorCache;
+@property RGBA originColorCache;
 
 @property bool isAimless;
 

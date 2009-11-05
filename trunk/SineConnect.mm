@@ -72,8 +72,8 @@
 			[Logger logMessage:@"Processing SineConnect touch down event" ofType:DEBUG_TOUCH];
 			
 			InteractiveObject *spot = [[InteractiveObject alloc] initWithPos:pos];
-			spot.delta = 0.2f;
-			[spot setPhysicsData:[physics addProximityContactListenerAtX:pos.x Y:pos.y withUid:uniqueID]];			//Create a contact detector for the new touch
+			spot.delta = BASE_TOUCH_START_SCALE_DELTA / FRAMES;
+			[spot setPhysicsData:[physics addProximityContactListenerAtX:pos.x Y:pos.y withUid:uniqueID]];	//Create a contact detector for the new touch
 			
 			RGBA color;
 			[(NSValue*)[colors objectForKey:uniqueID] getValue:&color];
@@ -106,9 +106,7 @@
 			
 			if(!body)
 				return;
-			
-		//	if(body->IsSleeping())																			//If the physics engine has put the detector to sleep
-		//		body->WakeUp();																				//Wake it up
+
 			body->SetXForm(b2Vec2(pos.x, pos.y), 0.0f);														//And move it
 			
 			[(InteractiveObject*)[touches objectForKey:uniqueID] setPosition:pos];							//Update the touch position
@@ -125,7 +123,9 @@
 			[Logger logMessage:@"Processing SineConnect touch release event" ofType:DEBUG_TOUCH];
 			
 			[physics destroyBody:(b2Body*)[[touches objectForKey:uniqueID] physicsData]];					//Destroy the touche's physics detector
-			[dieingSpots setObject:[touches objectForKey:uniqueID] forKey:uniqueID];						//Mark the touch as dieing
+			InteractiveObject *touch = [touches objectForKey:uniqueID];
+			touch.delta = BASE_TOUCH_END_SCALE_DELTA / FRAMES;
+			[dieingSpots setObject:touch forKey:uniqueID];													//Mark the touch as dieing
 			[touches removeObjectForKey:uniqueID];															//Remove it from the list of active touches
 		} break;
 	}
@@ -139,11 +139,6 @@
 	[physics step];																							//Advance the physics engine with one step
 	
 	InteractiveObject *spot;
-	float scale;
-	CGPoint pos;
-	float delta;
-	bool isScaling;
-	bool isHolding;
 	NSNumber *uid;
 	TargettingInteractor *sine;
 	
@@ -194,8 +189,7 @@
 		[deadSleepingSines removeAllObjects];
 	}
 	
-	//Draw sines
-	for(sine in sines)
+	for(sine in sines)																						//Draw sines
 	{
 		if([sleepingSines containsObject:sine])																//If the sine is still in the list of sleeping sines
 			[sleepingSines removeObject:sine];
@@ -203,7 +197,7 @@
 		CGPoint begin = [sine position];
 		CGPoint end;
 		
-		float sineSpeed = 0.04;																				//The speed with wich sines move
+		float sineSpeed = BASE_SINE_SPEED / FRAMES;															//The speed with wich sines move
 		
 		if([touches objectForKey:[sine target]])															//If the target touch is still alive
 		{
@@ -239,18 +233,15 @@
 				sine.targetCache = hyperspace;																//Hyperspace is the new target
 			}
 			end = sine.targetCache;
-			sineSpeed = 0.2;
+			sineSpeed = BASE_SINE_SPEED * 5 / FRAMES;
 			
 			sine.isAimless = TRUE;																			//This is the first time the sine has no target
 			sine.target = nil;																				//Invalidate the target
 		} else
 		{
 			end = sine.targetCache;																			//The hyperspace coordinates are precomputed
-			sineSpeed = 0.2;																				//Set to warp speed
+			sineSpeed = BASE_SINE_SPEED * 5 / FRAMES;														//Set to warp speed
 		}
-		
-		pos = [sine position];
-		
 		RGBA color = sine.color;
 		
 		float a = begin.y - end.y;																			//Calculate a line between the sine and it's target position
@@ -260,7 +251,7 @@
 		float cosine = b / c;		
 		float angle = acos(cosine);
 		
-		
+		NSLog(@"%f", sineSpeed);
 		if(c > (0.2 * sine.scale))																			//If the sine is not too close to the target
 		{
 			c -= sineSpeed;																					//Shorten the distance a little bit at normal speed
@@ -279,8 +270,6 @@
 		{
 			c -= sineSpeed / 2;																				//Shorten the distance at lower speed
 			sine.scale -= 0.1f;																				//Scale down
-			
-//			NSLog(@"%f, %f", c, sine.scale);
 			
 			if((sine.scale <= 0.1f) || (c <= 0))															//The sine has got sucked in. Remove from list of active sines, make the target touch a holder
 			{
@@ -343,18 +332,13 @@
 			continue;
 		
 		spot = [touches objectForKey:uid];																	//Get touch properties
-		scale = spot.scale;
-		pos = spot.position;
-		delta = spot.delta;
-		isScaling = spot.isScaling;
-		isHolding = spot.isHolding;
 		
 		RGBA color = spot.color;
 		
-		if(isHolding)																						//If the touch holds sines oscilate it's center at random distances each frame to shake it
+		if(spot.isHolding)																					//If the touch holds sines oscilate it's center at random distances each frame to shake it
 		{
-			pos.x += ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.0035);
-			pos.y += ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.0035);
+			spot.position.x += ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.0035);
+			spot.position.y += ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.0035);
 		}
 		
 		alpha = 0.8f;
@@ -362,9 +346,9 @@
 		
 		//Scale
 		glLoadIdentity();
-		glTranslated(pos.x, pos.y, 0.0);
-		glScaled(scale, scale, 1.0);
-		glTranslated(-pos.x, -pos.y, 0.0);
+		glTranslated(spot.position.x, spot.position.y, 0.0);
+		glScaled(spot.scale, spot.scale, 1.0);
+		glTranslated(-spot.position.x, -spot.position.y, 0.0);
 
 		for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)							//Draw the touch as series of circles with different radiuses and alpha values decreasing towards the circumference
 		{
@@ -372,8 +356,8 @@
 			glBegin(GL_POLYGON);
 			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
 			{
-				glVertex2f(subRadius * cosArray[i] + pos.x, 
-						   subRadius * sinArray[i] + pos.y);
+				glVertex2f(subRadius * cosArray[i] + spot.position.x, 
+						   subRadius * sinArray[i] + spot.position.y);
 			}
 			glEnd();
 			
@@ -381,7 +365,7 @@
 		}
 		
 		//Draw a debug cirlce showing the sensors range
-		if(RENDER_SENSOR_RANGE)
+		if(DRAW_PHYSICS_SENSOR_RANGE)
 		{
 			glColor3f(1.0f, 1.0f, 1.0f);
 			glLoadIdentity();
@@ -389,43 +373,39 @@
 			for (int i=0; i < 360; i++)
 			{
 				float degInRad = i * 3.14159f/180.0f;
-				glVertex2f(cos(degInRad) * SENSOR_RANGE + pos.x, sin(degInRad) * SENSOR_RANGE + pos.y);
+				glVertex2f(cos(degInRad) * SENSOR_RANGE + spot.position.x, 
+						   sin(degInRad) * SENSOR_RANGE + spot.position.y);
 			}
 			glEnd();
 		}
 		
-		if(isScaling)																						//If the touch is scaling up
+		if(spot.isScaling)																					//If the touch is scaling up
 		{
 			
-			scale += delta;																					//Increment its radius
-			if(scale >= 1.0f)																				//If the radius is getting too big it should start getting smaller
+			spot.scale += spot.delta;																		//Increment its radius
+			if(spot.scale >= 1.0f)																			//If the radius is getting too big it should start getting smaller
 			{
-				if([spot isNew])																			//If this is the first time the touch is at it's normal maximum radius
+				if(spot.isNew)																				//If this is the first time the touch is at it's normal maximum radius
 				{
-					[spot setIsNew:FALSE];
-					[spot setDelta:0.01];
+					spot.isNew = FALSE;
+					spot.delta = spot.delta = BASE_TOUCH_SCALE_DELTA / FRAMES;
 				}
-				isScaling = !isScaling;																		//The touch should start scaling down
+				spot.isScaling = !spot.isScaling;															//The touch should start scaling down
 			}
 		} else
 		{
-			scale -= delta;																					//Decrement the radius
-			if (scale < 0.7)																				//If the radius is too small start incrementing
+			spot.scale -= spot.delta;																		//Decrement the radius
+			if (spot.scale < 0.7)																			//If the radius is too small start incrementing
 			{
-				isScaling = !isScaling;
+				spot.isScaling = !spot.isScaling;
 			}
 		}
-		
-		[spot setScale:scale];																				//Update touch's parameters		
-		[spot setIsScaling:isScaling];
 	}
 	
 	keys = [dieingSpots allKeys];
 	for(uid in keys)																						//Iterrate over spots with removed touches and suck them out
 	{
 		spot = [dieingSpots objectForKey:uid];
-		scale = [spot scale];
-		pos = [spot position];
 		
 		alpha = 0.8f;
 		
@@ -433,9 +413,9 @@
 		[(NSValue*)[colors objectForKey:uid] getValue:&color];
 		
 		glLoadIdentity();
-		glTranslated(pos.x, pos.y, 0.0);
-		glScaled(scale, scale, 1.0);
-		glTranslated(-pos.x, -pos.y, 0.0);
+		glTranslated(spot.position.x, spot.position.y, 0.0);
+		glScaled(spot.scale, spot.scale, 1.0);
+		glTranslated(-spot.position.x, -spot.position.y, 0.0);
 		
 		for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)
 		{
@@ -443,21 +423,20 @@
 			glBegin(GL_POLYGON);
 			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
 			{
-				glVertex2f(subRadius * cosArray[i] + pos.x, 
-						   subRadius * sinArray[i] + pos.y);
+				glVertex2f(subRadius * cosArray[i] + spot.position.x, 
+						   subRadius * sinArray[i] + spot.position.y);
 			}
 			glEnd();
 			
 			alpha -= alphaStep;
 		}
 		
-		scale -= 0.25f;
-		if(scale <= 0.1f)
+		spot.scale -= spot.delta;
+		if(spot.scale < spot.delta)
 		{
 			[deadSpots addObject:uid];																		//We can't modify a container while enumerating, so reference the dead object in another container
 			continue;
 		}
-		[spot setScale:scale];
 	}
 	
 	for(uid in deadSpots)																					//Iterrate the dead ripples and remove them forever

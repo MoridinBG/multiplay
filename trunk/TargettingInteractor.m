@@ -15,6 +15,9 @@
 @synthesize targetCache;
 @synthesize originCache;
 
+@synthesize targetColorCache;
+@synthesize originColorCache;
+
 @synthesize isAimless;
 
 - (id) initWithOrigin:(NSNumber*) aOrigin target:(NSNumber*) aTarget

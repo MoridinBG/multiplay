@@ -6,9 +6,12 @@
 //  Copyright 2009 The Pixel Factory. All rights reserved.
 //
 
-#define RIPPLE_RADIUS_FACTOR 0.66
+#define RIPPLE_RADIUS_FACTOR 0.5
 #define RIPPLE_WIDTH_FACTOR 2
 #define RIPPLE_ALPHA_FACTOR 0.1
+#define RIPPLE_COLOR_CHANGE_SPEED 22.f
+#define RIPPLE_APPEAR_TIME_FACTOR 5
+#define DONUT_ALPHA_DELTA_FACTOR 1.5f
 
 #import <Cocoa/Cocoa.h>
 

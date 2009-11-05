@@ -49,12 +49,12 @@
 			{
 				InteractiveObject *circle = [[InteractiveObject alloc] initWithPos:pos];
 				circle.targetScale = 1.f / 3.f * i;
-				circle.colorSpeed = 1.1f;
+				circle.colorSpeed = RIPPLE_COLOR_CHANGE_SPEED / FRAMES;
 				
 				circle.scale = 2.f;
 
 				circle.isNew = TRUE;
-				circle.delta = (circle.scale - circle.targetScale) / 3;
+				circle.delta = (circle.scale - circle.targetScale) / (FRAMES / RIPPLE_APPEAR_TIME_FACTOR);
 				
 				[ripple addObject:circle];
 			}
@@ -113,7 +113,7 @@
 			for(InteractiveObject *circle in ripple)
 			{
 				circle.targetScale = 2.f;
-				circle.delta = (circle.targetScale - circle.scale) / 4.f;
+				circle.delta = (circle.targetScale - circle.scale) / 8.f;
 			}
 		} break;
 	}
@@ -141,8 +141,8 @@
 			for(int i = 1; i <= 3; i++)
 			{
 				InteractiveObject *circle = [ringsCluster.cluster objectAtIndex:i - 1];
-				circle.targetScale =  1.f / 3.f * i * 1.05;
-				circle.delta = (circle.targetScale - circle.scale) / (15 + arc4random() % 8);
+				circle.targetScale =  1.f / 3.f * i * (1.07 - (i / 100.f));
+				circle.delta = (circle.targetScale - circle.scale) / ((FRAMES * 0.66f) + (arc4random() % (FRAMES  / 3)));
 				
 				circle.isNew = FALSE;
 			}
@@ -152,7 +152,7 @@
 			{
 				InteractiveObject *donut = [[InteractiveObject alloc] initWithPos:[(InteractiveObject*)[ringsCluster.cluster objectAtIndex:0] position]];
 				donut.isNew = TRUE;
-				donut.alphaDelta = 0.09f;
+				donut.alphaDelta = DONUT_ALPHA_DELTA_FACTOR / FRAMES;
 				
 				[donutsArray addObject:donut];
 			}
@@ -207,8 +207,8 @@
 					circle.scale += circle.delta;
 				else
 				{
-					circle.targetScale =  1.f / 3.f * (j + 1) * 0.95;
-					circle.delta = (circle.scale - circle.targetScale) / (15 + arc4random() % 8);
+					circle.targetScale =  1.f / 3.f * (j + 1) * (0.89 + ((j + 1) / 100.f));
+					circle.delta = (circle.scale - circle.targetScale) / ((FRAMES * 0.66f) + (arc4random() % (FRAMES  / 3)));;
 					circle.isScaling = FALSE;
 				}
 			}
@@ -218,8 +218,8 @@
 					circle.scale -= circle.delta;
 				else
 				{
-					circle.targetScale =  1.f / 3.f * (j + 1) * 1.05;
-					circle.delta = (circle.targetScale - circle.scale) / (15 + arc4random() % 8);
+					circle.targetScale =  1.f / 3.f * (j + 1) * (1.09 - ((j + 1) / 100.f));
+					circle.delta = (circle.targetScale - circle.scale) / ((FRAMES * 0.66f) + (arc4random() % (FRAMES  / 3)));;
 					circle.isScaling = TRUE;
 				}
 			}

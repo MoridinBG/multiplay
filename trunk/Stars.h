@@ -6,6 +6,8 @@
 //  Copyright 2009 The Pixel Factory. All rights reserved.
 //
 
+#define BASE_ROTATION_DELTA 60.f
+
 #import <Cocoa/Cocoa.h>
 
 #import "EffectProvider.h"

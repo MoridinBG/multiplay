@@ -15,6 +15,7 @@
 #import "LineConnect.h"
 #import "TextCircle.h"
 #import "InteractiveImages.h"
+#import "TouchSwap.h"
 
 #import "Ripples.h"
 

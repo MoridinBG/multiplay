@@ -80,9 +80,9 @@
 			[(NSValue*)[colors objectForKey:uniqueID] getValue:&color];
 			
 			InteractiveObject *spot = [[InteractiveObject alloc] initWithPos:pos];
-			[spot setDelta:0.15];
-			[spot setPhysicsData:[physics addProximityContactListenerAtX:pos.x Y:pos.y withUid:uniqueID]];
-			[spot setColor:color];
+			spot.delta = BASE_TOUCH_START_SCALE_DELTA / FRAMES;
+			spot.physicsData = [physics addProximityContactListenerAtX:pos.x Y:pos.y withUid:uniqueID];
+			spot.color = color;
 			
 			[touches setObject:spot forKey:uniqueID];
 			
@@ -113,8 +113,6 @@
 				return;
 			}
 			
-//			if(body->IsSleeping())
-//				body->WakeUp();
 			body->SetXForm(b2Vec2(pos.x, pos.y), 0.0f);
 			
 			[(InteractiveObject*)[touches objectForKey:uniqueID] setPosition:pos];
@@ -138,7 +136,9 @@
 			if([[touches objectForKey:uniqueID] physicsData])
 				[physics destroyBody:(b2Body*)[[touches objectForKey:uniqueID] physicsData]];
 			
-			[dieingSpots addObject:[touches objectForKey:uniqueID]];
+			InteractiveObject *touch = [touches objectForKey:uniqueID];
+			touch.delta = BASE_TOUCH_END_SCALE_DELTA / FRAMES;
+			[dieingSpots addObject:touch];
 			[touches removeObjectForKey:uniqueID];
 		} break;
 	}
@@ -153,12 +153,8 @@
 	
 	TargettingInteractor *connection;
 	InteractiveObject *spot;
-	float scale;
-	CGPoint pos;
 	NSNumber *uid;
-	float delta;
-	bool isScaling;
-		
+
 	for(connection in connections)
 	{
 		float scale = connection.scale;
@@ -175,18 +171,26 @@
 			origin = [(InteractiveObject*)[touches objectForKey:connection.origin] position];
 			connection.originCache = origin;
 			colorOrigin = [(InteractiveObject*)[touches objectForKey:connection.origin] color];
+			connection.originColorCache = colorOrigin;
 		}
 		else
+		{
 			origin = connection.originCache;
+			colorOrigin = connection.originColorCache;
+		}
 		
 		if([touches objectForKey:connection.target])
 		{
 			target = [(InteractiveObject*)[touches objectForKey:connection.target] position];
 			connection.targetCache = target;
 			colorTarget = [(InteractiveObject*)[touches objectForKey:connection.target] color];
+			connection.targetColorCache = colorTarget;
 		}
 		else
+		{
 			target = connection.targetCache;
+			colorTarget = connection.targetColorCache;	
+		}
 		
 		float a = origin.y - target.y;
 		float b = origin.x - target.x;
@@ -254,7 +258,10 @@
 			colorOrigin = [(InteractiveObject*)[touches objectForKey:connection.origin] color];
 		}
 		else
+		{
 			origin = connection.originCache;
+			colorOrigin = connection.originColorCache;
+		}
 		
 		if([touches objectForKey:connection.target])
 		{
@@ -263,7 +270,10 @@
 			colorTarget = [(InteractiveObject*)[touches objectForKey:connection.target] color];
 		}
 		else
+		{
 			target = connection.targetCache;
+			colorTarget = connection.targetColorCache;	
+		}
 		
 		float a = origin.y - target.y;
 		float b = origin.x - target.x;
@@ -312,11 +322,6 @@
 	for(uid in touches)
 	{
 		spot = [touches objectForKey:uid];
-		scale = [spot scale];
-		pos = [spot position];
-		delta = [spot delta];
-		isScaling = [spot isScaling];
-		
 		[spot randomizeColor];
 				
 		alpha = 0.8f;
@@ -324,9 +329,9 @@
 		RGBA color = spot.color;
 		
 		glLoadIdentity();
-		glTranslated(pos.x, pos.y, 0.0);
-		glScaled(scale, scale, 1.0);
-		glTranslated(-pos.x, -pos.y, 0.0);
+		glTranslated(spot.position.x, spot.position.y, 0.0);
+		glScaled(spot.scale, spot.scale, 1.0);
+		glTranslated(-spot.position.x, -spot.position.y, 0.0);
 		
 		for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)
 		{
@@ -334,15 +339,15 @@
 			glBegin(GL_POLYGON);
 			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
 			{
-				glVertex2f(subRadius * cosArray[i] + pos.x, 
-						   subRadius * sinArray[i] + pos.y);
+				glVertex2f(subRadius * cosArray[i] + spot.position.x, 
+						   subRadius * sinArray[i] + spot.position.y);
 			}
 			glEnd();
 			alpha -= alphaStep;
 		}
 		
 		//Draw a debug cirlce showing the sensors range
-		if(RENDER_SENSOR_RANGE)
+		if(DRAW_PHYSICS_SENSOR_RANGE)
 		{
 			glColor3f(1.0f, 1.0f, 1.0f);
 			glLoadIdentity();
@@ -350,34 +355,32 @@
 			for (int i=0; i < 360; i++)
 			{
 				float degInRad = i * 3.14159f/180.0f;
-				glVertex2f(cos(degInRad) * SENSOR_RANGE + pos.x, sin(degInRad) * SENSOR_RANGE + pos.y);
+				glVertex2f(cos(degInRad) * SENSOR_RANGE + spot.position.x, 
+						   sin(degInRad) * SENSOR_RANGE + spot.position.y);
 			}
 			glEnd();
 		}
 		
-		if(isScaling)
+		if(spot.isScaling)
 		{
-			scale += delta;														//Increment its radius
-			[spot setScale:scale];
-			if(scale >= 1.01f)													//If the radius is getting too big we should start getting smaller
+			if((spot.scale + spot.delta) > 1.f)														//If the radius is getting too big we should start getting smaller
 			{
-				[spot setScale:1.0f];
-				isScaling = FALSE;												//Not scaling anymore
+				spot.scale = 1.f;
+				spot.isScaling = FALSE;																//Not scaling anymore
 			}
+			else
+				spot.scale += spot.delta;															//Increment its radius
 		}
 	}
 	
 	for(spot in dieingSpots)
-	{
-		scale = [spot scale];
-		pos = [spot position];
-		
+	{	
 		alpha = 0.8f;
 		
 		glLoadIdentity();
-		glTranslated(pos.x, pos.y, 0.0);
-		glScaled(scale, scale, 1.0);
-		glTranslated(-pos.x, -pos.y, 0.0);
+		glTranslated(spot.position.x, spot.position.y, 0.0);
+		glScaled(spot.scale, spot.scale, 1.0);
+		glTranslated(-spot.position.x, -spot.position.y, 0.0);
 		
 		for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)
 		{
@@ -385,17 +388,16 @@
 			glBegin(GL_POLYGON);
 			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
 			{
-				glVertex2f(subRadius * cosArray[i] + pos.x, 
-						   subRadius * sinArray[i] + pos.y);
+				glVertex2f(subRadius * cosArray[i] + spot.position.x, 
+						   subRadius * sinArray[i] + spot.position.y);
 			}
 			glEnd();
 			alpha -= alphaStep;
 		}
 		
-		if(scale >= 0.1f)
+		if(spot.scale >= spot.delta)
 		{
-			scale -= 0.15f;
-			[spot setScale:scale];
+			spot.scale -= spot.delta;
 		}
 		else
 			[deadSpots addObject:spot];
@@ -414,7 +416,6 @@
 - (void) reconnect:(NSTimer*) theTimer
 {
 	[lock lock];
-	NSLog(@"HerE");
 	NSNumber *uid = [theTimer userInfo];
 	if(![touches objectForKey:uid])
 	{
@@ -440,7 +441,6 @@
 	{
 		if(![touches objectForKey:neighbourUID])
 		{
-			NSLog(@"Dead neighbour found");
 			[touch removeNeighbour:neighbourUID];
 			continue;
 		}

@@ -52,6 +52,9 @@
 			[Logger logMessage:@"Processing Stars touch down event" ofType:DEBUG_TOUCH];
 			
 			InteractiveObject *star = [[InteractiveObject alloc] initWithPos:pos];
+			star.scale = 0.f;
+			star.delta = BASE_TOUCH_START_SCALE_DELTA / FRAMES;
+			star.rotateDelta = BASE_ROTATION_DELTA / FRAMES;
 			[touches setObject:star forKey:uniqueID];
 			
 		} break;
@@ -78,7 +81,9 @@
 			[Logger logMessage:@"Processing Stars touch release event" ofType:DEBUG_TOUCH];
 			
 			//Mark the star associated with this touch for sucktion
-			[dieingStars setObject:[touches objectForKey:uniqueID] forKey:uniqueID];
+			InteractiveObject *deadStar = [touches objectForKey:uniqueID];
+			deadStar.delta = BASE_TOUCH_END_SCALE_DELTA / FRAMES;
+			[dieingStars setObject:deadStar forKey:uniqueID];
 			[touches removeObjectForKey:uniqueID];
 		} break;
 	}
@@ -88,14 +93,7 @@
 - (void) render
 {
 	[lock lock];
-	float scale;
 	float radius = 0.10;
-	float angle;
-	float rotateDelta;
-	float delta;
-	bool isScaling;
-	bool isNew;
-	bool rotateLeft;
 	
 	CGPoint pos;
 	NSNumber *uid;
@@ -118,15 +116,7 @@
 		[Logger logMessage:[NSString stringWithFormat:@"Rendering star %d", [uid integerValue]] ofType:DEBUG_RENDER];
 		
 		star = [touches objectForKey:uid];
-		
-		scale = star.scale;;
 		pos = star.position;
-		angle = star.angle;
-		delta = star.delta;
-		isScaling = star.isScaling;
-		isNew = star.isNew;
-		rotateLeft = star.rotateLeft;
-		rotateDelta = star.rotateDelta;
 		
 		RGBA color;
 		[(NSValue*)[colors objectForKey:uid] getValue:&color];
@@ -135,8 +125,8 @@
 
 		glLoadIdentity();															//Draw the current star with it's scale and rotation factors
 		glTranslated(pos.x, pos.y, 0.0f);
-		glScaled(scale, scale, 0.0f);
-		glRotated(angle, 0.0f, 0.0f, 1.0f);
+		glScaled(star.scale, star.scale, 0.0f);
+		glRotated(star.angle, 0.0f, 0.0f, 1.0f);
 		glTranslated(-pos.x, -pos.y, 0.0f);
 		
 		glBegin(GL_TRIANGLE_FAN);													//Start drawing the star
@@ -156,48 +146,41 @@
 		}
 		glEnd();
 
-		if(isScaling)																//Is the star getting bigger?
+		if(star.isScaling)																//Is the star getting bigger?
 		{
-			
-			scale += delta;															//Increment its radius
-			if(scale > 1)															//If the radius is getting too big we should start getting smaller
+			star.scale += star.delta;															//Increment its radius
+			if(star.scale > 1)															//If the radius is getting too big we should start getting smaller
 			{
-				if(isNew)															//If the star has gotten so big for the first time decrement the scaling step
+				if(star.isNew)															//If the star has gotten so big for the first time decrement the scaling step
 				{
-					[star setIsNew:FALSE];
-					[star setDelta:0.02];
+					star.isNew = FALSE;
+					star.delta = BASE_TOUCH_SCALE_DELTA / FRAMES;
 				}
-				isScaling = !isScaling;												//Not scaling anymore
+				star.isScaling = !star.isScaling;												//Not scaling anymore
 			}
 		} else																		//The star is getting smaller
 		{
-			scale -= delta;															//Decrement the radius
-			if (scale < 0.65)														//If the radius is too small start incrementing
+			star.scale -= star.delta;															//Decrement the radius
+			if (star.scale < 0.65)														//If the radius is too small start incrementing
 			{
-				isScaling = !isScaling;												//Scaling again
+				star.isScaling = !star.isScaling;												//Scaling again
 			}
 		}
 
-		if(rotateLeft)																//The rotation angle for the star is incremented when rotating left and decremented otherwise
+		if(star.rotateLeft)																//The rotation angle for the star is incremented when rotating left and decremented otherwise
 		{
-			angle += rotateDelta;
+			star.angle += star.rotateDelta;
 			
 			if(star.angle >= 360)													//Avoid extremely big angles for long living stars
 				star.angle -= 360;
 		}
 		else
 		{
-			angle -= rotateDelta;
+			star.angle -= star.rotateDelta;
 			
 			if(star.angle <= 360)
 				star.angle += 360;
 		}
-		
-																					//Update current star's parameters
-		star.position = pos;
-		star.scale = scale;
-		star.angle = angle;
-		star.isScaling = isScaling;
 	}
 	
 	keys = [dieingStars allKeys];													//Iterrate over stars with removed touche and suck them out
@@ -206,7 +189,6 @@
 		[Logger logMessage:[NSString stringWithFormat:@"Rendering dead star %d", [uid integerValue]] ofType:DEBUG_RENDER];
 		
 		star = [dieingStars objectForKey:uid];
-		scale = [star scale];
 		pos = [star position];
 		
 		RGBA color;
@@ -214,7 +196,7 @@
 		
 		glLoadIdentity();
 		glTranslated(pos.x, pos.y, 0.0f);
-		glScaled(scale, scale, 0.0f);
+		glScaled(star.scale, star.scale, 0.0f);
 		glTranslated(-pos.x, -pos.y, 0.0f);
 		
 		glBegin(GL_TRIANGLE_FAN);
@@ -235,13 +217,12 @@
 		}
 		glEnd();
 		
-		scale -= 0.15f;																//Start scaling down the star
-		if(scale <= 0.1f)															//When the scale factor is too little the star is finally dead
+		star.scale -= star.delta;																//Start scaling down the star
+		if(star.scale <= 0.1f)															//When the scale factor is too little the star is finally dead
 		{
 			[deadStars addObject:uid];											//We can't modify a container while enumerating, so reference the dead object in another container
 			continue;
 		}
-		[star setScale:scale];
 	}
 	
 	for(uid in deadStars)															//Iterrate the dead stars and remove them forever

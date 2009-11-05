@@ -6,6 +6,9 @@
 //  Copyright 2009 The Pixel Factory. All rights reserved.
 //
 
+#define BASE_DISTANCE 0.24f
+#define BASE_DISLOCATION 0.06f
+
 #import <Cocoa/Cocoa.h>
 #import "consts.h"
 #import "Sparkle.h"

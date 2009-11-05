@@ -65,7 +65,7 @@
 	
 	BasePicture *picture = [[pictures objectAtIndex:index] copy];
 	picture.position = position;
-	picture.delta = (picture.targetScale - picture.scale) / 10;
+	picture.delta = (picture.targetScale - picture.scale) / (PICTURE_SHOW_TIME_FACTOR / FRAMES);
 	picture.rotateDelta = 32.72f;
 	
 	[shownPictures addObject:picture];
@@ -79,7 +79,7 @@
 
 	BasePicture *picture = [theTimer userInfo];
 	picture.targetScale = 0.1f;
-	picture.delta = (picture.scale - picture.targetScale) / 20;
+	picture.delta = (picture.scale - picture.targetScale) / (PICTURE_REMOVE_TIME_FACTOR / FRAMES);
 	float angularVelocity = ((b2Body*)picture.physicsData)->GetAngularVelocity() * RAD2DEG;
 	if(angularVelocity > 0)
 		picture.rotateLeft = TRUE;
@@ -121,7 +121,7 @@
 		{
 			InteractiveObject *touch = [[InteractiveObject alloc] initWithPos:pos];
 			touch.targetScale = 1.f;
-			touch.delta = (touch.targetScale - touch.scale) / TOUCH_PULSE_FRAMES;
+			touch.delta = (touch.targetScale - touch.scale) / (FRAMES / 2);
 			touch.physicsData = [physics createCirclularBodyWithRadius:TOUCH_PHYSICS_BODY_SIZE atPosition:pos];
 			[physics attachMouseJointToBody:(b2Body*)touch.physicsData withId:uniqueID];
 			
@@ -197,7 +197,7 @@
 			{
 				spot.isScaling = FALSE;
 				spot.targetScale = 0.6f;
-				spot.delta = (spot.scale - spot.targetScale) / TOUCH_PULSE_FRAMES;
+				spot.delta = (spot.scale - spot.targetScale) / FRAMES;
 			}
 		}
 		else
@@ -208,7 +208,7 @@
 			{
 				spot.isScaling = TRUE;
 				spot.targetScale = 1.f;
-				spot.delta = (spot.targetScale - spot.scale) / TOUCH_PULSE_FRAMES;
+				spot.delta = (spot.targetScale - spot.scale) / FRAMES;
 			}
 		}
 		
@@ -225,7 +225,7 @@
 			
 			if((body->IsSleeping()) && (!body->GetUserData()))
 			{
-				NSTimer *deathTimer = [NSTimer scheduledTimerWithTimeInterval:45.0
+				NSTimer *deathTimer = [NSTimer scheduledTimerWithTimeInterval:25.0
 																	   target:self
 																	 selector:@selector(removePicture:)
 																	 userInfo:picture
@@ -256,7 +256,8 @@
 			else
 			{
 				picture.isNew = FALSE;
-				picture.physicsData = (void*)[physics createRectangularBodyWithSize:picture.oglSize atPosition:picture.position rotatedAt:0];
+				CGSize physicsScale = {picture.oglSize.width * 1.f, picture.oglSize.height * 1.f};
+				picture.physicsData = (void*)[physics createRectangularBodyWithSize:physicsScale atPosition:picture.position rotatedAt:0];
 			}
 			spiralAppear.x = (picture.oglSize.width * picture.scale) / 2;
 			spiralAppear.y = (picture.oglSize.height * picture.scale) / 2;

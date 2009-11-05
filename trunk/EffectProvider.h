@@ -29,6 +29,7 @@
 @class TextCircle;
 @class Ripples;
 @class InteractiveImages;
+@class TouchSwap;
 @interface EffectProvider : NSObject 
 {
 	NSMutableArray *listeners;
@@ -55,6 +56,7 @@
 	#ifdef __cplusplus
 	TUIOppListener *listener;
 	TUIOppListener *listener2;
+	TUIOppListener *listener3;	
 	#endif
 }
 - (id) init;

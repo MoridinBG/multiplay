@@ -104,7 +104,7 @@
 	if(self = [super init])
 	{
 		scale = 0.01f;
-		delta = 0.18;
+		delta = 0.18f;
 		targetScale = 1.f;																			//Used to hold specific target values for scale;
 		
 		isScaling = TRUE;

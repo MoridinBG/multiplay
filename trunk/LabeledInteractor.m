@@ -8,8 +8,9 @@
 
 #import "LabeledInteractor.h"
 
-
 @implementation LabeledInteractor
 @synthesize label;
+@synthesize charsToTrimAtEnd;
+@synthesize charsToTrimAtStart;
 
 @end

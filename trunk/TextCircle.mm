@@ -27,7 +27,7 @@
 		[strings addObject:@"Did you have a great day today? "];
 		[strings addObject:@"What you gonna do tonight? "];
 		
-		font = new FTGLPolygonFont("/Users/ivandilchovski/Fonts/couriernew.ttf");
+		font = new FTGLPolygonFont("/Users/ivandilchovski/Fonts/Courier.ttf");
 		font->FaceSize(30);
 		font->UseDisplayList(true);
 	}
@@ -58,8 +58,9 @@
 			[Logger logMessage:@"Processing TextRender touch down event" ofType:DEBUG_TOUCH];
 			LabeledInteractor *text = [[LabeledInteractor alloc] initWithPos:pos];
 			text.label = [strings objectAtIndex:(arc4random() % [strings count])];
-			text.delta = 0.01;
-			text.rotateDelta = 3;
+			text.targetScale = 1.f;
+			text.delta = 0.01f;
+			text.rotateDelta = TEXT_START_ROTATE_DELTA / FRAMES;
 			
 			[touches setObject:text forKey:uniqueID];
 		} break;
@@ -88,7 +89,6 @@
 			[deadStrings setObject:[touches objectForKey:uniqueID] forKey:uniqueID];
 			
 			//Use the Delta property to store the lenght of the string to trim when disappearing, as scale is used when calculating the circle's geometry.
-			[[deadStrings objectForKey:uniqueID] setDelta:0.f];
 			[touches removeObjectForKey:uniqueID];
 		} break;
 	}
@@ -100,7 +100,7 @@
 	[lock lock];
 	
 	float circumference, diameter;
-	float scale, delta, angle, rotateDelta;
+	float letterAngle;
 	bool rotateLeft;
 	LabeledInteractor *text;
 	NSArray *keys = [touches allKeys];
@@ -116,12 +116,8 @@
 		if(!string)
 			continue;
 		int length = strlen(string);
-		scale = text.scale;
-		delta = text.delta;
-		rotateDelta = text.rotateDelta;
-		rotateLeft = text.rotateLeft;
 		
-		angle = 360 / length;
+		letterAngle = 360 / length;
 		
 		RGBA color;
 		[(NSValue*)[colors objectForKey:uid] getValue:&color];
@@ -129,7 +125,7 @@
 		
 		glPushMatrix();
 		
-		circumference = font->Advance(string) * scale;
+		circumference = font->Advance(string) * text.scale;
 		diameter = circumference / PI;
 		float dX = (circumference / length) / 2;
 		
@@ -137,7 +133,7 @@
 		{
 			dX = -dX;
 			diameter = -diameter;
-			angle = - angle;
+			letterAngle = -letterAngle;
 		}
 		
 		glTranslated(text.position.x - dX, text.position.y - (diameter / 2), 0);
@@ -151,35 +147,35 @@
 			font->Render(&string[i], 1);
 			
 			glTranslated(font->Advance(&string[i], 1)  * text.scale , 0, 0);
-			glRotated(angle, 0, 0, 1);
+			glRotated(letterAngle, 0, 0, 1);
 		}
 		
 		glPopMatrix();
 		
-		if (scale  < 1.f)
+		if((text.scale + text.delta) < text.targetScale)
 		{
-			text.scale += delta;
-			if(delta < 0.1)
-				text.delta *= 1.3;
+			text.scale += text.delta;
+			if(text.delta < (TEXT_TARGET_DELTA / FRAMES))
+				text.delta *= 1 + (TEXT_TARGET_DELTA_STEP / FRAMES);
 		}
 			
-		if(rotateLeft)
+		if(text.rotateLeft)
 		{
-			text.angle += rotateDelta;
+			text.angle += text.rotateDelta;
 			
 			if(text.angle >= 360)
 				text.angle -= 360;
 		}
 		else
 		{
-			text.angle -= rotateDelta;
+			text.angle -= text.rotateDelta;
 			
 			if(text.angle <= 360)
 				text.angle += 360;
 		}
 		
-		if(rotateDelta > 1.7)
-			text.rotateDelta -= 0.1;
+		if(text.rotateDelta > (TEXT_TARGET_ROTATE_DELTA / FRAMES))
+			text.rotateDelta -= (TEXT_TARGET_ROTATE_DELTA_STEP / FRAMES);
 	}
 	
 	keys = [deadStrings allKeys];
@@ -191,11 +187,9 @@
 		text = [deadStrings objectForKey:uid];
 		const char *string = [text.label UTF8String];
 		int length = strlen(string);
-		scale = text.scale;
-		delta = text.delta;
 		rotateLeft = text.rotateLeft;
 		
-		angle = 360 / length;
+		letterAngle = 360 / length;
 		
 		RGBA color;
 		[(NSValue*)[colors objectForKey:uid] getValue:&color];
@@ -203,7 +197,7 @@
 		
 		glPushMatrix();
 		
-		circumference = font->Advance(string) * scale;
+		circumference = font->Advance(string) * text.scale;
 		diameter = circumference / PI;
 		float dX = (circumference / length) / 2;
 		
@@ -211,7 +205,7 @@
 		{
 			dX = -dX;
 			diameter = -diameter;
-			angle = -angle;
+			letterAngle = -letterAngle;
 		}
 		
 		glTranslated(text.position.x - dX, text.position.y - (diameter / 2), 0);
@@ -220,18 +214,18 @@
 		glRotated(text.angle, 0, 0, 1);
 		glTranslated(-dX, -(diameter / 2), 0);
 		
-		length -= (int) delta;
+		length -= (int) text.charsToTrimAtEnd;
 		for(int i = 0; i < length ; i += 1)
 		{
 			font->Render(&string[i], 1);
 			
 			glTranslated(font->Advance(&string[i], 1), 0, 0);
-			glRotated(angle, 0, 0, 1);
+			glRotated(letterAngle, 0, 0, 1);
 		}
 		
 		glPopMatrix();
 		
-		text.delta += 2.f;
+		text.charsToTrimAtEnd += 2;
 		if(((int)text.scale) > length)
 			[stringsForRemoval addObject:uid];
 	}

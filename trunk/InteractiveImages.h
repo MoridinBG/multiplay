@@ -6,6 +6,9 @@
 //  Copyright 2009 Bulplex LTD. All rights reserved.
 //
 
+#define PICTURE_SHOW_TIME_FACTOR 400
+#define PICTURE_REMOVE_TIME_FACTOR 600
+
 #import <Cocoa/Cocoa.h>
 #import "PictureGallery.h"
 

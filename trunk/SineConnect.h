@@ -6,6 +6,8 @@
 //  Copyright 2009 The Pixel Factory. All rights reserved.
 //
 
+#define BASE_SINE_SPEED 0.8f
+
 #import <Cocoa/Cocoa.h>
 
 #import <math.h>

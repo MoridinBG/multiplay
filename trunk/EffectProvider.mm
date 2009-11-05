@@ -27,7 +27,7 @@
 		{
 			sectors = SECTORS_TOUCH;
 		}
-		else if(([self isKindOfClass:[TextCircle class]]) || ([self isKindOfClass:[Ripples class]]))
+		else if(([self isKindOfClass:[TextCircle class]]) || ([self isKindOfClass:[Ripples class]]) || ([self isKindOfClass:[TouchSwap class]]))
 		{
 			sectors = 0;
 		}
@@ -40,6 +40,9 @@
 		
 		listener2 = new TUIOppListener(3334);
 		listener2->setMultiplexor(multiplexor);
+		
+		listener3 = new TUIOppListener(3335);
+		listener3->setMultiplexor(multiplexor);
 		
 		colors = [[NSMutableDictionary alloc] initWithCapacity:100];
 		touches = [[NSMutableDictionary alloc] initWithCapacity:100];

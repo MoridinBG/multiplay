@@ -12,6 +12,10 @@
 @interface LabeledInteractor : InteractiveObject
 {
 	NSString *label;
+	int charsToTrimAtEnd;
+	int charsToTrimAtStart;
 }
 @property (copy) NSString *label;
+@property int charsToTrimAtEnd;
+@property int charsToTrimAtStart;
 @end

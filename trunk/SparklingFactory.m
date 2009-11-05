@@ -38,12 +38,12 @@
 	[[positions objectForKey:[theTimer userInfo]] getValue:&position];
 	
 	//A value between -0.08 and 0.08, that is added to the base coordinate
-	position.x -= ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.02);
-	position.y -= ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.02);
+	position.x -= ((((float)(arc4random() % 10) / 10) * 2 - 1) * BASE_DISLOCATION);
+	position.y -= ((((float)(arc4random() % 10) / 10) * 2 - 1) * BASE_DISLOCATION);
 	
 	//A value between -0.08 and 0.08 that is used as a direction coordinate
-	direction.x = ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.012);
-	direction.y = ((((float)(arc4random() % 10) / 10) * 2 - 1) * 0.012);
+	direction.x = ((((float)(arc4random() % 10) / 10) * 2 - 1) * (BASE_DISTANCE / FRAMES));
+	direction.y = ((((float)(arc4random() % 10) / 10) * 2 - 1) * (BASE_DISTANCE / FRAMES));
 	
 	
 	//If this would be the first sparkle for this TouchID, create a group
@@ -84,7 +84,7 @@
 				sparkle.position = position;
 				sparkle.direction = direction;
 				
-				sparkle.alpha -= 0.06f;
+				sparkle.alpha -= (0.5f / FRAMES);
 			}
 			else
 			{
@@ -115,7 +115,7 @@
 		{
 			if(sparkle.alpha >= 0.1f)
 			{
-				sparkle.alpha -= 0.08f;
+				sparkle.alpha -= (1.6f / FRAMES);
 			}
 			else
 			{

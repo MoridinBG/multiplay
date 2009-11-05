@@ -30,7 +30,7 @@
 		if(frame)
 			[self createFrameWithDimensions:dimensions];
 		
-		if(RENDER_BOX2D_DEBUG_DRAW)
+		if(PHYSICS_DEBUG_DRAW)
 		{
 			uint32 flags = 0;
 			flags += 1			* b2DebugDraw::e_shapeBit;
@@ -78,7 +78,7 @@
 - (void) step
 {
 	[lock lock];
-	world->Step(1.0f / 20.0f, 5);
+	world->Step(1.0f / FRAMES, 10);
 	[lock unlock];
 }
 

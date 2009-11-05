@@ -89,7 +89,8 @@
 //		provider = [[LineConnect alloc] init];
 // 		provider = [[TextCircle alloc] init];
 //		provider = [[Ripples alloc] init];
-		provider = [[InteractiveImages alloc] initWithPicturesInDirectory:@"/Users/ivandilchovski/Logos/"];
+//		provider = [[InteractiveImages alloc] initWithPicturesInDirectory:@"/Users/ivandilchovski/Logos/"];
+		provider = [[TouchSwap alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
 		
@@ -100,7 +101,7 @@
 		
 		newColor = color;
 		
-		(void)[NSTimer scheduledTimerWithTimeInterval:0.05
+		(void)[NSTimer scheduledTimerWithTimeInterval:(1.f / FRAMES)
 											   target:self 
 											 selector:@selector(display) 
 											 userInfo:nil 
@@ -143,7 +144,7 @@
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		
-		//gluLookAt(1560.0, 320.0, 320, 1560.0, 320.0, 0.0, 0.0, 1.0, 0.0);
+//		gluLookAt(1560.0, 320.0, 320, 1560.0, 320.0, 0.0, 0.0, 1.0, 0.0);
 		gluLookAt(520, 320, 320, 520, 320, 0, 0, 1, 0);
 	}
 	else
@@ -196,7 +197,7 @@
 	}
 	else
 	{
-		if(CGDisplayPixelsWide(kCGDirectMainDisplay) == 1680)
+		if((CGDisplayPixelsWide(kCGDirectMainDisplay) == 1680) || (CGDisplayPixelsWide(kCGDirectMainDisplay) == 1280))
 		{
 			dimensions.width = CGDisplayPixelsWide(kCGDirectMainDisplay);
 			dimensions.height = CGDisplayPixelsHigh(kCGDirectMainDisplay);
