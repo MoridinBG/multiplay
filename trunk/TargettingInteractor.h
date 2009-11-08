@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "InteractiveObject.h"
 #import "LiteTouchInfo.h"
+#import "PointObj.h"
 
 @interface TargettingInteractor : InteractiveObject
 {
@@ -19,6 +20,8 @@
 	
 	RGBA targetColorCache;
 	RGBA originColorCache;
+	
+	NSMutableArray *trajectory;
 	
 	bool isAimless;
 }
@@ -31,8 +34,11 @@
 @property RGBA targetColorCache;
 @property RGBA originColorCache;
 
+@property NSMutableArray *trajectory;
+
 @property bool isAimless;
 
 - (id) initWithOrigin:(NSNumber*) aOrigin target:(NSNumber*) aTarget;
 
+- (void) calculateTrajectoryWithStart:(CGPoint)start andEnd:(CGPoint)end;
 @end

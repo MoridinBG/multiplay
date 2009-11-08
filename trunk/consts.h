@@ -22,7 +22,7 @@
 #define COLOR_BITS (NSOpenGLPixelFormatAttribute)24
 #define DEPTH_BITS (NSOpenGLPixelFormatAttribute)16
 
-#define FULLSCREEN FALSE
+#define FULLSCREEN TRUE
 #define SIMULATOR TRUE
 #define FRAMES 30
 
@@ -42,7 +42,7 @@
 #define BASE_TOUCH_END_SCALE_DELTA 3.6f
 #define BASE_TOUCH_SCALE_DELTA 0.5f
 
-#define SENSOR_RANGE 0.6f
+#define SENSOR_RANGE 0.4f
 #define SINECONNECT_NUM_VERTICES 72
 
 #define FONT_SCALE 0.05f
@@ -50,6 +50,9 @@
 
 #define BASE_PICTURE_SIZE 0.15f
 #define PICTURES_TO_SHOW 10
+
+#define PREVIOUS_POSITION_QUEUE_DEPTH 30
+#define MAX_PREVIOUS_POSITION_QUEUE_DEPTH 1000
 
 static const int MOUSE_ID = -1;
 typedef enum touchtype {TouchDown, TouchMove, TouchRelease} TouchType;

@@ -23,11 +23,14 @@
 		{
 			sectors = SECTORS_STARS;
 		}
-		else if(([self isKindOfClass:[SineConnect class]]) || ([self isKindOfClass:[LineConnect class]]) || ([self isKindOfClass:[InteractiveImages class]]))
+		else if(([self isKindOfClass:[SineConnect class]]) ||
+				([self isKindOfClass:[LineConnect class]]) ||
+				([self isKindOfClass:[InteractiveImages class]]) ||
+				([self isKindOfClass:[TouchSwap class]]))
 		{
 			sectors = SECTORS_TOUCH;
 		}
-		else if(([self isKindOfClass:[TextCircle class]]) || ([self isKindOfClass:[Ripples class]]) || ([self isKindOfClass:[TouchSwap class]]))
+		else if(([self isKindOfClass:[TextCircle class]]) || ([self isKindOfClass:[Ripples class]]))
 		{
 			sectors = 0;
 		}
@@ -107,7 +110,7 @@
 	dimensions.width = dimensions.width / dimensions.height;
 	dimensions.height = 1.f;
 	
-	if(([self isKindOfClass:[SineConnect class]]) || ([self isKindOfClass:[LineConnect class]]))
+	if(([self isKindOfClass:[SineConnect class]]) || ([self isKindOfClass:[LineConnect class]]) || ([self isKindOfClass:[TouchSwap class]]))
 	{
 		physics = [[b2Physics alloc] initWithDimensions:dimensions withFrame:FALSE];
 	}

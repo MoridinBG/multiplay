@@ -48,5 +48,4 @@
 - (void) render;
 
 - (void) reconnect:(NSTimer*) theTimer;
-
 @end

@@ -15,6 +15,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		F50DB3F7100E17D20048A89C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50DB3F6100E17D20048A89C /* OpenGL.framework */; };
+		F51B8F5610A3402E00D3F0C5 /* PointObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B8F5510A3402E00D3F0C5 /* PointObj.m */; };
 		F51D4FC710791F2500069EC0 /* ClusteredInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F51D4FC610791F2500069EC0 /* ClusteredInteractor.m */; };
 		F51D638F106A445200D61750 /* TUIOppListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = F51D638E106A445200D61750 /* TUIOppListener.mm */; };
 		F51D63C0106A48BC00D61750 /* TuioClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51D63B5106A48BC00D61750 /* TuioClient.cpp */; };
@@ -30,7 +31,7 @@
 		F52B10EB10524F4F005807E4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F52B10E910524F4F005807E4 /* MainMenu.xib */; };
 		F5435718104E5609004A914C /* TuioMultiplexor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5435717104E5609004A914C /* TuioMultiplexor.m */; };
 		F54994C410A21F18005F1C97 /* BaseTouchEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = F54994C310A21F18005F1C97 /* BaseTouchEffect.m */; };
-		F54994D110A24A1C005F1C97 /* TouchSwap.m in Sources */ = {isa = PBXBuildFile; fileRef = F54994D010A24A1C005F1C97 /* TouchSwap.m */; };
+		F54994D110A24A1C005F1C97 /* TouchSwap.mm in Sources */ = {isa = PBXBuildFile; fileRef = F54994D010A24A1C005F1C97 /* TouchSwap.mm */; };
 		F54E562B105E681B00462480 /* TextCircle.mm in Sources */ = {isa = PBXBuildFile; fileRef = F54E562A105E681B00462480 /* TextCircle.mm */; };
 		F5608B821030D0D1009F9EBC /* Sparkles.m in Sources */ = {isa = PBXBuildFile; fileRef = F5608B811030D0D1009F9EBC /* Sparkles.m */; };
 		F5608B8A1030D925009F9EBC /* SparklingFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5608B891030D925009F9EBC /* SparklingFactory.m */; };
@@ -73,6 +74,8 @@
 		8D1107310486CEB800E47090 /* Finger-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Finger-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Finger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50DB3F6100E17D20048A89C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		F51B8F5410A3402E00D3F0C5 /* PointObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointObj.h; sourceTree = "<group>"; };
+		F51B8F5510A3402E00D3F0C5 /* PointObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointObj.m; sourceTree = "<group>"; };
 		F51D4FC510791F2500069EC0 /* ClusteredInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusteredInteractor.h; sourceTree = "<group>"; };
 		F51D4FC610791F2500069EC0 /* ClusteredInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusteredInteractor.m; sourceTree = "<group>"; };
 		F51D638D106A445200D61750 /* TUIOppListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUIOppListener.h; sourceTree = "<group>"; };
@@ -118,7 +121,7 @@
 		F54994C210A21F18005F1C97 /* BaseTouchEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTouchEffect.h; sourceTree = "<group>"; };
 		F54994C310A21F18005F1C97 /* BaseTouchEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTouchEffect.m; sourceTree = "<group>"; };
 		F54994CF10A24A1C005F1C97 /* TouchSwap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchSwap.h; sourceTree = "<group>"; };
-		F54994D010A24A1C005F1C97 /* TouchSwap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchSwap.m; sourceTree = "<group>"; };
+		F54994D010A24A1C005F1C97 /* TouchSwap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TouchSwap.mm; sourceTree = "<group>"; };
 		F54E5629105E681B00462480 /* TextCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextCircle.h; sourceTree = "<group>"; };
 		F54E562A105E681B00462480 /* TextCircle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextCircle.mm; sourceTree = "<group>"; };
 		F5608B801030D0D1009F9EBC /* Sparkles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sparkles.h; sourceTree = "<group>"; };
@@ -371,7 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				F54994CF10A24A1C005F1C97 /* TouchSwap.h */,
-				F54994D010A24A1C005F1C97 /* TouchSwap.m */,
+				F54994D010A24A1C005F1C97 /* TouchSwap.mm */,
 				F58DF39C1022FE5000C2ABE7 /* Stars.h */,
 				F58DF39D1022FE5000C2ABE7 /* Stars.m */,
 				F5608B801030D0D1009F9EBC /* Sparkles.h */,
@@ -412,6 +415,8 @@
 				F51D638E106A445200D61750 /* TUIOppListener.mm */,
 				F5C9AA04108F70180022BF0A /* ElasticValuator.h */,
 				F5C9AA05108F70180022BF0A /* ElasticValuator.m */,
+				F51B8F5410A3402E00D3F0C5 /* PointObj.h */,
+				F51B8F5510A3402E00D3F0C5 /* PointObj.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -525,7 +530,8 @@
 				F5F00B45108FFD8E009D7FBB /* InteractiveImages.mm in Sources */,
 				F5D105391092F5B0005F0970 /* Render.cpp in Sources */,
 				F54994C410A21F18005F1C97 /* BaseTouchEffect.m in Sources */,
-				F54994D110A24A1C005F1C97 /* TouchSwap.m in Sources */,
+				F54994D110A24A1C005F1C97 /* TouchSwap.mm in Sources */,
+				F51B8F5610A3402E00D3F0C5 /* PointObj.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,7 +644,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_UNROLL_LOOPS = YES;
 				GCC_USE_REGISTER_FUNCTION_CALLS = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = 4.2;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_MISSING_PARENTHESES = NO;

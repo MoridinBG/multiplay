@@ -435,7 +435,7 @@
 	
 	NSArray *neighbours = [touch getNeighbours];
 	NSMutableArray *freeNeighbours = [[NSMutableArray alloc] initWithCapacity:25];
-	NSMutableArray *uselessFreeNeighbours = [[NSMutableArray alloc] initWithCapacity:5];
+	NSMutableArray *alreadyConnectedFreeNeighbours = [[NSMutableArray alloc] initWithCapacity:5];
 	NSNumber *neighbourUID;
 	for(neighbourUID in neighbours)
 	{
@@ -451,14 +451,14 @@
 	for(neighbourUID in freeNeighbours)
 	{
 		if([touch hasConnectedNeighbour:neighbourUID])
-			[uselessFreeNeighbours addObject:neighbourUID];
+			[alreadyConnectedFreeNeighbours addObject:neighbourUID];
 	}
 	
-	for(neighbourUID in uselessFreeNeighbours)
+	for(neighbourUID in alreadyConnectedFreeNeighbours)
 	{
 		[freeNeighbours removeObject:neighbourUID];
 	}
-	[uselessFreeNeighbours removeAllObjects];
+	[alreadyConnectedFreeNeighbours removeAllObjects];
 	
 	if(![freeNeighbours count])
 	{

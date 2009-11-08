@@ -24,11 +24,17 @@
 
 @synthesize angle;
 @synthesize position;
+@synthesize lastFramePosition;
+@synthesize framesStatic;
+
+@synthesize positionHistoryQueue;
+@synthesize historyDepth;
 
 @synthesize isScaling;
 @synthesize isNew;
 
 @synthesize physicsData;
+@synthesize timer;
 @synthesize color;
 
 @synthesize itemsHeld;
@@ -122,6 +128,9 @@
 		
 		[self setRandomColor];
 		colorSpeed = 1.0f;
+		
+		positionHistoryQueue = [[NSMutableArray alloc] initWithCapacity:MAX_PREVIOUS_POSITION_QUEUE_DEPTH];
+		historyDepth = PREVIOUS_POSITION_QUEUE_DEPTH;
 		
 	}
 	return self;

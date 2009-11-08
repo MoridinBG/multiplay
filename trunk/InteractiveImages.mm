@@ -168,7 +168,6 @@
 	{
 		InteractiveObject *spot = [touches objectForKey:uid];
 		CGPoint pos = [spot position];
-		bool isScaling = [spot isScaling];
 		float alpha = 0.8f;
 		
 		glLoadIdentity();
@@ -189,7 +188,7 @@
 			alpha -= alphaStep;
 		}
 		
-		if(isScaling)
+		if(spot.isScaling)
 		{
 			if(spot.targetScale - spot.scale >= spot.delta)
 				spot.scale += spot.delta;
@@ -223,20 +222,19 @@
 		if(!picture.isNew)
 		{
 			
-			if((body->IsSleeping()) && (!body->GetUserData()))
+			if((body->IsSleeping()) && (!picture.timer))
 			{
 				NSTimer *deathTimer = [NSTimer scheduledTimerWithTimeInterval:25.0
 																	   target:self
 																	 selector:@selector(removePicture:)
 																	 userInfo:picture
 																	  repeats:NO];
-				body->SetUserData(deathTimer);
+				picture.timer = deathTimer;
 			}
-			else if((!body->IsSleeping()) && (body->GetUserData()))
+			else if((!body->IsSleeping()) && (picture.timer))
 			{
-				NSTimer *timer = (NSTimer*)body->GetUserData();
-				[timer invalidate];
-				body->SetUserData(NULL);
+				[picture.timer invalidate];
+				picture.timer = nil;
 			}
 		}
 		CGPoint spiralAppear = {0.f, 0.f};

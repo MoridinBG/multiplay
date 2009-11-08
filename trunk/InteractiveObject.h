@@ -17,7 +17,12 @@
 	float targetScale;
 	
 	CGPoint position;
+	CGPoint lastFramePosition;
+	int framesStatic;
 	CGPoint direction;
+	
+	NSMutableArray *positionHistoryQueue;
+	int historyDepth;
 	
 	bool isScaling;
 	bool isNew;
@@ -30,6 +35,7 @@
 	bool rotateLeft;
 	
 	void *physicsData;
+	NSTimer *timer;
 	RGBA color;
 	
 	NSMutableArray *neighbours;
@@ -55,7 +61,12 @@
 @property float targetScale;
 
 @property CGPoint position;
+@property CGPoint lastFramePosition;
+@property int framesStatic;
 @property CGPoint direction;
+
+@property NSMutableArray *positionHistoryQueue;
+@property int historyDepth;
 
 @property bool isScaling;
 @property bool isNew;
@@ -65,9 +76,10 @@
 
 @property float angle;
 @property float rotateDelta;
-@property  bool rotateLeft;
+@property bool rotateLeft;
 
 @property void *physicsData;
+@property NSTimer *timer;
 @property RGBA color;
 
 - (id) initWithPos:(CGPoint) pos;
