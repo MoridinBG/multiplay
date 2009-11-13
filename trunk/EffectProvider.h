@@ -30,6 +30,7 @@
 @class Ripples;
 @class InteractiveImages;
 @class TouchSwap;
+@class TouchTrail;
 @interface EffectProvider : NSObject 
 {
 	NSMutableArray *listeners;

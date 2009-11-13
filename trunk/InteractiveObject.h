@@ -104,5 +104,6 @@
 - (void) setColor:(RGBA) aColor;
 - (void) setRandomColor;
 - (void) randomizeColor;
+- (void) stepColors;
 @end
 

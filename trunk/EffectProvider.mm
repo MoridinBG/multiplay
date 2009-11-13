@@ -26,7 +26,8 @@
 		else if(([self isKindOfClass:[SineConnect class]]) ||
 				([self isKindOfClass:[LineConnect class]]) ||
 				([self isKindOfClass:[InteractiveImages class]]) ||
-				([self isKindOfClass:[TouchSwap class]]))
+				([self isKindOfClass:[TouchSwap class]]) ||
+				([self isKindOfClass:[TouchTrail class]]))
 		{
 			sectors = SECTORS_TOUCH;
 		}
@@ -110,7 +111,9 @@
 	dimensions.width = dimensions.width / dimensions.height;
 	dimensions.height = 1.f;
 	
-	if(([self isKindOfClass:[SineConnect class]]) || ([self isKindOfClass:[LineConnect class]]) || ([self isKindOfClass:[TouchSwap class]]))
+	if(([self isKindOfClass:[SineConnect class]]) ||
+	   ([self isKindOfClass:[LineConnect class]]) ||
+	   ([self isKindOfClass:[TouchSwap class]]))
 	{
 		physics = [[b2Physics alloc] initWithDimensions:dimensions withFrame:FALSE];
 	}

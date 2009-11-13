@@ -35,7 +35,7 @@
 	NSMutableArray *sparkleGroup;
 	
 	//Calculate a random position around the touch
-	[[positions objectForKey:[theTimer userInfo]] getValue:&position];
+	[[positions  objectForKey:[theTimer userInfo]] getValue:&position];
 	
 	//A value between -0.08 and 0.08, that is added to the base coordinate
 	position.x -= ((((float)(arc4random() % 10) / 10) * 2 - 1) * BASE_DISLOCATION);

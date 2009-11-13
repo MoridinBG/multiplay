@@ -19,6 +19,7 @@
 @synthesize originColorCache;
 
 @synthesize trajectory;
+@synthesize positionOnTrajectory;
 
 @synthesize isAimless;
 
@@ -37,23 +38,37 @@
 	return self;
 }
 
-- (void) calculateTrajectoryWithStart:(CGPoint)start andEnd:(CGPoint)end
+- (void) calculateBezierTrajectoryWithStart:(CGPoint)start andEnd:(CGPoint)end
 {
+	float newA, newB;
 	float a = start.y - end.y;
 	float b = start.x - end.x;
 	float c = sqrt(a*a + b*b);
-	
 	float cosine = b / c;
 	
-	c *= 0.5f;
-	cosine *= 1.4f;
+	c *= CURVING;
 	
-	float newB = cosine * c;
-	float newA = sqrt(c * c - newB * newB);
+	newB = cosine * c;
+	newA = sqrt(c * c - newB * newB);
 	if(end.y > start.y)
 		newA = -newA;
 	
-	CGPoint newPosition = {newB + end.x, newA + end.y};
-	[trajectory addObject:[[PointObj alloc] initWithPoint:newPosition]];
+	CGPoint midPoint = {newB + end.x, newA + end.y};
+
+	float dx = start.x - end.x;
+	float dy = start.y - end.y;
+	float dist = sqrt(dx * dx + dy * dy);
+	dx /= dist;
+	dy /= dist;
+	
+	CGPoint thirdPoint = {midPoint.x - dy * CONTROL_POINT_DISTANCE, midPoint.y + dx * CONTROL_POINT_DISTANCE};
+	[trajectory removeAllObjects];
+	for(float t = 0; t < 1; t += 0.01)
+	{
+		CGPoint point;
+		point.x = start.x * pow((1 - t), 2) + 2 * (1 - t) * t * thirdPoint.x + t * t * end.x;
+		point.y = start.y * pow((1 - t), 2) + 2 * (1 - t) * t * thirdPoint.y + t * t * end.y;
+		[trajectory addObject:[[PointObj alloc] initWithPoint:point]];
+	}
 }
 @end

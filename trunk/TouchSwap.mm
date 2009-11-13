@@ -17,6 +17,7 @@
 		[Logger logMessage:@"Init TouchSwap" ofType:DEBUG_GENERAL];
 		
 		swappers = [[NSMutableArray alloc] initWithCapacity:MAX_TOUCHES];
+		finishedSwappers = [[NSMutableArray alloc] initWithCapacity:MAX_TOUCHES];
 	}
 	return self;
 }
@@ -126,7 +127,7 @@
 		glScaled(spot.scale, spot.scale, 1.0);
 		glTranslated(-pos.x, -pos.y, 0.0);
 		
-		//if(!spot.isHolding)
+		if(!spot.isHolding)
 		{
 			for(float subRadius = 0.001f; subRadius <= 0.08f; subRadius += subStep)
 			{
@@ -140,26 +141,22 @@
 				glEnd();
 				alpha -= alphaStep;
 			}
-		}
-		
-		if([swappers count])
+		} else 
 		{
-			CGPoint midPoint = [[[[swappers objectAtIndex:1] trajectory] objectAtIndex:0] getCGPoint];
-	//		NSLog(@"%f, %f", midPoint.x, midPoint.y);
-			for(float subRadius = 0.001f; subRadius <= 0.08f; subRadius += subStep)
+			glColor4f(0.0f, 1.0f, 0.0f, 0.1);
+			glLoadIdentity();
+			for(float f = 1.f; f > 0.f; f -= 0.2f)
 			{
-				glColor4f(1, 1, 1, alpha);
-				glBegin(GL_POLYGON);
-				for(int i = 0; i <= (SECTORS_TOUCH); i++) 
+				glBegin(GL_LINE_LOOP);
+				for (int i=0; i < 20; i++)
 				{
-					glVertex2f(subRadius * cosArray[i] + midPoint.x, 
-							   subRadius * sinArray[i] + midPoint.y);
+					float degInRad = i * DEG2RAD * 18;
+					glVertex2f(cos(degInRad) * TOUCH_RADIUS * f + spot.position.x, 
+							   sin(degInRad) * TOUCH_RADIUS * f + spot.position.y);
 				}
 				glEnd();
-				alpha -= alphaStep;
 			}
 		}
-
 
 		//Draw a debug cirlce showing the sensors range
 		if(DRAW_PHYSICS_SENSOR_RANGE)
@@ -204,7 +201,7 @@
 		int count = [spot.positionHistoryQueue count];
 		int depth = spot.historyDepth;
 		
-/*		glLineWidth(6);
+/*		glLineWidth(6);																				//Dashed line trail
 		glColor3f(color.r, color.g, color.b);
 		glBegin(GL_LINES);		
 		for(int i = 0; (i < count - 2) && (i < depth); i++)
@@ -235,7 +232,68 @@
 				alpha -= alphaStep;
 			}
 		}
-	}	
+	}
+	
+	for(TargettingInteractor *swapper in swappers)
+	{
+		CGPoint targetPosition = [(InteractiveObject*)[touches objectForKey:swapper.target] position];
+		CGPoint originPosition = [(InteractiveObject*)[touches objectForKey:swapper.origin] position];
+		
+		if((swapper.targetCache.x != targetPosition.x) && (swapper.targetCache.y != targetPosition.y))
+		{
+			if((swapper.originCache.x != originPosition.x) && (swapper.originCache.y != originPosition.y))
+				swapper.originCache = originPosition;
+			
+			[swapper calculateBezierTrajectoryWithStart:originPosition 
+												 andEnd:targetPosition];
+			swapper.targetCache = targetPosition;
+		}
+		
+/*		glColor3f(1.0f, 0.0f, 0.0f);
+		glLoadIdentity();
+		glBegin(GL_LINES);			
+		for(PointObj *point in [swapper trajectory])
+		{
+			glVertex2f(point.x, 
+					   point.y);
+		}
+		glEnd(); */
+		
+		RGBA swapperColor = swapper.color;
+		
+		int positionIndex = swapper.positionOnTrajectory * ([swapper.trajectory count] - 2);
+		CGPoint swapperPosition = [[swapper.trajectory objectAtIndex:positionIndex] getCGPoint];
+		
+		float alpha = 0.8f;
+		for(float subRadius = 0.001f; subRadius <= 0.08f; subRadius += subStep)
+		{
+			glColor4f(swapperColor.r, swapperColor.g, swapperColor.b, alpha);
+			glBegin(GL_POLYGON);
+			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
+			{
+				glVertex2f(subRadius * cosArray[i] + swapperPosition.x, 
+						   subRadius * sinArray[i] + swapperPosition.y);
+			}
+			glEnd();
+			alpha -= alphaStep;
+		}
+		
+		if(swapper.positionOnTrajectory < 1.f)
+		{
+			swapper.positionOnTrajectory += (1.f / TRAJECTORY_TRAVERSE_STEPS);
+		} else 
+		{
+			InteractiveObject *target = [touches objectForKey:swapper.target];
+			target.isHolding = FALSE;
+			[finishedSwappers addObject:swapper];
+		}
+		
+		[swapper stepColors];
+		
+	}
+	for(TargettingInteractor *deadSwapper in finishedSwappers)
+		[swappers removeObject:deadSwapper];
+	[finishedSwappers removeAllObjects];
 	
 	[lock unlock];
 }
@@ -280,10 +338,39 @@
 	targetSpot.isHolding = TRUE;
 	
 	TargettingInteractor *firstSwapper = [[TargettingInteractor alloc] initWithOrigin:[theTimer userInfo] target:luckyUID];
-	[firstSwapper calculateTrajectoryWithStart:spot.position andEnd:targetSpot.position];
+	[firstSwapper calculateBezierTrajectoryWithStart:spot.position andEnd:targetSpot.position];
+	firstSwapper.position = spot.position;
+	firstSwapper.originCache = spot.position;
+	firstSwapper.targetCache = targetSpot.position;
+	
+	RGBA color = spot.color;
+	RGBA newColor = targetSpot.color;
+	
+	RGBA colorStep;
+	colorStep.r = (newColor.r - color.r) / TRAJECTORY_TRAVERSE_STEPS;
+	colorStep.g = (newColor.g - color.g) / TRAJECTORY_TRAVERSE_STEPS;
+	colorStep.b = (newColor.b - color.b) / TRAJECTORY_TRAVERSE_STEPS;
+	
+	firstSwapper.color = color;
+	firstSwapper.newColor = newColor;
+	firstSwapper.colorStep = colorStep;
 	
 	TargettingInteractor *secondSwapper = [[TargettingInteractor alloc] initWithOrigin:luckyUID target:[theTimer userInfo]];
-	[secondSwapper calculateTrajectoryWithStart:targetSpot.position andEnd:spot.position];
+	[secondSwapper calculateBezierTrajectoryWithStart:targetSpot.position andEnd:spot.position];
+	secondSwapper.position = targetSpot.position;
+	secondSwapper.originCache = targetSpot.position;
+	secondSwapper.targetCache = spot.position;
+	
+	color = targetSpot.color;
+	newColor = spot.color;
+	
+	colorStep.r = (newColor.r - color.r) / TRAJECTORY_TRAVERSE_STEPS;
+	colorStep.g = (newColor.g - color.g) / TRAJECTORY_TRAVERSE_STEPS;
+	colorStep.b = (newColor.b - color.b) / TRAJECTORY_TRAVERSE_STEPS;
+	
+	secondSwapper.color = color;
+	secondSwapper.newColor = newColor;
+	secondSwapper.colorStep = colorStep;
 	
 	[swappers addObject:firstSwapper];
 	[swappers addObject:secondSwapper];

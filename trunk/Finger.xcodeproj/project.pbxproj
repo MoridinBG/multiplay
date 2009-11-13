@@ -49,6 +49,7 @@
 		F5D105391092F5B0005F0970 /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5D105371092F5B0005F0970 /* Render.cpp */; };
 		F5D105491092F5F7005F0970 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D105481092F5F7005F0970 /* GLUT.framework */; };
 		F5DDC51B1065648000D81BB0 /* LabeledInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DDC51A1065648000D81BB0 /* LabeledInteractor.m */; };
+		F5EBF67510ADD87900892A56 /* TouchTrail.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EBF67410ADD87900892A56 /* TouchTrail.m */; };
 		F5F00B45108FFD8E009D7FBB /* InteractiveImages.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5F00B44108FFD8E009D7FBB /* InteractiveImages.mm */; };
 		F5F5A36F1047581800A83EE2 /* libBox2D.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F5A36E1047581800A83EE2 /* libBox2D.dylib */; };
 		F5F5A3D41047581800A83EE2 /* b2ContactDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5F5A3D31047581800A83EE2 /* b2ContactDetector.mm */; };
@@ -157,6 +158,9 @@
 		F5D105481092F5F7005F0970 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
 		F5DDC5191065648000D81BB0 /* LabeledInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabeledInteractor.h; sourceTree = "<group>"; };
 		F5DDC51A1065648000D81BB0 /* LabeledInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabeledInteractor.m; sourceTree = "<group>"; };
+		F5E14BFA10ADF61100F0502D /* BaseTouchConnectionProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTouchConnectionProvider.h; sourceTree = "<group>"; };
+		F5EBF67310ADD87900892A56 /* TouchTrail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchTrail.h; sourceTree = "<group>"; };
+		F5EBF67410ADD87900892A56 /* TouchTrail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchTrail.m; sourceTree = "<group>"; };
 		F5F00B43108FFD8E009D7FBB /* InteractiveImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveImages.h; sourceTree = "<group>"; };
 		F5F00B44108FFD8E009D7FBB /* InteractiveImages.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InteractiveImages.mm; sourceTree = "<group>"; };
 		F5F49204106CDEB60082D81B /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
@@ -373,6 +377,8 @@
 		F56198A71016705600B19EF5 /* Effects */ = {
 			isa = PBXGroup;
 			children = (
+				F5EBF67310ADD87900892A56 /* TouchTrail.h */,
+				F5EBF67410ADD87900892A56 /* TouchTrail.m */,
 				F54994CF10A24A1C005F1C97 /* TouchSwap.h */,
 				F54994D010A24A1C005F1C97 /* TouchSwap.mm */,
 				F58DF39C1022FE5000C2ABE7 /* Stars.h */,
@@ -424,6 +430,7 @@
 		F5A0DEC5107D380700A7F5E8 /* BaseEffects */ = {
 			isa = PBXGroup;
 			children = (
+				F5E14BFA10ADF61100F0502D /* BaseTouchConnectionProvider.h */,
 				F54994C210A21F18005F1C97 /* BaseTouchEffect.h */,
 				F54994C310A21F18005F1C97 /* BaseTouchEffect.m */,
 				F58A8049100F043500E6DD83 /* EffectProvider.mm */,
@@ -532,6 +539,7 @@
 				F54994C410A21F18005F1C97 /* BaseTouchEffect.m in Sources */,
 				F54994D110A24A1C005F1C97 /* TouchSwap.mm in Sources */,
 				F51B8F5610A3402E00D3F0C5 /* PointObj.m in Sources */,
+				F5EBF67510ADD87900892A56 /* TouchTrail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

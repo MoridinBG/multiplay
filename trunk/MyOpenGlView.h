@@ -16,6 +16,7 @@
 #import "TextCircle.h"
 #import "InteractiveImages.h"
 #import "TouchSwap.h"
+#import "TouchTrail.h"
 
 #import "Ripples.h"
 

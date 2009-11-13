@@ -6,6 +6,9 @@
 //  Copyright 2009 The Pixel Factory. All rights reserved.
 //
 
+#define CONTROL_POINT_DISTANCE 0.5f
+#define CURVING 0.2f
+
 #import <Cocoa/Cocoa.h>
 #import "InteractiveObject.h"
 #import "LiteTouchInfo.h"
@@ -22,6 +25,7 @@
 	RGBA originColorCache;
 	
 	NSMutableArray *trajectory;
+	float positionOnTrajectory;
 	
 	bool isAimless;
 }
@@ -35,10 +39,11 @@
 @property RGBA originColorCache;
 
 @property NSMutableArray *trajectory;
+@property float positionOnTrajectory;
 
 @property bool isAimless;
 
 - (id) initWithOrigin:(NSNumber*) aOrigin target:(NSNumber*) aTarget;
 
-- (void) calculateTrajectoryWithStart:(CGPoint)start andEnd:(CGPoint)end;
+- (void) calculateBezierTrajectoryWithStart:(CGPoint)start andEnd:(CGPoint)end;
 @end

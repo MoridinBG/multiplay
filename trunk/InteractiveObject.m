@@ -202,12 +202,12 @@
 		if((color.r > newColor.r) && (colorStep.r > 0))
 		{
 			newColor.r = (((float)(arc4random() % 255)) / 255);
-			colorStep.r = (newColor.r - color.r) / 60.0f;
+			colorStep.r = (newColor.r - color.r) / (FRAMES * 2);
 		}
 		if((color.r < newColor.r) && (colorStep.r < 0))
 		{
 			newColor.r = (((float)(arc4random() % 255)) / 255);
-			colorStep.r = (newColor.r - color.r) / 60.0f;
+			colorStep.r = (newColor.r - color.r) / (FRAMES * 2);
 		}
 		colorStep.r *= colorSpeed;
 		color.r += colorStep.r;
@@ -215,7 +215,7 @@
 	else
 	{
 		newColor.r = (((float)(arc4random() % 255)) / 255);
-		colorStep.r = (newColor.r - color.r) / 60.0f;
+		colorStep.r = (newColor.r - color.r) / (FRAMES * 2);
 	}
 	
 	if(color.g != newColor.g)
@@ -223,12 +223,12 @@
 		if((color.g > newColor.g) && (colorStep.g > 0))
 		{
 			newColor.g = (((float)(arc4random() % 255)) / 255);
-			colorStep.g = (newColor.g - color.g) / 60.0f;
+			colorStep.g = (newColor.g - color.g) / (FRAMES * 2);
 		}
 		if((color.g < newColor.g) && (colorStep.g < 0))
 		{
 			newColor.g = (((float)(arc4random() % 255)) / 255);
-			colorStep.g = (newColor.g - color.g) / 60.0f;
+			colorStep.g = (newColor.g - color.g) / (FRAMES * 2);
 		}
 		colorStep.g *= colorSpeed;
 		color.g += colorStep.g;
@@ -236,7 +236,7 @@
 	else
 	{
 		newColor.g = (((float)(arc4random() % 255)) / 255);
-		colorStep.g = (newColor.g - color.g) / 60.0f;
+		colorStep.g = (newColor.g - color.g) / (FRAMES * 2);
 	}
 	
 	if(color.b != newColor.b)
@@ -244,12 +244,12 @@
 		if((color.b > newColor.b) && (colorStep.b > 0))
 		{
 			newColor.b = (((float)(arc4random() % 255)) / 255);
-			colorStep.b = (newColor.b - color.b) / 60.0f;
+			colorStep.b = (newColor.b - color.b) / (FRAMES * 2);
 		}
 		if((color.b < newColor.b) && (colorStep.b < 0))
 		{
 			newColor.b = (((float)(arc4random() % 255)) / 255);
-			colorStep.b = (newColor.b - color.b) / 60.0f;
+			colorStep.b = (newColor.b - color.b) / (FRAMES * 2);
 		}
 		colorStep.b *= colorSpeed;
 		color.b += colorStep.b;
@@ -257,8 +257,20 @@
 	else
 	{
 		newColor.b = (((float)(arc4random() % 255)) / 255);
-		colorStep.b = (newColor.b - color.b) / 60.0f;
+		colorStep.b = (newColor.b - color.b) / (FRAMES * 2);
 	}
+}
+
+- (void) stepColors
+{
+	if((color.r + colorStep.r) != newColor.r)
+		color.r += colorStep.r;
+	
+	if((color.g + colorStep.g) != newColor.g)
+		color.g += colorStep.g;
+	
+	if((color.b + colorStep.b) != newColor.b)
+		color.b += colorStep.b;
 }
 
 - (void) setRandomColor
@@ -269,5 +281,4 @@
 	
 	newColor = color;
 }
-
 @end
