@@ -63,8 +63,8 @@
 		[self fullscreen:self];		// Because this will toggle
 
 		//Enable VSync to prevent tearing
-//		GLint swapInterval = 1; 
-//		CGLSetParameter (CGLGetCurrentContext(), kCGLCPSwapInterval, &swapInterval);
+		GLint swapInterval = 1; 
+		CGLSetParameter (CGLGetCurrentContext(), kCGLCPSwapInterval, &swapInterval);
 		
 		if(!success)
 		{
@@ -91,7 +91,9 @@
 //		provider = [[Ripples alloc] init];
 //		provider = [[InteractiveImages alloc] initWithPicturesInDirectory:@"/Users/ivandilchovski/Logos/"];
 //		provider = [[TouchTrail alloc] init];
-		provider = [[TouchSwap alloc] init];
+//		provider = [[TouchSwap alloc] init];
+//		provider = [[PolygonBumper alloc] init];
+		provider = [[PacMan alloc] init];
 		
 		[provider setDimensions:[self dimensions]];
 		

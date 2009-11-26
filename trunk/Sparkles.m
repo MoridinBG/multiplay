@@ -70,7 +70,8 @@
 - (void) render
 {
 	sparkleGroups = [factory getPositions];
-
+	float *cosArray = [SingletonVars instance].cosArray;
+	float *sinArray = [SingletonVars instance].sinArray;
 	keys = [sparkleGroups allKeys];
 	for(uid in keys)
 	{

@@ -22,6 +22,8 @@
 @synthesize delta;
 @synthesize targetScale;
 
+@synthesize size;
+
 @synthesize angle;
 @synthesize position;
 @synthesize lastFramePosition;
@@ -43,8 +45,6 @@
 @synthesize rotateDelta;
 @synthesize rotateLeft;
 @synthesize direction;
-
-
 
 - (id) initWithPos:(CGPoint) pos
 {
@@ -101,15 +101,58 @@
 		}
 }
 
-- (void) render
+- (void) renderCircularTouchWithSectors:(int)sectors withWhite:(bool) white
 {
+	[self renderCircularTouchAtPosition:position withSectors:sectors withWhite:white];
+}
+
+- (void) renderCircularTouchAtPosition:(CGPoint)position withSectors:(int)sectors withWhite:(bool) white
+{
+	if((![SingletonVars instance].sinArray) || (![SingletonVars instance].cosArray))
+	{
+		[Logger logMessage:@"Trigonometric arrays not set!" ofType:DEBUG_ERROR];
+		return;
+	}
+	
+	RGBA color = self.color;
+	if(white)
+	{
+		color.r = 1.f;
+		color.g = 1.f;
+		color.b = 1.f;
+	}
+	
+	float *cosArray = [SingletonVars instance].cosArray;
+	float *sinArray = [SingletonVars instance].sinArray;
+	
+	glBegin(GL_TRIANGLE_FAN);																			//Start drawing the star
+	glColor4f(color.r, color.g, color.b, (1.f * color.a));															//Set the color for the center
+	glVertex2f(position.x, position.y);
+	for(int i = 0; i <= sectors; i++) 
+	{
+		glColor4f(color.r, color.g, color.b, 0.0f);
+		glVertex2f(TOUCH_RADIUS * cosArray[i] + position.x, 
+				   TOUCH_RADIUS * sinArray[i] + position.y);	
+	}
+	glEnd();
+	
+	glBegin(GL_TRIANGLE_FAN);																			//Start drawing the star
+	glColor4f(color.r, color.g, color.b, (0.5f * color.a));															//Set the color for the center
+	glVertex2f(position.x, position.y);
+	for(int i = 0; i <= sectors; i++) 
+	{
+		glColor4f(color.r, color.g, color.b, 0.f);
+		glVertex2f(TOUCH_RADIUS * cosArray[i] + position.x, 
+				   TOUCH_RADIUS * sinArray[i] + position.y);
+	}
+	glEnd();
 }
 
 - (id) init
 {
 	if(self = [super init])
 	{
-		scale = 0.01f;
+		scale = 1.f;
 		delta = 0.18f;
 		targetScale = 1.f;																			//Used to hold specific target values for scale;
 		
@@ -271,6 +314,8 @@
 	
 	if((color.b + colorStep.b) != newColor.b)
 		color.b += colorStep.b;
+	if((color.a + colorStep.a) != newColor.a)
+		color.a += colorStep.a;
 }
 
 - (void) setRandomColor
@@ -280,5 +325,13 @@
 	color.b = (((float)(arc4random() % 255)) / 255);
 	
 	newColor = color;
+}
+
+- (void) calcColorChangeInSteps:(int)steps
+{
+	colorStep.r = (newColor.r - color.r) / steps;
+	colorStep.g = (newColor.g - color.g) / steps;
+	colorStep.b = (newColor.b - color.b) / steps;
+	colorStep.a = (newColor.a - color.a) / steps;
 }
 @end

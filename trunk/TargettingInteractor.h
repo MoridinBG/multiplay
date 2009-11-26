@@ -5,10 +5,6 @@
 //  Created by Ivan Dilchovski on 8/4/09.
 //  Copyright 2009 The Pixel Factory. All rights reserved.
 //
-
-#define CONTROL_POINT_DISTANCE 0.5f
-#define CURVING 0.2f
-
 #import <Cocoa/Cocoa.h>
 #import "InteractiveObject.h"
 #import "LiteTouchInfo.h"
@@ -25,7 +21,11 @@
 	RGBA originColorCache;
 	
 	NSMutableArray *trajectory;
-	float positionOnTrajectory;
+	int startPositionOnTrajectory;
+	int endPositionOnTrajectory;	
+	
+	float curving;
+	float controlPointDistance;
 	
 	bool isAimless;
 }
@@ -39,9 +39,13 @@
 @property RGBA originColorCache;
 
 @property NSMutableArray *trajectory;
-@property float positionOnTrajectory;
+@property int startPositionOnTrajectory;
+@property int endPositionOnTrajectory;
 
 @property bool isAimless;
+
+@property float curving;
+@property float controlPointDistance;
 
 - (id) initWithOrigin:(NSNumber*) aOrigin target:(NSNumber*) aTarget;
 

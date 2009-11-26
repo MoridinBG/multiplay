@@ -59,6 +59,7 @@
 			LabeledInteractor *text = [[LabeledInteractor alloc] initWithPos:pos];
 			text.label = [strings objectAtIndex:(arc4random() % [strings count])];
 			text.targetScale = 1.f;
+			text.scale = 0.f;
 			text.delta = 0.01f;
 			text.rotateDelta = TEXT_START_ROTATE_DELTA / FRAMES;
 			
@@ -88,7 +89,7 @@
 			
 			[deadStrings setObject:[touches objectForKey:uniqueID] forKey:uniqueID];
 			
-			//Use the Delta property to store the lenght of the string to trim when disappearing, as scale is used when calculating the circle's geometry.
+			//Use the Delta property to store the length of the string to trim when disappearing, as scale is used when calculating the circle's geometry.
 			[touches removeObjectForKey:uniqueID];
 		} break;
 	}

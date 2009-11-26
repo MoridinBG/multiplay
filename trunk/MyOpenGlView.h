@@ -17,6 +17,8 @@
 #import "InteractiveImages.h"
 #import "TouchSwap.h"
 #import "TouchTrail.h"
+#import "PolygonBumper.h"
+#import "PacMan.h"
 
 #import "Ripples.h"
 

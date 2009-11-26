@@ -39,10 +39,14 @@
 		{
 			[Logger logMessage:@"Processing TouchTrail touch down event" ofType:DEBUG_TOUCH];
 			
+			RGBA color;
+			[(NSValue*)[colors objectForKey:uniqueID] getValue:&color];
+			
 			InteractiveObject *spot = [[InteractiveObject alloc] init];
 			[spot.positionHistoryQueue addObject:[[PointObj alloc] initWithPoint:pos]];
 			spot.scale = 1.f;
 			spot.position = pos;
+			spot.color = color;
 			
 			[touches setObject:spot forKey:uniqueID];
 		} break;
@@ -88,13 +92,10 @@
 	NSArray *keys = [touches allKeys];
 	NSNumber *uid;
 	
-	float subStep = 0.039f / 10.0f;
-	float alphaStep = 0.8f / (0.08f / subStep);
 	for(uid in keys)
 	{
 		InteractiveObject *spot = [touches objectForKey:uid];
 		CGPoint pos = spot.position;
-		float alpha = 0.8f;
 		
 		RGBA color;
 		[(NSValue*)[colors objectForKey:uid] getValue:&color];
@@ -104,18 +105,7 @@
 		glScaled(spot.scale, spot.scale, 1.0);
 		glTranslated(-pos.x, -pos.y, 0.0);
 		
-		for(float subRadius = 0.001f; subRadius <= 0.08f; subRadius += subStep)
-		{
-			glColor4f(color.r, color.g, color.b, alpha);
-			glBegin(GL_POLYGON);
-			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
-			{
-				glVertex2f(subRadius * cosArray[i] + pos.x, 
-						   subRadius * sinArray[i] + pos.y);
-			}
-			glEnd();
-			alpha -= alphaStep;
-		}
+		[spot renderCircularTouchWithSectors:SECTORS_TOUCH withWhite:FALSE];
 		
 		if(((spot.lastFramePosition.x == pos.x) && (spot.lastFramePosition.y == pos.y)))
 		{
@@ -133,10 +123,10 @@
 		spot.lastFramePosition = pos;
 			
 		
-		int count = [spot.positionHistoryQueue count];
+		int count = [spot.positionHistoryQueue count] - 1;
 		int depth = spot.historyDepth;
 		
-/*		glLineWidth(6);																				//Dashed line trail
+		glLineWidth(6);																				//Dashed line trail
 		glColor3f(color.r, color.g, color.b);
 		glBegin(GL_LINES);		
 		for(int i = 0; (i < count - 2) && (i < depth); i++)
@@ -144,29 +134,22 @@
 			pos = [[spot.positionHistoryQueue objectAtIndex:(count - 3) - i] getCGPoint];
 			glVertex2f(pos.x, pos.y);
 		}
-		glEnd(); */
+		glEnd();
 		
-		for(int i = 0; (i < count - 1) && (i < depth); i++)
+/*		float scale = 1.f;
+		float step = 1.f / depth;
+		CGPoint position;
+		for(int i = 0; (i < count) && (i < depth); i++)
 		{
-			pos = [[spot.positionHistoryQueue objectAtIndex:(count - 2) - i] getCGPoint];		
-			float disappearFactor = 80.f / PREVIOUS_POSITION_QUEUE_DEPTH;
-			alpha = 0.8f - ((i * disappearFactor) / 100.f);
+			position = [[spot.positionHistoryQueue objectAtIndex:count - i] getCGPoint];		
+			glLoadIdentity();
+			glTranslated(position.x, position.y, 0.0);
+			glScaled(scale, scale, 1.0);
+			glTranslated(-position.x, -position.y, 0.0);
+			scale -= step;
 			
-			for(float subRadius = 0.001f; subRadius <= 0.08f; subRadius += subStep)
-			{
-				if(alpha <= 0.f)
-					continue;
-				glColor4f(color.r, color.g, color.b, alpha);
-				glBegin(GL_POLYGON);
-				for(int i = 0; i <= (SECTORS_TOUCH); i++) 
-				{
-					glVertex2f(subRadius * cosArray[i] + pos.x, 
-							   subRadius * sinArray[i] + pos.y);
-				}
-				glEnd();
-				alpha -= alphaStep;
-			}
-		}
+			[spot renderCircularTouchAtPosition:position withSectors:SECTORS_TOUCH withWhite:FALSE];
+		} */
 	}	
 	
 	[lock unlock];

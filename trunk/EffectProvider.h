@@ -11,6 +11,7 @@
 #import "TuioMultiplexor.h"
 #import "TouchEvent.h"
 #import "consts.h"
+#import "SingletonVars.h"
 #import "Logger.h"
 
 #import "btPhysics.h"
@@ -31,6 +32,9 @@
 @class InteractiveImages;
 @class TouchSwap;
 @class TouchTrail;
+@class PolygonBumper;
+@class PacMan;
+
 @interface EffectProvider : NSObject 
 {
 	NSMutableArray *listeners;
@@ -42,10 +46,7 @@
 	NSMutableDictionary *touches;
 	NSMutableArray *activeUIDs;
 	
-	float *cosArray;
 	float *cosOffsetArray;
-	
-	float *sinArray;
 	float *sinOffsetArray;
 	
 	float *vertexArray;

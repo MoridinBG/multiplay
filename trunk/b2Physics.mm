@@ -136,14 +136,12 @@
 - (void*) createRectangularBodyWithSize:(CGSize)size atPosition:(CGPoint)position rotatedAt:(float)angle
 {
 	[lock lock];
-	size.width *= 1.025;
-	size.height *= 1.025;
 	b2BodyDef bodyDef;
     bodyDef.position.Set(position.x, position.y);
     b2Body *body = world->CreateBody(&bodyDef);
 	
 	b2PolygonDef shapeDef;
-	shapeDef.SetAsBox(size.width / 2, size.height / 2, b2Vec2(size.width / 2, size.height / 2), angle);
+	shapeDef.SetAsBox(size.width / 2, size.height / 2, b2Vec2(0,0), angle);
 	shapeDef.density = 1.0f;
 	shapeDef.friction = 0.5f;
 	shapeDef.restitution = 0.35f;
@@ -166,6 +164,35 @@
 	shapeDef.restitution = 0.35f;
 	
 	body->CreateShape(&shapeDef);
+}
+
+- (void*) createPolygonBodyWithVertices:(CGPoint*)vertices numVertices:(int)numVertices atPosition:(CGPoint)position
+{
+	[lock lock];
+	
+	b2BodyDef bodyDef;
+    bodyDef.position.Set(position.x, position.y);
+    b2Body *body = world->CreateBody(&bodyDef);
+	
+	b2PolygonDef shapeDef;
+	NSLog(@"%d", numVertices);
+	shapeDef.vertexCount = 12;
+	
+	for(int i = 0; i < numVertices; i++)
+	{
+		shapeDef.vertices[i].x = vertices[i].x;
+		shapeDef.vertices[i].y = vertices[i].y;
+	}
+	shapeDef.density = 1.0f;
+	shapeDef.friction = 0.5f;
+	shapeDef.restitution = 0.35f;
+	
+	body->CreateShape(&shapeDef);
+	body->SetMassFromShapes();
+	
+	return body;
+	
+	[lock unlock];
 }
 
 - (void) destroyBody:(b2Body*) body

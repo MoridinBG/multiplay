@@ -7,7 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SingletonVars.h"
 #import "consts.h"
+#import "Logger.h"
 
 @class TargettingInteractor;
 @interface InteractiveObject : NSObject <NSCopying>
@@ -15,6 +17,8 @@
 	float scale;
 	float delta;
 	float targetScale;
+	
+	CGSize size;
 	
 	CGPoint position;
 	CGPoint lastFramePosition;
@@ -55,6 +59,7 @@
 @property float colorSpeed;
 @property float alphaDelta;
 
+@property CGSize size;
 
 @property float scale;
 @property float delta;
@@ -79,7 +84,7 @@
 @property bool rotateLeft;
 
 @property void *physicsData;
-@property NSTimer *timer;
+@property (assign) NSTimer *timer;
 @property RGBA color;
 
 - (id) initWithPos:(CGPoint) pos;
@@ -87,7 +92,8 @@
 
 - (void) setAngle:(float) newAngle;
 
-- (void) render;
+- (void) renderCircularTouchAtPosition:(CGPoint)position withSectors:(int)sectors withWhite:(bool) white;
+- (void) renderCircularTouchWithSectors:(int)sectors withWhite:(bool) white;
 
 - (void) addNeighbour:(NSNumber*) uid;
 - (void) removeNeighbour:(NSNumber*) uid;
@@ -105,5 +111,6 @@
 - (void) setRandomColor;
 - (void) randomizeColor;
 - (void) stepColors;
+- (void) calcColorChangeInSteps:(int)steps;
 @end
 

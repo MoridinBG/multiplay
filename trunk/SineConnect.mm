@@ -72,12 +72,14 @@
 			[Logger logMessage:@"Processing SineConnect touch down event" ofType:DEBUG_TOUCH];
 			
 			InteractiveObject *spot = [[InteractiveObject alloc] initWithPos:pos];
-			spot.delta = BASE_TOUCH_START_SCALE_DELTA / FRAMES;
+			spot.scale = 0.f;
+			spot.delta = (spot.targetScale - spot.scale) / (FRAMES / 2);
 			[spot setPhysicsData:[physics addProximityContactListenerAtX:pos.x Y:pos.y withUid:uniqueID]];	//Create a contact detector for the new touch
 			
 			RGBA color;
 			[(NSValue*)[colors objectForKey:uniqueID] getValue:&color];
 			spot.color = color;
+			spot.scale = 0.f;
 			
 			if((([sines count] + [sleepingSines count]) <= ([touches count] * 0.75)))						//If there are less than three quarters sines than touches, then create a new sine
 			{
@@ -145,7 +147,7 @@
 	glLineWidth(5);																							//Make the sines thick
 	
 	vertexIndex  += 2;																						//Move the startting offset each frame, so that sines appear animated
-	if (vertexIndex >= 38)																					//When we reach the end (calculated from the current index + lenght of the sine) start from 0 again
+	if (vertexIndex >= 38)																					//When we reach the end (calculated from the current index + length of the sine) start from 0 again
 		vertexIndex = 0;
 	
 	for(sine in sleepingSines)																				//Iterate over sine sleeping inside touches
@@ -163,7 +165,7 @@
 			continue;
 		
 		sine.isNew = TRUE;																					//The sine starts as newborn
-		sine.scale = 0.0;																					//And has no lenght yet
+		sine.scale = 0.0;																					//And has no length yet
 		
 		
 		NSNumber *target = [neighbours objectAtIndex:(arc4random() % [neighbours count])];					//Get a random target sine
@@ -251,12 +253,11 @@
 		float cosine = b / c;		
 		float angle = acos(cosine);
 		
-		NSLog(@"%f", sineSpeed);
 		if(c > (0.2 * sine.scale))																			//If the sine is not too close to the target
 		{
 			c -= sineSpeed;																					//Shorten the distance a little bit at normal speed
 			
-			if(sine.isNew)																					//If the sine is new (not at it's full lenght) it should grow
+			if(sine.isNew)																					//If the sine is new (not at it's full length) it should grow
 			{
 				sine.scale += 0.09f;
 				if(sine.scale >= 1.0f)																		//Grow until normal size and then set as old
@@ -304,7 +305,7 @@
 		glTranslatef(-sineVertices[vertexIndex], 0.0f, 0.0f);												//The begining is at the tip. Compensate for this
 		
 		glBegin(GL_LINE_STRIP);
-		for(int i = 0; i < (60 * [sine scale]); i +=2)														//Draw the sine only at it's lenght
+		for(int i = 0; i < (60 * [sine scale]); i +=2)														//Draw the sine only at it's length
 		{
 			glColor4f(color.r, color.g, color.b, alpha);
 			alpha += 0.025f;
@@ -343,26 +344,13 @@
 		
 		alpha = 0.8f;
 		
-		
 		//Scale
 		glLoadIdentity();
 		glTranslated(spot.position.x, spot.position.y, 0.0);
 		glScaled(spot.scale, spot.scale, 1.0);
 		glTranslated(-spot.position.x, -spot.position.y, 0.0);
 
-		for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)							//Draw the touch as series of circles with different radiuses and alpha values decreasing towards the circumference
-		{
-			glColor4f(color.r, color.g, color.b, alpha);
-			glBegin(GL_POLYGON);
-			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
-			{
-				glVertex2f(subRadius * cosArray[i] + spot.position.x, 
-						   subRadius * sinArray[i] + spot.position.y);
-			}
-			glEnd();
-			
-			alpha -= alphaStep;
-		}
+		[spot renderCircularTouchWithSectors:SECTORS_TOUCH withWhite:FALSE];
 		
 		//Draw a debug cirlce showing the sensors range
 		if(DRAW_PHYSICS_SENSOR_RANGE)
@@ -417,19 +405,7 @@
 		glScaled(spot.scale, spot.scale, 1.0);
 		glTranslated(-spot.position.x, -spot.position.y, 0.0);
 		
-		for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)
-		{
-			glColor4f(color.r, color.g, color.b, alpha);
-			glBegin(GL_POLYGON);
-			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
-			{
-				glVertex2f(subRadius * cosArray[i] + spot.position.x, 
-						   subRadius * sinArray[i] + spot.position.y);
-			}
-			glEnd();
-			
-			alpha -= alphaStep;
-		}
+		[spot renderCircularTouchWithSectors:SECTORS_TOUCH withWhite:FALSE];
 		
 		spot.scale -= spot.delta;
 		if(spot.scale < spot.delta)

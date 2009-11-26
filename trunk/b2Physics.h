@@ -35,8 +35,8 @@
 
 - (void*) createCirclularBodyWithRadius:(float)radius atPosition:(CGPoint)position;
 - (void*) createRectangularBodyWithSize:(CGSize)size atPosition:(CGPoint)position rotatedAt:(float)angle;
-
 - (void) reshapeRectangularBody:(b2Body*)body withNewSize:(CGSize)newSize rotatedAt:(float)angle;
+- (void*) createPolygonBodyWithVertices:(CGPoint*)vertices numVertices:(int)numVertices atPosition:(CGPoint)position;
 
 - (void) destroyBody:(b2Body*) body;
 - (CGPoint) getCoordinatesFromBody:(b2Body*) body;

@@ -19,9 +19,13 @@
 @synthesize originColorCache;
 
 @synthesize trajectory;
-@synthesize positionOnTrajectory;
+@synthesize startPositionOnTrajectory;
+@synthesize endPositionOnTrajectory;
 
 @synthesize isAimless;
+
+@synthesize curving;
+@synthesize controlPointDistance;
 
 - (id) initWithOrigin:(NSNumber*) aOrigin target:(NSNumber*) aTarget
 {
@@ -46,7 +50,7 @@
 	float c = sqrt(a*a + b*b);
 	float cosine = b / c;
 	
-	c *= CURVING;
+	c *= curving;
 	
 	newB = cosine * c;
 	newA = sqrt(c * c - newB * newB);
@@ -61,13 +65,14 @@
 	dx /= dist;
 	dy /= dist;
 	
-	CGPoint thirdPoint = {midPoint.x - dy * CONTROL_POINT_DISTANCE, midPoint.y + dx * CONTROL_POINT_DISTANCE};
+//	float parameterStep = 0.03;
+	CGPoint thirdPoint = {midPoint.x - dy * controlPointDistance, midPoint.y + dx * controlPointDistance};
 	[trajectory removeAllObjects];
 	for(float t = 0; t < 1; t += 0.01)
 	{
 		CGPoint point;
-		point.x = start.x * pow((1 - t), 2) + 2 * (1 - t) * t * thirdPoint.x + t * t * end.x;
-		point.y = start.y * pow((1 - t), 2) + 2 * (1 - t) * t * thirdPoint.y + t * t * end.y;
+		point.x = start.x * (1 - t) * (1 - t) + 2 * (1 - t) * t * thirdPoint.x + t * t * end.x;
+		point.y = start.y * (1 - t) * (1 - t) + 2 * (1 - t) * t * thirdPoint.y + t * t * end.y;
 		[trajectory addObject:[[PointObj alloc] initWithPoint:point]];
 	}
 }

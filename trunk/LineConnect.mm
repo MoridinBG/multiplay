@@ -80,7 +80,9 @@
 			[(NSValue*)[colors objectForKey:uniqueID] getValue:&color];
 			
 			InteractiveObject *spot = [[InteractiveObject alloc] initWithPos:pos];
-			spot.delta = BASE_TOUCH_START_SCALE_DELTA / FRAMES;
+			
+			spot.scale = 0.f;
+			spot.delta = (spot.targetScale - spot.scale) / (FRAMES / 2);
 			spot.physicsData = [physics addProximityContactListenerAtX:pos.x Y:pos.y withUid:uniqueID];
 			spot.color = color;
 			
@@ -333,18 +335,7 @@
 		glScaled(spot.scale, spot.scale, 1.0);
 		glTranslated(-spot.position.x, -spot.position.y, 0.0);
 		
-		for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)
-		{
-			glColor4f(color.r, color.g, color.b, alpha);
-			glBegin(GL_POLYGON);
-			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
-			{
-				glVertex2f(subRadius * cosArray[i] + spot.position.x, 
-						   subRadius * sinArray[i] + spot.position.y);
-			}
-			glEnd();
-			alpha -= alphaStep;
-		}
+		[spot renderCircularTouchWithSectors:SECTORS_TOUCH withWhite:FALSE];
 		
 		//Draw a debug cirlce showing the sensors range
 		if(DRAW_PHYSICS_SENSOR_RANGE)
@@ -354,7 +345,7 @@
 			glBegin(GL_LINE_LOOP);
 			for (int i=0; i < 360; i++)
 			{
-				float degInRad = i * 3.14159f/180.0f;
+				float degInRad = i * DEG2RAD;
 				glVertex2f(cos(degInRad) * SENSOR_RANGE + spot.position.x, 
 						   sin(degInRad) * SENSOR_RANGE + spot.position.y);
 			}
@@ -382,18 +373,7 @@
 		glScaled(spot.scale, spot.scale, 1.0);
 		glTranslated(-spot.position.x, -spot.position.y, 0.0);
 		
-		for(float subRadius = 0.001f; subRadius <= radius; subRadius += subStep)
-		{
-			glColor4f(1.0, 1.0, 1.0, alpha);
-			glBegin(GL_POLYGON);
-			for(int i = 0; i <= (SECTORS_TOUCH); i++) 
-			{
-				glVertex2f(subRadius * cosArray[i] + spot.position.x, 
-						   subRadius * sinArray[i] + spot.position.y);
-			}
-			glEnd();
-			alpha -= alphaStep;
-		}
+		[spot renderCircularTouchWithSectors:SECTORS_TOUCH withWhite:FALSE];
 		
 		if(spot.scale >= spot.delta)
 		{

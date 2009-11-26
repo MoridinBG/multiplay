@@ -22,16 +22,6 @@
 	return self;
 }
 
-- (void) finalize
-{
-	free(cosArray);
-	free(cosOffsetArray);
-	
-	free(sinArray);
-	free(sinOffsetArray);
-	
-	[super finalize];
-}
 - (void) processTouches:(TouchEvent*)event
 {
 	[lock lock];
@@ -99,6 +89,9 @@
 	NSNumber *uid;
 	NSArray *keys = [touches allKeys];
 	InteractiveObject *star;
+	
+	float *cosArray = [SingletonVars instance].cosArray;
+	float *sinArray = [SingletonVars instance].sinArray;
 	
 	if((![keys count]) && (![[dieingStars allKeys] count]))
 	{

@@ -19,7 +19,8 @@
 		{
 			sectors = SECTORS_SPARKLE;
 		}
-		else if(([self isKindOfClass:[Stars class]]) || ([self isKindOfClass:[Ripples class]]))
+		else if(([self isKindOfClass:[Stars class]]) ||
+				([self isKindOfClass:[Ripples class]]))
 		{
 			sectors = SECTORS_STARS;
 		}
@@ -27,11 +28,14 @@
 				([self isKindOfClass:[LineConnect class]]) ||
 				([self isKindOfClass:[InteractiveImages class]]) ||
 				([self isKindOfClass:[TouchSwap class]]) ||
-				([self isKindOfClass:[TouchTrail class]]))
+				([self isKindOfClass:[TouchTrail class]]) ||
+				([self isKindOfClass:[PolygonBumper class]]) ||
+				([self isKindOfClass:[PacMan class]]))
 		{
 			sectors = SECTORS_TOUCH;
 		}
-		else if(([self isKindOfClass:[TextCircle class]]) || ([self isKindOfClass:[Ripples class]]))
+		else if(([self isKindOfClass:[TextCircle class]]) ||
+				([self isKindOfClass:[Ripples class]]))
 		{
 			sectors = 0;
 		}
@@ -52,18 +56,18 @@
 		touches = [[NSMutableDictionary alloc] initWithCapacity:100];
 		activeUIDs = [[NSMutableArray alloc] initWithCapacity:100];
 		
-		cosArray = (float*) malloc(sectors * sizeof(float));
+		[SingletonVars instance].cosArray = (float*) malloc(sectors * sizeof(float));
 		cosOffsetArray = (float*) malloc(sectors * sizeof(float));
 		
-		sinArray = (float*) malloc(sectors * sizeof(float));
+		[SingletonVars instance].sinArray = (float*) malloc(sectors * sizeof(float));
 		sinOffsetArray = (float*) malloc(sectors * sizeof(float));		
 		
 		for(int i = 0; i <= sectors; i++)
 		{
-			cosArray[i] = cos(i * 2 * PI / sectors);
+			[SingletonVars instance].cosArray[i] = cos(i * 2 * PI / sectors);
 			cosOffsetArray[i] = cos(i * 2 * PI / sectors + 0.2);
 			
-			sinArray[i] = sin(i * 2 * PI / sectors);
+			[SingletonVars instance].sinArray[i] = sin(i * 2 * PI / sectors);
 			sinOffsetArray[i] = sin(i * 2 * PI / sectors + 0.2);
 		}
 		
@@ -117,7 +121,8 @@
 	{
 		physics = [[b2Physics alloc] initWithDimensions:dimensions withFrame:FALSE];
 	}
-	else if([self isKindOfClass:[InteractiveImages class]])
+	else if([self isKindOfClass:[InteractiveImages class]]||
+			([self isKindOfClass:[PolygonBumper class]]))
 	{
 		physics = [[b2Physics alloc] initWithDimensions:dimensions withFrame:TRUE];
 	}

@@ -19,7 +19,6 @@
 	NSMutableArray *deadPictures;
 	
 	NSTimer *pictureCreator;
-	NSMutableArray *deathTimers;
 }
 - (id) initWithPicturesInDirectory:(NSString*)directoryPath;
 

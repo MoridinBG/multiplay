@@ -133,6 +133,9 @@
 	NSArray *keys = [touches allKeys];
 	ClusteredInteractor *donutsCluster;
 	
+	float *cosArray = [SingletonVars instance].cosArray;
+	float *sinArray = [SingletonVars instance].sinArray;
+	
 	for(uid in keys)
 	{
 		if([newTouches objectForKey:uid])

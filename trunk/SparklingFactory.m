@@ -160,12 +160,6 @@
 - (void) setPosition:(LiteTouchInfo) touch
 {
 	[mutex lock];
-
-	if((!touch.isTouchDown) && (![[positions allKeys] containsObject:touch.uid]))
-	{
-//		[mutex unlock];
-//		return;
-	}
 	
 	//Set the position for this TouchID
 	[positions setObject:[NSValue value:&touch.pos withObjCType:@encode(LiteTouchInfo)] forKey:touch.uid];

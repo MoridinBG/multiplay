@@ -7,7 +7,7 @@
 //
 
 #define BASE_DISTANCE 0.24f
-#define BASE_DISLOCATION 0.06f
+#define BASE_DISLOCATION 0.03f
 
 #import <Cocoa/Cocoa.h>
 #import "consts.h"

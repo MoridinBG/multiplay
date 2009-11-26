@@ -36,6 +36,8 @@
 		F5608B821030D0D1009F9EBC /* Sparkles.m in Sources */ = {isa = PBXBuildFile; fileRef = F5608B811030D0D1009F9EBC /* Sparkles.m */; };
 		F5608B8A1030D925009F9EBC /* SparklingFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5608B891030D925009F9EBC /* SparklingFactory.m */; };
 		F56EC0841078F1CA00CD0DF3 /* Ripples.m in Sources */ = {isa = PBXBuildFile; fileRef = F56EC0831078F1CA00CD0DF3 /* Ripples.m */; };
+		F571288010B7057E00E86195 /* PolygonBumper.mm in Sources */ = {isa = PBXBuildFile; fileRef = F571287F10B7057E00E86195 /* PolygonBumper.mm */; };
+		F57129DA10B8305300E86195 /* GeometricObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F57129D910B8305300E86195 /* GeometricObject.m */; };
 		F588D768105BB63400C02B35 /* Sparkle.m in Sources */ = {isa = PBXBuildFile; fileRef = F588D767105BB63400C02B35 /* Sparkle.m */; };
 		F58A804A100F043500E6DD83 /* EffectProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = F58A8049100F043500E6DD83 /* EffectProvider.mm */; };
 		F58A804F100F057F00E6DD83 /* TouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F58A804E100F057F00E6DD83 /* TouchEvent.m */; };
@@ -44,8 +46,10 @@
 		F5A0DE88107D31A800A7F5E8 /* BasePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A0DE87107D31A800A7F5E8 /* BasePicture.m */; };
 		F5A0DEC8107D384300A7F5E8 /* PictureGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A0DEC7107D384300A7F5E8 /* PictureGallery.m */; };
 		F5A5E687101CFE3000886EAD /* btPhysics.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5A5E686101CFE3000886EAD /* btPhysics.mm */; };
+		F5AF913810BD887600F00000 /* PacMan.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AF913710BD887600F00000 /* PacMan.m */; };
 		F5AFE003102856BD00490E97 /* TargettingInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AFE002102856BD00490E97 /* TargettingInteractor.m */; };
 		F5C9AA06108F70180022BF0A /* ElasticValuator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C9AA05108F70180022BF0A /* ElasticValuator.m */; };
+		F5CD032010B1C36900180C96 /* SingletonVars.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD031F10B1C36900180C96 /* SingletonVars.m */; };
 		F5D105391092F5B0005F0970 /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5D105371092F5B0005F0970 /* Render.cpp */; };
 		F5D105491092F5F7005F0970 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D105481092F5F7005F0970 /* GLUT.framework */; };
 		F5DDC51B1065648000D81BB0 /* LabeledInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DDC51A1065648000D81BB0 /* LabeledInteractor.m */; };
@@ -131,6 +135,10 @@
 		F5608B891030D925009F9EBC /* SparklingFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparklingFactory.m; sourceTree = "<group>"; };
 		F56EC0821078F1CA00CD0DF3 /* Ripples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ripples.h; sourceTree = "<group>"; };
 		F56EC0831078F1CA00CD0DF3 /* Ripples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ripples.m; sourceTree = "<group>"; };
+		F571287E10B7057E00E86195 /* PolygonBumper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonBumper.h; sourceTree = "<group>"; };
+		F571287F10B7057E00E86195 /* PolygonBumper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PolygonBumper.mm; sourceTree = "<group>"; };
+		F57129D810B8305300E86195 /* GeometricObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometricObject.h; sourceTree = "<group>"; };
+		F57129D910B8305300E86195 /* GeometricObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometricObject.m; sourceTree = "<group>"; };
 		F588D766105BB63400C02B35 /* Sparkle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sparkle.h; sourceTree = "<group>"; };
 		F588D767105BB63400C02B35 /* Sparkle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sparkle.m; sourceTree = "<group>"; };
 		F58A8048100F043500E6DD83 /* EffectProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectProvider.h; sourceTree = "<group>"; };
@@ -149,10 +157,14 @@
 		F5A0DEC7107D384300A7F5E8 /* PictureGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureGallery.m; sourceTree = "<group>"; };
 		F5A5E685101CFE3000886EAD /* btPhysics.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = btPhysics.h; sourceTree = "<group>"; };
 		F5A5E686101CFE3000886EAD /* btPhysics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = btPhysics.mm; sourceTree = "<group>"; };
+		F5AF913610BD887600F00000 /* PacMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PacMan.h; sourceTree = "<group>"; };
+		F5AF913710BD887600F00000 /* PacMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PacMan.m; sourceTree = "<group>"; };
 		F5AFE001102856BD00490E97 /* TargettingInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargettingInteractor.h; sourceTree = "<group>"; };
 		F5AFE002102856BD00490E97 /* TargettingInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargettingInteractor.m; sourceTree = "<group>"; };
 		F5C9AA04108F70180022BF0A /* ElasticValuator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElasticValuator.h; sourceTree = "<group>"; };
 		F5C9AA05108F70180022BF0A /* ElasticValuator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticValuator.m; sourceTree = "<group>"; };
+		F5CD031E10B1C36900180C96 /* SingletonVars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonVars.h; sourceTree = "<group>"; };
+		F5CD031F10B1C36900180C96 /* SingletonVars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonVars.m; sourceTree = "<group>"; };
 		F5D105371092F5B0005F0970 /* Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Render.cpp; sourceTree = "<group>"; };
 		F5D105381092F5B0005F0970 /* Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Render.h; sourceTree = "<group>"; };
 		F5D105481092F5F7005F0970 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
@@ -286,6 +298,8 @@
 				F51D4FC610791F2500069EC0 /* ClusteredInteractor.m */,
 				F5A0DE86107D31A800A7F5E8 /* BasePicture.h */,
 				F5A0DE87107D31A800A7F5E8 /* BasePicture.m */,
+				F57129D810B8305300E86195 /* GeometricObject.h */,
+				F57129D910B8305300E86195 /* GeometricObject.m */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -395,6 +409,10 @@
 				F56EC0831078F1CA00CD0DF3 /* Ripples.m */,
 				F5F00B43108FFD8E009D7FBB /* InteractiveImages.h */,
 				F5F00B44108FFD8E009D7FBB /* InteractiveImages.mm */,
+				F571287E10B7057E00E86195 /* PolygonBumper.h */,
+				F571287F10B7057E00E86195 /* PolygonBumper.mm */,
+				F5AF913610BD887600F00000 /* PacMan.h */,
+				F5AF913710BD887600F00000 /* PacMan.m */,
 			);
 			name = Effects;
 			sourceTree = "<group>";
@@ -423,6 +441,8 @@
 				F5C9AA05108F70180022BF0A /* ElasticValuator.m */,
 				F51B8F5410A3402E00D3F0C5 /* PointObj.h */,
 				F51B8F5510A3402E00D3F0C5 /* PointObj.m */,
+				F5CD031E10B1C36900180C96 /* SingletonVars.h */,
+				F5CD031F10B1C36900180C96 /* SingletonVars.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -540,6 +560,10 @@
 				F54994D110A24A1C005F1C97 /* TouchSwap.mm in Sources */,
 				F51B8F5610A3402E00D3F0C5 /* PointObj.m in Sources */,
 				F5EBF67510ADD87900892A56 /* TouchTrail.m in Sources */,
+				F5CD032010B1C36900180C96 /* SingletonVars.m in Sources */,
+				F571288010B7057E00E86195 /* PolygonBumper.mm in Sources */,
+				F57129DA10B8305300E86195 /* GeometricObject.m in Sources */,
+				F5AF913810BD887600F00000 /* PacMan.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +680,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"/usr/local/include/**",
