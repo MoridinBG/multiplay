@@ -1,0 +1,807 @@
+TTUIO
+v7
+r0
+t296587359.971810
+cCheck dependencies
+cSymLink /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/Current A
+cSymLink /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Resources Versions/Current/Resources
+cSymLink /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers Versions/Current/Headers
+cSymLink /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/TUIO Versions/Current/TUIO
+cProcessInfoPlistFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Resources/Info.plist Info.plist
+cCpHeader /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/TuioClient.h Source/TuioClient.h
+cCpHeader /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/TuioContainer.h Source/TuioContainer.h
+cCpHeader /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCBundle.h Source/WSOSC/WSOSCBundle.h
+cCpHeader /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCMessage.h Source/WSOSC/WSOSCMessage.h
+cCpHeader /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCPacket.h Source/WSOSC/WSOSCPacket.h
+cCopyStringsFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Resources/English.lproj/InfoPlist.strings Resources/English.lproj/InfoPlist.strings
+cProcessPCH /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-ezbtjxqrarscwhbswwramnjnnlaw/TUIO_Prefix.pch.gch TUIO_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cProcessPCH /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-cbpofyhubeebamddqixyagbnmvfn/TUIO_Prefix.pch.gch TUIO_Prefix.pch normal x86_64 c com.apple.compilers.gcc.4_2
+cPBXCp /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/gpc.h Source/gpc.h
+cPBXCp /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioBounds.h Source/TuioBounds.h
+cPBXCp /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioPoint.h Source/TuioPoint.h
+cPBXCp /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioPointer.h Source/TuioPointer.h
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004B50402C00000000000000EE
+t1263550508
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c0000000040C4AA6800000000000001E5
+t1086630504
+s485
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004B447F4E00000000000013E6
+t1262780238
+s5094
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/mach/mach_time.h
+c000000004B319BA90000000000000746
+t1261542313
+s1862
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/math.h
+c000000004AC320BA00000000000004F1
+t1254301882
+s1265
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/net/if.h
+c000000004B319BA700000000000034A5
+t1261542311
+s13477
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/netinet/in.h
+c000000004B319BA7000000000000539D
+t1261542311
+s21405
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004AC326060000000000004174
+t1254303238
+s16756
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdlib.h
+c000000004AC326060000000000002DF5
+t1254303238
+s11765
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/float.h
+c000000004AC326650000000000001538
+t1254303333
+s5432
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c000000004A1F2D63000000000000A5E0
+t1243557219
+s42464
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework
+t1273339270
+s238
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework.dSYM
+t2
+s0
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers
+t3
+s24
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioBounds.h
+t1273357060
+s887
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioPoint.h
+t1270798106
+s357
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioPointer.h
+t1273357060
+s683
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/gpc.h
+t1273357060
+s4910
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Resources
+t3
+s26
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/TUIO
+t3
+s21
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/TuioClient.h
+t1274894559
+s1377
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/TuioContainer.h
+t1273357060
+s1497
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCBundle.h
+t1270798105
+s652
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCMessage.h
+t1270798105
+s876
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCPacket.h
+t1270798105
+s1152
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Resources/English.lproj/InfoPlist.strings
+t1270798106
+s200
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Resources/Info.plist
+t2
+s0
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/TUIO
+t2
+s0
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/Current
+t3
+s1
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/TUIO.LinkFileList
+c000000004BDABF710000000000000402
+t1272627057
+s1026
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/TuioBounds.o
+t2
+s0
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/TuioClient.o
+t2
+s0
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/TuioContainer.o
+t2
+s0
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/TuioPoint.o
+t2
+s0
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/TuioPointer.o
+t2
+s0
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/WSOSCBundle.o
+t2
+s0
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/WSOSCMessage.o
+t2
+s0
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/WSOSCPacket.o
+t2
+s0
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/gpc.o
+t2
+s0
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Resources/English.lproj/InfoPlist.strings
+c000000004BAB39EF00000000000000C8
+t1269512687
+s200
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioBounds.h
+c000000004BD142180000000000000377
+t1272005144
+s887
+i<Cocoa/Cocoa.h>
+i"TuioContainer.h"
+i"gpc.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioBounds.m
+c000000004BD142180000000000000825
+t1272005144
+s2085
+i"TuioBounds.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioClient.h
+c000000004BF1DE690000000000000561
+t1274142313
+s1377
+i<Cocoa/Cocoa.h>
+i<netinet/in.h>
+i<net/if.h>
+i<mach/mach_time.h>
+i"WSOSCPacket.h"
+i"TuioBounds.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioClient.m
+c000000004BFA9C4F000000000000280F
+t1274715215
+s10255
+i"TuioClient.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioContainer.h
+c000000004BD143F600000000000005D9
+t1272005622
+s1497
+i<Cocoa/Cocoa.h>
+i"TuioPoint.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioContainer.m
+c000000004BE4A2140000000000000811
+t1273274900
+s2065
+i"TuioContainer.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPoint.h
+c000000004BADE9C70000000000000165
+t1269688775
+s357
+i<Cocoa/Cocoa.h>
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPoint.m
+c000000004BADF1460000000000000204
+t1269690694
+s516
+i"TuioPoint.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPointer.h
+c000000004BD1421800000000000002AB
+t1272005144
+s683
+i<Cocoa/Cocoa.h>
+i"TuioContainer.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPointer.m
+c000000004BD142180000000000000322
+t1272005144
+s802
+i"TuioPointer.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCBundle.h
+c000000004BAB1FE4000000000000028C
+t1269506020
+s652
+i<Foundation/Foundation.h>
+i"WSOSCMessage.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCBundle.m
+c000000004BAB1FE40000000000000B85
+t1269506020
+s2949
+i"WSOSCBundle.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCMessage.h
+c000000004BAB1FE4000000000000036C
+t1269506020
+s876
+i<Foundation/Foundation.h>
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCMessage.m
+c000000004BAB1FE400000000000020AC
+t1269506020
+s8364
+i"WSOSCMessage.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCPacket.h
+c000000004BAB1FE40000000000000480
+t1269506020
+s1152
+i<Foundation/Foundation.h>
+i"WSOSCBundle.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCPacket.m
+c000000004BAB1FE400000000000008AE
+t1269506020
+s2222
+i"WSOSCPacket.h"
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/gpc.c
+c0000000046EB972A00000000000125BE
+t1189844778
+s75198
+i"gpc.h"
+i<stdlib.h>
+i<float.h>
+i<math.h>
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/Source/gpc.h
+c0000000046EB9732000000000000132E
+t1189844786
+s4910
+i<stdio.h>
+
+N/Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch
+c00000000000000000000000000000000
+t2
+s0
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework
+t1272627058
+s204
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers
+t3
+s24
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/TuioBounds.h
+t1272627059
+s887
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/TuioPoint.h
+t1272627059
+s357
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/TuioPointer.h
+t1272627059
+s683
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/gpc.h
+t1272627059
+s4910
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Resources
+t3
+s26
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/TUIO
+t3
+s21
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/TuioClient.h
+t1272627058
+s1343
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/TuioContainer.h
+t1272627058
+s1497
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/WSOSCBundle.h
+t1272627058
+s652
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/WSOSCMessage.h
+t1272627058
+s876
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/WSOSCPacket.h
+t1272627058
+s1152
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Resources/English.lproj/InfoPlist.strings
+t1272627059
+s200
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Resources/Info.plist
+t2
+s0
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/TUIO
+t2
+s0
+
+N/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/Current
+t3
+s1
+
+N/var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-cbpofyhubeebamddqixyagbnmvfn/TUIO_Prefix.pch.gch
+t2
+s0
+
+N/var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-ezbtjxqrarscwhbswwramnjnnlaw/TUIO_Prefix.pch.gch
+t2
+s0
+
+N/var/folders/pJ/pJlM+PWwEASCOSna0kISMk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-aqoupmkaduycmabqctpxoijejkmr/TUIO_Prefix.pch.gch
+t2
+s0
+
+N/var/folders/pJ/pJlM+PWwEASCOSna0kISMk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-gntpinbvxcbdzcfawrrudaxvdefc/TUIO_Prefix.pch.gch
+t2
+s0
+
+NInfo.plist
+c00000000000000000000000000000000
+t2
+s0
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies296587359#296587359#0(0"0(0#1#0"4300903632#0"0#
+
+CCompileC /Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/TuioBounds.o /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioBounds.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC /Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/TuioClient.o /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioClient.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC /Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/TuioContainer.o /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioContainer.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC /Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/TuioPoint.o /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPoint.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC /Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/TuioPointer.o /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPointer.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC /Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/WSOSCBundle.o /Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCBundle.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC /Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/WSOSCMessage.o /Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCMessage.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC /Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/WSOSCPacket.o /Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCPacket.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC /Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/Objects-normal/x86_64/gpc.o /Users/ivandilchovski/Projects/tuioframework-read-only/Source/gpc.c normal x86_64 c com.apple.compilers.gcc.4_2
+r0
+
+CCopyStringsFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Resources/English.lproj/InfoPlist.strings Resources/English.lproj/InfoPlist.strings
+s292490905.923595
+e292490906.352560
+r1
+xCopyStringsFile
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Resources/English.lproj/InfoPlist.strings
+xResources/English.lproj/InfoPlist.strings
+lSLF07#2@46"Copy Resources/English.lproj/InfoPlist.strings292490905#292490906#0(0"0(0#0#96"/Users/ivandilchovski/Projects/tuioframework-read-only/Resources/English.lproj/InfoPlist.strings4300903632#403"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-16 --outputencoding UTF-16 Resources/English.lproj/InfoPlist.strings --outdir /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Resources/English.lproj0#
+
+CCopyStringsFile /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Resources/English.lproj/InfoPlist.strings Resources/English.lproj/InfoPlist.strings
+s294319858.186585
+e294319859.134023
+r1
+xCopyStringsFile
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Resources/English.lproj/InfoPlist.strings
+xResources/English.lproj/InfoPlist.strings
+lSLF07#2@46"Copy Resources/English.lproj/InfoPlist.strings294319858#294319859#0(0"0(0#0#96"/Users/ivandilchovski/Projects/tuioframework-read-only/Resources/English.lproj/InfoPlist.strings4301223120#390"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-16 --outputencoding UTF-16 Resources/English.lproj/InfoPlist.strings --outdir /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Resources/English.lproj0#
+
+CCpHeader /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/TuioClient.h Source/TuioClient.h
+s296587359.688920
+e296587359.791398
+r1
+xCpHeader
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/TuioClient.h
+xSource/TuioClient.h
+lSLF07#2@24"Copy Source/TuioClient.h296587359#296587359#0(0"0(0#0#74"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioClient.h4300903632#397"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioClient.h /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers0#
+
+CCpHeader /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/TuioContainer.h Source/TuioContainer.h
+s295049860.062695
+e295049860.071319
+r1
+xCpHeader
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/TuioContainer.h
+xSource/TuioContainer.h
+lSLF07#2@27"Copy Source/TuioContainer.h295049860#295049860#0(0"0(0#0#77"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioContainer.h4300911832#400"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioContainer.h /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers0#
+
+CCpHeader /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCBundle.h Source/WSOSC/WSOSCBundle.h
+s292490905.820228
+e292490905.913396
+r1
+xCpHeader
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCBundle.h
+xSource/WSOSC/WSOSCBundle.h
+lSLF07#2@31"Copy Source/WSOSC/WSOSCBundle.h292490905#292490905#0(0"0(0#0#81"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCBundle.h4300903632#404"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCBundle.h /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers0#
+
+CCpHeader /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCMessage.h Source/WSOSC/WSOSCMessage.h
+s292490905.820754
+e292490905.913055
+r1
+xCpHeader
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCMessage.h
+xSource/WSOSC/WSOSCMessage.h
+lSLF07#2@32"Copy Source/WSOSC/WSOSCMessage.h292490905#292490905#0(0"0(0#0#82"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCMessage.h4300903632#405"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCMessage.h /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers0#
+
+CCpHeader /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCPacket.h Source/WSOSC/WSOSCPacket.h
+s292490905.823061
+e292490905.913213
+r1
+xCpHeader
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers/WSOSCPacket.h
+xSource/WSOSC/WSOSCPacket.h
+lSLF07#2@31"Copy Source/WSOSC/WSOSCPacket.h292490905#292490905#0(0"0(0#0#81"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCPacket.h4300903632#404"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCPacket.h /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Headers0#
+
+CCpHeader /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/TuioClient.h Source/TuioClient.h
+s294319858.088526
+e294319858.186452
+r1
+xCpHeader
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/TuioClient.h
+xSource/TuioClient.h
+lSLF07#2@24"Copy Source/TuioClient.h294319858#294319858#0(0"0(0#0#74"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioClient.h4301223120#384"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioClient.h /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers0#
+
+CCpHeader /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/TuioContainer.h Source/TuioContainer.h
+s294319858.089601
+e294319858.179482
+r1
+xCpHeader
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/TuioContainer.h
+xSource/TuioContainer.h
+lSLF07#2@27"Copy Source/TuioContainer.h294319858#294319858#0(0"0(0#0#77"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioContainer.h4301223120#387"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioContainer.h /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers0#
+
+CCpHeader /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/WSOSCBundle.h Source/WSOSC/WSOSCBundle.h
+s294319858.091075
+e294319858.169170
+r1
+xCpHeader
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/WSOSCBundle.h
+xSource/WSOSC/WSOSCBundle.h
+lSLF07#2@31"Copy Source/WSOSC/WSOSCBundle.h294319858#294319858#0(0"0(0#0#81"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCBundle.h4301223120#391"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCBundle.h /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers0#
+
+CCpHeader /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/WSOSCMessage.h Source/WSOSC/WSOSCMessage.h
+s294319858.092638
+e294319858.169409
+r1
+xCpHeader
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/WSOSCMessage.h
+xSource/WSOSC/WSOSCMessage.h
+lSLF07#2@32"Copy Source/WSOSC/WSOSCMessage.h294319858#294319858#0(0"0(0#0#82"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCMessage.h4301223120#392"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCMessage.h /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers0#
+
+CCpHeader /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/WSOSCPacket.h Source/WSOSC/WSOSCPacket.h
+s294319858.093214
+e294319858.170174
+r1
+xCpHeader
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers/WSOSCPacket.h
+xSource/WSOSC/WSOSCPacket.h
+lSLF07#2@31"Copy Source/WSOSC/WSOSCPacket.h294319858#294319858#0(0"0(0#0#81"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCPacket.h4301223120#391"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/WSOSC/WSOSCPacket.h /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Headers0#
+
+CGenerateDSYMFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework.dSYM /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/TUIO
+r0
+
+CGenerateDSYMFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework.dSYM /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/TUIO
+r0
+
+CLd /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/TUIO normal x86_64
+r0
+
+CLd /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/TUIO normal x86_64
+r0
+
+CPBXCp /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioBounds.h Source/TuioBounds.h
+s295049860.076041
+e295049860.079587
+r1
+xPBXCp
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioBounds.h
+xSource/TuioBounds.h
+lSLF07#2@24"Copy Source/TuioBounds.h295049860#295049860#0(0"0(0#0#74"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioBounds.h4300911832#386"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioBounds.h /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers0#
+
+CPBXCp /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioPoint.h Source/TuioPoint.h
+s292490906.358733
+e292490906.424326
+r1
+xPBXCp
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioPoint.h
+xSource/TuioPoint.h
+lSLF07#2@23"Copy Source/TuioPoint.h292490906#292490906#0(0"0(0#0#73"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPoint.h4300903632#385"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPoint.h /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers0#
+
+CPBXCp /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioPointer.h Source/TuioPointer.h
+s295049860.076529
+e295049860.080280
+r1
+xPBXCp
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/TuioPointer.h
+xSource/TuioPointer.h
+lSLF07#2@25"Copy Source/TuioPointer.h295049860#295049860#0(0"0(0#0#75"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPointer.h4300911832#387"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPointer.h /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers0#
+
+CPBXCp /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/gpc.h Source/gpc.h
+s295049860.075604
+e295049860.078866
+r1
+xPBXCp
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers/gpc.h
+xSource/gpc.h
+lSLF07#2@17"Copy Source/gpc.h295049860#295049860#0(0"0(0#0#67"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/gpc.h4300911832#379"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/gpc.h /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers0#
+
+CPBXCp /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/TuioBounds.h Source/TuioBounds.h
+s294319859.366163
+e294319859.423560
+r1
+xPBXCp
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/TuioBounds.h
+xSource/TuioBounds.h
+lSLF07#2@24"Copy Source/TuioBounds.h294319859#294319859#0(0"0(0#0#74"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioBounds.h4301223120#373"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioBounds.h /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers0#
+
+CPBXCp /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/TuioPoint.h Source/TuioPoint.h
+s294319859.366703
+e294319859.401238
+r1
+xPBXCp
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/TuioPoint.h
+xSource/TuioPoint.h
+lSLF07#2@23"Copy Source/TuioPoint.h294319859#294319859#0(0"0(0#0#73"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPoint.h4301223120#372"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPoint.h /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers0#
+
+CPBXCp /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/TuioPointer.h Source/TuioPointer.h
+s294319859.370097
+e294319859.423861
+r1
+xPBXCp
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/TuioPointer.h
+xSource/TuioPointer.h
+lSLF07#2@25"Copy Source/TuioPointer.h294319859#294319859#0(0"0(0#0#75"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPointer.h4301223120#374"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/TuioPointer.h /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers0#
+
+CPBXCp /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/gpc.h Source/gpc.h
+s294319859.364604
+e294319859.400823
+r1
+xPBXCp
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers/gpc.h
+xSource/gpc.h
+lSLF07#2@17"Copy Source/gpc.h294319859#294319859#0(0"0(0#0#67"/Users/ivandilchovski/Projects/tuioframework-read-only/Source/gpc.h4301223120#366"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/tuioframework-read-only/Source/gpc.h /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers0#
+
+CProcessInfoPlistFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Resources/Info.plist Info.plist
+s296587359.638363
+e296587359.688543
+r0
+xProcessInfoPlistFile
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Resources/Info.plist
+xInfo.plist
+lSLF07#2@18"Process Info.plist296587359#296587359#0(85"error: The file “Info.plist” couldn’t be opened because there is no such file.1(4@77"The file “Info.plist” couldn’t be opened because there is no such file.296587359#18446744073709551615#0#0(6@0"296587359#0#0#0#0#0"0(0#0#65"/Users/ivandilchovski/Projects/tuioframework-read-only/Info.plist4300903632#247"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    builtin-infoPlistUtility Info.plist -expandbuildsettings -platform macosx -o /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/A/Resources/Info.plist1#
+
+CProcessInfoPlistFile /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Resources/Info.plist Info.plist
+s294319858.080032
+e294319858.088116
+r0
+xProcessInfoPlistFile
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Resources/Info.plist
+xInfo.plist
+lSLF07#2@18"Process Info.plist294319858#294319858#0(85"error: The file “Info.plist” couldn’t be opened because there is no such file.1(4@77"The file “Info.plist” couldn’t be opened because there is no such file.294319858#18446744073709551615#0#0(6@0"294319858#0#0#0#0#0"0(0#0#65"/Users/ivandilchovski/Projects/tuioframework-read-only/Info.plist4301223120#234"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    builtin-infoPlistUtility Info.plist -expandbuildsettings -platform macosx -o /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/Resources/Info.plist1#
+
+CProcessPCH /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-cbpofyhubeebamddqixyagbnmvfn/TUIO_Prefix.pch.gch TUIO_Prefix.pch normal x86_64 c com.apple.compilers.gcc.4_2
+s296587359.792489
+e296587359.970757
+r0
+xProcessPCH
+x/var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-cbpofyhubeebamddqixyagbnmvfn/TUIO_Prefix.pch.gch
+xTUIO_Prefix.pch
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+oi686-apple-darwin10-gcc-4.2.1: /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch: No such file or directory
+oi686-apple-darwin10-gcc-4.2.1: warning: '-x c-header' after last input file has no effect
+oi686-apple-darwin10-gcc-4.2.1: no input files
+lSLF07#2@26"Precompile TUIO_Prefix.pch296587359#296587359#0(324"i686-apple-darwin10-gcc-4.2.1: /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch: No such file or directoryi686-apple-darwin10-gcc-4.2.1: warning: '-x c-header' after last input file has no effecti686-apple-darwin10-gcc-4.2.1: no input filesCommand /Developer/usr/bin/gcc-4.2 failed with exit code 11(4@58"Command /Developer/usr/bin/gcc-4.2 failed with exit code 1296587359#18446744073709551615#0#0(1@0"0(0#0#70"/Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch4300903632#1049"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c-header -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O2 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -funroll-loops -ftree-vectorize -msse3 -mssse3 -msse4.1 -msse4.2 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/TUIO.hmap -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -I/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/include -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/DerivedSources -c /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch -o /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-cbpofyhubeebamddqixyagbnmvfn/TUIO_Prefix.pch.gch1#
+
+CProcessPCH /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-ezbtjxqrarscwhbswwramnjnnlaw/TUIO_Prefix.pch.gch TUIO_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s296587359.791594
+e296587359.971444
+r0
+xProcessPCH
+x/var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-ezbtjxqrarscwhbswwramnjnnlaw/TUIO_Prefix.pch.gch
+xTUIO_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+oi686-apple-darwin10-gcc-4.2.1: /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch: No such file or directory
+oi686-apple-darwin10-gcc-4.2.1: warning: '-x objective-c-header' after last input file has no effect
+oi686-apple-darwin10-gcc-4.2.1: no input files
+lSLF07#2@26"Precompile TUIO_Prefix.pch296587359#296587359#0(334"i686-apple-darwin10-gcc-4.2.1: /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch: No such file or directoryi686-apple-darwin10-gcc-4.2.1: warning: '-x objective-c-header' after last input file has no effecti686-apple-darwin10-gcc-4.2.1: no input filesCommand /Developer/usr/bin/gcc-4.2 failed with exit code 11(4@58"Command /Developer/usr/bin/gcc-4.2 failed with exit code 1296587359#18446744073709551615#0#0(1@0"0(0#0#70"/Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch4300903632#1074"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O2 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fobjc-gc-only -funroll-loops -ftree-vectorize -msse3 -mssse3 -msse4.1 -msse4.2 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/TUIO.hmap -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -I/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/include -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/DerivedSources -c /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch -o /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-ezbtjxqrarscwhbswwramnjnnlaw/TUIO_Prefix.pch.gch1#
+
+CProcessPCH /var/folders/pJ/pJlM+PWwEASCOSna0kISMk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-aqoupmkaduycmabqctpxoijejkmr/TUIO_Prefix.pch.gch TUIO_Prefix.pch normal x86_64 c com.apple.compilers.gcc.4_2
+s295049987.122329
+e295049987.125907
+r0
+xProcessPCH
+x/var/folders/pJ/pJlM+PWwEASCOSna0kISMk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-aqoupmkaduycmabqctpxoijejkmr/TUIO_Prefix.pch.gch
+xTUIO_Prefix.pch
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+oi686-apple-darwin10-gcc-4.2.1: /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch: No such file or directory
+oi686-apple-darwin10-gcc-4.2.1: warning: '-x c-header' after last input file has no effect
+oi686-apple-darwin10-gcc-4.2.1: no input files
+lSLF07#2@26"Precompile TUIO_Prefix.pch295049987#295049987#0(324"i686-apple-darwin10-gcc-4.2.1: /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch: No such file or directoryi686-apple-darwin10-gcc-4.2.1: warning: '-x c-header' after last input file has no effecti686-apple-darwin10-gcc-4.2.1: no input filesCommand /Developer/usr/bin/gcc-4.2 failed with exit code 11(4@58"Command /Developer/usr/bin/gcc-4.2 failed with exit code 1295049987#18446744073709551615#0#0(1@0"0(0#0#70"/Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch4300911832#1049"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c-header -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O2 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -funroll-loops -ftree-vectorize -msse3 -mssse3 -msse4.1 -msse4.2 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/TUIO.hmap -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -I/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/include -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/DerivedSources -c /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch -o /var/folders/pJ/pJlM+PWwEASCOSna0kISMk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-aqoupmkaduycmabqctpxoijejkmr/TUIO_Prefix.pch.gch1#
+
+CProcessPCH /var/folders/pJ/pJlM+PWwEASCOSna0kISMk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-gntpinbvxcbdzcfawrrudaxvdefc/TUIO_Prefix.pch.gch TUIO_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s295049987.121713
+e295049987.125534
+r0
+xProcessPCH
+x/var/folders/pJ/pJlM+PWwEASCOSna0kISMk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-gntpinbvxcbdzcfawrrudaxvdefc/TUIO_Prefix.pch.gch
+xTUIO_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+oi686-apple-darwin10-gcc-4.2.1: /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch: No such file or directory
+oi686-apple-darwin10-gcc-4.2.1: warning: '-x objective-c-header' after last input file has no effect
+oi686-apple-darwin10-gcc-4.2.1: no input files
+lSLF07#2@26"Precompile TUIO_Prefix.pch295049987#295049987#0(334"i686-apple-darwin10-gcc-4.2.1: /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch: No such file or directoryi686-apple-darwin10-gcc-4.2.1: warning: '-x objective-c-header' after last input file has no effecti686-apple-darwin10-gcc-4.2.1: no input filesCommand /Developer/usr/bin/gcc-4.2 failed with exit code 11(4@58"Command /Developer/usr/bin/gcc-4.2 failed with exit code 1295049987#18446744073709551615#0#0(1@0"0(0#0#70"/Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch4300911832#1074"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O2 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fobjc-gc-only -funroll-loops -ftree-vectorize -msse3 -mssse3 -msse4.1 -msse4.2 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/TUIO.hmap -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -I/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/include -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/TUIO.build/Release/TUIO.build/DerivedSources -c /Users/ivandilchovski/Projects/tuioframework-read-only/TUIO_Prefix.pch -o /var/folders/pJ/pJlM+PWwEASCOSna0kISMk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/TUIO_Prefix-gntpinbvxcbdzcfawrrudaxvdefc/TUIO_Prefix.pch.gch1#
+
+CSetMode u+w,go-w,a+rX /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework
+r0
+
+CSetOwnerAndGroup ivandilchovski:staff /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework
+r0
+
+CStrip /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/A/TUIO
+r0
+
+CSymLink /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework
+r0
+
+CSymLink /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers Versions/Current/Headers
+s292490905.756734
+e292490905.759463
+r1
+xSymLink
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers
+xVersions/Current/Headers
+lSLF07#2@87"Process /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers292490905#292490905#0(0"0(0#0#0"4300903632#183"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /bin/ln -sf Versions/Current/Headers /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Headers0#
+
+CSymLink /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Resources Versions/Current/Resources
+s292490905.717157
+e292490905.756625
+r1
+xSymLink
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Resources
+xVersions/Current/Resources
+lSLF07#2@89"Process /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Resources292490905#292490905#0(0"0(0#0#0"4300903632#187"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /bin/ln -sf Versions/Current/Resources /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Resources0#
+
+CSymLink /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/TUIO Versions/Current/TUIO
+s292490905.757321
+e292490905.759833
+r1
+xSymLink
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/TUIO
+xVersions/Current/TUIO
+lSLF07#2@84"Process /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/TUIO292490905#292490905#0(0"0(0#0#0"4300903632#177"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /bin/ln -sf Versions/Current/TUIO /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/TUIO0#
+
+CSymLink /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/Current A
+s292490905.716365
+e292490905.756482
+r1
+xSymLink
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/Current
+xA
+lSLF07#2@96"Process /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/Current292490905#292490905#0(0"0(0#0#0"4300903632#169"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /bin/ln -sf A /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework/Versions/Current0#
+
+CSymLink /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers Versions/Current/Headers
+s294319858.076624
+e294319858.079639
+r1
+xSymLink
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers
+xVersions/Current/Headers
+lSLF07#2@74"Process /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers294319858#294319858#0(0"0(0#0#0"4301223120#170"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /bin/ln -sf Versions/Current/Headers /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Headers0#
+
+CSymLink /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Resources Versions/Current/Resources
+s294319858.033904
+e294319858.048185
+r1
+xSymLink
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Resources
+xVersions/Current/Resources
+lSLF07#2@76"Process /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Resources294319858#294319858#0(0"0(0#0#0"31244233522610284#174"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /bin/ln -sf Versions/Current/Resources /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Resources0#
+
+CSymLink /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/TUIO Versions/Current/TUIO
+s294319858.077413
+e294319858.079966
+r1
+xSymLink
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/TUIO
+xVersions/Current/TUIO
+lSLF07#2@71"Process /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/TUIO294319858#294319858#0(0"0(0#0#0"4301223120#164"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /bin/ln -sf Versions/Current/TUIO /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/TUIO0#
+
+CSymLink /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/Current A
+s294319857.983259
+e294319858.047948
+r1
+xSymLink
+x/tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/Current
+xA
+lSLF07#2@83"Process /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/Current294319858#294319858#0(0"0(0#0#0"31244233522610284#156"    cd /Users/ivandilchovski/Projects/tuioframework-read-only    /bin/ln -sf A /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework/Versions/Current0#
+
+CTouch /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework
+r0
+
+CTouch /tmp/TUIO.dst@executable_path/../Frameworks/TUIO.framework
+r0
+

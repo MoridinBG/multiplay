@@ -1,0 +1,478 @@
+TOpenGLLayer
+v7
+r0
+t292490917.721443
+cCheck dependencies
+cProcessInfoPlistFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Info.plist Info.plist
+cStripNIB /Users/ivandilchovski/Projects/OpenGLLayer/English.lproj/MainMenu.nib
+cCopyStringsFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+cProcessPCH /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLLayer_Prefix-fmgkvycnfwmhswcgcwfkeugvjgru/OpenGLLayer_Prefix.pch.gch OpenGLLayer_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/CAHandView.o /Users/ivandilchovski/Projects/OpenGLLayer/CAHandView.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/GLContentLayer.o /Users/ivandilchovski/Projects/OpenGLLayer/GLContentLayer.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/main.o /Users/ivandilchovski/Projects/OpenGLLayer/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/GLBackgroundLayer.o /Users/ivandilchovski/Projects/OpenGLLayer/GLBackgroundLayer.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/Painter.o /Users/ivandilchovski/Projects/OpenGLLayer/Painter.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/RGBA.o /Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer normal x86_64
+cGenerateDSYMFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app.dSYM /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer
+cPBXCp build/Release/OpenGLLayer.app/Contents/Frameworks/TUIO.framework build/Release/TUIO.framework
+cTouch /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004B50402C00000000000000EE
+t1263550508
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c0000000040C4AA6800000000000001E5
+t1086630504
+s485
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004B447F4E00000000000013E6
+t1262780238
+s5094
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/GLUT.framework/Headers/glut.h
+c000000004B44A0F3000000000000578C
+t1262788851
+s22412
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/OpenGL.framework/Headers/OpenGL.h
+c000000004B31B9D00000000000001658
+t1261550032
+s5720
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Quartz.framework/Headers/Quartz.h
+c000000004AC482290000000000000124
+t1254392361
+s292
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.h
+c000000004B44869A00000000000000BF
+t1262782106
+s191
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/net/if.h
+c000000004B319BA700000000000034A5
+t1261542311
+s13477
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/netinet/in.h
+c000000004B319BA7000000000000539D
+t1261542311
+s21405
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c000000004A1F2D63000000000000A5E0
+t1243557219
+s42464
+
+N/System/Library/Frameworks/OpenGL.framework/OpenGL
+c000000004B6DDF500000000000043300
+t1265491792
+s275200
+
+N/System/Library/Frameworks/Quartz.framework/Quartz
+c000000004A1249D4000000000000A5F0
+t1242712532
+s42480
+
+N/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c000000004B6A77D00000000000CF0BF0
+t1265268688
+s13569008
+
+N/Users/ivandilchovski/Projects/CAHand/RGBA.h
+c000000004BBB256C0000000000000191
+t1270556012
+s401
+i<Cocoa/Cocoa.h>
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.h
+c000000004BBB256C0000000000000191
+t1270556012
+s401
+i<Cocoa/Cocoa.h>
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m
+c000000004B37A49F00000000000001B1
+t1261937823
+s433
+i"RGBA.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/CAHandView.h
+c000000004BBCFD68000000000000029D
+t1270676840
+s669
+i<Cocoa/Cocoa.h>
+i<Quartz/Quartz.h>
+i<QuartzCore/QuartzCore.h>
+i<TUIO/TuioClient.h>
+i"GLContentLayer.h"
+i"GLBackgroundLayer.h"
+i"Painter.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/CAHandView.m
+c000000004BBCFD800000000000000622
+t1270676864
+s1570
+i"CAHandView.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/English.lproj/InfoPlist.strings
+c00000000496B6CC600000000000000C0
+t1231776966
+s192
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/English.lproj/MainMenu.nib
+c000000004BAF73A80000000000000088
+t1269789608
+s136
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/GLBackgroundLayer.h
+c000000004BAFCF300000000000000102
+t1269813040
+s258
+i<Cocoa/Cocoa.h>
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/GLBackgroundLayer.m
+c000000004BB0AED800000000000004FA
+t1269870296
+s1274
+i"GLBackgroundLayer.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/GLContentLayer.h
+c000000004BBED6B70000000000000204
+t1270798007
+s516
+i<Cocoa/Cocoa.h>
+i<Quartz/Quartz.h>
+i<QuartzCore/QuartzCore.h>
+i<OpenGL/OpenGL.h>
+i<GLUT/GLUT.h>
+i<TUIO/TuioBounds.h>
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/GLContentLayer.m
+c000000004BBD0A9F0000000000000694
+t1270680223
+s1684
+i"GLContentLayer.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/OpenGLLayer_Prefix.pch
+c00000000496B6CC60000000000000099
+t1231776966
+s153
+i<Cocoa/Cocoa.h>
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/Painter.h
+c000000004BBB256C000000000000015B
+t1270556012
+s347
+i<Cocoa/Cocoa.h>
+i"GLContentLayer.h"
+i"RGBA.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/Painter.m
+c000000004BBD0A58000000000000047A
+t1270680152
+s1146
+i"Painter.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug/TUIO.framework/Headers/TuioBounds.h
+c000000004BBCFCA800000000000002C7
+t1270676648
+s711
+i<Cocoa/Cocoa.h>
+i"TuioContainer.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug/TUIO.framework/Headers/TuioClient.h
+c000000004BBCF1BC0000000000000441
+t1270673852
+s1089
+i<Cocoa/Cocoa.h>
+i<netinet/in.h>
+i<net/if.h>
+i"WSOSCPacket.h"
+i"TuioBounds.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug/TUIO.framework/Headers/TuioContainer.h
+c000000004BB9FA8C0000000000000460
+t1270479500
+s1120
+i<Cocoa/Cocoa.h>
+i"TuioPoint.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug/TUIO.framework/Headers/TuioPoint.h
+c000000004BAF635B0000000000000165
+t1269785435
+s357
+i<Cocoa/Cocoa.h>
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug/TUIO.framework/Headers/WSOSCBundle.h
+c000000004BAF6354000000000000028C
+t1269785428
+s652
+i<Foundation/Foundation.h>
+i"WSOSCMessage.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug/TUIO.framework/Headers/WSOSCMessage.h
+c000000004BAF6354000000000000036C
+t1269785428
+s876
+i<Foundation/Foundation.h>
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug/TUIO.framework/Headers/WSOSCPacket.h
+c000000004BAF63540000000000000480
+t1269785428
+s1152
+i<Foundation/Foundation.h>
+i"WSOSCBundle.h"
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug/TUIO.framework/TUIO
+c000000004BBD07430000000000010430
+t1270679363
+s66608
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/CAHandView.o
+t1270798117
+s24304
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/GLBackgroundLayer.o
+t1270798117
+s14528
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/GLContentLayer.o
+t1270798117
+s21936
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/OpenGLLayer.LinkFileList
+c000000004BBED71A00000000000002FC
+t1270798106
+s764
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/Painter.o
+t1270798117
+s16048
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/RGBA.o
+t1270798117
+s12792
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/main.o
+t1270798117
+s5056
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app
+t1270798117
+s102
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app.dSYM
+t1270798117
+s102
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Frameworks/TUIO.framework
+t1270798117
+s204
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Info.plist
+t1270798106
+s781
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer
+t1270798117
+s27408
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/PkgInfo
+t1270798106
+s8
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Resources/English.lproj/InfoPlist.strings
+t1270798106
+s192
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Resources/English.lproj/MainMenu.nib
+t1270798108
+s19567
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework
+c000000004BBED71900000000000000CC
+t1270798105
+s204
+
+N/Users/ivandilchovski/Projects/OpenGLLayer/main.m
+c00000000496B6CC600000000000000FB
+t1231776966
+s251
+i<Cocoa/Cocoa.h>
+
+N/var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLLayer_Prefix-fmgkvycnfwmhswcgcwfkeugvjgru/OpenGLLayer_Prefix.pch.gch
+t1270798116
+s52840176
+
+NInfo.plist
+c00000000496B6CC60000000000000348
+t1231776966
+s840
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies292490906#292490906#0(0"0(0#1#0"4300903632#0"0#
+
+CCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/CAHandView.o /Users/ivandilchovski/Projects/OpenGLLayer/CAHandView.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s292490916.717453
+e292490917.090125
+r1
+xCompileC
+xbuild/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/CAHandView.o
+x/Users/ivandilchovski/Projects/OpenGLLayer/CAHandView.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/ivandilchovski/Projects/OpenGLLayer/CAHandView.m292490916#292490917#0(0"0(0#0#55"/Users/ivandilchovski/Projects/OpenGLLayer/CAHandView.m4300903632#1298"    cd /Users/ivandilchovski/Projects/OpenGLLayer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fobjc-gc-only -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/OpenGLLayer.hmap -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug -I/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/include -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources -include /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLLayer_Prefix-fmgkvycnfwmhswcgcwfkeugvjgru/OpenGLLayer_Prefix.pch -c /Users/ivandilchovski/Projects/OpenGLLayer/CAHandView.m -o /Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/CAHandView.o0#
+
+CCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/GLBackgroundLayer.o /Users/ivandilchovski/Projects/OpenGLLayer/GLBackgroundLayer.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s292490917.090495
+e292490917.343538
+r1
+xCompileC
+xbuild/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/GLBackgroundLayer.o
+x/Users/ivandilchovski/Projects/OpenGLLayer/GLBackgroundLayer.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@70"Compile /Users/ivandilchovski/Projects/OpenGLLayer/GLBackgroundLayer.m292490917#292490917#0(0"0(0#0#62"/Users/ivandilchovski/Projects/OpenGLLayer/GLBackgroundLayer.m4300903632#1312"    cd /Users/ivandilchovski/Projects/OpenGLLayer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fobjc-gc-only -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/OpenGLLayer.hmap -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug -I/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/include -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources -include /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLLayer_Prefix-fmgkvycnfwmhswcgcwfkeugvjgru/OpenGLLayer_Prefix.pch -c /Users/ivandilchovski/Projects/OpenGLLayer/GLBackgroundLayer.m -o /Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/GLBackgroundLayer.o0#
+
+CCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/GLContentLayer.o /Users/ivandilchovski/Projects/OpenGLLayer/GLContentLayer.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s292490916.718951
+e292490917.045607
+r1
+xCompileC
+xbuild/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/GLContentLayer.o
+x/Users/ivandilchovski/Projects/OpenGLLayer/GLContentLayer.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/ivandilchovski/Projects/OpenGLLayer/GLContentLayer.m292490916#292490917#0(0"0(0#0#59"/Users/ivandilchovski/Projects/OpenGLLayer/GLContentLayer.m4300903632#1306"    cd /Users/ivandilchovski/Projects/OpenGLLayer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fobjc-gc-only -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/OpenGLLayer.hmap -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug -I/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/include -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources -include /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLLayer_Prefix-fmgkvycnfwmhswcgcwfkeugvjgru/OpenGLLayer_Prefix.pch -c /Users/ivandilchovski/Projects/OpenGLLayer/GLContentLayer.m -o /Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/GLContentLayer.o0#
+
+CCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/Painter.o /Users/ivandilchovski/Projects/OpenGLLayer/Painter.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s292490917.241507
+e292490917.594292
+r1
+xCompileC
+xbuild/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/Painter.o
+x/Users/ivandilchovski/Projects/OpenGLLayer/Painter.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@60"Compile /Users/ivandilchovski/Projects/OpenGLLayer/Painter.m292490917#292490917#0(0"0(0#0#52"/Users/ivandilchovski/Projects/OpenGLLayer/Painter.m4300903632#1292"    cd /Users/ivandilchovski/Projects/OpenGLLayer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fobjc-gc-only -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/OpenGLLayer.hmap -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug -I/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/include -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources -include /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLLayer_Prefix-fmgkvycnfwmhswcgcwfkeugvjgru/OpenGLLayer_Prefix.pch -c /Users/ivandilchovski/Projects/OpenGLLayer/Painter.m -o /Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/Painter.o0#
+
+CCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/RGBA.o /Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s292490917.343641
+e292490917.544696
+r1
+xCompileC
+xbuild/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/RGBA.o
+x/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m: In function '-[RGBA initWithR:withG:withB:withA:]':
+o/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m:25: warning: local declaration of 'r' hides instance variable
+o/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m:26: warning: local declaration of 'g' hides instance variable
+o/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m:27: warning: local declaration of 'b' hides instance variable
+o/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m:28: warning: local declaration of 'a' hides instance variable
+lSLF07#2@67"Compile /Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m292490917#292490917#0(601"/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m: In function '-[RGBA initWithR:withG:withB:withA:]':/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m:25: warning: local declaration of 'r' hides instance variable/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m:26: warning: local declaration of 'g' hides instance variable/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m:27: warning: local declaration of 'b' hides instance variable/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m:28: warning: local declaration of 'a' hides instance variable4(22@48"Local declaration of 'r' hides instance variable292490917#113#122#0(6@59"/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m283630623#25#0#25#0#0"0(22@48"Local declaration of 'g' hides instance variable292490917#235#122#0(6@59"/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m283630623#26#0#26#0#0"0(22@48"Local declaration of 'b' hides instance variable292490917#357#122#0(6@59"/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m283630623#27#0#27#0#0"0(22@48"Local declaration of 'a' hides instance variable292490917#479#122#0(6@59"/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m283630623#28#0#28#0#0"0(0#0#59"/Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m4300903632#1296"    cd /Users/ivandilchovski/Projects/OpenGLLayer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fobjc-gc-only -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/OpenGLLayer.hmap -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug -I/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/include -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources -include /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLLayer_Prefix-fmgkvycnfwmhswcgcwfkeugvjgru/OpenGLLayer_Prefix.pch -c /Users/ivandilchovski/Projects/OpenGLLayer/../CAHand/RGBA.m -o /Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/RGBA.o0#
+
+CCompileC build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/main.o /Users/ivandilchovski/Projects/OpenGLLayer/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s292490917.045855
+e292490917.241401
+r1
+xCompileC
+xbuild/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/main.o
+x/Users/ivandilchovski/Projects/OpenGLLayer/main.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@57"Compile /Users/ivandilchovski/Projects/OpenGLLayer/main.m292490917#292490917#0(0"0(0#0#49"/Users/ivandilchovski/Projects/OpenGLLayer/main.m4300903632#1286"    cd /Users/ivandilchovski/Projects/OpenGLLayer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fobjc-gc-only -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/OpenGLLayer.hmap -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug -I/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/include -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources -include /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLLayer_Prefix-fmgkvycnfwmhswcgcwfkeugvjgru/OpenGLLayer_Prefix.pch -c /Users/ivandilchovski/Projects/OpenGLLayer/main.m -o /Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/main.o0#
+
+CCopyStringsFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+s292490906.433440
+e292490906.507403
+r1
+xCopyStringsFile
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF07#2@36"Copy English.lproj/InfoPlist.strings292490906#292490906#0(0"0(0#0#74"/Users/ivandilchovski/Projects/OpenGLLayer/English.lproj/InfoPlist.strings4300903632#380"    cd /Users/ivandilchovski/Projects/OpenGLLayer    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-16 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Resources/English.lproj0#
+
+CGenerateDSYMFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app.dSYM /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer
+s292490917.642204
+e292490917.711514
+r1
+xGenerateDSYMFile
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app.dSYM
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer
+lSLF07#2@108"GenerateDSYMFile build/Release/OpenGLLayer.app.dSYM build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer292490917#292490917#0(0"0(0#0#99"/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer4300903632#263"    cd /Users/ivandilchovski/Projects/OpenGLLayer    /Developer/usr/bin/dsymutil /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer -o /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app.dSYM0#
+
+CLd /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer normal x86_64
+s292490917.594401
+e292490917.642097
+r1
+xLd
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer
+xnormal
+xx86_64
+lSLF07#2@104"Link /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer292490917#292490917#0(0"0(0#0#0"4300903632#721"    cd /Users/ivandilchovski/Projects/OpenGLLayer    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug -filelist /Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/Objects-normal/x86_64/OpenGLLayer.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -framework OpenGL -framework Quartz -framework QuartzCore -framework TUIO -o /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/MacOS/OpenGLLayer0#
+
+CPBXCp build/Release/OpenGLLayer.app/Contents/Frameworks/TUIO.framework build/Release/TUIO.framework
+s292490917.711601
+e292490917.718322
+r1
+xPBXCp
+xbuild/Release/OpenGLLayer.app/Contents/Frameworks/TUIO.framework
+xbuild/Release/TUIO.framework
+lSLF07#2@33"Copy build/Release/TUIO.framework292490917#292490917#0(0"0(0#0#71"/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework4300903632#384"    cd /Users/ivandilchovski/Projects/OpenGLLayer    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/TUIO.framework /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Frameworks0#
+
+CProcessInfoPlistFile /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Info.plist Info.plist
+s292490906.429337
+e292490906.432576
+r1
+xProcessInfoPlistFile
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Info.plist
+xInfo.plist
+lSLF07#2@18"Process Info.plist292490906#292490906#0(0"0(0#0#53"/Users/ivandilchovski/Projects/OpenGLLayer/Info.plist4300903632#326"    cd /Users/ivandilchovski/Projects/OpenGLLayer    builtin-infoPlistUtility Info.plist -genpkginfo /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Info.plist0#
+
+CProcessPCH /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLLayer_Prefix-fmgkvycnfwmhswcgcwfkeugvjgru/OpenGLLayer_Prefix.pch.gch OpenGLLayer_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s292490908.353935
+e292490916.717256
+r1
+xProcessPCH
+x/var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLLayer_Prefix-fmgkvycnfwmhswcgcwfkeugvjgru/OpenGLLayer_Prefix.pch.gch
+xOpenGLLayer_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@33"Precompile OpenGLLayer_Prefix.pch292490908#292490916#0(0"0(0#0#65"/Users/ivandilchovski/Projects/OpenGLLayer/OpenGLLayer_Prefix.pch4300903632#1182"    cd /Users/ivandilchovski/Projects/OpenGLLayer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O2 -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fobjc-gc-only -msse3 -mssse3 -fvisibility=hidden -msse4.1 -msse4.2 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/OpenGLLayer.hmap -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Release -F/Users/ivandilchovski/Projects/OpenGLLayer/build/Debug -I/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/include -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources/x86_64 -I/Users/ivandilchovski/Projects/OpenGLLayer/build/OpenGLLayer.build/Release/OpenGLLayer.build/DerivedSources -c /Users/ivandilchovski/Projects/OpenGLLayer/OpenGLLayer_Prefix.pch -o /var/folders/6x/6xWFe6zXEQCr2h1Z5wac-E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLLayer_Prefix-fmgkvycnfwmhswcgcwfkeugvjgru/OpenGLLayer_Prefix.pch.gch0#
+
+CStripNIB /Users/ivandilchovski/Projects/OpenGLLayer/English.lproj/MainMenu.nib
+s292490906.432731
+e292490908.353699
+r1
+xStripNIB
+x/Users/ivandilchovski/Projects/OpenGLLayer/English.lproj/MainMenu.nib
+lSLF07#2@35"StripNIB English.lproj/MainMenu.nib292490906#292490908#0(0"0(0#0#69"/Users/ivandilchovski/Projects/OpenGLLayer/English.lproj/MainMenu.nib29273822786748520#313"    cd /Users/ivandilchovski/Projects/OpenGLLayer    /Developer/usr/bin/ibtool --strip /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app/Contents/Resources/English.lproj/MainMenu.nib --output-format human-readable-text /Users/ivandilchovski/Projects/OpenGLLayer/English.lproj/MainMenu.nib0#
+
+CTouch /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app
+s292490917.718415
+e292490917.721399
+r1
+xTouch
+x/Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app
+lSLF07#2@78"Touch /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app292490917#292490917#0(0"0(0#0#0"4300903632#145"    cd /Users/ivandilchovski/Projects/OpenGLLayer    /usr/bin/touch -c /Users/ivandilchovski/Projects/OpenGLLayer/build/Release/OpenGLLayer.app0#
+
