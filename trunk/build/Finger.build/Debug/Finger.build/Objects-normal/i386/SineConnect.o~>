@@ -1,6 +1,0 @@
-/Users/ivandilchovski/Projects/Finger/SineConnect.m: In function '-[SineConnect processTouches:]':
-/Users/ivandilchovski/Projects/Finger/SineConnect.m:46: warning: local declaration of 'uid' hides instance variable
-/Users/ivandilchovski/Projects/Finger/SineConnect.m:53: warning: local declaration of 'uid' hides instance variable
-/Users/ivandilchovski/Projects/Finger/SineConnect.m:61: warning: local declaration of 'uid' hides instance variable
-/Users/ivandilchovski/Projects/Finger/SineConnect.m:61: warning: local declaration of 'uid' hides instance variable
-/Users/ivandilchovski/Projects/Finger/SineConnect.m:62: warning: local declaration of 'uid' hides instance variable

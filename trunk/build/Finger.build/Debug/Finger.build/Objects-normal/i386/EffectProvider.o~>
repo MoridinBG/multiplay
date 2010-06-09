@@ -1,7 +1,0 @@
-/Users/ivandilchovski/Projects/Finger/EffectProvider.m: In function '-[EffectProvider init]':
-/Users/ivandilchovski/Projects/Finger/EffectProvider.m:18: warning: receiver 'Sparkles' is a forward class and corresponding @interface may not exist
-/Users/ivandilchovski/Projects/Finger/EffectProvider.m:22: warning: receiver 'Ripples' is a forward class and corresponding @interface may not exist
-/Users/ivandilchovski/Projects/Finger/EffectProvider.m:27: error: 'SineConnect' undeclared (first use in this function)
-/Users/ivandilchovski/Projects/Finger/EffectProvider.m:27: error: (Each undeclared identifier is reported only once
-/Users/ivandilchovski/Projects/Finger/EffectProvider.m:27: error: for each function it appears in.)
-/Users/ivandilchovski/Projects/Finger/EffectProvider.m:29: error: 'SECTORS_TOUCH' undeclared (first use in this function)
